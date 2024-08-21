@@ -1,24 +1,46 @@
+// home.c
+
 #include <stdio.h>
-#include <stdlib.h>
+#include "hangman.h"
+// Include headers for other games as you add them
 
+void initialize_games(void) {
+    hangman_initialize();
+    // Initialize other games as you add them
+}
 
+int main(void) {
+    int choice;
 
-void HomeScreen() {
-	int choice;
-	printf("What game do you want to play?");
-	printf("Type in a number for the game you want to play.");
-	printf("[1] Hangman \t[2] Code Breaker \t[3] Wordle \t[4] TicTacToe");
+    initialize_games();
 
-	if (scanf("%d", &choice) != 1) {
-		printf("Invalid input please enter a number in the range");
-		void HomeScreen();
-	}
+    while (1) {
+        printf("\nWelcome to the Game Hub!\n");
+        printf("1. Play Hangman\n");
+        printf("2. Play Wordle\n");
+        printf("3. Secret Number\n");
+        printf("4. Tic-Tac-Toe\n");
+        printf("0. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
 
-	if (choice == 1) {
+        switch (choice) {
+        case 1:
+            hangman_play();
+            break;
+        case 2:
+            printf("Game 2 is not implemented yet.\n");
+            break;
+        case 3:
+            printf("Game 3 is not implemented yet.\n");
+            break;
+        case 0:
+            printf("Thank you for playing. Goodbye!\n");
+            return 0;
+        default:
+            printf("Invalid choice. Please try again.\n");
+        }
+    }
 
-	}
-
-
-
-
+    return 0;
 }

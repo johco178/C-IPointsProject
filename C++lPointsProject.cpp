@@ -12,7 +12,8 @@ using namespace std;
 
 int main()
 {
-	playWordle();/*
+	playWordle();
+	/*
 	int choice = 100;
 	printf("What game do you want to play?");
 	printf("Type in a number for the game you want to play.");

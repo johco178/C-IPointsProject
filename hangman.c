@@ -1,38 +1,28 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <time.h>
-#include <ctype.h>
+// hangman.c
 
-#define MAX_WORD_LENGTH 100
-#define MAX_TRIES 6
+#include "hangman.h"
 
-// Function prototypes
-void print_hangman(int tries);
-void print_word(const char* word, const int* guessed);
-int is_word_guessed(const int* guessed, int length);
-void to_uppercase(char* str);
+// Global variables
+static char dictionary[MAX_DICTIONARY_SIZE][MAX_WORD_LENGTH];
+static int dictionary_size = 0;
 
-// List of words to guess
-const char* word_list[] = {
-    "PROGRAMMING", "COMPUTER", "LANGUAGE", "HANGMAN", "SOFTWARE",
-    "HARDWARE", "KEYBOARD", "MONITOR", "MOUSE", "PRINTER"
-};
-const int word_count = sizeof(word_list) / sizeof(word_list[0]);
+void initialize_game(void) {
+    srand((unsigned int)time(NULL));
+    if (!load_dictionary("dictionary.txt")) {
+        fprintf(stderr, "Failed to load dictionary. Exiting.\n");
+        exit(1);
+    }
+}
 
-int main() {
-    srand(time(NULL));
+void play_hangman(void) {
+    int desired_length;
+    printf("Enter desired word length (0 for random): ");
+    scanf("%d", &desired_length);
 
-    // Select a random word from the list
-    const char* word = word_list[rand() % word_count];
+    const char* word = select_word(desired_length);
     int word_length = strlen(word);
 
-    // Initialize guessed letters array
-    int guessed[word_length];
-    for (int i = 0; i < word_length; i++) {
-        guessed[i] = 0;
-    }
-
+    int guessed[MAX_WORD_LENGTH] = { 0 };
     int tries = 0;
     char guess;
     char guessed_letters[26] = { 0 };
@@ -43,9 +33,9 @@ int main() {
     while (tries < MAX_TRIES) {
         printf("\nWord: ");
         print_word(word, guessed);
-        printf("\nTries left: %d\n", MAX_TRIES - tries);
+        printf("Tries left: %d\n", MAX_TRIES - tries);
         print_hangman(tries);
-        printf("\nGuess a letter: ");
+        printf("Guess a letter: ");
         scanf(" %c", &guess);
         guess = toupper(guess);
 
@@ -81,104 +71,84 @@ int main() {
     }
 
     if (tries == MAX_TRIES) {
-        printf("\nYou've been hanged! The word was: %s\n", word);
+        printf("\nGame over! The word was: %s\n", word);
     }
 
     print_hangman(tries);
-    return 0;
+}
+
+char* select_word(int desired_length) {
+    if (desired_length < 0) {
+        printf("Invalid length. Selecting a random word.\n");
+        return dictionary[rand() % dictionary_size];
+    }
+
+    if (desired_length == 0) {
+        return dictionary[rand() % dictionary_size];
+    }
+
+    int suitable_words[MAX_DICTIONARY_SIZE];
+    int suitable_count = 0;
+
+    for (int i = 0; i < dictionary_size; i++) {
+        size_t word_length = strlen(dictionary[i]);
+        if (word_length == (size_t)desired_length) {
+            suitable_words[suitable_count++] = i;
+        }
+    }
+
+    if (suitable_count == 0) {
+        printf("No words found with length %d. Selecting a random word.\n", desired_length);
+        return dictionary[rand() % dictionary_size];
+    }
+
+    return dictionary[suitable_words[rand() % suitable_count]];
 }
 
 void print_hangman(int tries) {
-    switch (tries) {
-    case 0:
-        printf("  +---+\n");
-        printf("  |   |\n");
-        printf("      |\n");
-        printf("      |\n");
-        printf("      |\n");
-        printf("      |\n");
-        printf("=========\n");
-        break;
-    case 1:
-        printf("  +---+\n");
-        printf("  |   |\n");
-        printf("  O   |\n");
-        printf("      |\n");
-        printf("      |\n");
-        printf("      |\n");
-        printf("=========\n");
-        break;
-    case 2:
-        printf("  +---+\n");
-        printf("  |   |\n");
-        printf("  O   |\n");
-        printf("  |   |\n");
-        printf("      |\n");
-        printf("      |\n");
-        printf("=========\n");
-        break;
-    case 3:
-        printf("  +---+\n");
-        printf("  |   |\n");
-        printf("  O   |\n");
-        printf(" /|   |\n");
-        printf("      |\n");
-        printf("      |\n");
-        printf("=========\n");
-        break;
-    case 4:
-        printf("  +---+\n");
-        printf("  |   |\n");
-        printf("  O   |\n");
-        printf(" /|\\  |\n");
-        printf("      |\n");
-        printf("      |\n");
-        printf("=========\n");
-        break;
-    case 5:
-        printf("  +---+\n");
-        printf("  |   |\n");
-        printf("  O   |\n");
-        printf(" /|\\  |\n");
-        printf(" /    |\n");
-        printf("      |\n");
-        printf("=========\n");
-        break;
-    case 6:
-        printf("  +---+\n");
-        printf("  |   |\n");
-        printf("  O   |\n");
-        printf(" /|\\  |\n");
-        printf(" / \\  |\n");
-        printf("      |\n");
-        printf("=========\n");
-        break;
-    }
+    const char* hangman_states[] = {
+        "  +---+\n  |   |\n      |\n      |\n      |\n      |\n=========",
+        "  +---+\n  |   |\n  O   |\n      |\n      |\n      |\n=========",
+        "  +---+\n  |   |\n  O   |\n  |   |\n      |\n      |\n=========",
+        "  +---+\n  |   |\n  O   |\n /|   |\n      |\n      |\n=========",
+        "  +---+\n  |   |\n  O   |\n /|\\  |\n      |\n      |\n=========",
+        "  +---+\n  |   |\n  O   |\n /|\\  |\n /    |\n      |\n=========",
+        "  +---+\n  |   |\n  O   |\n /|\\  |\n / \\  |\n      |\n========="
+    };
+
+    printf("%s\n", hangman_states[tries]);
 }
 
 void print_word(const char* word, const int* guessed) {
-    for (int i = 0; i < strlen(word); i++) {
-        if (guessed[i]) {
-            printf("%c ", word[i]);
-        }
-        else {
-            printf("_ ");
-        }
+    for (int i = 0; word[i]; i++) {
+        printf("%c ", guessed[i] ? word[i] : '_');
     }
     printf("\n");
 }
 
 int is_word_guessed(const int* guessed, int length) {
     for (int i = 0; i < length; i++) {
-        if (!guessed[i]) {
-            return 0;
-        }
+        if (!guessed[i]) return 0;
     }
     return 1;
 }
 
 void to_uppercase(char* str) {
     for (int i = 0; str[i]; i++) {
-        str[i] = toupper(str[i]);
+        str[i] = toupper((unsigned char)str[i]);
     }
+}
+
+int load_dictionary(const char* filename) {
+    FILE* file = fopen(filename, "r");
+    if (!file) return 0;
+
+    while (fgets(dictionary[dictionary_size], MAX_WORD_LENGTH, file)) {
+        dictionary[dictionary_size][strcspn(dictionary[dictionary_size], "\n")] = 0;
+        to_uppercase(dictionary[dictionary_size]);
+        if (++dictionary_size >= MAX_DICTIONARY_SIZE) break;
+    }
+
+    fclose(file);
+    return 1;
 }
