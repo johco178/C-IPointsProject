@@ -2,19 +2,31 @@
 
 #include "hangman.h"
 
+// unit testing
+#ifdef UNIT_TESTING
+#define static
+#endif
+
 // Global variables
 static char dictionary[MAX_DICTIONARY_SIZE][MAX_WORD_LENGTH];
 static int dictionary_size = 0;
 
-void initialize_game(void) {
+// Function prototypes for internal use
+static char* select_word(int desired_length);
+static void print_hangman(int tries);
+static void print_word(const char* word, const int* guessed);
+static int is_word_guessed(const int* guessed, int length);
+static void to_uppercase(char* str);
+static int load_dictionary(const char* filename);
+
+void hangman_initialize(void) {
     srand((unsigned int)time(NULL));
     if (!load_dictionary("dictionary.txt")) {
-        fprintf(stderr, "Failed to load dictionary. Exiting.\n");
-        exit(1);
+        fprintf(stderr, "Failed to load dictionary. Hangman game may not function properly.\n");
     }
 }
 
-void play_hangman(void) {
+void hangman_play(void) {
     int desired_length;
     printf("Enter desired word length (0 for random): ");
     scanf("%d", &desired_length);
