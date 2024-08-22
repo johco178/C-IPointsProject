@@ -2,22 +2,102 @@
 
 #include "hangman.h"
 
-// unit testing
-#ifdef UNIT_TESTING
-#define static
-#endif
-
 // Global variables
 static char dictionary[MAX_DICTIONARY_SIZE][MAX_WORD_LENGTH];
 static int dictionary_size = 0;
 
-// Function prototypes for internal use
-static char* select_word(int desired_length);
-static void print_hangman(int tries);
-static void print_word(const char* word, const int* guessed);
-static int is_word_guessed(const int* guessed, int length);
-static void to_uppercase(char* str);
-static int load_dictionary(const char* filename);
+// Remove static keyword for functions we want to test
+#ifdef UNIT_TESTING
+#define STATIC
+#else
+#define STATIC static
+#endif
+
+bool is_letter_in_word(char letter, const char* word) {
+    while (*word) {
+        if (*word == letter) {
+            return true;
+        }
+        word++;
+    }
+    return false;
+}
+
+STATIC char* select_word(int desired_length) {
+    if (desired_length < 0) {
+        printf("Invalid length. Selecting a random word.\n");
+        return dictionary[rand() % dictionary_size];
+    }
+
+    if (desired_length == 0) {
+        return dictionary[rand() % dictionary_size];
+    }
+
+    int suitable_words[MAX_DICTIONARY_SIZE];
+    int suitable_count = 0;
+
+    for (int i = 0; i < dictionary_size; i++) {
+        size_t word_length = strlen(dictionary[i]);
+        if (word_length == (size_t)desired_length) {
+            suitable_words[suitable_count++] = i;
+        }
+    }
+
+    if (suitable_count == 0) {
+        printf("No words found with length %d. Selecting a random word.\n", desired_length);
+        return dictionary[rand() % dictionary_size];
+    }
+
+    return dictionary[suitable_words[rand() % suitable_count]];
+}
+
+STATIC void print_hangman(int tries) {
+    const char* hangman_states[] = {
+        "  +---+\n  |   |\n      |\n      |\n      |\n      |\n=========",
+        "  +---+\n  |   |\n  O   |\n      |\n      |\n      |\n=========",
+        "  +---+\n  |   |\n  O   |\n  |   |\n      |\n      |\n=========",
+        "  +---+\n  |   |\n  O   |\n /|   |\n      |\n      |\n=========",
+        "  +---+\n  |   |\n  O   |\n /|\\  |\n      |\n      |\n=========",
+        "  +---+\n  |   |\n  O   |\n /|\\  |\n /    |\n      |\n=========",
+        "  +---+\n  |   |\n  O   |\n /|\\  |\n / \\  |\n      |\n========="
+    };
+
+    printf("%s\n", hangman_states[tries]);
+}
+
+STATIC void print_word(const char* word, const int* guessed) {
+    for (int i = 0; word[i]; i++) {
+        printf("%c ", guessed[i] ? word[i] : '_');
+    }
+    printf("\n");
+}
+
+STATIC int is_word_guessed(const int* guessed, int length) {
+    for (int i = 0; i < length; i++) {
+        if (!guessed[i]) return 0;
+    }
+    return 1;
+}
+
+STATIC void to_uppercase(char* str) {
+    for (int i = 0; str[i]; i++) {
+        str[i] = toupper((unsigned char)str[i]);
+    }
+}
+
+STATIC int load_dictionary(const char* filename) {
+    FILE* file = fopen(filename, "r");
+    if (!file) return 0;
+
+    while (fgets(dictionary[dictionary_size], MAX_WORD_LENGTH, file)) {
+        dictionary[dictionary_size][strcspn(dictionary[dictionary_size], "\n")] = 0;
+        to_uppercase(dictionary[dictionary_size]);
+        if (++dictionary_size >= MAX_DICTIONARY_SIZE) break;
+    }
+
+    fclose(file);
+    return 1;
+}
 
 void hangman_initialize(void) {
     srand((unsigned int)time(NULL));
@@ -89,78 +169,11 @@ void hangman_play(void) {
     print_hangman(tries);
 }
 
-char* select_word(int desired_length) {
-    if (desired_length < 0) {
-        printf("Invalid length. Selecting a random word.\n");
-        return dictionary[rand() % dictionary_size];
+#ifdef UNIT_TESTING
+void set_mock_dictionary(const char mock_dict[][MAX_WORD_LENGTH], int size) {
+    for (int i = 0; i < size && i < MAX_DICTIONARY_SIZE; i++) {
+        strcpy(dictionary[i], mock_dict[i]);
     }
-
-    if (desired_length == 0) {
-        return dictionary[rand() % dictionary_size];
-    }
-
-    int suitable_words[MAX_DICTIONARY_SIZE];
-    int suitable_count = 0;
-
-    for (int i = 0; i < dictionary_size; i++) {
-        size_t word_length = strlen(dictionary[i]);
-        if (word_length == (size_t)desired_length) {
-            suitable_words[suitable_count++] = i;
-        }
-    }
-
-    if (suitable_count == 0) {
-        printf("No words found with length %d. Selecting a random word.\n", desired_length);
-        return dictionary[rand() % dictionary_size];
-    }
-
-    return dictionary[suitable_words[rand() % suitable_count]];
+    dictionary_size = size;
 }
-
-void print_hangman(int tries) {
-    const char* hangman_states[] = {
-        "  +---+\n  |   |\n      |\n      |\n      |\n      |\n=========",
-        "  +---+\n  |   |\n  O   |\n      |\n      |\n      |\n=========",
-        "  +---+\n  |   |\n  O   |\n  |   |\n      |\n      |\n=========",
-        "  +---+\n  |   |\n  O   |\n /|   |\n      |\n      |\n=========",
-        "  +---+\n  |   |\n  O   |\n /|\\  |\n      |\n      |\n=========",
-        "  +---+\n  |   |\n  O   |\n /|\\  |\n /    |\n      |\n=========",
-        "  +---+\n  |   |\n  O   |\n /|\\  |\n / \\  |\n      |\n========="
-    };
-
-    printf("%s\n", hangman_states[tries]);
-}
-
-void print_word(const char* word, const int* guessed) {
-    for (int i = 0; word[i]; i++) {
-        printf("%c ", guessed[i] ? word[i] : '_');
-    }
-    printf("\n");
-}
-
-int is_word_guessed(const int* guessed, int length) {
-    for (int i = 0; i < length; i++) {
-        if (!guessed[i]) return 0;
-    }
-    return 1;
-}
-
-void to_uppercase(char* str) {
-    for (int i = 0; str[i]; i++) {
-        str[i] = toupper((unsigned char)str[i]);
-    }
-}
-
-int load_dictionary(const char* filename) {
-    FILE* file = fopen(filename, "r");
-    if (!file) return 0;
-
-    while (fgets(dictionary[dictionary_size], MAX_WORD_LENGTH, file)) {
-        dictionary[dictionary_size][strcspn(dictionary[dictionary_size], "\n")] = 0;
-        to_uppercase(dictionary[dictionary_size]);
-        if (++dictionary_size >= MAX_DICTIONARY_SIZE) break;
-    }
-
-    fclose(file);
-    return 1;
-}
+#endif
