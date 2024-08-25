@@ -1,6 +1,7 @@
 // home.c
 
 #include <stdio.h>
+#include "secretNumber.h"
 #include "hangman.h"
 // Include headers for other games as you add them
 
@@ -33,6 +34,7 @@ int main(void) {
             break;
         case 3:
             printf("Game 3 is not implemented yet.\n");
+            secretNumberStart();
             break;
         case 0:
             printf("Thank you for playing. Goodbye!\n");
