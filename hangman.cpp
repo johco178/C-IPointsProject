@@ -146,7 +146,7 @@ STATIC int load_dictionary(const char* filename) {
 */
 void hangman_initialize(void) {
     srand((unsigned int)time(NULL));
-    if (!load_dictionary("dictionary.txt")) {
+    if (!load_dictionary("../dictionary.txt")) {
         fprintf(stderr, "Failed to load dictionary. Hangman game may not function properly.\n");
     }
 }

@@ -32,7 +32,6 @@ int homescreen(void) {
             break;
         case 2:
             playWordle();
-
             break;
         case 3:
             secretNumberStart();
