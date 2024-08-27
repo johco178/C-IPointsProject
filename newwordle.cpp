@@ -136,7 +136,87 @@ char* processGuess(const char* theWord, const char* theGuess) {
 }
 
 
+char* getWord() {
+	int wordCount = 0;
 
+	char* fiveLetterWord = (char*)malloc(6 * sizeof(char));
+	const char* fivelettertextfile =
+#include "wordlength5a2m.txt"
+		;
+	const char* secondfivelettertextfile =
+#include "wordlength5m2z.txt"
+		;
+
+	srand(time(NULL));
+	int randnumber = (rand() % 2) + 1;
+
+
+	//const char* newanswer = nullptr;
+	char* newanswer = NULL;
+
+
+	if (randnumber == 1) {
+		std::istringstream iss(fivelettertextfile);
+		std::vector<std::string> lines;
+
+		std::string line;
+		while (std::getline(iss, line)) {
+			lines.push_back(line);
+		}
+		// Seed the random number generator
+		std::srand(std::time(nullptr));
+
+		// Pick a random line
+		int randomLineIndex = std::rand() % lines.size();
+		std::string selectedLine = lines[randomLineIndex];
+
+		// Tokenize the selected line to extract words
+		std::istringstream lineStream(selectedLine);
+		std::vector<std::string> wordsone;
+		std::string word;
+
+		while (lineStream >> word) {
+			wordsone.push_back(word);
+
+		}
+		std::string randomWord = wordsone[0];
+		//newanswer = randomWord.c_str();
+		newanswer = (char*)malloc(randomWord.length() + 1);
+		strcpy(newanswer, randomWord.c_str());
+
+
+	}
+	else
+	{
+		std::istringstream iss(secondfivelettertextfile);
+		std::vector<std::string> lines;
+		std::string line;
+		while (std::getline(iss, line)) {
+			lines.push_back(line);
+		}
+		// Seed the random number generator
+		std::srand(std::time(nullptr));
+
+		// Pick a random line
+		int randomLineIndex = std::rand() % lines.size();
+		std::string selectedLine = lines[randomLineIndex];
+
+		// Tokenize the selected line to extract words
+		std::istringstream lineStream(selectedLine);
+		std::vector<std::string> wordsone;
+		std::string word;
+
+		while (lineStream >> word) {
+			wordsone.push_back(word);
+
+		}
+		std::string randomWord = wordsone[0];
+		newanswer = (char*)malloc(randomWord.length() + 1);
+		strcpy(newanswer, randomWord.c_str());
+	}
+
+
+}
 
 
 void playWordle(void) {
@@ -222,36 +302,6 @@ void playWordle(void) {
 		strcpy(newanswer, randomWord.c_str());
 	}
 
-
-	//std::vector<std::string> lines;
-	//std::string line;
-
-	//while (std::getline(iss, line)){
-	//	lines.push_back(line);
-	//}
-
-	//// Seed the random number generator
-	//std::srand(std::time(nullptr));
-
-	//// Pick a random line
-	//int randomLineIndex = std::rand() % lines.size();
-	//std::string selectedLine = lines[randomLineIndex];
-
-	//// Tokenize the selected line to extract words
-	//std::istringstream lineStream(selectedLine);
-	//std::vector<std::string> wordsone;
-	//std::string word;
-
-	//while (lineStream >> word) {
-	//	wordsone.push_back(word);
-
-	//}
-
-
-	//std::string randomWord = wordsone[0];
-
-	//const char* newanswer = randomWord.c_str();
-
 	char guessone[6] = { '_', '_', '_', '_','_', '\0' };
 	char guesstwo [6] = {'_', '_', '_', '_','_', '\0'};
 	char guessthree[6] = {'_', '_', '_', '_','_', '\0'};
@@ -269,7 +319,7 @@ void playWordle(void) {
 
 
 
-	printf("right here %c\n", newanswer[0]);
+
 
 	// do the game loop
 	int num_of_guesses = 0;
@@ -278,11 +328,11 @@ void playWordle(void) {
 
 	while (num_of_guesses < 6 && !correct_guess) {
 		//get guess from user
-		printf("\nInput a x- letter word and press enter \n");
+		printf("\nInput a 5-letter word and press enter \n");
 		scanf("%s", guess);
 
 		char* newguess = toLowerCase(guess);
-		printf("you have guessed %s\n", newguess);
+		//printf("you have guessed %s\n", newguess);
 
 		if (!conatainsonlychar(newguess)) {
 			printf("Guess contains an non letter, try again.");

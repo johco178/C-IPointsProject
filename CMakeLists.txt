@@ -12,7 +12,7 @@ endif()
 project ("C++lPointsProject")
 
 # Add source to this project's executable.
-add_executable (C++lPointsProject "C++lPointsProject.cpp" "C++lPointsProject.h" "hangman.h" "newwordle.cpp" "newwordle.h" "home.h" "hangman.cpp" "home.cpp" "secretNumber.cpp" "secretNumber.h")
+add_executable (C++lPointsProject "C++lPointsProject.cpp" "C++lPointsProject.h" "hangman.h" "newwordle.cpp" "newwordle.h" "home.h" "hangman.cpp" "home.cpp" "secretNumber.cpp" "secretNumber.h" "test_newwordle.cpp")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET C++lPointsProject PROPERTY CXX_STANDARD 20)
