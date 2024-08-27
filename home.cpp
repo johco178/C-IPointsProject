@@ -33,7 +33,6 @@ int main(void) {
             printf("Game 2 is not implemented yet.\n");
             break;
         case 3:
-            printf("Game 3 is not implemented yet.\n");
             secretNumberStart();
             break;
         case 0:
@@ -47,4 +46,5 @@ int main(void) {
     return 0;
 }
 
-// gcc home.c hangman.c -o gamehub
+// to test:
+// gcc home.cpp hangman.cpp secretNumber.cpp -o gamehub
