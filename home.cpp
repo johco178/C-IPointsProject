@@ -46,4 +46,5 @@ int main(void) {
     return 0;
 }
 
-// gcc home.c hangman.c -o gamehub
+// to test:
+// gcc home.cpp hangman.cpp secretNumber.cpp -o gamehub
