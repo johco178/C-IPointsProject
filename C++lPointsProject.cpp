@@ -3,6 +3,7 @@
 
 #include "C++lPointsProject.h"
 #include "newwordle.h"
+#include "home.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -12,7 +13,7 @@ using namespace std;
 
 int main()
 {
-	playWordle();
+	homescreen();
 	/*
 	int choice = 100;
 	printf("What game do you want to play?");
