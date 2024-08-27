@@ -33,8 +33,8 @@ int main()
 			return 0;
 		}
 	}
-
-	printf("hello world");*/
+	*/
+	printf("hello world");
 	return 0;
 }
 
