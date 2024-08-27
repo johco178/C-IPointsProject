@@ -33,7 +33,6 @@ int main(void) {
             printf("Game 2 is not implemented yet.\n");
             break;
         case 3:
-            printf("Game 3 is not implemented yet.\n");
             secretNumberStart();
             break;
         case 0:
