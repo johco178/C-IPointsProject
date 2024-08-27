@@ -2,6 +2,11 @@
 #define SECRETNUMBER_H
 #include <stdbool.h>
 
+/*!
+    @file
+    @brief This file contains the function declarations for the Secret Number game.
+    
+*/
 
 //Gets a random number between lowerBound and upperBound (based off difficulty)
 int getSecretNumber(int lowerBound, int upperBound);
