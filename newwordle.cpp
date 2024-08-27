@@ -215,7 +215,7 @@ char* getWord() {
 		strcpy(newanswer, randomWord.c_str());
 	}
 
-
+	return newanswer;
 }
 
 
