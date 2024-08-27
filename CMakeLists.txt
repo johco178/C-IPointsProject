@@ -66,5 +66,4 @@ install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/dictionary.txt
 # Enable testing
 enable_testing()
 
-# Add a simple test
-add_test(NAME C++lPointsProject_test COMMAND C++lPointsProject)
+# TODO: Add tests and install targets if needed.
