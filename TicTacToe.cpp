@@ -83,7 +83,7 @@ void move(char player){
     }    
 }
 
-int playTicTacToe(){
+void playTicTacToe(){
     char currentPlayer = 'X';
     initBoard();
 
@@ -107,5 +107,5 @@ int playTicTacToe(){
         // Switch players
         currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
     }
-    return 0;
+
 }
