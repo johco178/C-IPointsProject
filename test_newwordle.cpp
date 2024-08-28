@@ -28,19 +28,19 @@ TEST(toLowerCase) {
     assert(strcmp(lower, "hello") == 0);
 
     const char* alreadylower = "hello";
-    char* lower = toLowerCase(alreadylower);
-    assert(strcmp(lower, "hello") == 0);
+    char* newlower = toLowerCase(alreadylower);
+    assert(strcmp(newlower, "hello") == 0);
 }
 TEST(processGuess) {
     const char* answer = "apple";
     const char* guess = "anvil";
     assert(strcmp(processGuess(answer, guess), "G___Y") == 0);
 
-    const char* guess = "piper";
-    assert(strcmp(processGuess(answer, guess), "Y_GY_") == 0);
+    const char* sec_guess = "piper";
+    assert(strcmp(processGuess(answer, sec_guess), "Y_GY_") == 0);
 
-    const char* guess = "apple";
-    assert(strcmp(processGuess(answer, guess), "GGGGG") == 0);
+    const char* third_guess = "apple";
+    assert(strcmp(processGuess(answer, third_guess), "GGGGG") == 0);
 }
 
 
