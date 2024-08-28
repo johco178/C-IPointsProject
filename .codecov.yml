@@ -1,20 +1,35 @@
 codecov:
-     require_ci_to_pass: true
+  require_ci_to_pass: true
 
-   coverage:
-     precision: 2
-     round: down
-     range: "70...100"
+coverage:
+  precision: 2
+  round: down
+  range: "70...100"
 
-   parsers:
-     gcov:
-       branch_detection:
-         conditional: yes
-         loop: yes
-         method: no
-         macro: no
+  status:
+    project:
+      default:
+        target: auto
+        threshold: 5%
+        base: auto 
+    patch:
+      default:
+        target: auto
+        threshold: 5%
+        base: auto
 
-   comment:
-     layout: "reach,diff,flags,files,footer"
-     behavior: default
-     require_changes: false
+parsers:
+  gcov:
+    branch_detection:
+      conditional: true
+      loop: true
+      method: false
+      macro: false
+
+comment:
+  layout: "reach,diff,flags,files,footer"
+  behavior: default
+  require_changes: false
+
+github_checks:
+  annotations: true
