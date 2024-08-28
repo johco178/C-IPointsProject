@@ -13,12 +13,11 @@ static int dictionary_size = 0;
 #define STATIC static
 #endif
 
-/**
-* Checks if a letter is in a word
-* 
-* @param letter The letter to check
-* @param word The word to check
-* @return true if the letter is in the word, false otherwise
+/*!
+    @brief checks if letter is in word
+    @param letter The letter to check
+    @param word The word to check
+    @return true if the letter is in the word, false otherwise
 */
 bool is_letter_in_word(char letter, const char* word) {
     while (*word) {
@@ -30,11 +29,10 @@ bool is_letter_in_word(char letter, const char* word) {
     return false;
 }
 
-/**
-* Selects a word from the dictionary based on the desired length
-* 
-* @param desired_length The desired length of the word
-* @return A pointer to the selected word
+/*!
+    @brief Selects a word from the dictionary based on the desired length
+	@param desired_length The desired length of the word
+	@return A pointer to the selected word
 */
 STATIC char* select_word(int desired_length) {
     if (desired_length < 0) {
@@ -64,10 +62,9 @@ STATIC char* select_word(int desired_length) {
     return dictionary[suitable_words[rand() % suitable_count]];
 }
 
-/**
-* Prints the hangman based on the number of tries
-* 
-* @param tries The number of tries
+/*!
+    @brief Prints the hangman based on the number of tries
+	@param tries The number of tries
 */
 STATIC void print_hangman(int tries) {
     const char* hangman_states[] = {
@@ -83,11 +80,11 @@ STATIC void print_hangman(int tries) {
     printf("%s\n", hangman_states[tries]);
 }
 
-/**
-* Prints the word with guessed letters filled in
-* 
-* @param word The word to print
-* @param guessed An array of guessed letters
+/*!
+    @brief Prints the word with guessed letters
+	@param word The word to print
+	@param guessed An array of guessed letters
+
 */
 STATIC void print_word(const char* word, const int* guessed) {
     for (int i = 0; word[i]; i++) {
@@ -96,12 +93,11 @@ STATIC void print_word(const char* word, const int* guessed) {
     printf("\n");
 }
 
-/**
-* Checks if the word has been completely guessed
-* 
-* @param guessed An array of guessed letters
-* @param length The length of the word
-* @return 1 if the word has been guessed, 0 otherwise
+/*!
+    @brief Checks if a word has been guessed
+	@param guessed An array of integers representing the guessed letters
+	@param length The length of the word
+	@return 1 if the word has been guessed, 0 otherwise
 */
 STATIC int is_word_guessed(const int* guessed, int length) {
     for (int i = 0; i < length; i++) {
@@ -110,10 +106,9 @@ STATIC int is_word_guessed(const int* guessed, int length) {
     return 1;
 }
 
-/**
-* Converts a string to uppercase
-* 
-* @param str The string to convert
+/*!
+    @brief Converts a string to uppercase
+	@param str The string to convert to uppercase
 */
 STATIC void to_uppercase(char* str) {
     for (int i = 0; str[i]; i++) {

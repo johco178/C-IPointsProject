@@ -27,6 +27,7 @@ set(TEST_SOURCES
     test_hangman.cpp
     test_newwordle.cpp
     test_tictactoe.cpp
+    secretNumTests.cpp
 )
 
 # Add main executable

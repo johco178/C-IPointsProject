@@ -53,8 +53,26 @@ void hangmanTests();
 
 */
 char* select_word(int desired_length);
+/*!
+	 @brief Checks if a word has been guessed
+	 @param guessed An array of integers representing the guessed letters
+	 @param length The length of the word
+	 @return 1 if the word has been guessed, 0 otherwise
+
+*/
 int is_word_guessed(const int* guessed, int length);
+/*!
+	 @brief Converts a string to uppercase
+	 @param str The string to convert to uppercase
+
+*/
 void to_uppercase(char* str);
+/*!
+	 @brief Sets the mock dictionary for testing
+	 @param mock_dict The mock dictionary
+	 @param size The size of the mock dictionary
+
+*/
 void set_mock_dictionary(const char mock_dict[][MAX_WORD_LENGTH], int size);
 #endif
 

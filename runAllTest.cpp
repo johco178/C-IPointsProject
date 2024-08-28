@@ -7,6 +7,7 @@ int main() {
 	runwordletests();
 	runttttests();
 	hangmanTests();
+	secNumTests();
 
 	return 0;
 }

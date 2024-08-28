@@ -6,6 +6,9 @@
  //Generates a random secret number between the lower and upper bounds
 int getSecretNumber(int lowerBound, int upperBound);
 
+// Runs all the tests for the secret number game
+int secNumTests();
+
 // Checks if the input for the difficulty level is valid
 bool validDifficulty(char difficulty);
 
