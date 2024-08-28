@@ -6,4 +6,4 @@ The user can play this game from the windows command terminal.
 # Badges
 ![/CI](https://img.shields.io/github/workflow/status/johco178/C-lPointsProject/CI?label=build)
 
-[![Coverage](https://img.shields.io/badge/Coverage-30%25-brightgreen.svg)](https://app.codecov.io/github/johco178/C-IPointsProject)
+[![Coverage](https://img.shields.io/badge/Coverage-83%25-brightgreen.svg)](https://app.codecov.io/github/johco178/C-IPointsProject)
