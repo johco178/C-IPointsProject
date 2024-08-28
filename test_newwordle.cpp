@@ -16,6 +16,6 @@
 
 
 TEST(conatainsonlychar) {
-    const char* guess =  
+    const char* guess = "d";
 
 }
