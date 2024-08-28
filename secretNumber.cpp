@@ -17,22 +17,60 @@ int getSecretNumber(int lowerBound, int upperBound) {
 }
 
 /**
+ * Checks if the input for the difficulty level is valid
+ * 
+ * @param difficulty The difficulty level chosen by the user as a char
+ * @return true if the input is valid, false if it is not
+ */
+bool validDifficulty(char difficulty) {
+    bool isValid = false;
+    if (difficulty == 'e' || difficulty == 'm' || difficulty == 'h')
+    {
+        isValid = true;
+    }
+    
+    return isValid;//returns the difficulty level
+}
+
+/**
  * Gets the difficulty level from the user input
  * 
  * @return The difficulty level chosen by the user as a char
  */
 char getDifficulty() {
     char difficulty;
+    bool valid;
     printf("Choose difficulty level (e: easy, m: medium, h: hard): ");
     scanf(" %c", &difficulty); //assign the value of scanning a character from the user input
     difficulty = tolower(difficulty);//converts the input to lowercase incase of valid uppercase input
-
-    while (difficulty != 'e' && difficulty != 'm' && difficulty != 'h') {
-        printf("That is not a valid input. Please choose 'e' for easy, 'm' for medium, or 'h' for hard.\n");
-        scanf(" %c", &difficulty); //assign the value of scanning a character from the user input
-        difficulty = tolower(difficulty);//converts the input to lowercase incase of valid uppercase input
+    valid = validDifficulty(difficulty);
+    while (!valid)//checks if the input is valid
+    {
+       printf("That is not a valid input. Please choose 'e' for easy, 'm' for medium, or 'h' for hard.\n");
+       scanf(" %c", &difficulty);
+       difficulty = tolower(difficulty);
+       valid = validDifficulty(difficulty);
     }
+
     return difficulty;//returns the difficulty level
+}
+
+/**
+ * Checks if the input for a guess is valid
+ * 
+ * @param guess The user's guess as an integer
+ * @param lowerBound The lower bound of the range for the secret number
+ * @param upperBound The upper bound of the range for the secret number
+ * @param check The value of scanning a number from the user input
+ * @return true if the guess is valid, false if it is not
+ */
+bool validGuess(int guess, int lowerBound, int upperBound, int check) {
+    bool isValid = true;
+    if (check == 0 || guess < lowerBound || guess > upperBound)//checks if it is a num and within the bounds
+    {
+        isValid = false;
+    }
+    return isValid;
 }
 
 /**
@@ -44,15 +82,19 @@ char getDifficulty() {
  */
 int getGuess(int lowerBound, int upperBound) {
     int guess, check;
+    bool isValid;
     printf("Enter a guess between %d and %d : ", lowerBound, upperBound);
     check = scanf("%d", &guess); //assign the value of scanning a number from the user input
+    isValid = validGuess(guess, lowerBound, upperBound, check);
 
-    if (check == 0 || guess < lowerBound || guess > upperBound)//if check is 0 input is not a number, also checks if guess is wihtin the bounds
+    while (!isValid)
     {
-        printf("That is not a valid input. Please enter a number between %d and %d.\n", lowerBound, upperBound);
-        while (getchar() != '\n'); //Copilot suggested this line and the code loops endlessly without it
-        return getGuess(lowerBound, upperBound);//recursion to get a valid input
+        while (getchar() != '\n'); 
+        printf("That is not a valid input.\nPlease enter a number between %d and %d:\n", lowerBound, upperBound);
+        check = scanf("%d", &guess);
+        isValid = validGuess(guess, lowerBound, upperBound, check);
     }
+    
     return guess;//returns the guess if it is valid
 }
 
@@ -120,6 +162,20 @@ void play(char difficulty){
 
     } while (guess != secretNumber);//loops until the user guesses the correct number or runs out of attempts
 }
+/**
+ * Checks if the input is valid for PlayAgain
+ * 
+ * @param playAgain The user's input as a char
+ * @return true if the input is valid, false if it is not
+ */
+bool validPlayAgain(char playAgain) {
+    bool isValid = false;
+    if (playAgain == 'y' || playAgain == 'n')
+    {
+        isValid = true;
+    }
+    return isValid;
+}
 
 /**
  * Asks the user if they want to play again
@@ -128,24 +184,28 @@ void play(char difficulty){
  */
 bool playAgain() {
     char playAgain;
+    bool isValid;
     printf("\nWould you like to play The Secret Number game again? \nPlease enter 'y' to play again or 'n' to exit to the game menu: ");
     scanf(" %c", &playAgain); //assign the value of scanning a character from the user input
     playAgain = tolower(playAgain); //converts the input to lowercase incase of valid uppercase input
-    while (true)
+    isValid = validPlayAgain(playAgain);//checks if the input is valid
+
+    while (!isValid)
     {
-        if (playAgain == 'y') { //if the user wants to play again 
+        printf("That is not a valid input. Please choose 'y' to play again or 'n' to return to the menu.\n");
+        scanf(" %c", &playAgain);
+        playAgain = tolower(playAgain);
+        isValid = validPlayAgain(playAgain);
+    }
+
+    if (playAgain == 'y') { //if the user wants to play again 
         return true;
     } 
     else if (playAgain == 'n') //if the user wants to exit to the game menu
     {
         return false;
     }
-    else {//if the user input is invalid 
-        printf("That is not a valid input. Please choose 'y' to play again or 'n' to return to the menu.\n");
-            scanf(" %c", &playAgain);
-            playAgain = tolower(playAgain);
-    }
-    }
+
 }
 
 /**
