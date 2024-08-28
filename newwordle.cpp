@@ -9,6 +9,12 @@
 #include <cstdlib> 
 #include <ctime> 
 
+// Remove static keyword for functions to be tested
+#ifdef UNIT_TESTING
+#define STATIC
+#else
+#define STATIC static
+#endif
 
 
 
@@ -21,7 +27,7 @@
 int word_length = 5;
 
 
-char* toLowerCase(const char* guess) {
+STATIC char* toLowerCase(const char* guess) {
 
 	const char* lowercaseguess = guess;
 	const int length = strlen(lowercaseguess);
@@ -36,7 +42,7 @@ char* toLowerCase(const char* guess) {
 
 }
 
-bool conatainsonlychar(const char* guess) {
+STATIC bool conatainsonlychar(const char* guess) {
 	bool onlyalpha = false;
 
 	const int length = strlen(guess);
@@ -61,7 +67,7 @@ bool conatainsonlychar(const char* guess) {
 
 
 }
-bool correctlength(const char* guess) {
+STATIC bool correctlength(const char* guess) {
 	const int length = strlen(guess);
 	if (length == word_length) {
 		return true;
@@ -82,7 +88,7 @@ bool validWord(const char* newguess) {
 
 
 
-char* processGuess(const char* theWord, const char* theGuess) {
+STATIC char* processGuess(const char* theWord, const char* theGuess) {
 	// the clue
 	char* clue = (char*)malloc(6 * sizeof(char));
 
@@ -333,7 +339,7 @@ void playWordle(void) {
 
 		char* newguess = toLowerCase(guess);
 		//printf("you have guessed %s\n", newguess);
-
+		
 		if (!conatainsonlychar(newguess)) {
 			printf("Guess contains an non letter, try again.");
 			continue;
