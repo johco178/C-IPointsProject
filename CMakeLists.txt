@@ -1,21 +1,60 @@
-﻿# CMakeList.txt : CMake project for C++lPointsProject, include source and define
-# project specific logic here.
-#
-cmake_minimum_required (VERSION 3.8)
+﻿cmake_minimum_required(VERSION 3.8)
+project("C++lPointsProject" LANGUAGES CXX)
 
-# Enable Hot Reload for MSVC compilers if supported.
-if (POLICY CMP0141)
-  cmake_policy(SET CMP0141 NEW)
-  set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>")
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+# Code coverage flags (only for GCC/Clang)
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fprofile-arcs -ftest-coverage")
 endif()
 
-project ("C++lPointsProject")
+# Main application source files
+set(MAIN_SOURCES
+    C++lPointsProject.cpp
+    hangman.cpp
+    newwordle.cpp
+    secretNumber.cpp
+    TicTacToe.cpp
+    home.cpp
+)
 
-# Add source to this project's executable.
-add_executable (C++lPointsProject "C++lPointsProject.cpp" "C++lPointsProject.h" "hangman.h")
+# Test source files
+set(TEST_SOURCES
+    test_hangman.cpp
+    test_newwordle.cpp
+)
 
-if (CMAKE_VERSION VERSION_GREATER 3.12)
-  set_property(TARGET C++lPointsProject PROPERTY CXX_STANDARD 20)
+# Add main executable
+add_executable(${PROJECT_NAME} ${MAIN_SOURCES})
+
+# Add test executable
+add_executable(${PROJECT_NAME}_test ${TEST_SOURCES} hangman.cpp newwordle.cpp)
+
+# Common settings for both executables
+foreach(TARGET ${PROJECT_NAME} ${PROJECT_NAME}_test)
+    target_include_directories(${TARGET} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+    target_compile_definitions(${TARGET} PRIVATE
+        $<$<CONFIG:Debug>:_DEBUG>
+        $<$<CONFIG:Release>:NDEBUG>
+        UNIT_TESTING
+    )
+    set_target_properties(${TARGET} PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
+    )
+endforeach()
+
+# Copy dictionary file to build directory
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/dictionary.txt")
+    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/dictionary.txt
+                   ${CMAKE_CURRENT_BINARY_DIR}/dictionary.txt
+                   COPYONLY)
 endif()
 
-# TODO: Add tests and install targets if needed.
+# Enable testing
+enable_testing()
+
+# Add test
+add_test(NAME ${PROJECT_NAME}_test COMMAND ${PROJECT_NAME}_test)
