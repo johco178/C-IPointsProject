@@ -238,9 +238,12 @@ void hangman_play(void) {
             printf("1. Yes\n");
             printf("2. No\n");
             printf("Enter your choice (1 or 2): ");
-            scanf("%d", &choice);
-
-            if (choice != 1 && choice != 2) {
+            
+            if (scanf("%d", &choice) != 1) {
+				while (getchar() != '\n');
+                printf("Invalid choice. Please enter 1 or 2.\n");
+                choice = 0;
+			} else if (choice != 1 && choice != 2) {
                 printf("Invalid choice. Please enter 1 or 2.\n");
             }
         } while (choice != 1 && choice != 2);
