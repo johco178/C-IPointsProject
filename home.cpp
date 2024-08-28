@@ -4,6 +4,7 @@
 #include "secretNumber.h"
 #include "hangman.h"
 #include "newwordle.h"
+#include "TicTacToe.h"
 // Include headers for other games as you add them
 
 void initialize_games(void) {
@@ -35,6 +36,9 @@ int homescreen(void) {
             break;
         case 3:
             secretNumberStart();
+            break;
+        case 4:
+            playTicTacToe();
             break;
         case 0:
             printf("Thank you for playing. Goodbye!\n");
