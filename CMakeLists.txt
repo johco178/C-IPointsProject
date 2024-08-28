@@ -40,6 +40,8 @@ add_executable(${PROJECT_NAME}_test
     newwordle.cpp 
     TicTacToe.cpp 
     secretNumber.cpp
+    home.cpp 
+    C++lPointsProject.cpp
 )
 
 # Common settings for both executables
