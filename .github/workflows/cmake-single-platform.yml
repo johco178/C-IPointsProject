@@ -21,26 +21,34 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y gcovr
 
+    - name: Clear CMake cache
+      run: |
+        rm -rf ${{github.workspace}}/build
+        mkdir -p ${{github.workspace}}/build
+
     - name: Configure CMake
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+      working-directory: ${{github.workspace}}/build
+      run: cmake .. -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+      working-directory: ${{github.workspace}}/build
+      run: cmake --build .
 
     - name: Test
       working-directory: ${{github.workspace}}/build
       run: ctest -C ${{env.BUILD_TYPE}} --output-on-failure
 
     - name: Generate coverage report
+      working-directory: ${{github.workspace}}/build
       run: |
-        gcovr -r ${{github.workspace}} ${{github.workspace}}/build --xml -o coverage.xml
-        gcovr -r ${{github.workspace}} ${{github.workspace}}/build --html --html-details -o coverage.html
+        gcovr -r .. . --xml -o coverage.xml
+        gcovr -r .. . --html --html-details -o coverage.html
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v3
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-        files: ./coverage.xml
+        files: ${{github.workspace}}/build/coverage.xml
         flags: unittests
         name: codecov-umbrella
         fail_ci_if_error: true
@@ -50,4 +58,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: code-coverage-report
-        path: coverage.html
+        path: ${{github.workspace}}/build/coverage.html
