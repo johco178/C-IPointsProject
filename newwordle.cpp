@@ -1,3 +1,12 @@
+/*!
+	@file newWordle.cpp
+	@brief Wordle implementation
+	@author Connor Johnstone
+*/
+
+
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -8,6 +17,8 @@
 #include <time.h>
 #include <cstdlib> 
 #include <ctime> 
+
+
 
 // Remove static keyword for functions to be tested
 #ifdef UNIT_TESTING
@@ -26,7 +37,11 @@
 
 int word_length = 5;
 
-
+/*!
+	@brief converts input to lowercase
+	@param the user input
+	@return the user input in lower case
+*/
 STATIC char* toLowerCase(const char* guess) {
 
 	const char* lowercaseguess = guess;
@@ -41,7 +56,11 @@ STATIC char* toLowerCase(const char* guess) {
 	return lower;
 
 }
-
+/*!
+	@brief checks if user input contains only letters
+	@param the user input
+	@return true if it does contain onyl char false if not
+*/
 STATIC bool conatainsonlychar(const char* guess) {
 	bool onlyalpha = false;
 
@@ -67,6 +86,12 @@ STATIC bool conatainsonlychar(const char* guess) {
 
 
 }
+
+/*!
+	@brief checks if user input is 5 letters long
+	@param the user input
+	@return true if it is correct length  false if not
+*/
 STATIC bool correctlength(const char* guess) {
 	const int length = strlen(guess);
 	if (length == word_length) {
@@ -77,7 +102,11 @@ STATIC bool correctlength(const char* guess) {
 }
 
 
-
+/*!
+	@brief checks if user input is a word
+	@param the user input
+	@return true if it is a word falsw if not
+*/
 
 bool validWord(const char* newguess) {
 	//todo add a check if word inputted is a dictionary word
@@ -86,8 +115,12 @@ bool validWord(const char* newguess) {
 
 }
 
-
-
+/*!
+	@brief compares user guess to the answer
+	@param the answer
+	@param the users guess
+	@return a string of the user guess G if letter is in correct location, Y if not in correct, _ if letter not present in answer
+*/
 STATIC char* processGuess(const char* theWord, const char* theGuess) {
 	// the clue
 	char* clue = (char*)malloc(6 * sizeof(char));
@@ -141,7 +174,10 @@ STATIC char* processGuess(const char* theWord, const char* theGuess) {
 
 }
 
-
+/*!
+	@brief a method to get the word 
+	@return the answer to the word
+*/
 char* getWord() {
 	int wordCount = 0;
 
@@ -223,7 +259,9 @@ char* getWord() {
 
 	return newanswer;
 }
-
+/*!
+	@brief plays wordle game
+*/
 
 void playWordle(void) {
 
