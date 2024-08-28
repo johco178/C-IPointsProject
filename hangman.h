@@ -1,4 +1,10 @@
 // hangman.h
+/*!
+  @file hangman.h
+  @brief Header file for the hangman game
+  @author Nick Garner
+ */
+
 
 #ifndef HANGMAN_H
 #define HANGMAN_H
@@ -14,13 +20,22 @@
 #define MAX_TRIES 6
 #define MAX_DICTIONARY_SIZE 10000
 
-// Function to initialize the hangman game
+/*!
+	 @brief Initializes the hangman game
+*/
 void hangman_initialize(void);
 
-// Function to play a single game of hangman
+/*!
+	 @brief Plays the hangman game
+*/
 void hangman_play(void);
 
-// Function to check if a letter is in a word
+/*!
+	 @brief checks if letter is in word
+	 @param letter The letter to check
+	 @param word The word to check
+	 @return 1 if the letter is in the word, 0 otherwise
+*/
 bool is_letter_in_word(char letter, const char* word);
 
 #ifdef UNIT_TESTING
