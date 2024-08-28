@@ -4,24 +4,23 @@
 #include <ctype.h>
 #include <time.h>
 
-/**
- * Generates a random secret number between the lower and upper bounds
- * 
- * @param lowerBound The lower bound of the range for the secret number
- * @param upperBound The upper bound of the range for the secret number
- * @return The randomly generated secret number
- */
+
+/*!
+    @brief Generates a random secret number between the lower and upper bounds
+    @param lowerBound The lower bound of the range for the secret number
+    @param upperBound The upper bound of the range for the secret number
+    @return The randomly generated secret number
+*/
 int getSecretNumber(int lowerBound, int upperBound) {
     srand(time(0)); // Seed the random number generator
     return rand() % (upperBound - lowerBound + 1) + lowerBound;// returns a random number between the lower and upper bounds
 }
 
-/**
- * Checks if the input for the difficulty level is valid
- * 
- * @param difficulty The difficulty level chosen by the user as a char
- * @return true if the input is valid, false if it is not
- */
+/*!
+    @brief Checks if the input for the difficulty level is valid
+    @param difficulty The difficulty level taken from the input as a char
+    @return true if the input is valid, false if it is not
+*/
 bool validDifficulty(char difficulty) {
     bool isValid = false;
     if (difficulty == 'e' || difficulty == 'm' || difficulty == 'h')
@@ -32,11 +31,10 @@ bool validDifficulty(char difficulty) {
     return isValid;//returns the difficulty level
 }
 
-/**
- * Gets the difficulty level from the user input
- * 
- * @return The difficulty level chosen by the user as a char
- */
+/*!
+    @brief Gets the difficulty level from the user input
+    @return The difficulty level chosen by the user as a char
+*/
 char getDifficulty() {
     char difficulty;
     bool valid;
@@ -55,15 +53,14 @@ char getDifficulty() {
     return difficulty;//returns the difficulty level
 }
 
-/**
- * Checks if the input for a guess is valid
- * 
- * @param guess The user's guess as an integer
- * @param lowerBound The lower bound of the range for the secret number
- * @param upperBound The upper bound of the range for the secret number
- * @param check The value of scanning a number from the user input
- * @return true if the guess is valid, false if it is not
- */
+/*!
+    @brief Checks if the input for a guess is valid
+    @param guess The guess as an integer
+    @param lowerBound The lower bound of the range for the secret number
+    @param upperBound The upper bound of the range for the secret number
+    @param check The number of scanf to determine if it is a number or not
+    @return true if the input is valid, false if it is not
+*/
 bool validGuess(int guess, int lowerBound, int upperBound, int check) {
     bool isValid = true;
     if (check == 0 || guess < lowerBound || guess > upperBound)//checks if it is a num and within the bounds
@@ -73,13 +70,13 @@ bool validGuess(int guess, int lowerBound, int upperBound, int check) {
     return isValid;
 }
 
-/**
- * Takes the user's input as a guess and checks if it is valid
- * 
- * @param lowerBound The lower bound of the range for the secret number
- * @param upperBound The upper bound of the range for the secret number
- * @return The user's guess as an integer
- */
+
+/*!
+    @brief Gets the guess from input and checks if it is valid
+    @param lowerBound The lower bound of the range for the secret number
+    @param upperBound The upper bound of the range for the secret number
+    @return The guess as an integer
+*/
 int getGuess(int lowerBound, int upperBound) {
     int guess, check;
     bool isValid;
@@ -98,15 +95,11 @@ int getGuess(int lowerBound, int upperBound) {
     return guess;//returns the guess if it is valid
 }
 
-/**
- * PLays the game by taking the difficulty level in
- * calling getSecretNumber to get a secret number
- * calling getGuess to get the user's guess
- * checking if the guess is correct and if not looping until it is or the user runs out of attempts
- * 
- * @param difficulty The difficulty level chosen by the user as a char
- * @return 0
- */
+
+/*!
+    @brief Plays the game
+    @param difficulty The difficulty level taken from input as a char
+*/
 void play(char difficulty){
     int lowerBound, upperBound, maxAttempts, attempts = 0, secretNumber, guess, attemptsLeft, check;
     
@@ -162,12 +155,12 @@ void play(char difficulty){
 
     } while (guess != secretNumber);//loops until the user guesses the correct number or runs out of attempts
 }
-/**
- * Checks if the input is valid for PlayAgain
- * 
- * @param playAgain The user's input as a char
- * @return true if the input is valid, false if it is not
- */
+
+/*!
+    @brief Checks if the input for play again is valid
+    @param playAgain The input for play again as a char
+    @return true if the input is valid, false if it is not
+*/
 bool validPlayAgain(char playAgain) {
     bool isValid = false;
     if (playAgain == 'y' || playAgain == 'n')
@@ -177,11 +170,10 @@ bool validPlayAgain(char playAgain) {
     return isValid;
 }
 
-/**
- * Asks the user if they want to play again
- * 
- * @return true if the user wants to play again, false if they do not
- */
+/*!
+    @brief Asks the user if they want to play again
+    @return true if the user wants to play again, false if they do not
+*/
 bool playAgain() {
     char playAgain;
     bool isValid;
@@ -207,10 +199,10 @@ bool playAgain() {
     }
 }
 
-/**
- * Starts the game by calling getDifficulty to get the difficulty level
- * and calling play to play the game
- */
+
+/*!
+    @brief Starts the game
+*/
 void secretNumberStart() {
     
     int secretNumber, guess, attempts = 0, maxAttempts;
