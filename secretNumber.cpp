@@ -201,11 +201,10 @@ bool playAgain() {
     if (playAgain == 'y') { //if the user wants to play again 
         return true;
     } 
-    else if (playAgain == 'n') //if the user wants to exit to the game menu
+    else //if the user wants to exit to the game menu
     {
         return false;
     }
-
 }
 
 /**
@@ -213,6 +212,7 @@ bool playAgain() {
  * and calling play to play the game
  */
 void secretNumberStart() {
+    
     int secretNumber, guess, attempts = 0, maxAttempts;
     int lowerBound, upperBound;
     char difficulty;
