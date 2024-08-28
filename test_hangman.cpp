@@ -1,6 +1,5 @@
 // hangman_tests.c
 
-#define UNIT_TESTING
 #include <stdio.h>
 #include <string.h>
 #include <assert.h>

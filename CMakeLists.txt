@@ -1,8 +1,6 @@
 ﻿cmake_minimum_required(VERSION 3.8)
-
 project("C++lPointsProject" LANGUAGES CXX)
 
-# Set C++ standard
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
@@ -13,21 +11,40 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fprofile-arcs -ftest-coverage")
 endif()
 
-# Add source files
-file(GLOB_RECURSE SOURCE_FILES 
-    "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp"
+# Main application source files
+set(MAIN_SOURCES
+    C++lPointsProject.cpp
+    hangman.cpp
+    newwordle.cpp
+    secretNumber.cpp
+    TicTacToe.cpp
+    home.cpp
 )
 
-# Add header files
-file(GLOB_RECURSE HEADER_FILES 
-    "${CMAKE_CURRENT_SOURCE_DIR}/*.h"
+# Test source files
+set(TEST_SOURCES
+    test_hangman.cpp
+    test_newwordle.cpp
 )
 
-# Add executable
-add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES})
+# Add main executable
+add_executable(${PROJECT_NAME} ${MAIN_SOURCES})
 
-# Include directories
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+# Add test executable
+add_executable(${PROJECT_NAME}_test ${TEST_SOURCES} hangman.cpp newwordle.cpp)
+
+# Common settings for both executables
+foreach(TARGET ${PROJECT_NAME} ${PROJECT_NAME}_test)
+    target_include_directories(${TARGET} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+    target_compile_definitions(${TARGET} PRIVATE
+        $<$<CONFIG:Debug>:_DEBUG>
+        $<$<CONFIG:Release>:NDEBUG>
+        UNIT_TESTING
+    )
+    set_target_properties(${TARGET} PROPERTIES
+        RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
+    )
+endforeach()
 
 # Copy dictionary file to build directory
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/dictionary.txt")
@@ -36,20 +53,8 @@ if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/dictionary.txt")
                    COPYONLY)
 endif()
 
-# Add compile definitions for different build types
-target_compile_definitions(${PROJECT_NAME} PRIVATE
-    $<$<CONFIG:Debug>:_DEBUG>
-    $<$<CONFIG:Release>:NDEBUG>
-    UNIT_TESTING
-)
-
-# Set output directory
-set_target_properties(${PROJECT_NAME} PROPERTIES
-    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
-)
-
 # Enable testing
 enable_testing()
 
-# Add a simple test
-add_test(NAME ${PROJECT_NAME}_test COMMAND ${PROJECT_NAME})
+# Add test
+add_test(NAME ${PROJECT_NAME}_test COMMAND ${PROJECT_NAME}_test)

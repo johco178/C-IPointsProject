@@ -10,3 +10,4 @@ void displayBoard();
 bool checkWin();
 bool checkDraw();
 void move(char player);
+void playTicTacToe();

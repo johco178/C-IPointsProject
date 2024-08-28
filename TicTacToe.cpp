@@ -83,7 +83,7 @@ void move(char player){
     }    
 }
 
-int main(){
+int playTicTacToe(){
     char currentPlayer = 'X';
     initBoard();
 
