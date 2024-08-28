@@ -4,6 +4,6 @@ VintageVault is a gamehub of 'back to basics' games such as Tic-Tac-Toe, Hangman
 The user can play this game from the windows command terminal.
 
 # Badges
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/johco178/C-lPointsProject/CI?label=build)
+![GitHub Workflow Status](https://github.com/johco178/C-lPointsProject/actions/workflows/workflow.yml/badge.svg)
 
-[![Coverage](https://img.shields.io/badge/Coverage-83%25-brightgreen.svg)](https://app.codecov.io/github/johco178/C-IPointsProject)
+[![codecov](https://codecov.io/github/johco178/C-IPointsProject/graph/badge.svg?token=6L90UPZ56N)](https://codecov.io/github/johco178/C-IPointsProject)
