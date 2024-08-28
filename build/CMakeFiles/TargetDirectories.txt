@@ -1,3 +1,0 @@
-C:/Users/cjohn/source/repos/C++lPointsProject/build/CMakeFiles/C++lPointsProject.dir
-C:/Users/cjohn/source/repos/C++lPointsProject/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/cjohn/source/repos/C++lPointsProject/build/CMakeFiles/ZERO_CHECK.dir
