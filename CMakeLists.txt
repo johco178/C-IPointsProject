@@ -40,6 +40,7 @@ endif()
 target_compile_definitions(${PROJECT_NAME} PRIVATE
     $<$<CONFIG:Debug>:_DEBUG>
     $<$<CONFIG:Release>:NDEBUG>
+    UNIT_TESTING
 )
 
 # Set output directory
