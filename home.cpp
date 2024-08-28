@@ -1,5 +1,8 @@
 // home.c
-
+/*!
+    @file home.cpp
+	@brief Main file for the Game Hub
+*/
 #include <stdio.h>
 #include "secretNumber.h"
 #include "hangman.h"
@@ -7,11 +10,17 @@
 #include "TicTacToe.h"
 // Include headers for other games as you add them
 
+/*!
+    @brief Function to initialize all games
+*/
 void initialize_games(void) {
     hangman_initialize();
     // Initialize other games as you add them
 }
 
+/*!
+	@brief Function to display the homescreen and allow the user to choose a game to play
+*/
 int homescreen(void) {
     int choice;
 
