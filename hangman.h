@@ -38,6 +38,8 @@ void hangman_play(void);
 */
 bool is_letter_in_word(char letter, const char* word);
 
+void hangmanTests();
+
 #ifdef UNIT_TESTING
 // Expose these functions for unit testing
 char* select_word(int desired_length);
