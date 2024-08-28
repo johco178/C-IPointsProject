@@ -27,7 +27,6 @@ set(TEST_SOURCES
     test_hangman.cpp
     test_newwordle.cpp
     test_tictactoe.cpp
-    secretNumTests.cpp
 )
 
 # Add main executable
@@ -40,8 +39,6 @@ add_executable(${PROJECT_NAME}_test
     newwordle.cpp 
     TicTacToe.cpp 
     secretNumber.cpp
-    home.cpp 
-    C++lPointsProject.cpp
 )
 
 # Common settings for both executables
