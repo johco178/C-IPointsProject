@@ -48,7 +48,7 @@ TEST(processGuess) {
 
 
 
-int main() {
+int runwordletests() {
     printf("Running Wordle unit tests...\n");
 
     RUN_TEST(conatainsonlychar);

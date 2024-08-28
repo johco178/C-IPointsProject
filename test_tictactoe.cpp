@@ -1,7 +1,7 @@
 #include "test_tictactoe.h"
 #include <iostream>
 
-int main(){
+int runttttests(){
     test_initBoard();
     test_checkWin();
     test_checkDraw();
