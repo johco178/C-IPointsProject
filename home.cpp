@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include "secretNumber.h"
 #include "hangman.h"
+#include "newwordle.h"
 // Include headers for other games as you add them
 
 void initialize_games(void) {
@@ -10,7 +11,7 @@ void initialize_games(void) {
     // Initialize other games as you add them
 }
 
-int main(void) {
+int homescreen(void) {
     int choice;
 
     initialize_games();
@@ -30,10 +31,9 @@ int main(void) {
             hangman_play();
             break;
         case 2:
-            printf("Game 2 is not implemented yet.\n");
+            playWordle();
             break;
         case 3:
-            printf("Game 3 is not implemented yet.\n");
             secretNumberStart();
             break;
         case 0:
@@ -47,4 +47,5 @@ int main(void) {
     return 0;
 }
 
-// gcc home.c hangman.c -o gamehub
+// to test:
+// gcc home.cpp hangman.cpp secretNumber.cpp -o gamehub

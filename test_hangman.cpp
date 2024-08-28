@@ -77,3 +77,6 @@ int main() {
     printf("All tests passed!\n");
     return 0;
 }
+// compile and run with:
+// gcc hangman.cpp test_hangman.cpp -o test_hangman.cpp -DUNIT_TESTING
+// ./test_hangman
