@@ -23,17 +23,14 @@ set(MAIN_SOURCES
 
 # Test source files
 set(TEST_SOURCES
-    test_hangman.cpp
-    test_newwordle.cpp
-    test_tictactoe.cpp 
-    runAllTests.cpp
+    runAllTest.cpp
 )
 
 # Add main executable
 add_executable(${PROJECT_NAME} ${MAIN_SOURCES})
 
 # Add test executable
-add_executable(${PROJECT_NAME}_test ${TEST_SOURCES} hangman.cpp newwordle.cpp TicTacToe.cpp runAllTests.cpp)
+add_executable(${PROJECT_NAME}_test ${TEST_SOURCES} hangman.cpp newwordle.cpp TicTacToe.cpp)
 
 # Common settings for both executables
 foreach(TARGET ${PROJECT_NAME} ${PROJECT_NAME}_test)
