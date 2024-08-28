@@ -66,7 +66,7 @@ TEST(is_letter_in_word) {
     assert(is_letter_in_word('X', "") == false);
 }
 
-int main() {
+void hangmanTests() {
     printf("Running Hangman unit tests...\n");
 
     RUN_TEST(select_word);
@@ -75,7 +75,6 @@ int main() {
     RUN_TEST(is_letter_in_word);
 
     printf("All tests passed!\n");
-    return 0;
 }
 // compile and run with:
 // gcc hangman.cpp test_hangman.cpp -o test_hangman.cpp -DUNIT_TESTING
