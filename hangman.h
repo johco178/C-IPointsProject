@@ -38,10 +38,20 @@ void hangman_play(void);
 */
 bool is_letter_in_word(char letter, const char* word);
 
+/*!
+	 @brief Hangman unit tests
+*/
 void hangmanTests();
+
 
 #ifdef UNIT_TESTING
 // Expose these functions for unit testing
+/*!
+	 @brief Selects a word from the dictionary based on the desired length
+	 @param desired_length The desired length of the word
+	 @return A pointer to the selected word
+
+*/
 char* select_word(int desired_length);
 int is_word_guessed(const int* guessed, int length);
 void to_uppercase(char* str);
