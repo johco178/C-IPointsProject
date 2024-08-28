@@ -1,4 +1,9 @@
 // hangman.c
+/*!
+    @file hangman.cpp
+	@brief Hangman game implementation
+    @author Nick Garner
+*/
 
 #include "hangman.h"
 
