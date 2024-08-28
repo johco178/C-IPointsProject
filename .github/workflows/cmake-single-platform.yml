@@ -1,6 +1,6 @@
 name: CMake and Codecov
 
-   on:
+on:
      push:
        branches: [ "master" ]
      pull_request:
