@@ -1,39 +1,78 @@
+/*!
+  @file secretNumber.h
+  @brief Header file for the Secret Number game
+  @author Rochelle Cole
+ */
 #ifndef SECRETNUMBER_H
 #define SECRETNUMBER_H
 #include <stdbool.h>
 
 
- //Generates a random secret number between the lower and upper bounds
+ /*!
+    @brief Generates a random secret number between the lower and upper bounds
+ */
 int getSecretNumber(int lowerBound, int upperBound);
 
-// Runs all the tests for the secret number game
+/*!
+    @brief Runs all the tests for the secret number game
+*/
 int secNumTests();
 
-// Checks if the input for the difficulty level is valid
+/*!
+    @brief Checks if the input for the difficulty level is valid
+    @param difficulty The difficulty level taken from the input as a char
+    @return true if the input is valid, false if it is not
+*/
 bool validDifficulty(char difficulty);
 
-//Gets the difficulty level from the user input
+/*!
+    @brief Gets the difficulty level from the user input
+    @return The difficulty level chosen by the user as a char
+*/
 char getDifficulty();
 
-// Checks if the input for a guess is valid
+/*!
+    @brief Checks if the input for a guess is valid
+    @param guess The guess as an integer
+    @param lowerBound The lower bound of the range for the secret number
+    @param upperBound The upper bound of the range for the secret number
+    @param check The number of guesses made
+    @return true if the input is valid, false if it is not
+*/
 bool validGuess(int guess, int lowerBound, int upperBound, int check);
 
-// Takes the user's input as a guess and checks if it is valid
+
+/*!
+    @brief Gets the guess from input and checks if it is valid
+    @param lowerBound The lower bound of the range for the secret number
+    @param upperBound The upper bound of the range for the secret number
+    @return The guess as an integer
+*/
 int getGuess(int lowerBound, int upperBound);
 
-// Plays the game 
+/*!
+    @brief Plays the game
+    @param difficulty The difficulty level taken from input as a char
+*/
 void play(char difficulty);
 
-//Checks if the input is valid for playAgain
+/*!
+    @brief Checks if the input for play again is valid
+    @param playAgain The input for play again as a char
+    @return true if the input is valid, false if it is not
+*/
 bool validPlayAgain(char playAgain);
 
-// Asks the user if they want to play again
+
+/*!
+    @brief Asks the user if they want to play again
+    @return true if the user wants to play again, false if they do not
+*/
 bool playAgain();
 
-/**
- * Starts the game by calling getDifficulty to get the difficulty level
- * and calling play to play the game
- */
+/*!
+    @brief Starts the game
+*/
 void secretNumberStart();
 
 #endif // SECRETNUMBER_H
