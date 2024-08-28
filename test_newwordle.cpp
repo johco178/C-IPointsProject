@@ -48,8 +48,8 @@ TEST(processGuess) {
 
 
 
-int main() {
-    printf("Running Hangman unit tests...\n");
+int runtest() {
+    printf("Running Wordle unit tests...\n");
 
     RUN_TEST(conatainsonlychar);
     RUN_TEST(toLowerCase);
