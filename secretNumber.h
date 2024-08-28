@@ -2,29 +2,35 @@
 #define SECRETNUMBER_H
 #include <stdbool.h>
 
-/*!
-    @file
-    @brief This file contains the function declarations for the Secret Number game.
-    
-*/
 
-//Gets a random number between lowerBound and upperBound (based off difficulty)
+ //Generates a random secret number between the lower and upper bounds
 int getSecretNumber(int lowerBound, int upperBound);
+
+// Checks if the input for the difficulty level is valid
+bool validDifficulty(char difficulty);
 
 //Gets the difficulty level from the user input
 char getDifficulty();
 
-//Takes the user's input as a guess and checks if it is valid
+// Checks if the input for a guess is valid
+bool validGuess(int guess, int lowerBound, int upperBound, int check);
+
+// Takes the user's input as a guess and checks if it is valid
 int getGuess(int lowerBound, int upperBound);
 
-//PLays the game by calling for the guess and checkin gif it is correct
-int play(char difficulty);
+// Plays the game 
+void play(char difficulty);
 
-//Asks the user if they want to play again
+//Checks if the input is valid for playAgain
+bool validPlayAgain(char playAgain);
+
+// Asks the user if they want to play again
 bool playAgain();
 
-//Starts the game
+/**
+ * Starts the game by calling getDifficulty to get the difficulty level
+ * and calling play to play the game
+ */
 void secretNumberStart();
-
 
 #endif // SECRETNUMBER_H
