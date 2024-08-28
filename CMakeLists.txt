@@ -1,71 +1,54 @@
 ﻿cmake_minimum_required(VERSION 3.8)
 
 project("C++lPointsProject" LANGUAGES CXX)
-# Code coverage flag
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
-
-# Enable Hot Reload for MSVC compilers if supported.
-if (POLICY CMP0141)
-  cmake_policy(SET CMP0141 NEW)
-  set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>")
-endif()
 
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+# Code coverage flags (only for GCC/Clang)
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fprofile-arcs -ftest-coverage")
+endif()
+
 # Add source files
-set(SOURCE_FILES
-    "C++lPointsProject.cpp"
-    "hangman.cpp"
-    "newwordle.cpp"
-    "home.cpp"
-    "secretNumber.cpp"
+file(GLOB_RECURSE SOURCE_FILES 
+    "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp"
 )
 
 # Add header files
-set(HEADER_FILES
-    "C++lPointsProject.h"
-    "hangman.h"
-    "newwordle.h"
-    "home.h"
-    "secretNumber.h"
+file(GLOB_RECURSE HEADER_FILES 
+    "${CMAKE_CURRENT_SOURCE_DIR}/*.h"
 )
 
 # Add executable
-add_executable(C++lPointsProject ${SOURCE_FILES} ${HEADER_FILES})
+add_executable(${PROJECT_NAME} ${SOURCE_FILES} ${HEADER_FILES})
 
 # Include directories
-target_include_directories(C++lPointsProject PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
 # Copy dictionary file to build directory
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/dictionary.txt
-               ${CMAKE_CURRENT_BINARY_DIR}/dictionary.txt
-               COPYONLY)
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/dictionary.txt")
+    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/dictionary.txt
+                   ${CMAKE_CURRENT_BINARY_DIR}/dictionary.txt
+                   COPYONLY)
+endif()
 
 # Add compile definitions for different build types
-target_compile_definitions(C++lPointsProject PRIVATE
+target_compile_definitions(${PROJECT_NAME} PRIVATE
     $<$<CONFIG:Debug>:_DEBUG>
     $<$<CONFIG:Release>:NDEBUG>
 )
 
 # Set output directory
-set_target_properties(C++lPointsProject PROPERTIES
+set_target_properties(${PROJECT_NAME} PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
-)
-
-# Install target
-install(TARGETS C++lPointsProject
-    RUNTIME DESTINATION bin
-)
-
-# Install dictionary file
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/dictionary.txt
-    DESTINATION bin
 )
 
 # Enable testing
 enable_testing()
 
-# TODO: Add tests and install targets if needed.
+# Add a simple test
+add_test(NAME ${PROJECT_NAME}_test COMMAND ${PROJECT_NAME})
