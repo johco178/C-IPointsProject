@@ -62,6 +62,12 @@ install(TARGETS C++lPointsProject
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/dictionary.txt
     DESTINATION bin
 )
+# Install words of length 5
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/wordlength5.txt
+    DESTINATION bin
+)
+
+
 
 # Enable testing
 enable_testing()
