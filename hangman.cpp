@@ -116,11 +116,10 @@ STATIC void to_uppercase(char* str) {
     }
 }
 
-/**
-* Loads the dictionary from a file
-* 
-* @param filename The name of the file to load
-* @return 1 if the dictionary was loaded successfully, 0 otherwise
+/*!
+    @brief Loads the dictionary from a file
+    @param filename The name of the file to load
+    @return 1 if the dictionary was loaded successfully, 0 otherwise
 */
 STATIC int load_dictionary(const char* filename) {
     FILE* file = fopen(filename, "r");
@@ -136,8 +135,9 @@ STATIC int load_dictionary(const char* filename) {
     return 1;
 }
 
-/**
-* Initializes the hangman game
+/*!
+	@brief Initializes the hangman game
+
 */
 void hangman_initialize(void) {
     srand((unsigned int)time(NULL));
@@ -146,9 +146,10 @@ void hangman_initialize(void) {
     }
 }
 
-/**
-* Plays hangman until the user decides to quit
+/*!
+    @brief Plays the hangman game
 */
+
 void hangman_play(void) {
     int play_again = 1;
 
