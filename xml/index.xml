@@ -1,0 +1,269 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.12.0" xml:lang="en-US">
+  <compound refid="namespacestd" kind="namespace"><name>std</name>
+  </compound>
+  <compound refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c" kind="file"><name>CMakeCCompilerId.c</name>
+    <member refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c_1ae5510d82e4946f1656f4969911c54736" kind="define"><name>__has_include</name></member>
+    <member refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c_1a81dee0709ded976b2e0319239f72d174" kind="define"><name>COMPILER_ID</name></member>
+    <member refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c_1a2ae9b72bb13abaabfcf2ee0ba7d3fa1d" kind="define"><name>STRINGIFY_HELPER</name></member>
+    <member refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c_1a43e1cad902b6477bec893cb6430bd6c8" kind="define"><name>STRINGIFY</name></member>
+    <member refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c_1adbc5372f40838899018fadbc89bd588b" kind="define"><name>PLATFORM_ID</name></member>
+    <member refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c_1aba35d0d200deaeb06aee95ca297acb28" kind="define"><name>ARCHITECTURE_ID</name></member>
+    <member refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c_1ad1280362da42492bbc11aa78cbf776ad" kind="define"><name>DEC</name></member>
+    <member refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c_1a46d5d95daa1bef867bd0179594310ed5" kind="define"><name>HEX</name></member>
+    <member refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c_1adaee3ee7c5a7a22451ea25e762e1d7d5" kind="define"><name>C_VERSION</name></member>
+    <member refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c_1a4b0efeb7a5d59313986b3a0390f050f6" kind="variable"><name>info_compiler</name></member>
+    <member refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c_1a2321403dee54ee23f0c2fa849c60f7d4" kind="variable"><name>info_platform</name></member>
+    <member refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c_1a59647e99d304ed33b15cb284c27ed391" kind="variable"><name>info_arch</name></member>
+    <member refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c_1a4607cccf070750927b458473ca82c090" kind="variable"><name>info_language_standard_default</name></member>
+    <member refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c_1a0f46a8a39e09d9b803c4766904fd7e99" kind="variable"><name>info_language_extensions_default</name></member>
+    <member refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c_1a0ddf1224851353fc92bfbff6f499fa97" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c" kind="file"><name>CMakeCCompilerId.c</name>
+    <member refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c_1ae5510d82e4946f1656f4969911c54736" kind="define"><name>__has_include</name></member>
+    <member refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c_1a81dee0709ded976b2e0319239f72d174" kind="define"><name>COMPILER_ID</name></member>
+    <member refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c_1a2ae9b72bb13abaabfcf2ee0ba7d3fa1d" kind="define"><name>STRINGIFY_HELPER</name></member>
+    <member refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c_1a43e1cad902b6477bec893cb6430bd6c8" kind="define"><name>STRINGIFY</name></member>
+    <member refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c_1adbc5372f40838899018fadbc89bd588b" kind="define"><name>PLATFORM_ID</name></member>
+    <member refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c_1aba35d0d200deaeb06aee95ca297acb28" kind="define"><name>ARCHITECTURE_ID</name></member>
+    <member refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c_1ad1280362da42492bbc11aa78cbf776ad" kind="define"><name>DEC</name></member>
+    <member refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c_1a46d5d95daa1bef867bd0179594310ed5" kind="define"><name>HEX</name></member>
+    <member refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c_1adaee3ee7c5a7a22451ea25e762e1d7d5" kind="define"><name>C_VERSION</name></member>
+    <member refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c_1a4b0efeb7a5d59313986b3a0390f050f6" kind="variable"><name>info_compiler</name></member>
+    <member refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c_1a2321403dee54ee23f0c2fa849c60f7d4" kind="variable"><name>info_platform</name></member>
+    <member refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c_1a59647e99d304ed33b15cb284c27ed391" kind="variable"><name>info_arch</name></member>
+    <member refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c_1a4607cccf070750927b458473ca82c090" kind="variable"><name>info_language_standard_default</name></member>
+    <member refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c_1a0f46a8a39e09d9b803c4766904fd7e99" kind="variable"><name>info_language_extensions_default</name></member>
+    <member refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_2_c_make_c_compiler_id_8c_1a0ddf1224851353fc92bfbff6f499fa97" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp" kind="file"><name>CMakeCXXCompilerId.cpp</name>
+    <member refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp_1ae5510d82e4946f1656f4969911c54736" kind="define"><name>__has_include</name></member>
+    <member refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp_1a81dee0709ded976b2e0319239f72d174" kind="define"><name>COMPILER_ID</name></member>
+    <member refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp_1a2ae9b72bb13abaabfcf2ee0ba7d3fa1d" kind="define"><name>STRINGIFY_HELPER</name></member>
+    <member refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp_1a43e1cad902b6477bec893cb6430bd6c8" kind="define"><name>STRINGIFY</name></member>
+    <member refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp_1adbc5372f40838899018fadbc89bd588b" kind="define"><name>PLATFORM_ID</name></member>
+    <member refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp_1aba35d0d200deaeb06aee95ca297acb28" kind="define"><name>ARCHITECTURE_ID</name></member>
+    <member refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp_1ad1280362da42492bbc11aa78cbf776ad" kind="define"><name>DEC</name></member>
+    <member refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp_1a46d5d95daa1bef867bd0179594310ed5" kind="define"><name>HEX</name></member>
+    <member refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp_1a34cc889e576a1ae6c84ae9e0a851ba21" kind="define"><name>CXX_STD</name></member>
+    <member refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp_1a4b0efeb7a5d59313986b3a0390f050f6" kind="variable"><name>info_compiler</name></member>
+    <member refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp_1a2321403dee54ee23f0c2fa849c60f7d4" kind="variable"><name>info_platform</name></member>
+    <member refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp_1a59647e99d304ed33b15cb284c27ed391" kind="variable"><name>info_arch</name></member>
+    <member refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp_1a4607cccf070750927b458473ca82c090" kind="variable"><name>info_language_standard_default</name></member>
+    <member refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp_1a0f46a8a39e09d9b803c4766904fd7e99" kind="variable"><name>info_language_extensions_default</name></member>
+    <member refid="build_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp" kind="file"><name>CMakeCXXCompilerId.cpp</name>
+    <member refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp_1ae5510d82e4946f1656f4969911c54736" kind="define"><name>__has_include</name></member>
+    <member refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp_1a81dee0709ded976b2e0319239f72d174" kind="define"><name>COMPILER_ID</name></member>
+    <member refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp_1a2ae9b72bb13abaabfcf2ee0ba7d3fa1d" kind="define"><name>STRINGIFY_HELPER</name></member>
+    <member refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp_1a43e1cad902b6477bec893cb6430bd6c8" kind="define"><name>STRINGIFY</name></member>
+    <member refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp_1adbc5372f40838899018fadbc89bd588b" kind="define"><name>PLATFORM_ID</name></member>
+    <member refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp_1aba35d0d200deaeb06aee95ca297acb28" kind="define"><name>ARCHITECTURE_ID</name></member>
+    <member refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp_1ad1280362da42492bbc11aa78cbf776ad" kind="define"><name>DEC</name></member>
+    <member refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp_1a46d5d95daa1bef867bd0179594310ed5" kind="define"><name>HEX</name></member>
+    <member refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp_1a34cc889e576a1ae6c84ae9e0a851ba21" kind="define"><name>CXX_STD</name></member>
+    <member refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp_1a4b0efeb7a5d59313986b3a0390f050f6" kind="variable"><name>info_compiler</name></member>
+    <member refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp_1a2321403dee54ee23f0c2fa849c60f7d4" kind="variable"><name>info_platform</name></member>
+    <member refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp_1a59647e99d304ed33b15cb284c27ed391" kind="variable"><name>info_arch</name></member>
+    <member refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp_1a4607cccf070750927b458473ca82c090" kind="variable"><name>info_language_standard_default</name></member>
+    <member refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp_1a0f46a8a39e09d9b803c4766904fd7e99" kind="variable"><name>info_language_extensions_default</name></member>
+    <member refid="out_2build_2x64-debug_2_c_make_files_23_828_83-msvc11_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="_c_09_09l_points_project_8cpp" kind="file"><name>C++lPointsProject.cpp</name>
+    <member refid="_c_09_09l_points_project_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="_c_09_09l_points_project_8h" kind="file"><name>C++lPointsProject.h</name>
+  </compound>
+  <compound refid="codecov_8cpp" kind="file"><name>codecov.cpp</name>
+  </compound>
+  <compound refid="codecoveragetester_8cpp" kind="file"><name>codecoveragetester.cpp</name>
+  </compound>
+  <compound refid="codecoveragetester_8h" kind="file"><name>codecoveragetester.h</name>
+    <member refid="codecoveragetester_8h_1af08f40f155134deab87770a792d5fddd" kind="function"><name>is_power_of_two</name></member>
+    <member refid="codecoveragetester_8h_1a403ec12733eeadf3facc11c364bfcbdb" kind="function"><name>multiply_by_two</name></member>
+    <member refid="codecoveragetester_8h_1aa72ff6417ef28b4c3bf2840c013c82f3" kind="function"><name>divide_by_two</name></member>
+  </compound>
+  <compound refid="_cpp_unit_test_8h" kind="file"><name>CppUnitTest.h</name>
+  </compound>
+  <compound refid="hangman_8cpp" kind="file"><name>hangman.cpp</name>
+    <member refid="hangman_8cpp_1a10b2d890d871e1489bb02b7e70d9bdfb" kind="define"><name>STATIC</name></member>
+    <member refid="hangman_8cpp_1a8a75f0c2cf1fdb4b7b8a5a770a4a9439" kind="variable"><name>dictionary</name></member>
+    <member refid="hangman_8cpp_1addc1a8bfd11b88c80efa2f03acd833bf" kind="variable"><name>dictionary_size</name></member>
+    <member refid="hangman_8cpp_1a6daa5553ddea5c42d3ea8e5584ea47a6" kind="function"><name>is_letter_in_word</name></member>
+    <member refid="hangman_8cpp_1ae52e89160c5277c2fd63dfea4b6cae9e" kind="function"><name>select_word</name></member>
+    <member refid="hangman_8cpp_1a87987132c4bb3dd238a8c942c4655e29" kind="function"><name>print_hangman</name></member>
+    <member refid="hangman_8cpp_1aab6fcc985bf0321bec7f42a589351c9d" kind="function"><name>print_word</name></member>
+    <member refid="hangman_8cpp_1a143f64eb9dbefc5b9d3a903e2d89ad5c" kind="function"><name>is_word_guessed</name></member>
+    <member refid="hangman_8cpp_1adbe95930f7a91820db6cccf58804680f" kind="function"><name>to_uppercase</name></member>
+    <member refid="hangman_8cpp_1a4c89622c29199a348cfa169b60745b19" kind="function"><name>load_dictionary</name></member>
+    <member refid="hangman_8cpp_1ae8ab569cd9e945e540d226f22d3569b4" kind="function"><name>hangman_initialize</name></member>
+    <member refid="hangman_8cpp_1ac7d1ab4cf69465dd29ddf5af3493258d" kind="function"><name>hangman_play</name></member>
+  </compound>
+  <compound refid="hangman_8h" kind="file"><name>hangman.h</name>
+    <member refid="hangman_8h_1aec7b4994021c554c1761ea31d016b680" kind="define"><name>MAX_WORD_LENGTH</name></member>
+    <member refid="hangman_8h_1afd63d23830ad86d01b6fff2e6c615f7e" kind="define"><name>MAX_TRIES</name></member>
+    <member refid="hangman_8h_1a340d05b398ace33ff28748c2662192ef" kind="define"><name>MAX_DICTIONARY_SIZE</name></member>
+    <member refid="hangman_8h_1ae8ab569cd9e945e540d226f22d3569b4" kind="function"><name>hangman_initialize</name></member>
+    <member refid="hangman_8h_1ac7d1ab4cf69465dd29ddf5af3493258d" kind="function"><name>hangman_play</name></member>
+    <member refid="hangman_8h_1a6daa5553ddea5c42d3ea8e5584ea47a6" kind="function"><name>is_letter_in_word</name></member>
+    <member refid="hangman_8h_1a9cbb07e88424d14d477be97703018be1" kind="function"><name>hangmanTests</name></member>
+  </compound>
+  <compound refid="home_8cpp" kind="file"><name>home.cpp</name>
+    <member refid="home_8cpp_1a0429281fd294767583d75eaaba17b1e8" kind="function"><name>initialize_games</name></member>
+    <member refid="home_8cpp_1a5ae2cae28f6583ba58601114803e64ce" kind="function"><name>homescreen</name></member>
+  </compound>
+  <compound refid="home_8h" kind="file"><name>home.h</name>
+    <member refid="home_8h_1a5ae2cae28f6583ba58601114803e64ce" kind="function"><name>homescreen</name></member>
+    <member refid="home_8h_1a0429281fd294767583d75eaaba17b1e8" kind="function"><name>initialize_games</name></member>
+  </compound>
+  <compound refid="mockunittest_8cpp" kind="file"><name>mockunittest.cpp</name>
+  </compound>
+  <compound refid="newwordle_8cpp" kind="file"><name>newwordle.cpp</name>
+    <member refid="newwordle_8cpp_1a10b2d890d871e1489bb02b7e70d9bdfb" kind="define"><name>STATIC</name></member>
+    <member refid="newwordle_8cpp_1aad96dfa62525d6a66b0cc02f56464c1c" kind="define"><name>MAX_NUM_OF_WORDS</name></member>
+    <member refid="newwordle_8cpp_1a34995b955465f6bbb37c359173d50477" kind="define"><name>ANSI_COLOR_RED</name></member>
+    <member refid="newwordle_8cpp_1a966c72d8d733c7734c6c784753d894c7" kind="define"><name>ANSI_COLOR_GREEN</name></member>
+    <member refid="newwordle_8cpp_1a5a123b382640b3aa65dd5db386002fbc" kind="define"><name>ANSI_COLOR_YELLOW</name></member>
+    <member refid="newwordle_8cpp_1a92a364c2b863dde1a024a77eac2a5b3b" kind="define"><name>ANSI_COLOR_RESET</name></member>
+    <member refid="newwordle_8cpp_1af65f926d342c20fad2bc8762fbd477d9" kind="variable"><name>word_length</name></member>
+    <member refid="newwordle_8cpp_1af0ed0f93c787ed9fd6d6a2823b6f8e02" kind="function"><name>toLowerCase</name></member>
+    <member refid="newwordle_8cpp_1a3f2a499774dc2aa652b360f036e6c41d" kind="function"><name>conatainsonlychar</name></member>
+    <member refid="newwordle_8cpp_1ad2119d7e350d8948375a7728ee18dc81" kind="function"><name>correctlength</name></member>
+    <member refid="newwordle_8cpp_1a4097474e97c87c747925cc56a43b0a64" kind="function"><name>validWord</name></member>
+    <member refid="newwordle_8cpp_1aa50d974f82ec55d3db340645d7a6a890" kind="function"><name>processGuess</name></member>
+    <member refid="newwordle_8cpp_1a8501e4caac0fcf6ae7efd49c5547fc9c" kind="function"><name>getWord</name></member>
+    <member refid="newwordle_8cpp_1ad2bee05444b1c1bcf1de4b58cb9d4935" kind="function"><name>playWordle</name></member>
+  </compound>
+  <compound refid="newwordle_8h" kind="file"><name>newwordle.h</name>
+    <member refid="newwordle_8h_1ad2bee05444b1c1bcf1de4b58cb9d4935" kind="function"><name>playWordle</name></member>
+    <member refid="newwordle_8h_1a990feaee65b8d4219f2333b420d53338" kind="function"><name>validworda</name></member>
+    <member refid="newwordle_8h_1a11d73c9e69f098e07992a5c8706fe43a" kind="function"><name>processGuess</name></member>
+    <member refid="newwordle_8h_1a7fb7c94106642590cd14cd7da2ea6632" kind="function"><name>toLowerCase</name></member>
+    <member refid="newwordle_8h_1a6a32fecd6389ec9f54493a87a0615254" kind="function"><name>conatainsonlychar</name></member>
+    <member refid="newwordle_8h_1acdc2dc70dc2749c15f24a7f5ef6895d4" kind="function"><name>correctlength</name></member>
+    <member refid="newwordle_8h_1a8501e4caac0fcf6ae7efd49c5547fc9c" kind="function"><name>getWord</name></member>
+    <member refid="newwordle_8h_1a91515e0294fb9e3595be97314d5374b9" kind="function"><name>runwordletests</name></member>
+  </compound>
+  <compound refid="foo_8h" kind="file"><name>foo.h</name>
+  </compound>
+  <compound refid="main_8c" kind="file"><name>main.c</name>
+    <member refid="main_8c_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="_r_e_a_d_m_e_8md" kind="file"><name>README.md</name>
+  </compound>
+  <compound refid="run_all_test_8cpp" kind="file"><name>runAllTest.cpp</name>
+    <member refid="run_all_test_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="secret_number_8cpp" kind="file"><name>secretNumber.cpp</name>
+    <member refid="secret_number_8cpp_1a318f35b6d5a6e2387867b2aa93880df0" kind="function"><name>getSecretNumber</name></member>
+    <member refid="secret_number_8cpp_1a67a37d86a6c62e5ba07e1894e8e18992" kind="function"><name>validDifficulty</name></member>
+    <member refid="secret_number_8cpp_1a71d953cc6e73849e18db29f5920cdd6e" kind="function"><name>getDifficulty</name></member>
+    <member refid="secret_number_8cpp_1a9e8ea5ba41b17c6fc9e13fff1d8f7c06" kind="function"><name>validGuess</name></member>
+    <member refid="secret_number_8cpp_1a44a8d652c63ebe56e1ad6beb78497454" kind="function"><name>getGuess</name></member>
+    <member refid="secret_number_8cpp_1a1d6cc0c97789911f0f099a00666d81af" kind="function"><name>play</name></member>
+    <member refid="secret_number_8cpp_1aee6a718b9581fa87530597d0b8516c26" kind="function"><name>validPlayAgain</name></member>
+    <member refid="secret_number_8cpp_1a638ae18485bb62592aca2c829886edd0" kind="function"><name>playAgain</name></member>
+    <member refid="secret_number_8cpp_1ae0ac8011b44af9f81bfd24ffbd881ca3" kind="function"><name>secretNumberStart</name></member>
+  </compound>
+  <compound refid="secret_number_8h" kind="file"><name>secretNumber.h</name>
+    <member refid="secret_number_8h_1a318f35b6d5a6e2387867b2aa93880df0" kind="function"><name>getSecretNumber</name></member>
+    <member refid="secret_number_8h_1ad15893733011fea006d6e6f7af501fb0" kind="function"><name>secNumTests</name></member>
+    <member refid="secret_number_8h_1a67a37d86a6c62e5ba07e1894e8e18992" kind="function"><name>validDifficulty</name></member>
+    <member refid="secret_number_8h_1a71d953cc6e73849e18db29f5920cdd6e" kind="function"><name>getDifficulty</name></member>
+    <member refid="secret_number_8h_1a9e8ea5ba41b17c6fc9e13fff1d8f7c06" kind="function"><name>validGuess</name></member>
+    <member refid="secret_number_8h_1a44a8d652c63ebe56e1ad6beb78497454" kind="function"><name>getGuess</name></member>
+    <member refid="secret_number_8h_1a1d6cc0c97789911f0f099a00666d81af" kind="function"><name>play</name></member>
+    <member refid="secret_number_8h_1aee6a718b9581fa87530597d0b8516c26" kind="function"><name>validPlayAgain</name></member>
+    <member refid="secret_number_8h_1a638ae18485bb62592aca2c829886edd0" kind="function"><name>playAgain</name></member>
+    <member refid="secret_number_8h_1ae0ac8011b44af9f81bfd24ffbd881ca3" kind="function"><name>secretNumberStart</name></member>
+  </compound>
+  <compound refid="secret_num_tests_8cpp" kind="file"><name>secretNumTests.cpp</name>
+    <member refid="secret_num_tests_8cpp_1a5dcb537699bebb9e9db36ab19c5aacf7" kind="function"><name>runTests</name></member>
+    <member refid="secret_num_tests_8cpp_1a758ebb1ad986e76613b45f011c902eca" kind="function"><name>test_getSecretNumber</name></member>
+    <member refid="secret_num_tests_8cpp_1a035946bf605c82e4f895d7a5563d727a" kind="function"><name>test_validDifficulty</name></member>
+    <member refid="secret_num_tests_8cpp_1a5f90fd8f6675700adbb1401b01ddb1d1" kind="function"><name>test_validGuess</name></member>
+    <member refid="secret_num_tests_8cpp_1a0d658f6b3a5fd3a3512e872ebd29f44a" kind="function"><name>test_validPlayAgain</name></member>
+    <member refid="secret_num_tests_8cpp_1ad410ee6538cd090b9669a4727caf927d" kind="function"><name>printTestResult</name></member>
+    <member refid="secret_num_tests_8cpp_1ad15893733011fea006d6e6f7af501fb0" kind="function"><name>secNumTests</name></member>
+  </compound>
+  <compound refid="test__hangman_8cpp" kind="file"><name>test_hangman.cpp</name>
+    <member refid="test__hangman_8cpp_1a45feb1f37ce559e49baf8655d769ef85" kind="define"><name>TEST</name></member>
+    <member refid="test__hangman_8cpp_1a6d22b2e20a26b0d72b5c15912b4e211e" kind="define"><name>RUN_TEST</name></member>
+    <member refid="test__hangman_8cpp_1a7333194a1eefc2cc3947ecd771945842" kind="variable"><name>mock_dictionary</name></member>
+    <member refid="test__hangman_8cpp_1a6de157bc7c70d4e481180fd9b70021b8" kind="variable"><name>mock_dictionary_size</name></member>
+    <member refid="test__hangman_8cpp_1a425591b8c366279dbfd11e4a51994a25" kind="function"><name>TEST</name></member>
+    <member refid="test__hangman_8cpp_1a553b10846c4aa18ed628b8c28d484248" kind="function"><name>TEST</name></member>
+    <member refid="test__hangman_8cpp_1a7290df0ea2300eda7f13c0e502555a62" kind="function"><name>TEST</name></member>
+    <member refid="test__hangman_8cpp_1afa9b8cff39b70f7691c962164420fe5c" kind="function"><name>TEST</name></member>
+    <member refid="test__hangman_8cpp_1a9cbb07e88424d14d477be97703018be1" kind="function"><name>hangmanTests</name></member>
+  </compound>
+  <compound refid="test__newwordle_8cpp" kind="file"><name>test_newwordle.cpp</name>
+    <member refid="test__newwordle_8cpp_1a45feb1f37ce559e49baf8655d769ef85" kind="define"><name>TEST</name></member>
+    <member refid="test__newwordle_8cpp_1a6d22b2e20a26b0d72b5c15912b4e211e" kind="define"><name>RUN_TEST</name></member>
+    <member refid="test__newwordle_8cpp_1a7f007a28b63ea09ef2a807e42a55bc80" kind="function"><name>TEST</name></member>
+    <member refid="test__newwordle_8cpp_1a30cb0654ff03a3bd722b9c475f1fcf38" kind="function"><name>TEST</name></member>
+    <member refid="test__newwordle_8cpp_1a9b24d1af30692492726e1e2ca3ee7cbe" kind="function"><name>TEST</name></member>
+    <member refid="test__newwordle_8cpp_1a91515e0294fb9e3595be97314d5374b9" kind="function"><name>runwordletests</name></member>
+  </compound>
+  <compound refid="test__tictactoe_8cpp" kind="file"><name>test_tictactoe.cpp</name>
+    <member refid="test__tictactoe_8cpp_1a6a4c22b93c04410116cc2c84c8272420" kind="function"><name>runttttests</name></member>
+    <member refid="test__tictactoe_8cpp_1a2b0f983041c0750d0790e47c94a466d7" kind="function"><name>test_initBoard</name></member>
+    <member refid="test__tictactoe_8cpp_1a971d1b05c99520897b0c29fcd65c4f82" kind="function"><name>test_checkWin</name></member>
+    <member refid="test__tictactoe_8cpp_1acee67b6d075d539c681edca3007fd5bf" kind="function"><name>test_checkDraw</name></member>
+  </compound>
+  <compound refid="test__tictactoe_8h" kind="file"><name>test_tictactoe.h</name>
+    <member refid="test__tictactoe_8h_1a6a4c22b93c04410116cc2c84c8272420" kind="function"><name>runttttests</name></member>
+    <member refid="test__tictactoe_8h_1a2b0f983041c0750d0790e47c94a466d7" kind="function"><name>test_initBoard</name></member>
+    <member refid="test__tictactoe_8h_1a971d1b05c99520897b0c29fcd65c4f82" kind="function"><name>test_checkWin</name></member>
+    <member refid="test__tictactoe_8h_1acee67b6d075d539c681edca3007fd5bf" kind="function"><name>test_checkDraw</name></member>
+  </compound>
+  <compound refid="_tic_tac_toe_8cpp" kind="file"><name>TicTacToe.cpp</name>
+    <member refid="_tic_tac_toe_8cpp_1a0d04cf58547d78d0b0d09f95cd7c065e" kind="variable"><name>board</name></member>
+    <member refid="_tic_tac_toe_8cpp_1acf15165e08940e0b050e6c739de8d349" kind="function"><name>initBoard</name></member>
+    <member refid="_tic_tac_toe_8cpp_1a8e1ba472e6221f085694f519391d7dd4" kind="function"><name>displayBoard</name></member>
+    <member refid="_tic_tac_toe_8cpp_1a8c81bf7e58c04842ed259e2c6797adb8" kind="function"><name>checkWin</name></member>
+    <member refid="_tic_tac_toe_8cpp_1a8847742cc98912ccb654ee60407cca50" kind="function"><name>checkDraw</name></member>
+    <member refid="_tic_tac_toe_8cpp_1a483819ce4a3be91cbc8209ee35de572d" kind="function"><name>move</name></member>
+    <member refid="_tic_tac_toe_8cpp_1aaef9cb7ffb3d32969b7db9a6374ca82c" kind="function"><name>playTicTacToe</name></member>
+  </compound>
+  <compound refid="_tic_tac_toe_8h" kind="file"><name>TicTacToe.h</name>
+    <member refid="_tic_tac_toe_8h_1a821282c3fbd7714d8302538a5a674885" kind="variable"><name>ROWS</name></member>
+    <member refid="_tic_tac_toe_8h_1abfdc2552f8ab882b4380b2a56cdff54f" kind="variable"><name>COLS</name></member>
+    <member refid="_tic_tac_toe_8h_1a0d04cf58547d78d0b0d09f95cd7c065e" kind="variable"><name>board</name></member>
+    <member refid="_tic_tac_toe_8h_1acf15165e08940e0b050e6c739de8d349" kind="function"><name>initBoard</name></member>
+    <member refid="_tic_tac_toe_8h_1a8e1ba472e6221f085694f519391d7dd4" kind="function"><name>displayBoard</name></member>
+    <member refid="_tic_tac_toe_8h_1a8c81bf7e58c04842ed259e2c6797adb8" kind="function"><name>checkWin</name></member>
+    <member refid="_tic_tac_toe_8h_1a8847742cc98912ccb654ee60407cca50" kind="function"><name>checkDraw</name></member>
+    <member refid="_tic_tac_toe_8h_1a483819ce4a3be91cbc8209ee35de572d" kind="function"><name>move</name></member>
+    <member refid="_tic_tac_toe_8h_1aaef9cb7ffb3d32969b7db9a6374ca82c" kind="function"><name>playTicTacToe</name></member>
+  </compound>
+  <compound refid="md__r_e_a_d_m_e" kind="page"><name>md__r_e_a_d_m_e</name>
+  </compound>
+  <compound refid="dir_9bb78d5c265583a64d45e286c3476d58" kind="dir"><name>build/CMakeFiles/3.28.3-msvc11</name>
+  </compound>
+  <compound refid="dir_002f5084d29a34a9cdac6433877dab78" kind="dir"><name>out/build/x64-debug/CMakeFiles/3.28.3-msvc11</name>
+  </compound>
+  <compound refid="dir_4fef79e7177ba769987a8da36c892c5f" kind="dir"><name>build</name>
+  </compound>
+  <compound refid="dir_26e161bd706b689737ea0ef524ddc480" kind="dir"><name>out/build</name>
+  </compound>
+  <compound refid="dir_63772b626f2709090f0bdca0f40827b4" kind="dir"><name>build/CMakeFiles</name>
+  </compound>
+  <compound refid="dir_3c19a1e38b0f2b3b1966e0f04b5d6e1c" kind="dir"><name>out/build/x64-debug/CMakeFiles</name>
+  </compound>
+  <compound refid="dir_3e42ea95280c293d6f34193fc0feec9f" kind="dir"><name>build/CMakeFiles/3.28.3-msvc11/CompilerIdC</name>
+  </compound>
+  <compound refid="dir_bd9292819c3cebed38ca376a9e436a7a" kind="dir"><name>out/build/x64-debug/CMakeFiles/3.28.3-msvc11/CompilerIdC</name>
+  </compound>
+  <compound refid="dir_df16d92d0175d10b4122af57858d9cc1" kind="dir"><name>build/CMakeFiles/3.28.3-msvc11/CompilerIdCXX</name>
+  </compound>
+  <compound refid="dir_bff996c5498827fd2383c67055681894" kind="dir"><name>out/build/x64-debug/CMakeFiles/3.28.3-msvc11/CompilerIdCXX</name>
+  </compound>
+  <compound refid="dir_f09d564695a8a7f5713b0ef37bdf7d31" kind="dir"><name>out</name>
+  </compound>
+  <compound refid="dir_e49c6320934099ef3ce54e88c794e182" kind="dir"><name>out/build/x64-debug/CMakeFiles/ShowIncludes</name>
+  </compound>
+  <compound refid="dir_917165397de1d68f9dc544fb9c1a2379" kind="dir"><name>out/build/x64-debug</name>
+  </compound>
+</doxygenindex>

@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="_c_09_09l_points_project_8h" kind="file" language="C++">
+    <compoundname>C++lPointsProject.h</compoundname>
+    <includes local="no">iostream</includes>
+    <includedby refid="_c_09_09l_points_project_8cpp" local="yes">C++lPointsProject.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>C++lPointsProject.h</label>
+        <link refid="_c_09_09l_points_project_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>iostream</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>C++lPointsProject.cpp</label>
+        <link refid="_c_09_09l_points_project_8cpp"/>
+      </node>
+      <node id="1">
+        <label>C++lPointsProject.h</label>
+        <link refid="_c_09_09l_points_project_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="C++lPointsProject.h"/>
+  </compounddef>
+</doxygen>

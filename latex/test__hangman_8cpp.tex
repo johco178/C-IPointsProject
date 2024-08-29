@@ -1,0 +1,92 @@
+\doxysection{test\+\_\+hangman.\+cpp File Reference}
+\hypertarget{test__hangman_8cpp}{}\label{test__hangman_8cpp}\index{test\_hangman.cpp@{test\_hangman.cpp}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include "{}hangman.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{test__hangman_8cpp_a45feb1f37ce559e49baf8655d769ef85}{TEST}}(name)
+\item 
+\#define \mbox{\hyperlink{test__hangman_8cpp_a6d22b2e20a26b0d72b5c15912b4e211e}{RUN\+\_\+\+TEST}}(name)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{test__hangman_8cpp_a425591b8c366279dbfd11e4a51994a25}{TEST}} (\mbox{\hyperlink{hangman_8cpp_ae52e89160c5277c2fd63dfea4b6cae9e}{select\+\_\+word}})
+\item 
+\mbox{\hyperlink{test__hangman_8cpp_a553b10846c4aa18ed628b8c28d484248}{TEST}} (\mbox{\hyperlink{hangman_8cpp_a143f64eb9dbefc5b9d3a903e2d89ad5c}{is\+\_\+word\+\_\+guessed}})
+\item 
+\mbox{\hyperlink{test__hangman_8cpp_a7290df0ea2300eda7f13c0e502555a62}{TEST}} (\mbox{\hyperlink{hangman_8cpp_adbe95930f7a91820db6cccf58804680f}{to\+\_\+uppercase}})
+\item 
+\mbox{\hyperlink{test__hangman_8cpp_afa9b8cff39b70f7691c962164420fe5c}{TEST}} (\mbox{\hyperlink{hangman_8cpp_a6daa5553ddea5c42d3ea8e5584ea47a6}{is\+\_\+letter\+\_\+in\+\_\+word}})
+\item 
+void \mbox{\hyperlink{test__hangman_8cpp_a9cbb07e88424d14d477be97703018be1}{hangman\+Tests}} ()
+\begin{DoxyCompactList}\small\item\em Hangman unit tests. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{test__hangman_8cpp_a6d22b2e20a26b0d72b5c15912b4e211e}\index{test\_hangman.cpp@{test\_hangman.cpp}!RUN\_TEST@{RUN\_TEST}}
+\index{RUN\_TEST@{RUN\_TEST}!test\_hangman.cpp@{test\_hangman.cpp}}
+\doxysubsubsection{\texorpdfstring{RUN\_TEST}{RUN\_TEST}}
+{\footnotesize\ttfamily \label{test__hangman_8cpp_a6d22b2e20a26b0d72b5c15912b4e211e} 
+\#define RUN\+\_\+\+TEST(\begin{DoxyParamCaption}\item[{}]{name}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{do}\ \{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}Running\ \%s...\(\backslash\)n"{}},\ \#name);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ test\_\#\#name();\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}\%s\ passed!\(\backslash\)n"{}},\ \#name);\ \(\backslash\)}
+\DoxyCodeLine{\}\ \textcolor{keywordflow}{while}\ (0)}
+
+\end{DoxyCode}
+\Hypertarget{test__hangman_8cpp_a45feb1f37ce559e49baf8655d769ef85}\index{test\_hangman.cpp@{test\_hangman.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_hangman.cpp@{test\_hangman.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST}{TEST}}
+{\footnotesize\ttfamily \label{test__hangman_8cpp_a45feb1f37ce559e49baf8655d769ef85} 
+\#define TEST(\begin{DoxyParamCaption}\item[{}]{name}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ test\_\#\#name(\textcolor{keywordtype}{void})}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{test__hangman_8cpp_a9cbb07e88424d14d477be97703018be1}\index{test\_hangman.cpp@{test\_hangman.cpp}!hangmanTests@{hangmanTests}}
+\index{hangmanTests@{hangmanTests}!test\_hangman.cpp@{test\_hangman.cpp}}
+\doxysubsubsection{\texorpdfstring{hangmanTests()}{hangmanTests()}}
+{\footnotesize\ttfamily \label{test__hangman_8cpp_a9cbb07e88424d14d477be97703018be1} 
+void hangman\+Tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Hangman unit tests. 
+
+\Hypertarget{test__hangman_8cpp_afa9b8cff39b70f7691c962164420fe5c}\index{test\_hangman.cpp@{test\_hangman.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_hangman.cpp@{test\_hangman.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{test__hangman_8cpp_afa9b8cff39b70f7691c962164420fe5c} 
+TEST (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{hangman_8cpp_a6daa5553ddea5c42d3ea8e5584ea47a6}{is\+\_\+letter\+\_\+in\+\_\+word}}}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{test__hangman_8cpp_a553b10846c4aa18ed628b8c28d484248}\index{test\_hangman.cpp@{test\_hangman.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_hangman.cpp@{test\_hangman.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{test__hangman_8cpp_a553b10846c4aa18ed628b8c28d484248} 
+TEST (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{hangman_8cpp_a143f64eb9dbefc5b9d3a903e2d89ad5c}{is\+\_\+word\+\_\+guessed}}}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{test__hangman_8cpp_a425591b8c366279dbfd11e4a51994a25}\index{test\_hangman.cpp@{test\_hangman.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_hangman.cpp@{test\_hangman.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{test__hangman_8cpp_a425591b8c366279dbfd11e4a51994a25} 
+TEST (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{hangman_8cpp_ae52e89160c5277c2fd63dfea4b6cae9e}{select\+\_\+word}}}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{test__hangman_8cpp_a7290df0ea2300eda7f13c0e502555a62}\index{test\_hangman.cpp@{test\_hangman.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test\_hangman.cpp@{test\_hangman.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{test__hangman_8cpp_a7290df0ea2300eda7f13c0e502555a62} 
+TEST (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{hangman_8cpp_adbe95930f7a91820db6cccf58804680f}{to\+\_\+uppercase}}}]{}{}\end{DoxyParamCaption})}
+

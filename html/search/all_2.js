@@ -1,5 +1,6 @@
 var searchData=
 [
+<<<<<<< HEAD
   ['c_20lpointsproject_0',['C++lPointsProject',['../md__r_e_a_d_m_e.html',1,'']]],
   ['c_2b_2blpointsproject_2ecpp_1',['C++lPointsProject.cpp',['../_c_09_09l_points_project_8cpp.html',1,'']]],
   ['c_2b_2blpointsproject_2eh_2',['C++lPointsProject.h',['../_c_09_09l_points_project_8h.html',1,'']]],
@@ -12,4 +13,8 @@ var searchData=
   ['conatainsonlychar_9',['conatainsonlychar',['../newwordle_8cpp.html#a3f2a499774dc2aa652b360f036e6c41d',1,'conatainsonlychar(const char *guess):&#160;newwordle.cpp'],['../newwordle_8h.html#a6a32fecd6389ec9f54493a87a0615254',1,'conatainsonlychar(const char *guess):&#160;newwordle.cpp']]],
   ['correctlength_10',['correctlength',['../newwordle_8cpp.html#ad2119d7e350d8948375a7728ee18dc81',1,'correctlength(const char *guess):&#160;newwordle.cpp'],['../newwordle_8h.html#acdc2dc70dc2749c15f24a7f5ef6895d4',1,'correctlength(const char *guess):&#160;newwordle.cpp']]],
   ['cppunittest_2eh_11',['CppUnitTest.h',['../_cpp_unit_test_8h.html',1,'']]]
+=======
+  ['badges_0',['Badges',['../md__r_e_a_d_m_e.html#autotoc_md1',1,'']]],
+  ['board_1',['board',['../_tic_tac_toe_8cpp.html#a0d04cf58547d78d0b0d09f95cd7c065e',1,'board:&#160;TicTacToe.cpp'],['../_tic_tac_toe_8h.html#a0d04cf58547d78d0b0d09f95cd7c065e',1,'board:&#160;TicTacToe.cpp']]]
+>>>>>>> 6d143075e08996efd9a7fdbaccf4ba7f57f37c60
 ];

@@ -1,5 +1,6 @@
 var searchData=
 [
+<<<<<<< HEAD
   ['test_0',['TEST',['../test__hangman_8cpp.html#a45feb1f37ce559e49baf8655d769ef85',1,'TEST:&#160;test_hangman.cpp'],['../test__newwordle_8cpp.html#a45feb1f37ce559e49baf8655d769ef85',1,'TEST:&#160;test_newwordle.cpp'],['../test__hangman_8cpp.html#a425591b8c366279dbfd11e4a51994a25',1,'TEST(select_word):&#160;test_hangman.cpp'],['../test__hangman_8cpp.html#a553b10846c4aa18ed628b8c28d484248',1,'TEST(is_word_guessed):&#160;test_hangman.cpp'],['../test__hangman_8cpp.html#a7290df0ea2300eda7f13c0e502555a62',1,'TEST(to_uppercase):&#160;test_hangman.cpp'],['../test__hangman_8cpp.html#afa9b8cff39b70f7691c962164420fe5c',1,'TEST(is_letter_in_word):&#160;test_hangman.cpp'],['../test__newwordle_8cpp.html#a7f007a28b63ea09ef2a807e42a55bc80',1,'TEST(conatainsonlychar):&#160;test_newwordle.cpp'],['../test__newwordle_8cpp.html#a30cb0654ff03a3bd722b9c475f1fcf38',1,'TEST(toLowerCase):&#160;test_newwordle.cpp'],['../test__newwordle_8cpp.html#a9b24d1af30692492726e1e2ca3ee7cbe',1,'TEST(processGuess):&#160;test_newwordle.cpp']]],
   ['test_5fcheckdraw_1',['test_checkDraw',['../test__tictactoe_8cpp.html#acee67b6d075d539c681edca3007fd5bf',1,'test_checkDraw():&#160;test_tictactoe.cpp'],['../test__tictactoe_8h.html#acee67b6d075d539c681edca3007fd5bf',1,'test_checkDraw():&#160;test_tictactoe.cpp']]],
   ['test_5fcheckwin_2',['test_checkWin',['../test__tictactoe_8cpp.html#a971d1b05c99520897b0c29fcd65c4f82',1,'test_checkWin():&#160;test_tictactoe.cpp'],['../test__tictactoe_8h.html#a971d1b05c99520897b0c29fcd65c4f82',1,'test_checkWin():&#160;test_tictactoe.cpp']]],
@@ -16,4 +17,13 @@ var searchData=
   ['tictactoe_2eh_13',['TicTacToe.h',['../_tic_tac_toe_8h.html',1,'']]],
   ['to_5fuppercase_14',['to_uppercase',['../hangman_8cpp.html#adbe95930f7a91820db6cccf58804680f',1,'hangman.cpp']]],
   ['tolowercase_15',['toLowerCase',['../newwordle_8cpp.html#af0ed0f93c787ed9fd6d6a2823b6f8e02',1,'toLowerCase(const char *guess):&#160;newwordle.cpp'],['../newwordle_8h.html#a7fb7c94106642590cd14cd7da2ea6632',1,'toLowerCase(const char *guess):&#160;newwordle.cpp']]]
+=======
+  ['readme_2emd_0',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
+  ['rows_1',['ROWS',['../_tic_tac_toe_8h.html#a821282c3fbd7714d8302538a5a674885',1,'TicTacToe.h']]],
+  ['run_5ftest_2',['RUN_TEST',['../test__hangman_8cpp.html#a6d22b2e20a26b0d72b5c15912b4e211e',1,'RUN_TEST:&#160;test_hangman.cpp'],['../test__newwordle_8cpp.html#a6d22b2e20a26b0d72b5c15912b4e211e',1,'RUN_TEST:&#160;test_newwordle.cpp']]],
+  ['runalltest_2ecpp_3',['runAllTest.cpp',['../run_all_test_8cpp.html',1,'']]],
+  ['runtests_4',['runTests',['../secret_num_tests_8cpp.html#a5dcb537699bebb9e9db36ab19c5aacf7',1,'secretNumTests.cpp']]],
+  ['runttttests_5',['runttttests',['../test__tictactoe_8cpp.html#a6a4c22b93c04410116cc2c84c8272420',1,'runttttests():&#160;test_tictactoe.cpp'],['../test__tictactoe_8h.html#a6a4c22b93c04410116cc2c84c8272420',1,'runttttests():&#160;test_tictactoe.cpp']]],
+  ['runwordletests_6',['runwordletests',['../newwordle_8h.html#a91515e0294fb9e3595be97314d5374b9',1,'runwordletests():&#160;test_newwordle.cpp'],['../test__newwordle_8cpp.html#a91515e0294fb9e3595be97314d5374b9',1,'runwordletests():&#160;test_newwordle.cpp']]]
+>>>>>>> 6d143075e08996efd9a7fdbaccf4ba7f57f37c60
 ];

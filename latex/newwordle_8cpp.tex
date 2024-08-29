@@ -1,0 +1,144 @@
+\doxysection{newwordle.\+cpp File Reference}
+\hypertarget{newwordle_8cpp}{}\label{newwordle_8cpp}\index{newwordle.cpp@{newwordle.cpp}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include "{}wordlength5a2m.\+txt"{}}\newline
+{\ttfamily \#include "{}wordlength5m2z.\+txt"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{newwordle_8cpp_a10b2d890d871e1489bb02b7e70d9bdfb}{STATIC}}~static
+\item 
+\#define \mbox{\hyperlink{newwordle_8cpp_aad96dfa62525d6a66b0cc02f56464c1c}{MAX\+\_\+\+NUM\+\_\+\+OF\+\_\+\+WORDS}}~2500
+\item 
+\#define \mbox{\hyperlink{newwordle_8cpp_a34995b955465f6bbb37c359173d50477}{ANSI\+\_\+\+COLOR\+\_\+\+RED}}~"{}\textbackslash{}x1b\mbox{[}31m"{}
+\item 
+\#define \mbox{\hyperlink{newwordle_8cpp_a966c72d8d733c7734c6c784753d894c7}{ANSI\+\_\+\+COLOR\+\_\+\+GREEN}}~"{}\textbackslash{}x1b\mbox{[}32m"{}
+\item 
+\#define \mbox{\hyperlink{newwordle_8cpp_a5a123b382640b3aa65dd5db386002fbc}{ANSI\+\_\+\+COLOR\+\_\+\+YELLOW}}~"{}\textbackslash{}x1b\mbox{[}33m"{}
+\item 
+\#define \mbox{\hyperlink{newwordle_8cpp_a92a364c2b863dde1a024a77eac2a5b3b}{ANSI\+\_\+\+COLOR\+\_\+\+RESET}}~"{}\textbackslash{}x1b\mbox{[}0m"{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{hangman_8cpp_a10b2d890d871e1489bb02b7e70d9bdfb}{STATIC}} char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{newwordle_8cpp_af0ed0f93c787ed9fd6d6a2823b6f8e02}{to\+Lower\+Case}} (const char \texorpdfstring{$\ast$}{*}guess)
+\item 
+\mbox{\hyperlink{hangman_8cpp_a10b2d890d871e1489bb02b7e70d9bdfb}{STATIC}} bool \mbox{\hyperlink{newwordle_8cpp_a3f2a499774dc2aa652b360f036e6c41d}{conatainsonlychar}} (const char \texorpdfstring{$\ast$}{*}guess)
+\item 
+\mbox{\hyperlink{hangman_8cpp_a10b2d890d871e1489bb02b7e70d9bdfb}{STATIC}} bool \mbox{\hyperlink{newwordle_8cpp_ad2119d7e350d8948375a7728ee18dc81}{correctlength}} (const char \texorpdfstring{$\ast$}{*}guess)
+\item 
+bool \mbox{\hyperlink{newwordle_8cpp_a4097474e97c87c747925cc56a43b0a64}{valid\+Word}} (const char \texorpdfstring{$\ast$}{*}newguess)
+\item 
+\mbox{\hyperlink{hangman_8cpp_a10b2d890d871e1489bb02b7e70d9bdfb}{STATIC}} char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{newwordle_8cpp_aa50d974f82ec55d3db340645d7a6a890}{process\+Guess}} (const char \texorpdfstring{$\ast$}{*}the\+Word, const char \texorpdfstring{$\ast$}{*}the\+Guess)
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{newwordle_8cpp_a8501e4caac0fcf6ae7efd49c5547fc9c}{get\+Word}} ()
+\item 
+void \mbox{\hyperlink{newwordle_8cpp_ad2bee05444b1c1bcf1de4b58cb9d4935}{play\+Wordle}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{newwordle_8cpp_af65f926d342c20fad2bc8762fbd477d9}{word\+\_\+length}} = 5
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{newwordle_8cpp_a966c72d8d733c7734c6c784753d894c7}\index{newwordle.cpp@{newwordle.cpp}!ANSI\_COLOR\_GREEN@{ANSI\_COLOR\_GREEN}}
+\index{ANSI\_COLOR\_GREEN@{ANSI\_COLOR\_GREEN}!newwordle.cpp@{newwordle.cpp}}
+\doxysubsubsection{\texorpdfstring{ANSI\_COLOR\_GREEN}{ANSI\_COLOR\_GREEN}}
+{\footnotesize\ttfamily \label{newwordle_8cpp_a966c72d8d733c7734c6c784753d894c7} 
+\#define ANSI\+\_\+\+COLOR\+\_\+\+GREEN~"{}\textbackslash{}x1b\mbox{[}32m"{}}
+
+\Hypertarget{newwordle_8cpp_a34995b955465f6bbb37c359173d50477}\index{newwordle.cpp@{newwordle.cpp}!ANSI\_COLOR\_RED@{ANSI\_COLOR\_RED}}
+\index{ANSI\_COLOR\_RED@{ANSI\_COLOR\_RED}!newwordle.cpp@{newwordle.cpp}}
+\doxysubsubsection{\texorpdfstring{ANSI\_COLOR\_RED}{ANSI\_COLOR\_RED}}
+{\footnotesize\ttfamily \label{newwordle_8cpp_a34995b955465f6bbb37c359173d50477} 
+\#define ANSI\+\_\+\+COLOR\+\_\+\+RED~"{}\textbackslash{}x1b\mbox{[}31m"{}}
+
+\Hypertarget{newwordle_8cpp_a92a364c2b863dde1a024a77eac2a5b3b}\index{newwordle.cpp@{newwordle.cpp}!ANSI\_COLOR\_RESET@{ANSI\_COLOR\_RESET}}
+\index{ANSI\_COLOR\_RESET@{ANSI\_COLOR\_RESET}!newwordle.cpp@{newwordle.cpp}}
+\doxysubsubsection{\texorpdfstring{ANSI\_COLOR\_RESET}{ANSI\_COLOR\_RESET}}
+{\footnotesize\ttfamily \label{newwordle_8cpp_a92a364c2b863dde1a024a77eac2a5b3b} 
+\#define ANSI\+\_\+\+COLOR\+\_\+\+RESET~"{}\textbackslash{}x1b\mbox{[}0m"{}}
+
+\Hypertarget{newwordle_8cpp_a5a123b382640b3aa65dd5db386002fbc}\index{newwordle.cpp@{newwordle.cpp}!ANSI\_COLOR\_YELLOW@{ANSI\_COLOR\_YELLOW}}
+\index{ANSI\_COLOR\_YELLOW@{ANSI\_COLOR\_YELLOW}!newwordle.cpp@{newwordle.cpp}}
+\doxysubsubsection{\texorpdfstring{ANSI\_COLOR\_YELLOW}{ANSI\_COLOR\_YELLOW}}
+{\footnotesize\ttfamily \label{newwordle_8cpp_a5a123b382640b3aa65dd5db386002fbc} 
+\#define ANSI\+\_\+\+COLOR\+\_\+\+YELLOW~"{}\textbackslash{}x1b\mbox{[}33m"{}}
+
+\Hypertarget{newwordle_8cpp_aad96dfa62525d6a66b0cc02f56464c1c}\index{newwordle.cpp@{newwordle.cpp}!MAX\_NUM\_OF\_WORDS@{MAX\_NUM\_OF\_WORDS}}
+\index{MAX\_NUM\_OF\_WORDS@{MAX\_NUM\_OF\_WORDS}!newwordle.cpp@{newwordle.cpp}}
+\doxysubsubsection{\texorpdfstring{MAX\_NUM\_OF\_WORDS}{MAX\_NUM\_OF\_WORDS}}
+{\footnotesize\ttfamily \label{newwordle_8cpp_aad96dfa62525d6a66b0cc02f56464c1c} 
+\#define MAX\+\_\+\+NUM\+\_\+\+OF\+\_\+\+WORDS~2500}
+
+\Hypertarget{newwordle_8cpp_a10b2d890d871e1489bb02b7e70d9bdfb}\index{newwordle.cpp@{newwordle.cpp}!STATIC@{STATIC}}
+\index{STATIC@{STATIC}!newwordle.cpp@{newwordle.cpp}}
+\doxysubsubsection{\texorpdfstring{STATIC}{STATIC}}
+{\footnotesize\ttfamily \label{newwordle_8cpp_a10b2d890d871e1489bb02b7e70d9bdfb} 
+\#define STATIC~static}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{newwordle_8cpp_a3f2a499774dc2aa652b360f036e6c41d}\index{newwordle.cpp@{newwordle.cpp}!conatainsonlychar@{conatainsonlychar}}
+\index{conatainsonlychar@{conatainsonlychar}!newwordle.cpp@{newwordle.cpp}}
+\doxysubsubsection{\texorpdfstring{conatainsonlychar()}{conatainsonlychar()}}
+{\footnotesize\ttfamily \label{newwordle_8cpp_a3f2a499774dc2aa652b360f036e6c41d} 
+\mbox{\hyperlink{hangman_8cpp_a10b2d890d871e1489bb02b7e70d9bdfb}{STATIC}} bool conatainsonlychar (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{guess}{}\end{DoxyParamCaption})}
+
+\Hypertarget{newwordle_8cpp_ad2119d7e350d8948375a7728ee18dc81}\index{newwordle.cpp@{newwordle.cpp}!correctlength@{correctlength}}
+\index{correctlength@{correctlength}!newwordle.cpp@{newwordle.cpp}}
+\doxysubsubsection{\texorpdfstring{correctlength()}{correctlength()}}
+{\footnotesize\ttfamily \label{newwordle_8cpp_ad2119d7e350d8948375a7728ee18dc81} 
+\mbox{\hyperlink{hangman_8cpp_a10b2d890d871e1489bb02b7e70d9bdfb}{STATIC}} bool correctlength (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{guess}{}\end{DoxyParamCaption})}
+
+\Hypertarget{newwordle_8cpp_a8501e4caac0fcf6ae7efd49c5547fc9c}\index{newwordle.cpp@{newwordle.cpp}!getWord@{getWord}}
+\index{getWord@{getWord}!newwordle.cpp@{newwordle.cpp}}
+\doxysubsubsection{\texorpdfstring{getWord()}{getWord()}}
+{\footnotesize\ttfamily \label{newwordle_8cpp_a8501e4caac0fcf6ae7efd49c5547fc9c} 
+char \texorpdfstring{$\ast$}{*} get\+Word (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{newwordle_8cpp_ad2bee05444b1c1bcf1de4b58cb9d4935}\index{newwordle.cpp@{newwordle.cpp}!playWordle@{playWordle}}
+\index{playWordle@{playWordle}!newwordle.cpp@{newwordle.cpp}}
+\doxysubsubsection{\texorpdfstring{playWordle()}{playWordle()}}
+{\footnotesize\ttfamily \label{newwordle_8cpp_ad2bee05444b1c1bcf1de4b58cb9d4935} 
+void play\+Wordle (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{newwordle_8cpp_aa50d974f82ec55d3db340645d7a6a890}\index{newwordle.cpp@{newwordle.cpp}!processGuess@{processGuess}}
+\index{processGuess@{processGuess}!newwordle.cpp@{newwordle.cpp}}
+\doxysubsubsection{\texorpdfstring{processGuess()}{processGuess()}}
+{\footnotesize\ttfamily \label{newwordle_8cpp_aa50d974f82ec55d3db340645d7a6a890} 
+\mbox{\hyperlink{hangman_8cpp_a10b2d890d871e1489bb02b7e70d9bdfb}{STATIC}} char \texorpdfstring{$\ast$}{*} process\+Guess (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{the\+Word}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{the\+Guess}{}\end{DoxyParamCaption})}
+
+\Hypertarget{newwordle_8cpp_af0ed0f93c787ed9fd6d6a2823b6f8e02}\index{newwordle.cpp@{newwordle.cpp}!toLowerCase@{toLowerCase}}
+\index{toLowerCase@{toLowerCase}!newwordle.cpp@{newwordle.cpp}}
+\doxysubsubsection{\texorpdfstring{toLowerCase()}{toLowerCase()}}
+{\footnotesize\ttfamily \label{newwordle_8cpp_af0ed0f93c787ed9fd6d6a2823b6f8e02} 
+\mbox{\hyperlink{hangman_8cpp_a10b2d890d871e1489bb02b7e70d9bdfb}{STATIC}} char \texorpdfstring{$\ast$}{*} to\+Lower\+Case (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{guess}{}\end{DoxyParamCaption})}
+
+\Hypertarget{newwordle_8cpp_a4097474e97c87c747925cc56a43b0a64}\index{newwordle.cpp@{newwordle.cpp}!validWord@{validWord}}
+\index{validWord@{validWord}!newwordle.cpp@{newwordle.cpp}}
+\doxysubsubsection{\texorpdfstring{validWord()}{validWord()}}
+{\footnotesize\ttfamily \label{newwordle_8cpp_a4097474e97c87c747925cc56a43b0a64} 
+bool valid\+Word (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{newguess}{}\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{newwordle_8cpp_af65f926d342c20fad2bc8762fbd477d9}\index{newwordle.cpp@{newwordle.cpp}!word\_length@{word\_length}}
+\index{word\_length@{word\_length}!newwordle.cpp@{newwordle.cpp}}
+\doxysubsubsection{\texorpdfstring{word\_length}{word\_length}}
+{\footnotesize\ttfamily \label{newwordle_8cpp_af65f926d342c20fad2bc8762fbd477d9} 
+int word\+\_\+length = 5}
+
