@@ -1,6 +1,5 @@
 var searchData=
 [
-<<<<<<< HEAD
   ['hangman_2ecpp_0',['hangman.cpp',['../hangman_8cpp.html',1,'']]],
   ['hangman_2eh_1',['hangman.h',['../hangman_8h.html',1,'']]],
   ['hangman_5finitialize_2',['hangman_initialize',['../hangman_8cpp.html#ae8ab569cd9e945e540d226f22d3569b4',1,'hangman_initialize(void):&#160;hangman.cpp'],['../hangman_8h.html#ae8ab569cd9e945e540d226f22d3569b4',1,'hangman_initialize(void):&#160;hangman.cpp']]],
@@ -9,7 +8,4 @@ var searchData=
   ['home_2ecpp_5',['home.cpp',['../home_8cpp.html',1,'']]],
   ['home_2eh_6',['home.h',['../home_8h.html',1,'']]],
   ['homescreen_7',['homescreen',['../home_8cpp.html#a5ae2cae28f6583ba58601114803e64ce',1,'homescreen(void):&#160;home.cpp'],['../home_8h.html#a5ae2cae28f6583ba58601114803e64ce',1,'homescreen(void):&#160;home.cpp']]]
-=======
-  ['foo_2eh_0',['foo.h',['../foo_8h.html',1,'']]]
->>>>>>> 6d143075e08996efd9a7fdbaccf4ba7f57f37c60
 ];
