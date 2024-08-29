@@ -1,0 +1,289 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="test__hangman_8cpp" kind="file" language="C++">
+    <compoundname>test_hangman.cpp</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">string.h</includes>
+    <includes local="no">assert.h</includes>
+    <includes refid="hangman_8h" local="yes">hangman.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>hangman.h</label>
+        <link refid="hangman_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>test_hangman.cpp</label>
+        <link refid="test__hangman_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>assert.h</label>
+      </node>
+      <node id="8">
+        <label>ctype.h</label>
+      </node>
+      <node id="9">
+        <label>stdbool.h</label>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+      <node id="6">
+        <label>stdlib.h</label>
+      </node>
+      <node id="3">
+        <label>string.h</label>
+      </node>
+      <node id="7">
+        <label>time.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="test__hangman_8cpp_1a45feb1f37ce559e49baf8655d769ef85" prot="public" static="no">
+        <name>TEST</name>
+        <param><defname>name</defname></param>
+        <initializer>static void test_##name(void)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test_hangman.cpp" line="9" column="9" bodyfile="test_hangman.cpp" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="test__hangman_8cpp_1a6d22b2e20a26b0d72b5c15912b4e211e" prot="public" static="no">
+        <name>RUN_TEST</name>
+        <param><defname>name</defname></param>
+        <initializer>    do { \
+    printf(&quot;Running %s...\n&quot;, #name); \
+    test_##name(); \
+    printf(&quot;%s passed!\n&quot;, #name); \
+} while (0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test_hangman.cpp" line="10" column="9" bodyfile="test_hangman.cpp" bodystart="10" bodyend="14"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="test__hangman_8cpp_1a7333194a1eefc2cc3947ecd771945842" prot="public" static="yes" mutable="no">
+        <type>const char</type>
+        <definition>const char mock_dictionary[3][MAX_WORD_LENGTH]</definition>
+        <argsstring>[3][MAX_WORD_LENGTH]</argsstring>
+        <name>mock_dictionary</name>
+        <initializer>= { &quot;APPLE&quot;, &quot;BANANA&quot;, &quot;CHERRY&quot; }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test_hangman.cpp" line="17" column="19" bodyfile="test_hangman.cpp" bodystart="17" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="variable" id="test__hangman_8cpp_1a6de157bc7c70d4e481180fd9b70021b8" prot="public" static="yes" mutable="no">
+        <type>const int</type>
+        <definition>const int mock_dictionary_size</definition>
+        <argsstring></argsstring>
+        <name>mock_dictionary_size</name>
+        <initializer>= 3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test_hangman.cpp" line="18" column="18" bodyfile="test_hangman.cpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="test__hangman_8cpp_1a425591b8c366279dbfd11e4a51994a25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(select_word)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type><ref refid="hangman_8cpp_1ae52e89160c5277c2fd63dfea4b6cae9e" kindref="member">select_word</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test_hangman.cpp" line="20" column="1" bodyfile="test_hangman.cpp" bodystart="20" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="test__hangman_8cpp_1a553b10846c4aa18ed628b8c28d484248" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(is_word_guessed)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type><ref refid="hangman_8cpp_1a143f64eb9dbefc5b9d3a903e2d89ad5c" kindref="member">is_word_guessed</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test_hangman.cpp" line="37" column="1" bodyfile="test_hangman.cpp" bodystart="37" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="test__hangman_8cpp_1a7290df0ea2300eda7f13c0e502555a62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(to_uppercase)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type><ref refid="hangman_8cpp_1adbe95930f7a91820db6cccf58804680f" kindref="member">to_uppercase</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test_hangman.cpp" line="48" column="1" bodyfile="test_hangman.cpp" bodystart="48" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="test__hangman_8cpp_1afa9b8cff39b70f7691c962164420fe5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TEST</definition>
+        <argsstring>(is_letter_in_word)</argsstring>
+        <name>TEST</name>
+        <param>
+          <type><ref refid="hangman_8cpp_1a6daa5553ddea5c42d3ea8e5584ea47a6" kindref="member">is_letter_in_word</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test_hangman.cpp" line="62" column="1" bodyfile="test_hangman.cpp" bodystart="62" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="test__hangman_8cpp_1a9cbb07e88424d14d477be97703018be1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hangmanTests</definition>
+        <argsstring>()</argsstring>
+        <name>hangmanTests</name>
+        <briefdescription>
+<para>Hangman unit tests. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test_hangman.cpp" line="69" column="6" bodyfile="test_hangman.cpp" bodystart="69" bodyend="78"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>hangman_tests.c</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;assert.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="hangman_8h" kindref="compound">hangman.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Simple<sp/>test<sp/>framework</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TEST(name)<sp/>static<sp/>void<sp/>test_##name(void)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RUN_TEST(name)<sp/>do<sp/>{<sp/>\</highlight></codeline>
+<codeline lineno="11"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>printf(&quot;Running<sp/>%s...\n&quot;,<sp/>#name);<sp/>\</highlight></codeline>
+<codeline lineno="12"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>test_##name();<sp/>\</highlight></codeline>
+<codeline lineno="13"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>printf(&quot;%s<sp/>passed!\n&quot;,<sp/>#name);<sp/>\</highlight></codeline>
+<codeline lineno="14"><highlight class="preprocessor">}<sp/>while<sp/>(0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Mock<sp/>dictionary<sp/>for<sp/>testing</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>mock_dictionary[3][<ref refid="hangman_8h_1aec7b4994021c554c1761ea31d016b680" kindref="member">MAX_WORD_LENGTH</ref>]<sp/>=<sp/>{<sp/></highlight><highlight class="stringliteral">&quot;APPLE&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;BANANA&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;CHERRY&quot;</highlight><highlight class="normal"><sp/>};</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mock_dictionary_size<sp/>=<sp/>3;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><ref refid="test__hangman_8cpp_1a45feb1f37ce559e49baf8655d769ef85" kindref="member">TEST</ref>(<ref refid="hangman_8cpp_1ae52e89160c5277c2fd63dfea4b6cae9e" kindref="member">select_word</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>set_mock_dictionary(mock_dictionary,<sp/>mock_dictionary_size);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>word<sp/>=<sp/><ref refid="hangman_8cpp_1ae52e89160c5277c2fd63dfea4b6cae9e" kindref="member">select_word</ref>(0);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(word<sp/>!=<sp/>NULL);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(strcmp(word,<sp/></highlight><highlight class="stringliteral">&quot;APPLE&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0<sp/>||<sp/>strcmp(word,<sp/></highlight><highlight class="stringliteral">&quot;BANANA&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0<sp/>||<sp/>strcmp(word,<sp/></highlight><highlight class="stringliteral">&quot;CHERRY&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>word<sp/>=<sp/><ref refid="hangman_8cpp_1ae52e89160c5277c2fd63dfea4b6cae9e" kindref="member">select_word</ref>(5);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(strcmp(word,<sp/></highlight><highlight class="stringliteral">&quot;APPLE&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>word<sp/>=<sp/><ref refid="hangman_8cpp_1ae52e89160c5277c2fd63dfea4b6cae9e" kindref="member">select_word</ref>(6);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(strcmp(word,<sp/></highlight><highlight class="stringliteral">&quot;BANANA&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0<sp/>||<sp/>strcmp(word,<sp/></highlight><highlight class="stringliteral">&quot;CHERRY&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>word<sp/>=<sp/><ref refid="hangman_8cpp_1ae52e89160c5277c2fd63dfea4b6cae9e" kindref="member">select_word</ref>(10);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(word<sp/>!=<sp/>NULL);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><ref refid="test__hangman_8cpp_1a45feb1f37ce559e49baf8655d769ef85" kindref="member">TEST</ref>(<ref refid="hangman_8cpp_1a143f64eb9dbefc5b9d3a903e2d89ad5c" kindref="member">is_word_guessed</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>guessed1[]<sp/>=<sp/>{<sp/>1,<sp/>1,<sp/>1,<sp/>1,<sp/>1<sp/>};</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(<ref refid="hangman_8cpp_1a143f64eb9dbefc5b9d3a903e2d89ad5c" kindref="member">is_word_guessed</ref>(guessed1,<sp/>5)<sp/>==<sp/>1);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>guessed2[]<sp/>=<sp/>{<sp/>1,<sp/>1,<sp/>0,<sp/>1,<sp/>1<sp/>};</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(<ref refid="hangman_8cpp_1a143f64eb9dbefc5b9d3a903e2d89ad5c" kindref="member">is_word_guessed</ref>(guessed2,<sp/>5)<sp/>==<sp/>0);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>guessed3[]<sp/>=<sp/>{<sp/>0,<sp/>0,<sp/>0,<sp/>0,<sp/>0<sp/>};</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(<ref refid="hangman_8cpp_1a143f64eb9dbefc5b9d3a903e2d89ad5c" kindref="member">is_word_guessed</ref>(guessed3,<sp/>5)<sp/>==<sp/>0);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><ref refid="test__hangman_8cpp_1a45feb1f37ce559e49baf8655d769ef85" kindref="member">TEST</ref>(<ref refid="hangman_8cpp_1adbe95930f7a91820db6cccf58804680f" kindref="member">to_uppercase</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>word[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Hello,<sp/>World!&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="hangman_8cpp_1adbe95930f7a91820db6cccf58804680f" kindref="member">to_uppercase</ref>(word);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(strcmp(word,<sp/></highlight><highlight class="stringliteral">&quot;HELLO,<sp/>WORLD!&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>already_upper[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;UPPERCASE&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="hangman_8cpp_1adbe95930f7a91820db6cccf58804680f" kindref="member">to_uppercase</ref>(already_upper);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(strcmp(already_upper,<sp/></highlight><highlight class="stringliteral">&quot;UPPERCASE&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>empty[]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="hangman_8cpp_1adbe95930f7a91820db6cccf58804680f" kindref="member">to_uppercase</ref>(empty);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(strcmp(empty,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">)<sp/>==<sp/>0);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><ref refid="test__hangman_8cpp_1a45feb1f37ce559e49baf8655d769ef85" kindref="member">TEST</ref>(<ref refid="hangman_8cpp_1a6daa5553ddea5c42d3ea8e5584ea47a6" kindref="member">is_letter_in_word</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(<ref refid="hangman_8cpp_1a6daa5553ddea5c42d3ea8e5584ea47a6" kindref="member">is_letter_in_word</ref>(</highlight><highlight class="charliteral">&apos;A&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;APPLE&quot;</highlight><highlight class="normal">)<sp/>==<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(<ref refid="hangman_8cpp_1a6daa5553ddea5c42d3ea8e5584ea47a6" kindref="member">is_letter_in_word</ref>(</highlight><highlight class="charliteral">&apos;Z&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;APPLE&quot;</highlight><highlight class="normal">)<sp/>==<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(<ref refid="hangman_8cpp_1a6daa5553ddea5c42d3ea8e5584ea47a6" kindref="member">is_letter_in_word</ref>(</highlight><highlight class="charliteral">&apos;E&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;HELLO&quot;</highlight><highlight class="normal">)<sp/>==<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(<ref refid="hangman_8cpp_1a6daa5553ddea5c42d3ea8e5584ea47a6" kindref="member">is_letter_in_word</ref>(</highlight><highlight class="charliteral">&apos;X&apos;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">)<sp/>==<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="test__hangman_8cpp_1a9cbb07e88424d14d477be97703018be1" kindref="member">hangmanTests</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Running<sp/>Hangman<sp/>unit<sp/>tests...\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="test__hangman_8cpp_1a6d22b2e20a26b0d72b5c15912b4e211e" kindref="member">RUN_TEST</ref>(<ref refid="hangman_8cpp_1ae52e89160c5277c2fd63dfea4b6cae9e" kindref="member">select_word</ref>);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="test__hangman_8cpp_1a6d22b2e20a26b0d72b5c15912b4e211e" kindref="member">RUN_TEST</ref>(<ref refid="hangman_8cpp_1a143f64eb9dbefc5b9d3a903e2d89ad5c" kindref="member">is_word_guessed</ref>);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="test__hangman_8cpp_1a6d22b2e20a26b0d72b5c15912b4e211e" kindref="member">RUN_TEST</ref>(<ref refid="hangman_8cpp_1adbe95930f7a91820db6cccf58804680f" kindref="member">to_uppercase</ref>);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="test__hangman_8cpp_1a6d22b2e20a26b0d72b5c15912b4e211e" kindref="member">RUN_TEST</ref>(<ref refid="hangman_8cpp_1a6daa5553ddea5c42d3ea8e5584ea47a6" kindref="member">is_letter_in_word</ref>);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;All<sp/>tests<sp/>passed!\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="comment">//<sp/>compile<sp/>and<sp/>run<sp/>with:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="comment">//<sp/>gcc<sp/>hangman.cpp<sp/>test_hangman.cpp<sp/>-o<sp/>test_hangman.cpp<sp/>-DUNIT_TESTING</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="comment">//<sp/>./test_hangman</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="test_hangman.cpp"/>
+  </compounddef>
+</doxygen>

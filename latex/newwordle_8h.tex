@@ -8,14 +8,75 @@ documentation
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{newwordle_8h_ad2bee05444b1c1bcf1de4b58cb9d4935}\label{newwordle_8h_ad2bee05444b1c1bcf1de4b58cb9d4935} 
-void {\bfseries play\+Wordle} (void)
+void \mbox{\hyperlink{newwordle_8h_ad2bee05444b1c1bcf1de4b58cb9d4935}{play\+Wordle}} (void)
 \item 
-\Hypertarget{newwordle_8h_a84f4159b3bb6351174e62a88b585d836}\label{newwordle_8h_a84f4159b3bb6351174e62a88b585d836} 
-bool {\bfseries process\+Guess} (const char \texorpdfstring{$\ast$}{*}the\+Word, const char \texorpdfstring{$\ast$}{*}the\+Guess)
+bool \mbox{\hyperlink{newwordle_8h_a990feaee65b8d4219f2333b420d53338}{validworda}} (const char \texorpdfstring{$\ast$}{*}guess)
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{newwordle_8h_a11d73c9e69f098e07992a5c8706fe43a}{process\+Guess}} (const char \texorpdfstring{$\ast$}{*}the\+Word, const char \texorpdfstring{$\ast$}{*}the\+Guess)
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{newwordle_8h_a7fb7c94106642590cd14cd7da2ea6632}{to\+Lower\+Case}} (const char \texorpdfstring{$\ast$}{*}guess)
+\item 
+bool \mbox{\hyperlink{newwordle_8h_a6a32fecd6389ec9f54493a87a0615254}{conatainsonlychar}} (const char \texorpdfstring{$\ast$}{*}guess)
+\item 
+bool \mbox{\hyperlink{newwordle_8h_acdc2dc70dc2749c15f24a7f5ef6895d4}{correctlength}} (const char \texorpdfstring{$\ast$}{*}guess)
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{newwordle_8h_a8501e4caac0fcf6ae7efd49c5547fc9c}{get\+Word}} ()
+\item 
+int \mbox{\hyperlink{newwordle_8h_a91515e0294fb9e3595be97314d5374b9}{runwordletests}} ()
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 documentation 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{newwordle_8h_a6a32fecd6389ec9f54493a87a0615254}\index{newwordle.h@{newwordle.h}!conatainsonlychar@{conatainsonlychar}}
+\index{conatainsonlychar@{conatainsonlychar}!newwordle.h@{newwordle.h}}
+\doxysubsubsection{\texorpdfstring{conatainsonlychar()}{conatainsonlychar()}}
+{\footnotesize\ttfamily \label{newwordle_8h_a6a32fecd6389ec9f54493a87a0615254} 
+bool conatainsonlychar (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{guess}{}\end{DoxyParamCaption})}
+
+\Hypertarget{newwordle_8h_acdc2dc70dc2749c15f24a7f5ef6895d4}\index{newwordle.h@{newwordle.h}!correctlength@{correctlength}}
+\index{correctlength@{correctlength}!newwordle.h@{newwordle.h}}
+\doxysubsubsection{\texorpdfstring{correctlength()}{correctlength()}}
+{\footnotesize\ttfamily \label{newwordle_8h_acdc2dc70dc2749c15f24a7f5ef6895d4} 
+bool correctlength (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{guess}{}\end{DoxyParamCaption})}
+
+\Hypertarget{newwordle_8h_a8501e4caac0fcf6ae7efd49c5547fc9c}\index{newwordle.h@{newwordle.h}!getWord@{getWord}}
+\index{getWord@{getWord}!newwordle.h@{newwordle.h}}
+\doxysubsubsection{\texorpdfstring{getWord()}{getWord()}}
+{\footnotesize\ttfamily \label{newwordle_8h_a8501e4caac0fcf6ae7efd49c5547fc9c} 
+char \texorpdfstring{$\ast$}{*} get\+Word (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{newwordle_8h_ad2bee05444b1c1bcf1de4b58cb9d4935}\index{newwordle.h@{newwordle.h}!playWordle@{playWordle}}
+\index{playWordle@{playWordle}!newwordle.h@{newwordle.h}}
+\doxysubsubsection{\texorpdfstring{playWordle()}{playWordle()}}
+{\footnotesize\ttfamily \label{newwordle_8h_ad2bee05444b1c1bcf1de4b58cb9d4935} 
+void play\+Wordle (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{newwordle_8h_a11d73c9e69f098e07992a5c8706fe43a}\index{newwordle.h@{newwordle.h}!processGuess@{processGuess}}
+\index{processGuess@{processGuess}!newwordle.h@{newwordle.h}}
+\doxysubsubsection{\texorpdfstring{processGuess()}{processGuess()}}
+{\footnotesize\ttfamily \label{newwordle_8h_a11d73c9e69f098e07992a5c8706fe43a} 
+char \texorpdfstring{$\ast$}{*} process\+Guess (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{the\+Word}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{the\+Guess}{}\end{DoxyParamCaption})}
+
+\Hypertarget{newwordle_8h_a91515e0294fb9e3595be97314d5374b9}\index{newwordle.h@{newwordle.h}!runwordletests@{runwordletests}}
+\index{runwordletests@{runwordletests}!newwordle.h@{newwordle.h}}
+\doxysubsubsection{\texorpdfstring{runwordletests()}{runwordletests()}}
+{\footnotesize\ttfamily \label{newwordle_8h_a91515e0294fb9e3595be97314d5374b9} 
+int runwordletests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{newwordle_8h_a7fb7c94106642590cd14cd7da2ea6632}\index{newwordle.h@{newwordle.h}!toLowerCase@{toLowerCase}}
+\index{toLowerCase@{toLowerCase}!newwordle.h@{newwordle.h}}
+\doxysubsubsection{\texorpdfstring{toLowerCase()}{toLowerCase()}}
+{\footnotesize\ttfamily \label{newwordle_8h_a7fb7c94106642590cd14cd7da2ea6632} 
+char \texorpdfstring{$\ast$}{*} to\+Lower\+Case (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{guess}{}\end{DoxyParamCaption})}
+
+\Hypertarget{newwordle_8h_a990feaee65b8d4219f2333b420d53338}\index{newwordle.h@{newwordle.h}!validworda@{validworda}}
+\index{validworda@{validworda}!newwordle.h@{newwordle.h}}
+\doxysubsubsection{\texorpdfstring{validworda()}{validworda()}}
+{\footnotesize\ttfamily \label{newwordle_8h_a990feaee65b8d4219f2333b420d53338} 
+bool validworda (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{guess}{}\end{DoxyParamCaption})}
 

@@ -1,0 +1,285 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="hangman_8h" kind="file" language="C++">
+    <compoundname>hangman.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">string.h</includes>
+    <includes local="no">time.h</includes>
+    <includes local="no">ctype.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includedby refid="hangman_8cpp" local="yes">hangman.cpp</includedby>
+    <includedby refid="home_8cpp" local="yes">home.cpp</includedby>
+    <includedby refid="home_8h" local="yes">home.h</includedby>
+    <includedby refid="run_all_test_8cpp" local="yes">runAllTest.cpp</includedby>
+    <includedby refid="test__hangman_8cpp" local="yes">test_hangman.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>hangman.h</label>
+        <link refid="hangman_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>ctype.h</label>
+      </node>
+      <node id="7">
+        <label>stdbool.h</label>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+      <node id="3">
+        <label>stdlib.h</label>
+      </node>
+      <node id="4">
+        <label>string.h</label>
+      </node>
+      <node id="5">
+        <label>time.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="5">
+        <label>C++lPointsProject.cpp</label>
+        <link refid="_c_09_09l_points_project_8cpp"/>
+      </node>
+      <node id="2">
+        <label>hangman.cpp</label>
+        <link refid="hangman_8cpp"/>
+      </node>
+      <node id="1">
+        <label>hangman.h</label>
+        <link refid="hangman_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>home.cpp</label>
+        <link refid="home_8cpp"/>
+      </node>
+      <node id="4">
+        <label>home.h</label>
+        <link refid="home_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>runAllTest.cpp</label>
+        <link refid="run_all_test_8cpp"/>
+      </node>
+      <node id="7">
+        <label>test_hangman.cpp</label>
+        <link refid="test__hangman_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="hangman_8h_1aec7b4994021c554c1761ea31d016b680" prot="public" static="no">
+        <name>MAX_WORD_LENGTH</name>
+        <initializer>100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hangman.h" line="19" column="9" bodyfile="hangman.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="hangman_8h_1afd63d23830ad86d01b6fff2e6c615f7e" prot="public" static="no">
+        <name>MAX_TRIES</name>
+        <initializer>6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hangman.h" line="20" column="9" bodyfile="hangman.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="hangman_8h_1a340d05b398ace33ff28748c2662192ef" prot="public" static="no">
+        <name>MAX_DICTIONARY_SIZE</name>
+        <initializer>10000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hangman.h" line="21" column="9" bodyfile="hangman.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="hangman_8h_1ae8ab569cd9e945e540d226f22d3569b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hangman_initialize</definition>
+        <argsstring>(void)</argsstring>
+        <name>hangman_initialize</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initializes the hangman game. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hangman.h" line="26" column="6" bodyfile="hangman.cpp" bodystart="147" bodyend="152" declfile="hangman.h" declline="26" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="hangman_8h_1ac7d1ab4cf69465dd29ddf5af3493258d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hangman_play</definition>
+        <argsstring>(void)</argsstring>
+        <name>hangman_play</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Plays the hangman game. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hangman.h" line="31" column="6" bodyfile="hangman.cpp" bodystart="158" bodyend="257" declfile="hangman.h" declline="31" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="hangman_8h_1a6daa5553ddea5c42d3ea8e5584ea47a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool is_letter_in_word</definition>
+        <argsstring>(char letter, const char *word)</argsstring>
+        <name>is_letter_in_word</name>
+        <param>
+          <type>char</type>
+          <declname>letter</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>word</declname>
+        </param>
+        <briefdescription>
+<para>checks if letter is in word </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>letter</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The letter to check </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>word</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The word to check </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>1 if the letter is in the word, 0 otherwise</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>letter</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The letter to check </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>word</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The word to check </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the letter is in the word, false otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hangman.h" line="39" column="6" bodyfile="hangman.cpp" bodystart="27" bodyend="35" declfile="hangman.h" declline="39" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="hangman_8h_1a9cbb07e88424d14d477be97703018be1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void hangmanTests</definition>
+        <argsstring>()</argsstring>
+        <name>hangmanTests</name>
+        <briefdescription>
+<para>Hangman unit tests. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="hangman.h" line="44" column="6" bodyfile="test_hangman.cpp" bodystart="69" bodyend="78" declfile="hangman.h" declline="44" declcolumn="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Header file for the hangman game. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Nick Garner </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>hangman.h</highlight></codeline>
+<codeline lineno="9"><highlight class="preprocessor">#ifndef<sp/>HANGMAN_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>HANGMAN_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;time.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ctype.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdbool.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="hangman_8h_1aec7b4994021c554c1761ea31d016b680" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_WORD_LENGTH<sp/>100</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="hangman_8h_1afd63d23830ad86d01b6fff2e6c615f7e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_TRIES<sp/>6</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="hangman_8h_1a340d05b398ace33ff28748c2662192ef" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_DICTIONARY_SIZE<sp/>10000</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="hangman_8h_1ae8ab569cd9e945e540d226f22d3569b4" kindref="member">hangman_initialize</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="hangman_8h_1ac7d1ab4cf69465dd29ddf5af3493258d" kindref="member">hangman_play</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="hangman_8h_1a6daa5553ddea5c42d3ea8e5584ea47a6" kindref="member">is_letter_in_word</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>letter,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>word);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="hangman_8h_1a9cbb07e88424d14d477be97703018be1" kindref="member">hangmanTests</ref>();</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>UNIT_TESTING</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Expose<sp/>these<sp/>functions<sp/>for<sp/>unit<sp/>testing</highlight></codeline>
+<codeline lineno="55"><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/><ref refid="hangman_8cpp_1ae52e89160c5277c2fd63dfea4b6cae9e" kindref="member">select_word</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>desired_length);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="hangman_8cpp_1a143f64eb9dbefc5b9d3a903e2d89ad5c" kindref="member">is_word_guessed</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>guessed,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>length);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="hangman_8cpp_1adbe95930f7a91820db6cccf58804680f" kindref="member">to_uppercase</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>str);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>set_mock_dictionary(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>mock_dict[][<ref refid="hangman_8h_1aec7b4994021c554c1761ea31d016b680" kindref="member">MAX_WORD_LENGTH</ref>],<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>HANGMAN_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="hangman.h"/>
+  </compounddef>
+</doxygen>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Vintage Vault: hangman.h Source File</title>
+<title>My Project: hangman.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Vintage Vault
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -87,40 +87,47 @@ $(function(){ initResizable(false); });
   <div class="headertitle"><div class="title">hangman.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// hangman.h</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#ifndef HANGMAN_H</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#define HANGMAN_H</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;time.h&gt;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;ctype.h&gt;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#define MAX_WORD_LENGTH 100</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#define MAX_TRIES 6</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#define MAX_DICTIONARY_SIZE 10000</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">// Function to initialize the hangman game</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keywordtype">void</span> hangman_initialize(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">// Function to play a single game of hangman</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keywordtype">void</span> hangman_play(<span class="keywordtype">void</span>);</div>
+<a href="hangman_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// hangman.h</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#ifndef HANGMAN_H</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#define HANGMAN_H</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;time.h&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;ctype.h&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="hangman_8h.html#aec7b4994021c554c1761ea31d016b680">   19</a></span><span class="preprocessor">#define MAX_WORD_LENGTH 100</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="hangman_8h.html#afd63d23830ad86d01b6fff2e6c615f7e">   20</a></span><span class="preprocessor">#define MAX_TRIES 6</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="hangman_8h.html#a340d05b398ace33ff28748c2662192ef">   21</a></span><span class="preprocessor">#define MAX_DICTIONARY_SIZE 10000</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">// Function to check if a letter is in a word</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keywordtype">bool</span> is_letter_in_word(<span class="keywordtype">char</span> letter, <span class="keyword">const</span> <span class="keywordtype">char</span>* word);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#ifdef UNIT_TESTING</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">// Expose these functions for unit testing</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keywordtype">char</span>* select_word(<span class="keywordtype">int</span> desired_length);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keywordtype">int</span> is_word_guessed(<span class="keyword">const</span> <span class="keywordtype">int</span>* guessed, <span class="keywordtype">int</span> length);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keywordtype">void</span> to_uppercase(<span class="keywordtype">char</span>* str);</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keywordtype">void</span> set_mock_dictionary(<span class="keyword">const</span> <span class="keywordtype">char</span> mock_dict[][MAX_WORD_LENGTH], <span class="keywordtype">int</span> size);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#endif </span><span class="comment">// HANGMAN_H</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keywordtype">void</span> <a class="code hl_function" href="hangman_8h.html#ae8ab569cd9e945e540d226f22d3569b4">hangman_initialize</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keywordtype">void</span> <a class="code hl_function" href="hangman_8h.html#ac7d1ab4cf69465dd29ddf5af3493258d">hangman_play</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keywordtype">bool</span> <a class="code hl_function" href="hangman_8h.html#a6daa5553ddea5c42d3ea8e5584ea47a6">is_letter_in_word</a>(<span class="keywordtype">char</span> letter, <span class="keyword">const</span> <span class="keywordtype">char</span>* word);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keywordtype">void</span> <a class="code hl_function" href="hangman_8h.html#a9cbb07e88424d14d477be97703018be1">hangmanTests</a>();</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#ifdef UNIT_TESTING</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">// Expose these functions for unit testing</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keywordtype">char</span>* <a class="code hl_function" href="hangman_8cpp.html#ae52e89160c5277c2fd63dfea4b6cae9e">select_word</a>(<span class="keywordtype">int</span> desired_length);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keywordtype">int</span> <a class="code hl_function" href="hangman_8cpp.html#a143f64eb9dbefc5b9d3a903e2d89ad5c">is_word_guessed</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>* guessed, <span class="keywordtype">int</span> length);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keywordtype">void</span> <a class="code hl_function" href="hangman_8cpp.html#adbe95930f7a91820db6cccf58804680f">to_uppercase</a>(<span class="keywordtype">char</span>* str);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="keywordtype">void</span> set_mock_dictionary(<span class="keyword">const</span> <span class="keywordtype">char</span> mock_dict[][<a class="code hl_define" href="hangman_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a>], <span class="keywordtype">int</span> size);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="preprocessor">#endif </span><span class="comment">// HANGMAN_H</span></div>
+<div class="ttc" id="ahangman_8cpp_html_a143f64eb9dbefc5b9d3a903e2d89ad5c"><div class="ttname"><a href="hangman_8cpp.html#a143f64eb9dbefc5b9d3a903e2d89ad5c">is_word_guessed</a></div><div class="ttdeci">STATIC int is_word_guessed(const int *guessed, int length)</div><div class="ttdoc">Checks if a word has been guessed.</div><div class="ttdef"><b>Definition</b> hangman.cpp:107</div></div>
+<div class="ttc" id="ahangman_8cpp_html_adbe95930f7a91820db6cccf58804680f"><div class="ttname"><a href="hangman_8cpp.html#adbe95930f7a91820db6cccf58804680f">to_uppercase</a></div><div class="ttdeci">STATIC void to_uppercase(char *str)</div><div class="ttdoc">Converts a string to uppercase.</div><div class="ttdef"><b>Definition</b> hangman.cpp:118</div></div>
+<div class="ttc" id="ahangman_8cpp_html_ae52e89160c5277c2fd63dfea4b6cae9e"><div class="ttname"><a href="hangman_8cpp.html#ae52e89160c5277c2fd63dfea4b6cae9e">select_word</a></div><div class="ttdeci">STATIC char * select_word(int desired_length)</div><div class="ttdoc">Selects a word from the dictionary based on the desired length.</div><div class="ttdef"><b>Definition</b> hangman.cpp:42</div></div>
+<div class="ttc" id="ahangman_8h_html_a6daa5553ddea5c42d3ea8e5584ea47a6"><div class="ttname"><a href="hangman_8h.html#a6daa5553ddea5c42d3ea8e5584ea47a6">is_letter_in_word</a></div><div class="ttdeci">bool is_letter_in_word(char letter, const char *word)</div><div class="ttdoc">checks if letter is in word</div><div class="ttdef"><b>Definition</b> hangman.cpp:27</div></div>
+<div class="ttc" id="ahangman_8h_html_a9cbb07e88424d14d477be97703018be1"><div class="ttname"><a href="hangman_8h.html#a9cbb07e88424d14d477be97703018be1">hangmanTests</a></div><div class="ttdeci">void hangmanTests()</div><div class="ttdoc">Hangman unit tests.</div><div class="ttdef"><b>Definition</b> test_hangman.cpp:69</div></div>
+<div class="ttc" id="ahangman_8h_html_ac7d1ab4cf69465dd29ddf5af3493258d"><div class="ttname"><a href="hangman_8h.html#ac7d1ab4cf69465dd29ddf5af3493258d">hangman_play</a></div><div class="ttdeci">void hangman_play(void)</div><div class="ttdoc">Plays the hangman game.</div><div class="ttdef"><b>Definition</b> hangman.cpp:158</div></div>
+<div class="ttc" id="ahangman_8h_html_ae8ab569cd9e945e540d226f22d3569b4"><div class="ttname"><a href="hangman_8h.html#ae8ab569cd9e945e540d226f22d3569b4">hangman_initialize</a></div><div class="ttdeci">void hangman_initialize(void)</div><div class="ttdoc">Initializes the hangman game.</div><div class="ttdef"><b>Definition</b> hangman.cpp:147</div></div>
+<div class="ttc" id="ahangman_8h_html_aec7b4994021c554c1761ea31d016b680"><div class="ttname"><a href="hangman_8h.html#aec7b4994021c554c1761ea31d016b680">MAX_WORD_LENGTH</a></div><div class="ttdeci">#define MAX_WORD_LENGTH</div><div class="ttdef"><b>Definition</b> hangman.h:19</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -1,0 +1,197 @@
+\doxysection{hangman.\+cpp File Reference}
+\hypertarget{hangman_8cpp}{}\label{hangman_8cpp}\index{hangman.cpp@{hangman.cpp}}
+
+
+Hangman game implementation.  
+
+
+{\ttfamily \#include "{}hangman.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{hangman_8cpp_a10b2d890d871e1489bb02b7e70d9bdfb}{STATIC}}~static
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{hangman_8cpp_a6daa5553ddea5c42d3ea8e5584ea47a6}{is\+\_\+letter\+\_\+in\+\_\+word}} (char letter, const char \texorpdfstring{$\ast$}{*}word)
+\begin{DoxyCompactList}\small\item\em checks if letter is in word \end{DoxyCompactList}\item 
+\mbox{\hyperlink{hangman_8cpp_a10b2d890d871e1489bb02b7e70d9bdfb}{STATIC}} char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{hangman_8cpp_ae52e89160c5277c2fd63dfea4b6cae9e}{select\+\_\+word}} (int desired\+\_\+length)
+\begin{DoxyCompactList}\small\item\em Selects a word from the dictionary based on the desired length. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{hangman_8cpp_a10b2d890d871e1489bb02b7e70d9bdfb}{STATIC}} void \mbox{\hyperlink{hangman_8cpp_a87987132c4bb3dd238a8c942c4655e29}{print\+\_\+hangman}} (int tries)
+\begin{DoxyCompactList}\small\item\em Prints the hangman based on the number of tries. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{hangman_8cpp_a10b2d890d871e1489bb02b7e70d9bdfb}{STATIC}} void \mbox{\hyperlink{hangman_8cpp_aab6fcc985bf0321bec7f42a589351c9d}{print\+\_\+word}} (const char \texorpdfstring{$\ast$}{*}word, const int \texorpdfstring{$\ast$}{*}guessed)
+\begin{DoxyCompactList}\small\item\em Prints the word with guessed letters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{hangman_8cpp_a10b2d890d871e1489bb02b7e70d9bdfb}{STATIC}} int \mbox{\hyperlink{hangman_8cpp_a143f64eb9dbefc5b9d3a903e2d89ad5c}{is\+\_\+word\+\_\+guessed}} (const int \texorpdfstring{$\ast$}{*}guessed, int length)
+\begin{DoxyCompactList}\small\item\em Checks if a word has been guessed. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{hangman_8cpp_a10b2d890d871e1489bb02b7e70d9bdfb}{STATIC}} void \mbox{\hyperlink{hangman_8cpp_adbe95930f7a91820db6cccf58804680f}{to\+\_\+uppercase}} (char \texorpdfstring{$\ast$}{*}str)
+\begin{DoxyCompactList}\small\item\em Converts a string to uppercase. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{hangman_8cpp_a10b2d890d871e1489bb02b7e70d9bdfb}{STATIC}} int \mbox{\hyperlink{hangman_8cpp_a4c89622c29199a348cfa169b60745b19}{load\+\_\+dictionary}} (const char \texorpdfstring{$\ast$}{*}filename)
+\begin{DoxyCompactList}\small\item\em Loads the dictionary from a file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{hangman_8cpp_ae8ab569cd9e945e540d226f22d3569b4}{hangman\+\_\+initialize}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the hangman game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{hangman_8cpp_ac7d1ab4cf69465dd29ddf5af3493258d}{hangman\+\_\+play}} (void)
+\begin{DoxyCompactList}\small\item\em Plays the hangman game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Hangman game implementation. 
+
+\begin{DoxyAuthor}{Author}
+Nick Garner 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{hangman_8cpp_a10b2d890d871e1489bb02b7e70d9bdfb}\index{hangman.cpp@{hangman.cpp}!STATIC@{STATIC}}
+\index{STATIC@{STATIC}!hangman.cpp@{hangman.cpp}}
+\doxysubsubsection{\texorpdfstring{STATIC}{STATIC}}
+{\footnotesize\ttfamily \label{hangman_8cpp_a10b2d890d871e1489bb02b7e70d9bdfb} 
+\#define STATIC~static}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{hangman_8cpp_ae8ab569cd9e945e540d226f22d3569b4}\index{hangman.cpp@{hangman.cpp}!hangman\_initialize@{hangman\_initialize}}
+\index{hangman\_initialize@{hangman\_initialize}!hangman.cpp@{hangman.cpp}}
+\doxysubsubsection{\texorpdfstring{hangman\_initialize()}{hangman\_initialize()}}
+{\footnotesize\ttfamily \label{hangman_8cpp_ae8ab569cd9e945e540d226f22d3569b4} 
+void hangman\+\_\+initialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the hangman game. 
+
+\Hypertarget{hangman_8cpp_ac7d1ab4cf69465dd29ddf5af3493258d}\index{hangman.cpp@{hangman.cpp}!hangman\_play@{hangman\_play}}
+\index{hangman\_play@{hangman\_play}!hangman.cpp@{hangman.cpp}}
+\doxysubsubsection{\texorpdfstring{hangman\_play()}{hangman\_play()}}
+{\footnotesize\ttfamily \label{hangman_8cpp_ac7d1ab4cf69465dd29ddf5af3493258d} 
+void hangman\+\_\+play (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Plays the hangman game. 
+
+\Hypertarget{hangman_8cpp_a6daa5553ddea5c42d3ea8e5584ea47a6}\index{hangman.cpp@{hangman.cpp}!is\_letter\_in\_word@{is\_letter\_in\_word}}
+\index{is\_letter\_in\_word@{is\_letter\_in\_word}!hangman.cpp@{hangman.cpp}}
+\doxysubsubsection{\texorpdfstring{is\_letter\_in\_word()}{is\_letter\_in\_word()}}
+{\footnotesize\ttfamily \label{hangman_8cpp_a6daa5553ddea5c42d3ea8e5584ea47a6} 
+bool is\+\_\+letter\+\_\+in\+\_\+word (\begin{DoxyParamCaption}\item[{char}]{letter}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{word}{}\end{DoxyParamCaption})}
+
+
+
+checks if letter is in word 
+
+
+\begin{DoxyParams}{Parameters}
+{\em letter} & The letter to check \\
+\hline
+{\em word} & The word to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the letter is in the word, false otherwise 
+\end{DoxyReturn}
+\Hypertarget{hangman_8cpp_a143f64eb9dbefc5b9d3a903e2d89ad5c}\index{hangman.cpp@{hangman.cpp}!is\_word\_guessed@{is\_word\_guessed}}
+\index{is\_word\_guessed@{is\_word\_guessed}!hangman.cpp@{hangman.cpp}}
+\doxysubsubsection{\texorpdfstring{is\_word\_guessed()}{is\_word\_guessed()}}
+{\footnotesize\ttfamily \label{hangman_8cpp_a143f64eb9dbefc5b9d3a903e2d89ad5c} 
+\mbox{\hyperlink{hangman_8cpp_a10b2d890d871e1489bb02b7e70d9bdfb}{STATIC}} int is\+\_\+word\+\_\+guessed (\begin{DoxyParamCaption}\item[{const int \texorpdfstring{$\ast$}{*}}]{guessed}{, }\item[{int}]{length}{}\end{DoxyParamCaption})}
+
+
+
+Checks if a word has been guessed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em guessed} & An array of integers representing the guessed letters \\
+\hline
+{\em length} & The length of the word \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the word has been guessed, 0 otherwise 
+\end{DoxyReturn}
+\Hypertarget{hangman_8cpp_a4c89622c29199a348cfa169b60745b19}\index{hangman.cpp@{hangman.cpp}!load\_dictionary@{load\_dictionary}}
+\index{load\_dictionary@{load\_dictionary}!hangman.cpp@{hangman.cpp}}
+\doxysubsubsection{\texorpdfstring{load\_dictionary()}{load\_dictionary()}}
+{\footnotesize\ttfamily \label{hangman_8cpp_a4c89622c29199a348cfa169b60745b19} 
+\mbox{\hyperlink{hangman_8cpp_a10b2d890d871e1489bb02b7e70d9bdfb}{STATIC}} int load\+\_\+dictionary (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+Loads the dictionary from a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the file to load \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the dictionary was loaded successfully, 0 otherwise 
+\end{DoxyReturn}
+\Hypertarget{hangman_8cpp_a87987132c4bb3dd238a8c942c4655e29}\index{hangman.cpp@{hangman.cpp}!print\_hangman@{print\_hangman}}
+\index{print\_hangman@{print\_hangman}!hangman.cpp@{hangman.cpp}}
+\doxysubsubsection{\texorpdfstring{print\_hangman()}{print\_hangman()}}
+{\footnotesize\ttfamily \label{hangman_8cpp_a87987132c4bb3dd238a8c942c4655e29} 
+\mbox{\hyperlink{hangman_8cpp_a10b2d890d871e1489bb02b7e70d9bdfb}{STATIC}} void print\+\_\+hangman (\begin{DoxyParamCaption}\item[{int}]{tries}{}\end{DoxyParamCaption})}
+
+
+
+Prints the hangman based on the number of tries. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tries} & The number of tries \\
+\hline
+\end{DoxyParams}
+\Hypertarget{hangman_8cpp_aab6fcc985bf0321bec7f42a589351c9d}\index{hangman.cpp@{hangman.cpp}!print\_word@{print\_word}}
+\index{print\_word@{print\_word}!hangman.cpp@{hangman.cpp}}
+\doxysubsubsection{\texorpdfstring{print\_word()}{print\_word()}}
+{\footnotesize\ttfamily \label{hangman_8cpp_aab6fcc985bf0321bec7f42a589351c9d} 
+\mbox{\hyperlink{hangman_8cpp_a10b2d890d871e1489bb02b7e70d9bdfb}{STATIC}} void print\+\_\+word (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{word}{, }\item[{const int \texorpdfstring{$\ast$}{*}}]{guessed}{}\end{DoxyParamCaption})}
+
+
+
+Prints the word with guessed letters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em word} & The word to print \\
+\hline
+{\em guessed} & An array of guessed letters \\
+\hline
+\end{DoxyParams}
+\Hypertarget{hangman_8cpp_ae52e89160c5277c2fd63dfea4b6cae9e}\index{hangman.cpp@{hangman.cpp}!select\_word@{select\_word}}
+\index{select\_word@{select\_word}!hangman.cpp@{hangman.cpp}}
+\doxysubsubsection{\texorpdfstring{select\_word()}{select\_word()}}
+{\footnotesize\ttfamily \label{hangman_8cpp_ae52e89160c5277c2fd63dfea4b6cae9e} 
+\mbox{\hyperlink{hangman_8cpp_a10b2d890d871e1489bb02b7e70d9bdfb}{STATIC}} char \texorpdfstring{$\ast$}{*} select\+\_\+word (\begin{DoxyParamCaption}\item[{int}]{desired\+\_\+length}{}\end{DoxyParamCaption})}
+
+
+
+Selects a word from the dictionary based on the desired length. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em desired\+\_\+length} & The desired length of the word \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the selected word 
+\end{DoxyReturn}
+\Hypertarget{hangman_8cpp_adbe95930f7a91820db6cccf58804680f}\index{hangman.cpp@{hangman.cpp}!to\_uppercase@{to\_uppercase}}
+\index{to\_uppercase@{to\_uppercase}!hangman.cpp@{hangman.cpp}}
+\doxysubsubsection{\texorpdfstring{to\_uppercase()}{to\_uppercase()}}
+{\footnotesize\ttfamily \label{hangman_8cpp_adbe95930f7a91820db6cccf58804680f} 
+\mbox{\hyperlink{hangman_8cpp_a10b2d890d871e1489bb02b7e70d9bdfb}{STATIC}} void to\+\_\+uppercase (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{str}{}\end{DoxyParamCaption})}
+
+
+
+Converts a string to uppercase. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The string to convert to uppercase \\
+\hline
+\end{DoxyParams}

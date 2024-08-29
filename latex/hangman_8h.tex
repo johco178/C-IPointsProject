@@ -1,0 +1,125 @@
+\doxysection{hangman.\+h File Reference}
+\hypertarget{hangman_8h}{}\label{hangman_8h}\index{hangman.h@{hangman.h}}
+
+
+Header file for the hangman game.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{hangman_8h_aec7b4994021c554c1761ea31d016b680}{MAX\+\_\+\+WORD\+\_\+\+LENGTH}}~100
+\item 
+\#define \mbox{\hyperlink{hangman_8h_afd63d23830ad86d01b6fff2e6c615f7e}{MAX\+\_\+\+TRIES}}~6
+\item 
+\#define \mbox{\hyperlink{hangman_8h_a340d05b398ace33ff28748c2662192ef}{MAX\+\_\+\+DICTIONARY\+\_\+\+SIZE}}~10000
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{hangman_8h_ae8ab569cd9e945e540d226f22d3569b4}{hangman\+\_\+initialize}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the hangman game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{hangman_8h_ac7d1ab4cf69465dd29ddf5af3493258d}{hangman\+\_\+play}} (void)
+\begin{DoxyCompactList}\small\item\em Plays the hangman game. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{hangman_8h_a6daa5553ddea5c42d3ea8e5584ea47a6}{is\+\_\+letter\+\_\+in\+\_\+word}} (char letter, const char \texorpdfstring{$\ast$}{*}word)
+\begin{DoxyCompactList}\small\item\em checks if letter is in word \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{hangman_8h_a9cbb07e88424d14d477be97703018be1}{hangman\+Tests}} ()
+\begin{DoxyCompactList}\small\item\em Hangman unit tests. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for the hangman game. 
+
+\begin{DoxyAuthor}{Author}
+Nick Garner 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{hangman_8h_a340d05b398ace33ff28748c2662192ef}\index{hangman.h@{hangman.h}!MAX\_DICTIONARY\_SIZE@{MAX\_DICTIONARY\_SIZE}}
+\index{MAX\_DICTIONARY\_SIZE@{MAX\_DICTIONARY\_SIZE}!hangman.h@{hangman.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_DICTIONARY\_SIZE}{MAX\_DICTIONARY\_SIZE}}
+{\footnotesize\ttfamily \label{hangman_8h_a340d05b398ace33ff28748c2662192ef} 
+\#define MAX\+\_\+\+DICTIONARY\+\_\+\+SIZE~10000}
+
+\Hypertarget{hangman_8h_afd63d23830ad86d01b6fff2e6c615f7e}\index{hangman.h@{hangman.h}!MAX\_TRIES@{MAX\_TRIES}}
+\index{MAX\_TRIES@{MAX\_TRIES}!hangman.h@{hangman.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_TRIES}{MAX\_TRIES}}
+{\footnotesize\ttfamily \label{hangman_8h_afd63d23830ad86d01b6fff2e6c615f7e} 
+\#define MAX\+\_\+\+TRIES~6}
+
+\Hypertarget{hangman_8h_aec7b4994021c554c1761ea31d016b680}\index{hangman.h@{hangman.h}!MAX\_WORD\_LENGTH@{MAX\_WORD\_LENGTH}}
+\index{MAX\_WORD\_LENGTH@{MAX\_WORD\_LENGTH}!hangman.h@{hangman.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_WORD\_LENGTH}{MAX\_WORD\_LENGTH}}
+{\footnotesize\ttfamily \label{hangman_8h_aec7b4994021c554c1761ea31d016b680} 
+\#define MAX\+\_\+\+WORD\+\_\+\+LENGTH~100}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{hangman_8h_ae8ab569cd9e945e540d226f22d3569b4}\index{hangman.h@{hangman.h}!hangman\_initialize@{hangman\_initialize}}
+\index{hangman\_initialize@{hangman\_initialize}!hangman.h@{hangman.h}}
+\doxysubsubsection{\texorpdfstring{hangman\_initialize()}{hangman\_initialize()}}
+{\footnotesize\ttfamily \label{hangman_8h_ae8ab569cd9e945e540d226f22d3569b4} 
+void hangman\+\_\+initialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the hangman game. 
+
+\Hypertarget{hangman_8h_ac7d1ab4cf69465dd29ddf5af3493258d}\index{hangman.h@{hangman.h}!hangman\_play@{hangman\_play}}
+\index{hangman\_play@{hangman\_play}!hangman.h@{hangman.h}}
+\doxysubsubsection{\texorpdfstring{hangman\_play()}{hangman\_play()}}
+{\footnotesize\ttfamily \label{hangman_8h_ac7d1ab4cf69465dd29ddf5af3493258d} 
+void hangman\+\_\+play (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Plays the hangman game. 
+
+\Hypertarget{hangman_8h_a9cbb07e88424d14d477be97703018be1}\index{hangman.h@{hangman.h}!hangmanTests@{hangmanTests}}
+\index{hangmanTests@{hangmanTests}!hangman.h@{hangman.h}}
+\doxysubsubsection{\texorpdfstring{hangmanTests()}{hangmanTests()}}
+{\footnotesize\ttfamily \label{hangman_8h_a9cbb07e88424d14d477be97703018be1} 
+void hangman\+Tests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Hangman unit tests. 
+
+\Hypertarget{hangman_8h_a6daa5553ddea5c42d3ea8e5584ea47a6}\index{hangman.h@{hangman.h}!is\_letter\_in\_word@{is\_letter\_in\_word}}
+\index{is\_letter\_in\_word@{is\_letter\_in\_word}!hangman.h@{hangman.h}}
+\doxysubsubsection{\texorpdfstring{is\_letter\_in\_word()}{is\_letter\_in\_word()}}
+{\footnotesize\ttfamily \label{hangman_8h_a6daa5553ddea5c42d3ea8e5584ea47a6} 
+bool is\+\_\+letter\+\_\+in\+\_\+word (\begin{DoxyParamCaption}\item[{char}]{letter}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{word}{}\end{DoxyParamCaption})}
+
+
+
+checks if letter is in word 
+
+
+\begin{DoxyParams}{Parameters}
+{\em letter} & The letter to check \\
+\hline
+{\em word} & The word to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the letter is in the word, 0 otherwise
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em letter} & The letter to check \\
+\hline
+{\em word} & The word to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the letter is in the word, false otherwise 
+\end{DoxyReturn}

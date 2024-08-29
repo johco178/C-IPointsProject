@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="md__r_e_a_d_m_e" kind="page">
+    <compoundname>md__r_e_a_d_m_e</compoundname>
+    <title>C++lPointsProject</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="md__r_e_a_d_m_e_1autotoc_md0"/></para>
+<para>VintageVault is a gamehub of &apos;back to basics&apos; games such as Tic-Tac-Toe, Hangman, Wordle and Secret Number. The user can play this game from the windows command terminal.</para>
+<sect1 id="md__r_e_a_d_m_e_1autotoc_md1">
+<title>Badges</title><para><image type="html" name="https://github.com/johco178/C-lPointsProject/actions/workflows/workflow.yml/badge.svg" alt="GitHub Workflow Status" inline="yes"></image>
+</para>
+<para><ulink url="https://codecov.io/github/johco178/C-IPointsProject"><image type="html" name="https://codecov.io/github/johco178/C-IPointsProject/graph/badge.svg?token=6L90UPZ56N" alt="codecov" inline="yes"></image>
+</ulink> </para>
+</sect1>
+    </detaileddescription>
+    <location file="README.md"/>
+  </compounddef>
+</doxygen>
