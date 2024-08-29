@@ -22,7 +22,7 @@ void initBoard(){
 }
 
 /*!
-    @brief Display the board on the terminal 
+    @brief Displays the TicTacToe board in the terminal
 */
 void displayBoard(){
     cout << "\n" << endl;
@@ -43,7 +43,7 @@ void displayBoard(){
 
 /*!
     @brief Check for win state
-    @return true if board is in winning state, false otherwise
+    @return True if board is in winning state, false otherwise
 */
 bool checkWin(){
     // Check rows
@@ -69,7 +69,7 @@ bool checkWin(){
 
 /*!
     @brief Checks for a draw
-    @return true if no possible moves, and not a win state, false otherwise
+    @return True if no possible moves, and not a win state, false otherwise
 */
 bool checkDraw(){
     for(int i = 0; i < ROWS; i++){
@@ -84,7 +84,7 @@ bool checkDraw(){
 }
 
 /*!
-    @brief Function for a players move
+    @brief Initiates for a players move
     @param player which players turn it is (X or O)
 */
 void move(char player){
