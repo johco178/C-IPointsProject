@@ -8,7 +8,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
+    - name: Remove previous build directory
+      run: Remove-Item -Recurse -Force D:\a\C-IPointsProject\C-IPointsProject\build
+      shell: pwsh
+
     - name: Configure CMake
       run: cmake -B build -G "Ninja" -DCMAKE_BUILD_TYPE=Release
+
     - name: Build
       run: cmake --build build
