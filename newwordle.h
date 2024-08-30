@@ -55,6 +55,7 @@ int runwordletests();
 char* processGuess(const char* theWord, const char* theGuess);
 char* toLowerCase(const char* guess);
 bool conatainsonlychar(const char* guess);
+bool conatainsonlychar(const char* guess);
 
 #endif
 

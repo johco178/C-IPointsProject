@@ -43,6 +43,15 @@ TEST(processGuess) {
     assert(strcmp(processGuess(answer, third_guess), "GGGGG") == 0);
 }
 
+TEST(correctlength) {
+    assert(correctlength("hello") == true);
+    assert(correctlength("hell") == false);
+    assert(correctlength("helloo") == false);
+
+    
+
+}
+
 
 
 
@@ -54,6 +63,7 @@ int runwordletests() {
     RUN_TEST(conatainsonlychar);
     RUN_TEST(toLowerCase);
     RUN_TEST(processGuess);
+    RUN_TEST(correctlength);
 
     printf("All tests passed!\n");
     return 0;
