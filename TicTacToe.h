@@ -12,7 +12,7 @@ const int COLS = 3;
 extern char board[ROWS][COLS];
 
 /*!
-    @brief Initialises the 2D array board to empty character values
+    @brief Initialises the board variable
 */
 void initBoard();
 
@@ -22,24 +22,24 @@ void initBoard();
 void displayBoard();
 
 /*!
-    @brief Checks for a winner
-    @return True if winner identified, False if not
+    @brief Check for win state
+    @return True if board is in winning state, false otherwise
 */
 bool checkWin();
 
 /*!
     @brief Checks for a draw
-    @return True if no moves available and no winner, false otherwise
+    @return True if no possible moves, and not a win state, false otherwise
 */
 bool checkDraw();
 
 /*!
-    @brief Asks the player where they'd like to make their move and adds the move to board
-    @param player Which person is playing (player 1 or player 2)
+    @brief Initiates for a players move
+    @param player which players turn it is (X or O)
 */
 void move(char player);
 
 /*!
-    @brief Function to run the game
+    @brief Runs the game
 */
 void playTicTacToe();

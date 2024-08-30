@@ -1,19 +1,35 @@
+/*!
+    @file TicTacToe.cpp
+	@brief TicTacToe Implementation
+    @author Curtis Mellsop
+*/
+
 #include "TicTacToe.h"
 
+// declare board variable
 char board[ROWS][COLS];
 
+/*!
+    @brief Initialises the board variable
+*/
 void initBoard(){
     for(int i = 0; i < ROWS; i++){
         for(int j = 0; j < COLS; j++){
+            // Set each value to a blank character (for output purposes)
             board[i][j] = ' ';
         }
     }
 }
 
+/*!
+    @brief Displays the TicTacToe board in the terminal
+*/
 void displayBoard(){
     cout << "\n" << endl;
+    // Differentiate columns using numbers
     cout << "\t  1   2   3" << endl;
     for (int i = 0; i < ROWS; i++) {
+        // Differentiate rows using letters
         cout << "\t" << char('A' + i) << " ";
         for (int j = 0; j < COLS; j++) {
             cout << board[i][j];
@@ -25,6 +41,10 @@ void displayBoard(){
     cout << "\n" << endl;
 }
 
+/*!
+    @brief Check for win state
+    @return True if board is in winning state, false otherwise
+*/
 bool checkWin(){
     // Check rows
     for(int i = 0; i < ROWS; i++){
@@ -47,10 +67,15 @@ bool checkWin(){
     return false;
 }
 
+/*!
+    @brief Checks for a draw
+    @return True if no possible moves, and not a win state, false otherwise
+*/
 bool checkDraw(){
     for(int i = 0; i < ROWS; i++){
         for (int j = 0; j < COLS; j++){
             if (board[i][j] == ' '){
+                // If any blank values in board, then the game can continue
                 return false;
             }
         }
@@ -58,47 +83,65 @@ bool checkDraw(){
     return true;
 }
 
+/*!
+    @brief Initiates for a players move
+    @param player which players turn it is (X or O)
+*/
 void move(char player){
+    // Declare local variables
     string input;
     char charRow;
     int col;
     int row;
-    int p = (player == 'X') ? 1 : 2;
     while(true){
-        cout << "Player " << p << ", please enter your move (format example: A2): ";
+        // Ask the player to make a move and record their input
+        cout << "Player " << ((player == 'X') ? 1 : 2) << ", please enter your move (format example: A2): ";
         cin >> input;
         charRow = toupper(input[0]);
+        // Convert input into two int values from 0 to 2
         row = charRow - 'A';
         col = input[1] - '1';
+        // Check the input is a possible coordinate
         if(row > (ROWS - 1) || row < 0 || col > (COLS - 1) || col < 0){
             cout << "Invalid row or column" << endl;
             continue;
         }
+        // Check the coordinate isn't filled
         if(board[row][col] != ' '){
             cout << "Positiom already has a value" << endl;
             continue;
         }
+        // Set the boards value to that player
         board[row][col] = player;
         break;
     }    
 }
 
+/*!
+    @brief Runs the game
+*/
 void playTicTacToe(){
+    // Sets player 1 to X
     char currentPlayer = 'X';
+    // Creates an empty 2d array 'board'
     initBoard();
 
     cout << "Welcome to Tic-Tac-Toe" << endl;
     cout << "To play, enter the coordinates of where you want to put your piece:" << endl;
 
     while (true) {
+        // Displays the current board and asks the player to make a move
         displayBoard();
         move(currentPlayer);
 
+        // Checks for a win, and if so, output winner and end game
         if (checkWin()) {
             displayBoard();
             cout << "Player " << ((currentPlayer == 'X') ? 1 : 2) << " wins!" << endl;
             break;
-        } else if (checkDraw()) {
+        } 
+        // If no win check for draw, if so, print it's a draw and end the game
+        else if (checkDraw()) {
             displayBoard();
             cout << "It's a draw!" << endl;
             break;
