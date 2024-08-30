@@ -15,12 +15,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-
-    - name: Install dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y gcovr
-
     - name: Clear CMake cache
       run: |
         rm -rf ${{github.workspace}}/build
