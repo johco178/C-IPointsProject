@@ -1,8 +1,12 @@
 var searchData=
 [
-  ['initboard_0',['initBoard',['../_tic_tac_toe_8cpp.html#acf15165e08940e0b050e6c739de8d349',1,'initBoard():&#160;TicTacToe.cpp'],['../_tic_tac_toe_8h.html#acf15165e08940e0b050e6c739de8d349',1,'initBoard():&#160;TicTacToe.cpp']]],
-  ['initialize_5fgames_1',['initialize_games',['../home_8cpp.html#a0429281fd294767583d75eaaba17b1e8',1,'initialize_games(void):&#160;home.cpp'],['../home_8h.html#a0429281fd294767583d75eaaba17b1e8',1,'initialize_games(void):&#160;home.cpp']]],
-  ['is_5fletter_5fin_5fword_2',['is_letter_in_word',['../hangman_8cpp.html#a6daa5553ddea5c42d3ea8e5584ea47a6',1,'is_letter_in_word(char letter, const char *word):&#160;hangman.cpp'],['../hangman_8h.html#a6daa5553ddea5c42d3ea8e5584ea47a6',1,'is_letter_in_word(char letter, const char *word):&#160;hangman.cpp']]],
-  ['is_5fpower_5fof_5ftwo_3',['is_power_of_two',['../codecoveragetester_8h.html#af08f40f155134deab87770a792d5fddd',1,'codecoveragetester.h']]],
-  ['is_5fword_5fguessed_4',['is_word_guessed',['../hangman_8cpp.html#a143f64eb9dbefc5b9d3a903e2d89ad5c',1,'hangman.cpp']]]
+  ['hangman_2ecpp_0',['hangman.cpp',['../hangman_8cpp.html',1,'']]],
+  ['hangman_2eh_1',['hangman.h',['../hangman_8h.html',1,'']]],
+  ['hangman_5finitialize_2',['hangman_initialize',['../hangman_8cpp.html#ae8ab569cd9e945e540d226f22d3569b4',1,'hangman_initialize(void):&#160;hangman.cpp'],['../hangman_8h.html#ae8ab569cd9e945e540d226f22d3569b4',1,'hangman_initialize(void):&#160;hangman.cpp']]],
+  ['hangman_5fplay_3',['hangman_play',['../hangman_8cpp.html#ac7d1ab4cf69465dd29ddf5af3493258d',1,'hangman_play(void):&#160;hangman.cpp'],['../hangman_8h.html#ac7d1ab4cf69465dd29ddf5af3493258d',1,'hangman_play(void):&#160;hangman.cpp']]],
+  ['hangmantests_4',['hangmanTests',['../hangman_8h.html#a9cbb07e88424d14d477be97703018be1',1,'hangmanTests():&#160;test_hangman.cpp'],['../test__hangman_8cpp.html#a9cbb07e88424d14d477be97703018be1',1,'hangmanTests():&#160;test_hangman.cpp']]],
+  ['hex_5',['HEX',['../x64-debug-macos_2_c_make_files_23_830_82_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.html#a46d5d95daa1bef867bd0179594310ed5',1,'HEX:&#160;CMakeCXXCompilerId.cpp'],['../x64-release-macos_2_c_make_files_23_830_82_2_compiler_id_c_x_x_2_c_make_c_x_x_compiler_id_8cpp.html#a46d5d95daa1bef867bd0179594310ed5',1,'HEX:&#160;CMakeCXXCompilerId.cpp']]],
+  ['home_2ecpp_6',['home.cpp',['../home_8cpp.html',1,'']]],
+  ['home_2eh_7',['home.h',['../home_8h.html',1,'']]],
+  ['homescreen_8',['homescreen',['../home_8cpp.html#a5ae2cae28f6583ba58601114803e64ce',1,'homescreen(void):&#160;home.cpp'],['../home_8h.html#a5ae2cae28f6583ba58601114803e64ce',1,'homescreen(void):&#160;home.cpp']]]
 ];

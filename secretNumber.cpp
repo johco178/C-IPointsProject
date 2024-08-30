@@ -86,7 +86,7 @@ int getGuess(int lowerBound, int upperBound) {
 
     while (!isValid)
     {
-        while (getchar() != '\n'); 
+        while (getchar() != '\n'){} 
         printf("That is not a valid input.\nPlease enter a number between %d and %d:\n", lowerBound, upperBound);
         check = scanf("%d", &guess);
         isValid = validGuess(guess, lowerBound, upperBound, check);
@@ -204,6 +204,7 @@ bool playAgain() {
     @brief Starts the game
 */
 void secretNumberStart() {
+//int main() {
     
     int secretNumber, guess, attempts = 0, maxAttempts;
     int lowerBound, upperBound;
@@ -223,5 +224,5 @@ void secretNumberStart() {
         difficulty = tolower(difficulty);//converts the input to lowercase incase of valid uppercase input
         play(difficulty);//plays the game with specified difficulty
     }
-
+    //return 0;
 }

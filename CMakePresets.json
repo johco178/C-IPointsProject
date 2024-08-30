@@ -1,4 +1,4 @@
-﻿{
+{
     "version": 3,
     "configurePresets": [
         {
@@ -18,8 +18,24 @@
             }
         },
         {
-            "name": "x64-debug",
-            "displayName": "x64 Debug",
+            "name": "macos-base",
+            "hidden": true,
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
+            "installDir": "${sourceDir}/out/install/${presetName}",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "clang",
+                "CMAKE_CXX_COMPILER": "clang++"
+            },
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Darwin"
+            }
+        },
+        {
+            "name": "x64-debug-windows",
+            "displayName": "x64 Debug Windows",
             "inherits": "windows-base",
             "architecture": {
                 "value": "x64",
@@ -30,19 +46,11 @@
             }
         },
         {
-            "name": "x64-release",
-            "displayName": "x64 Release",
-            "inherits": "x64-debug",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Release"
-            }
-        },
-        {
-            "name": "x86-debug",
-            "displayName": "x86 Debug",
-            "inherits": "windows-base",
+            "name": "x64-debug-macos",
+            "displayName": "x64 Debug macOS",
+            "inherits": "macos-base",
             "architecture": {
-                "value": "x86",
+                "value": "x64",
                 "strategy": "external"
             },
             "cacheVariables": {
@@ -50,9 +58,17 @@
             }
         },
         {
-            "name": "x86-release",
-            "displayName": "x86 Release",
-            "inherits": "x86-debug",
+            "name": "x64-release-windows",
+            "displayName": "x64 Release Windows",
+            "inherits": "x64-debug-windows",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "x64-release-macos",
+            "displayName": "x64 Release macOS",
+            "inherits": "x64-debug-macos",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release"
             }
