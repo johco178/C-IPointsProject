@@ -1,4 +1,4 @@
-name: CI in windows
+name: CMake and Codecov in windows
 
 on:
   push:
@@ -15,18 +15,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Clear CMake cache
+
+    - name: Install dependencies
       run: |
-        rm -rf ${{github.workspace}}/build
-        mkdir -p ${{github.workspace}}/build
+        choco install opencppcoverage
+        choco install gcovr
 
     - name: Configure CMake
-      working-directory: ${{github.workspace}}/build
-      run: cmake .. -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Build
-      working-directory: ${{github.workspace}}/build
-      run: cmake --build .
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
     - name: Test
       working-directory: ${{github.workspace}}/build
@@ -35,8 +34,8 @@ jobs:
     - name: Generate coverage report
       working-directory: ${{github.workspace}}/build
       run: |
-        gcovr -r .. . --xml -o coverage.xml
-        gcovr -r .. . --html --html-details -o coverage.html
+        OpenCppCoverage.exe --export_type=cobertura:coverage.xml --sources ${{github.workspace}} -- ${{env.BUILD_TYPE}}\C++lPointsProject_test.exe
+        gcovr -r ${{github.workspace}} ${{github.workspace}}/build --html --html-details -o coverage.html
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v3
