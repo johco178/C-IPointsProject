@@ -1,4 +1,4 @@
-name: CMake and Codecov in windows
+name: CMake and Codecov
 
 on:
   push:
@@ -12,20 +12,12 @@ env:
 jobs:
   build:
     runs-on: windows-latest
-
     steps:
     - uses: actions/checkout@v4
 
-    - name: Install dependencies
+    - name: Install gcovr
       run: |
-        choco install opencppcoverage
-        choco install gcovr
-
-    - name: Ensure build directory exists
-      run: |
-        if (!(Test-Path -Path "${{github.workspace}}/build")) {
-            New-Item -ItemType Directory -Force -Path "${{github.workspace}}/build"
-        }
+        choco install gcovr -y
 
     - name: Configure CMake
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
@@ -40,14 +32,14 @@ jobs:
     - name: Generate coverage report
       working-directory: ${{github.workspace}}/build
       run: |
-        OpenCppCoverage.exe --export_type=cobertura:coverage.xml --sources ${{github.workspace}} -- ${{env.BUILD_TYPE}}\C++lPointsProject_test.exe
+        gcovr -r ${{github.workspace}} . --xml -o coverage.xml
         gcovr -r ${{github.workspace}} . --html --html-details -o coverage.html
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v3
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-        files: coverage.xml
+        files: ${{github.workspace}}/build/coverage.xml
         flags: unittests
         name: codecov-umbrella
         fail_ci_if_error: true
