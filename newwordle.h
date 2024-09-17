@@ -13,9 +13,9 @@
 #include <cstdlib> 
 #include <ctime> 
 
-#define MAX_WORD_LENGTH 100
+#define MAX_wordle_WORD_LENGTH 100
 
-#define MAX_DICTIONARY_SIZE 4695
+#define MAX_wordle_DICTIONARY_SIZE 4695
 
 
 void wordle_initialize(void);
@@ -81,7 +81,7 @@ bool conatainsonlychar(const char* guess);
 bool conatainsonlychar(const char* guess);
 bool validWord(const char* guess);
 char* get_word(int number);
-void set_wordle_mock_dictionary(const char mock_dict[][MAX_WORD_LENGTH], int size);
+void set_wordle_mock_dictionary(const char mock_dict[][MAX_wordle_WORD_LENGTH], int size);
 #endif
 
 #endif // wordle_H

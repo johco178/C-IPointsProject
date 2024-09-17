@@ -29,21 +29,21 @@
 #define ANSI_COLOR_GREEN   "\x1b[32m"
 #define ANSI_COLOR_YELLOW  "\x1b[33m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
-#define MAX_WORD_LENGTH 100
-#define MAX_DICTIONARY_SIZE 4695
+#define MAX_wordle_WORD_LENGTH 100
+#define MAX_wordle_DICTIONARY_SIZE 4695
 
 
 int word_length = 5;
 // Global variables
-static char dictionary[MAX_DICTIONARY_SIZE][MAX_WORD_LENGTH];
-static int dictionary_size = 0;
+static char wordle_dictionary[MAX_wordle_DICTIONARY_SIZE][MAX_wordle_WORD_LENGTH];
+static int wordle_dictionary_size = 0;
 
 
 
 STATIC char* get_word(int number) {
 	
 
-	return dictionary[number % dictionary_size];
+	return wordle_dictionary[number % wordle_dictionary_size];
 }
 /*!
 	@brief Loads the wordlength5 from a file
@@ -55,9 +55,9 @@ STATIC int load_all_5letter_words(const char* filename) {
 	FILE* file = fopen(filename, "r");
 	if (!file) return 0;
 
-	while (fgets(dictionary[dictionary_size], MAX_WORD_LENGTH, file)) {
-		dictionary[dictionary_size][strcspn(dictionary[dictionary_size], "\n")] = 0;
-		if (++dictionary_size >= MAX_DICTIONARY_SIZE) break;
+	while (fgets(wordle_dictionary[wordle_dictionary_size], MAX_wordle_WORD_LENGTH, file)) {
+		wordle_dictionary[wordle_dictionary_size][strcspn(wordle_dictionary[wordle_dictionary_size], "\n")] = 0;
+		if (++wordle_dictionary_size >= MAX_wordle_DICTIONARY_SIZE) break;
 	}
 
 	fclose(file);
@@ -443,8 +443,8 @@ void playWordle(void) {
 
 // Expose these functions for unit testing
 #ifdef UNIT_TESTING
-void set_wordle_mock_dictionary(const char mock_dict[][MAX_WORD_LENGTH], int size) {
-	for (int i = 0; i < size && i < MAX_DICTIONARY_SIZE; i++) {
+void set_wordle_mock_dictionary(const char mock_dict[][MAX_wordle_WORD_LENGTH], int size) {
+	for (int i = 0; i < size && i < MAX_wordle_DICTIONARY_SIZE; i++) {
 		strcpy(dictionary[i], mock_dict[i]);
 	}
 	dictionary_size = size;
