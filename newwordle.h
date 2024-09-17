@@ -18,6 +18,8 @@
 #define MAX_wordle_DICTIONARY_SIZE 4695
 
 
+
+
 void wordle_initialize(void);
 
 char* get_word(int desiredength);
@@ -70,6 +72,11 @@ bool conatainsonlychar(const char* guess);
 */
 bool correctlength(const char* guess);
 
+void updateLettersGuessed(const char* theGuess);
+
+char* lettersNotGuessed();
+
+
 
 
 int runwordletests();
@@ -82,6 +89,8 @@ bool conatainsonlychar(const char* guess);
 bool validWord(const char* guess);
 char* get_word(int number);
 void set_wordle_mock_dictionary(const char mock_dict[][MAX_wordle_WORD_LENGTH], int size);
+void updateLettersGuessed(const char* theGuess);
+char* lettersNotGuessed();
 #endif
 
 #endif // wordle_H

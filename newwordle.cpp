@@ -37,7 +37,20 @@ int word_length = 5;
 // Global variables
 static char wordle_dictionary[MAX_wordle_DICTIONARY_SIZE][MAX_wordle_WORD_LENGTH];
 static int wordle_dictionary_size = 0;
-
+char guessone[6] = { '_', '_', '_', '_','_', '\0' };
+char guesstwo[6] = { '_', '_', '_', '_','_', '\0' };
+char guessthree[6] = { '_', '_', '_', '_','_', '\0' };
+char guessfour[6] = { '_', '_', '_', '_','_', '\0' };
+char guessfive[6] = { '_', '_', '_', '_','_', '\0' };
+char guesssix[6] = { '_', '_', '_', '_','_', '\0' };
+char clueone[6] = { '_', '_', '_', '_','_', '\0' };
+char cluetwo[6] = { '_', '_', '_', '_','_', '\0' };
+char cluethree[6] = { '_', '_', '_', '_','_', '\0' };
+char cluefour[6] = { '_', '_', '_', '_','_', '\0' };
+char cluefive[6] = { '_', '_', '_', '_','_', '\0' };
+char cluesix[6] = { '_', '_', '_', '_','_', '\0' };
+char letters_left_to_guess[26] = { 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z' };
+bool has_letter_been_guessed[26] = { false };
 
 
 STATIC char* get_word(int number) {
@@ -192,7 +205,7 @@ STATIC char* processGuess(const char* theWord, const char* theGuess) {
 		}
 	}
 
-	// second pass, look for correct letter worng place
+	// second pass, look for correct letter wrong place
 	for (int i = 0; i < 5; i++) {
 		if (clue[i] == '_') {
 			for (int j = 0; j < 5; j++) {
@@ -214,6 +227,31 @@ STATIC char* processGuess(const char* theWord, const char* theGuess) {
 		//strcmp(clue, "GGGGG") == 0;
 
 }
+STATIC void updateLettersGuessed(const char* theGuess) {
+	for (int i = 0; i < strlen(theGuess); i++) {
+		char letter = theGuess[i];
+		for (int j = 0; j<26; j++){
+			if (letter == letters_left_to_guess[j]) {
+				has_letter_been_guessed[j] = true;
+			}
+		}
+	}
+}
+
+
+STATIC char* lettersNotGuessed() {
+	char* result = (char*)malloc(27 * sizeof(char)); // 26 letters + null terminator
+	int index = 0;
+
+	for (int i = 0; i < 26; i++) {
+		if (!has_letter_been_guessed[i]) {
+			result[index++] = 'a' + i;
+		}
+	}
+	result[index] = '\0'; // Null-terminate the string
+
+	return result;
+}
 
 
 
@@ -229,25 +267,6 @@ void playWordle(void) {
 
 
 
-	char guessone[6] = { '_', '_', '_', '_','_', '\0' };
-	char guesstwo [6] = {'_', '_', '_', '_','_', '\0'};
-	char guessthree[6] = {'_', '_', '_', '_','_', '\0'};
-	char guessfour[6] = {'_', '_', '_', '_','_', '\0'};
-	char guessfive[6] = {'_', '_', '_', '_','_', '\0'};
-	char guesssix[6] = {'_', '_', '_', '_','_', '\0'};
-	char clueone[6] = { '_', '_', '_', '_','_', '\0' };
-	char cluetwo[6] = { '_', '_', '_', '_','_', '\0' };
-	char cluethree[6] = { '_', '_', '_', '_','_', '\0' };
-	char cluefour[6] = { '_', '_', '_', '_','_', '\0' };
-	char cluefive[6] = { '_', '_', '_', '_','_', '\0' };
-	char cluesix[6] = { '_', '_', '_', '_','_', '\0' };
-
-
-
-
-
-
-
 	// do the game loop
 	int num_of_guesses = 0;
 	bool correct_guess = false;
@@ -255,8 +274,12 @@ void playWordle(void) {
 
 	while (num_of_guesses < 6 && !correct_guess) {
 		//get guess from user
-		printf("\nInput a 5-letter word and press enter \n");
+		char* lettersleft = lettersNotGuessed();
+		printf("\nLetter not guessed yet: %s", lettersleft);
+
+		printf("\n\nInput a 5-letter word and press enter \n");
 		scanf("%s", guess);
+
 
 		char* newguess = toLowerCase(guess);
 		//printf("you have guessed %s\n", newguess);
@@ -277,6 +300,8 @@ void playWordle(void) {
 			continue;
 		}
 
+		updateLettersGuessed(newguess);
+
 
 
 
@@ -286,6 +311,8 @@ void playWordle(void) {
 
 		//proocess guess 
 		char* clue = processGuess(newanswer, newguess);
+
+
 		
 
 		switch (num_of_guesses)
@@ -422,6 +449,7 @@ void playWordle(void) {
 
 
 		correct_guess = strcmp(clue, "GGGGG") == 0;
+		printf("\n");
 
 	}
 
