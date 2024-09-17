@@ -17,6 +17,7 @@
 
 #define MAX_wordle_DICTIONARY_SIZE 4695
 
+extern bool* test_has_letter_been_guessed;
 
 
 

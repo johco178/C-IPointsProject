@@ -37,6 +37,7 @@ int word_length = 5;
 // Global variables
 static char wordle_dictionary[MAX_wordle_DICTIONARY_SIZE][MAX_wordle_WORD_LENGTH];
 static int wordle_dictionary_size = 0;
+bool* test_has_letter_been_guessed = nullptr;
 char guessone[6] = { '_', '_', '_', '_','_', '\0' };
 char guesstwo[6] = { '_', '_', '_', '_','_', '\0' };
 char guessthree[6] = { '_', '_', '_', '_','_', '\0' };
