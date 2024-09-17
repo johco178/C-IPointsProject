@@ -14,7 +14,7 @@
     printf("%s passed!\n", #name); \
 } while (0)
 
-static const char wordle_mock_dictionary[3][MAX_WORD_LENGTH] = { "apple", "green", "slack" };
+static const char wordle_mock_dictionary[3][MAX_wordle_WORD_LENGTH] = { "apple", "green", "slack" };
 static const int wordle_mock_dictionary_size = 3;
 
 TEST(conatainsonlychar) {
@@ -55,15 +55,15 @@ TEST(correctlength) {
 }
 TEST(validWord) {
     set_wordle_mock_dictionary(wordle_mock_dictionary, wordle_mock_dictionary_size);
-    assert(validword("aaple") == false);
-    assert(validword("apple") == true);
+    assert(validWord("aaple") == false);
+    assert(validWord("apple") == true);
 
 
 
 }
 
 TEST(get_word) {
-    set_wordle_mock_dictionary(wordle_mock_dictionary, worlde_mock_dictionary_size);
+    set_wordle_mock_dictionary(wordle_mock_dictionary, wordle_mock_dictionary_size);
     assert(strcmp(get_word(0), "apple") == 0);
     assert(strcmp(get_word(5), "green") == 0);
     assert(strcmp(get_word(2), "slack") == 0);
