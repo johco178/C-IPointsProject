@@ -14,6 +14,8 @@
     printf("%s passed!\n", #name); \
 } while (0)
 
+static const char mock_dictionary[3][MAX_WORD_LENGTH] = { "apple", "green", "slack" };
+static const int mock_dictionary_size = 3;
 
 TEST(conatainsonlychar) {
 
@@ -51,6 +53,26 @@ TEST(correctlength) {
     
 
 }
+TEST(validword) {
+    set_wordle_mock_dictionary(mock_dictionary, mock_dictionary_size);
+    assert(validword("aaple") == false);
+    assert(validword("apple") == true);
+
+
+
+}
+
+TEST(get_word) {
+    set_wordle_mock_dictionary(mock_dictionary, mock_dictionary_size);
+    assert(strcmp(get_word(0), "apple") == 0);
+    assert(strcmp(get_word(5), "green") == 0);
+    assert(strcmp(get_word(2), "slack") == 0);
+
+
+
+
+
+}
 
 
 
@@ -64,6 +86,8 @@ int runwordletests() {
     RUN_TEST(toLowerCase);
     RUN_TEST(processGuess);
     RUN_TEST(correctlength);
+    RUN_TEST(validword);
+    RUN_TEST(get_word);
 
     printf("All tests passed!\n");
     return 0;

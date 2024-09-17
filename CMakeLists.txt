@@ -62,6 +62,14 @@ if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/dictionary.txt")
                    COPYONLY)
 endif()
 
+# Copy dictionary file to build directory
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/wordlength5.txt")
+    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/wordlength5.txt
+                   ${CMAKE_CURRENT_BINARY_DIR}/wordlength5.txt
+                   COPYONLY)
+endif()
+
+
 # Enable testing
 enable_testing()
 

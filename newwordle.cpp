@@ -5,8 +5,6 @@
 */
 
 
-
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -19,7 +17,6 @@
 #include <ctime> 
 
 
-
 // Remove static keyword for functions to be tested
 #ifdef UNIT_TESTING
 #define STATIC
@@ -28,14 +25,58 @@
 #endif
 
 
-
-#define MAX_NUM_OF_WORDS 2500
 #define ANSI_COLOR_RED     "\x1b[31m"
 #define ANSI_COLOR_GREEN   "\x1b[32m"
 #define ANSI_COLOR_YELLOW  "\x1b[33m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
+#define MAX_WORD_LENGTH 100
+#define MAX_DICTIONARY_SIZE 4695
+
 
 int word_length = 5;
+// Global variables
+static char dictionary[MAX_DICTIONARY_SIZE][MAX_WORD_LENGTH];
+static int dictionary_size = 0;
+
+
+
+STATIC char* get_word(int number) {
+	
+
+	return dictionary[number % dictionary_size];
+}
+/*!
+	@brief Loads the wordlength5 from a file
+	@param filename The name of the file to load
+	@return 1 if the text file was loaded successfully, 0 otherwise
+*/
+
+STATIC int load_all_5letter_words(const char* filename) {
+	FILE* file = fopen(filename, "r");
+	if (!file) return 0;
+
+	while (fgets(dictionary[dictionary_size], MAX_WORD_LENGTH, file)) {
+		dictionary[dictionary_size][strcspn(dictionary[dictionary_size], "\n")] = 0;
+		if (++dictionary_size >= MAX_DICTIONARY_SIZE) break;
+	}
+
+	fclose(file);
+	return 1;
+}
+
+
+
+/*!
+	@brief Initializes the Wordle game
+
+*/
+void wordle_initialize(void) {
+	srand((unsigned int)time(NULL));
+	if (!load_all_5letter_words("../wordlength5.txt")) {
+		fprintf(stderr, "Failed to load dictionary. Wordle game may not function properly.\n");
+	}
+}
+
 
 /*!
 	@brief converts input to lowercase
@@ -86,6 +127,20 @@ STATIC bool conatainsonlychar(const char* guess) {
 
 
 }
+/*!
+	@brief Checks if the user input is a valid word from the dictionary
+	@param newguess The user's guess
+	@return true if the word is found in the dictionary, false otherwise
+*/
+STATIC bool validWord(const char* newguess) {
+	for (int i = 0; i < dictionary_size; i++) {
+		if (strcmp(dictionary[i], newguess) == 0) {
+			return true;
+		}
+	}
+	return false;
+}
+
 
 /*!
 	@brief checks if user input is 5 letters long
@@ -99,20 +154,6 @@ STATIC bool correctlength(const char* guess) {
 	}
 
 	return false;
-}
-
-
-/*!
-	@brief checks if user input is a word
-	@param the user input
-	@return true if it is a word falsw if not
-*/
-
-bool validWord(const char* newguess) {
-	//todo add a check if word inputted is a dictionary word
-
-	return true;
-
 }
 
 /*!
@@ -174,92 +215,19 @@ STATIC char* processGuess(const char* theWord, const char* theGuess) {
 
 }
 
+
+
+
 /*!
 	@brief plays wordle game
 */
 
 void playWordle(void) {
+	int number = rand();
+	const char* newanswer = get_word(number);
+	printf("%s", newanswer);
 
 
-	// load words
-	char** wordlist = (char**)calloc(MAX_NUM_OF_WORDS, sizeof(char*));
-	int wordCount = 0;
-
-	char* fiveLetterWord = (char*)malloc(6 * sizeof(char));
-	const char* fivelettertextfile =
-#include "wordlength5a2m.txt"
-		;
-	const char* secondfivelettertextfile =
-#include "wordlength5m2z.txt"
-		;
-
-	srand(time(NULL));
-	int randnumber = (rand() % 2) + 1;
-
-	
-	//const char* newanswer = nullptr;
-	char* newanswer = NULL;
-
-
-	if (randnumber == 1){
-		std::istringstream iss(fivelettertextfile);
-		std::vector<std::string> lines;
-
-		std::string line;
-		while (std::getline(iss, line)) {
-			lines.push_back(line);
-		}
-		// Seed the random number generator
-		std::srand(std::time(nullptr));
-
-		// Pick a random line
-		int randomLineIndex = std::rand() % lines.size();
-		std::string selectedLine = lines[randomLineIndex];
-
-		// Tokenize the selected line to extract words
-		std::istringstream lineStream(selectedLine);
-		std::vector<std::string> wordsone;
-		std::string word;
-
-		while (lineStream >> word) {
-			wordsone.push_back(word);
-
-		}
-		std::string randomWord = wordsone[0];
-		//newanswer = randomWord.c_str();
-		newanswer = (char*)malloc(randomWord.length() + 1);
-		strcpy(newanswer, randomWord.c_str());
-
-
-	}
-	else
-	{
-		std::istringstream iss(secondfivelettertextfile);
-		std::vector<std::string> lines;
-		std::string line;
-		while (std::getline(iss, line)) {
-			lines.push_back(line);
-		}
-		// Seed the random number generator
-		std::srand(std::time(nullptr));
-
-		// Pick a random line
-		int randomLineIndex = std::rand() % lines.size();
-		std::string selectedLine = lines[randomLineIndex];
-
-		// Tokenize the selected line to extract words
-		std::istringstream lineStream(selectedLine);
-		std::vector<std::string> wordsone;
-		std::string word;
-
-		while (lineStream >> word) {
-			wordsone.push_back(word);
-
-		}
-		std::string randomWord = wordsone[0];
-		newanswer = (char*)malloc(randomWord.length() + 1);
-		strcpy(newanswer, randomWord.c_str());
-	}
 
 	char guessone[6] = { '_', '_', '_', '_','_', '\0' };
 	char guesstwo [6] = {'_', '_', '_', '_','_', '\0'};
@@ -299,12 +267,13 @@ void playWordle(void) {
 		}
 
 		if (!correctlength(newguess)) {
-			printf("Word input was not the correct length. Try Agian");
+			printf("Word inputted was not the correct length. Try Agian");
 			continue;
 		}
 
 
 		if (!validWord(newguess)) {
+			printf("Your guess was not a valid word. Try Agian");
 			continue;
 		}
 
@@ -460,7 +429,7 @@ void playWordle(void) {
 
 	//display end of game message
 	if (correct_guess) {
-		printf("\nCongratulation! You guess the correct word in %d tries!\n", num_of_guesses);
+		printf("\nCongratulations! You guessed the correct word in %d tries!\n", num_of_guesses);
 	}
 	else {
 		printf("\nNo more guesses... The correct word was %s\n", newanswer);
@@ -468,16 +437,19 @@ void playWordle(void) {
 
 
 	// clean up
-	for (int i = 0; i < wordCount; i++) {
-		free(wordlist[i]);
-	}
-	free(wordlist);
-	free(fiveLetterWord);
 	free(guess);
 
 }
 
-
+// Expose these functions for unit testing
+#ifdef UNIT_TESTING
+void set_wordle_mock_dictionary(const char mock_dict[][MAX_WORD_LENGTH], int size) {
+	for (int i = 0; i < size && i < MAX_DICTIONARY_SIZE; i++) {
+		strcpy(dictionary[i], mock_dict[i]);
+	}
+	dictionary_size = size;
+}
+#endif
 
 
 

@@ -1,6 +1,32 @@
 #ifndef wordle_H
 #define wordle_H
 
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
+#include <vector>
+#include <iostream>
+#include <sstream>
+#include <time.h>
+#include <cstdlib> 
+#include <ctime> 
+
+#define MAX_WORD_LENGTH 100
+
+#define MAX_DICTIONARY_SIZE 4695
+
+
+void wordle_initialize(void);
+
+char* get_word(int desiredength);
+
+int load_all_5letter_words(const char* filename);
+
+
+
+
 /*!
 	@file
 	@brief documentation
@@ -43,11 +69,8 @@ bool conatainsonlychar(const char* guess);
 	@return true if it is correct length  false if not
 */
 bool correctlength(const char* guess);
-/*!
-	@brief a method to get the word
-	@return the answer to the word
-*/
-char* getWord();
+
+
 
 int runwordletests();
 #ifdef UNIT_TESTING
@@ -56,7 +79,9 @@ char* processGuess(const char* theWord, const char* theGuess);
 char* toLowerCase(const char* guess);
 bool conatainsonlychar(const char* guess);
 bool conatainsonlychar(const char* guess);
-
+bool validword(const char* guess);
+char* get_word(int number);
+void set_wordle_mock_dictionary(const char mock_dict[][MAX_WORD_LENGTH], int size);
 #endif
 
 #endif // wordle_H

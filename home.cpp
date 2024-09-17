@@ -15,6 +15,7 @@
 */
 void initialize_games(void) {
     hangman_initialize();
+    wordle_initialize();
     // Initialize other games as you add them
 }
 
