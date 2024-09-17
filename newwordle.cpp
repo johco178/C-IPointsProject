@@ -133,8 +133,8 @@ STATIC bool conatainsonlychar(const char* guess) {
 	@return true if the word is found in the dictionary, false otherwise
 */
 STATIC bool validWord(const char* newguess) {
-	for (int i = 0; i < dictionary_size; i++) {
-		if (strcmp(dictionary[i], newguess) == 0) {
+	for (int i = 0; i < wordle_dictionary_size; i++) {
+		if (strcmp(wordle_dictionary[i], newguess) == 0) {
 			return true;
 		}
 	}
@@ -445,9 +445,9 @@ void playWordle(void) {
 #ifdef UNIT_TESTING
 void set_wordle_mock_dictionary(const char mock_dict[][MAX_wordle_WORD_LENGTH], int size) {
 	for (int i = 0; i < size && i < MAX_wordle_DICTIONARY_SIZE; i++) {
-		strcpy(dictionary[i], mock_dict[i]);
+		strcpy(wordle_dictionary[i], mock_dict[i]);
 	}
-	dictionary_size = size;
+	wordle_dictionary_size = size;
 }
 #endif
 
