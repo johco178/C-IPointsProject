@@ -53,7 +53,7 @@ TEST(correctlength) {
     
 
 }
-TEST(validword) {
+TEST(validWord) {
     set_wordle_mock_dictionary(mock_dictionary, mock_dictionary_size);
     assert(validword("aaple") == false);
     assert(validword("apple") == true);
@@ -86,7 +86,7 @@ int runwordletests() {
     RUN_TEST(toLowerCase);
     RUN_TEST(processGuess);
     RUN_TEST(correctlength);
-    RUN_TEST(validword);
+    RUN_TEST(validWord);
     RUN_TEST(get_word);
 
     printf("All tests passed!\n");

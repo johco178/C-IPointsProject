@@ -42,7 +42,7 @@ void playWordle(void);
 	@param the user input
 	@return true if it is a word falsw if not
 */
-bool validword(const char* guess);
+bool validWord(const char* guess);
 /*!
 	@brief compares user guess to the answer
 	@param the answer
@@ -79,7 +79,7 @@ char* processGuess(const char* theWord, const char* theGuess);
 char* toLowerCase(const char* guess);
 bool conatainsonlychar(const char* guess);
 bool conatainsonlychar(const char* guess);
-bool validword(const char* guess);
+bool validWord(const char* guess);
 char* get_word(int number);
 void set_wordle_mock_dictionary(const char mock_dict[][MAX_WORD_LENGTH], int size);
 #endif
