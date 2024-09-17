@@ -92,7 +92,7 @@ char* get_word(int number);
 void set_wordle_mock_dictionary(const char mock_dict[][MAX_wordle_WORD_LENGTH], int size);
 void updateLettersGuessed(const char* theGuess);
 char* lettersNotGuessed();
-void resetTestArrays()
+void resetTestArrays();
 #endif
 
 #endif // wordle_H
