@@ -6,27 +6,7 @@
 #include "newwordle.h"
 
 
-// Simple test framework
-#define TEST(name) static void test_##name(void)
-#define RUN_TEST(name) do { \
-    printf("Running %s...\n", #name); \
-    test_##name(); \
-    printf("%s passed!\n", #name); \
-} while (0)
-
-static const char wordle_mock_dictionary[3][MAX_wordle_WORD_LENGTH] = { "apple", "green", "slack" };
-static const int wordle_mock_dictionary_size = 3;
-extern char test_letters_left_to_guess[26] = { 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z' };
-extern bool test_has_letter_been_guessed[26] = { false };
-
-#define has_letter_been_guessed test_has_letter_been_guessed
-
 // Wordle test
-
-#include <stdio.h>
-#include <string.h>
-#include <assert.h>
-#include "newwordle.h"
 
 
 // Simple test framework
@@ -40,6 +20,7 @@ extern bool test_has_letter_been_guessed[26] = { false };
 static const char wordle_mock_dictionary[3][MAX_wordle_WORD_LENGTH] = { "apple", "green", "slack" };
 static const int wordle_mock_dictionary_size = 3;
 extern bool test_has_letter_been_guessed[26];
+#define has_letter_been_guessed test_has_letter_been_guessed
 
 
 // Function to reset the test arrays
