@@ -87,16 +87,21 @@ bool checkDraw(){
     @brief Initiates for a players move
     @param player which players turn it is (X or O)
 */
-void move(char player){
+void move(char player, string input){
     // Declare local variables
-    string input;
     char charRow;
     int col;
     int row;
     while(true){
         // Ask the player to make a move and record their input
-        cout << "Player " << ((player == 'X') ? 1 : 2) << ", please enter your move (format example: A2): ";
-        cin >> input;
+        if(input == ""){
+            cout << "Player " << ((player == 'X') ? 1 : 2) << ", please enter your move (format example: A2): ";
+            cin >> input;
+        }
+        else{
+            
+        }
+        
         charRow = toupper(input[0]);
         // Convert input into two int values from 0 to 2
         row = charRow - 'A';
@@ -104,11 +109,13 @@ void move(char player){
         // Check the input is a possible coordinate
         if(row > (ROWS - 1) || row < 0 || col > (COLS - 1) || col < 0){
             cout << "Invalid row or column" << endl;
+            throw std::invalid_argument("Invalid row or column");
             continue;
         }
         // Check the coordinate isn't filled
         if(board[row][col] != ' '){
-            cout << "Positiom already has a value" << endl;
+            cout << "Position already has a value" << endl;
+            throw std::invalid_argument("Position already has a value");
             continue;
         }
         // Set the boards value to that player
@@ -132,7 +139,7 @@ void playTicTacToe(){
     while (true) {
         // Displays the current board and asks the player to make a move
         displayBoard();
-        move(currentPlayer);
+        move(currentPlayer, "");
 
         // Checks for a win, and if so, output winner and end game
         if (checkWin()) {

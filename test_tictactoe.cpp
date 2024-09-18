@@ -68,3 +68,32 @@ void test_checkDraw(){
     std::cout << "Check Draw function: " << (checkDraw() ? "PASSED" : "FAILED") << std::endl;
 
 }
+
+void test_move(){
+
+    // Valid move
+    initBoard();
+    move('X', "A1");
+    std::cout << "Check valid move: " << (board[0][0] == 'X' ? "PASSED" : "FAILED") << std::endl;
+
+    // Out of bounds move
+    initBoard();
+    bool expected_bounds_error = false;
+    try{
+        move('X', "D1");
+    } catch (const std::invalid_argument& e){
+        expected_bounds_error = true;
+    }
+    std::cout << "Check valid move: " << (expected_bounds_error ? "PASSED" : "FAILED") << std::endl;
+
+    // Occupied position move
+    initBoard();
+    board[0][0] = 'X';
+    bool expected_occupied_error = false;
+    try{
+        move('O', "A1");
+    } catch (const std::invalid_argument& e){
+        expected_occupied_error = true;
+    }
+    std::cout << "Check valid move: " << (expected_occupied_error ? "PASSED" : "FAILED") << std::endl;
+}
