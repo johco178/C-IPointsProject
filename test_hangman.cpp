@@ -75,11 +75,13 @@ TEST(print_hangman) {
 
     print_hangman(0);
     std::string output = buffer.str();
+    std::cout << "Actual output for print_hangman(0):\n" << output << std::endl;
     assert(output.find("  +---+") != std::string::npos);
 
     buffer.str("");
     print_hangman(6);
     output = buffer.str();
+    std::cout << "Actual output for print_hangman(6):\n" << output << std::endl;
     assert(output.find(" /|\\") != std::string::npos);
 
     std::cout.rdbuf(old);
