@@ -221,6 +221,7 @@ TEST(updateclue) {
     turn = 5;
     guess = "brave";
     clue = processGuess(answer, guess);
+    updateclue(turn, clue, guess);
     assert(strcmp(clueone, "_Y__G") == 0);
     assert(strcmp(guessone, "maple") == 0);
     assert(strcmp(cluetwo, "__G_G") == 0);
@@ -232,12 +233,22 @@ TEST(updateclue) {
     assert(strcmp(cluefive, "_GGGG") == 0);
     assert(strcmp(guessfive, "brave") == 0);
 
-    //turn = 6;
-    //guess = "grave";
-    //clue = processGuess(answer, guess);
-
-    //assert(strcmp(cluesix, "GGGGG") == 0);
-    //assert(strcmp(guesssix, "grave") == 0);
+    turn = 6;
+    guess = "grave";
+    clue = processGuess(answer, guess);
+    updateclue(turn, clue, guess);
+    assert(strcmp(clueone, "_Y__G") == 0);
+    assert(strcmp(guessone, "maple") == 0);
+    assert(strcmp(cluetwo, "__G_G") == 0);
+    assert(strcmp(guesstwo, "stale") == 0);
+    assert(strcmp(cluethree, "_GG_G") == 0);
+    assert(strcmp(guessthree, "crane") == 0);
+    assert(strcmp(cluefour, "___YG") == 0);
+    assert(strcmp(guessfour, "nudge") == 0);
+    assert(strcmp(cluefive, "_GGGG") == 0);
+    assert(strcmp(guessfive, "brave") == 0);
+    assert(strcmp(cluesix, "GGGGG") == 0);
+    assert(strcmp(guesssix, "grave") == 0);
 
 
 
