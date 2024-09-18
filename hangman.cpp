@@ -14,6 +14,8 @@ static int dictionary_size = 0;
 // Remove static keyword for functions to be tested
 #ifdef UNIT_TESTING
 #define STATIC
+extern char dictionary[MAX_DICTIONARY_SIZE][MAX_WORD_LENGTH];
+extern int dictionary_size;
 #else
 #define STATIC static
 #endif
