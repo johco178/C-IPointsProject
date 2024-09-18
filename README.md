@@ -3,9 +3,6 @@
 VintageVault is a gamehub of 'back to basics' games such as Tic-Tac-Toe, Hangman, Wordle and Secret Number.
 The user can play this game from the windows command terminal.
 
-https://app.codacy.com/gh/johco178/C-IPointsProject/dashboard
-
-
 
 # Badges
 ![GitHub Workflow Status](https://github.com/johco178/C-IPointsProject/actions/workflows/cmake-single-platform.yml/badge.svg)
