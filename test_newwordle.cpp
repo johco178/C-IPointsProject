@@ -206,13 +206,6 @@ TEST(updateclue) {
     clue = processGuess(answer, guess);
     updateclue(turn, clue, guess);
 
-    turn = 5;
-    guess = "grape";
-    clue = processGuess(answer, guess);
-
-    turn = 6;
-    guess = "grave";
-    clue = processGuess(answer, guess);
 
 
     assert(strcmp(clueone, "_Y__G") == 0);
@@ -238,6 +231,9 @@ TEST(updateclue) {
     assert(strcmp(cluefive, "GGG_G") == 0);
     assert(strcmp(guessfive, "grape") == 0);
 
+    turn = 6;
+    guess = "grave";
+    clue = processGuess(answer, guess);
 
     assert(strcmp(cluesix, "GGGGG") == 0);;
     assert(strcmp(guesssix, "grave") == 0);
