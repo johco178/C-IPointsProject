@@ -37,7 +37,7 @@ int word_length = 5;
 // Global variables
 static char wordle_dictionary[MAX_wordle_DICTIONARY_SIZE][MAX_wordle_WORD_LENGTH];
 static int wordle_dictionary_size = 0;
-bool* test_has_letter_been_guessed = nullptr;
+//bool* test_has_letter_been_guessed = nullptr;
 char guessone[6] = { '_', '_', '_', '_','_', '\0' };
 char guesstwo[6] = { '_', '_', '_', '_','_', '\0' };
 char guessthree[6] = { '_', '_', '_', '_','_', '\0' };
@@ -279,7 +279,8 @@ void playWordle(void) {
 		printf("\nLetter not guessed yet: %s", lettersleft);
 
 		printf("\n\nInput a 5-letter word and press enter \n");
-		scanf("%s", guess);
+		scanf_s("%s", guess);
+
 
 
 		char* newguess = toLowerCase(guess);
@@ -472,6 +473,7 @@ void playWordle(void) {
 
 // Expose these functions for unit testing
 #ifdef UNIT_TESTING
+
 void set_wordle_mock_dictionary(const char mock_dict[][MAX_wordle_WORD_LENGTH], int size) {
 	for (int i = 0; i < size && i < MAX_wordle_DICTIONARY_SIZE; i++) {
 		strcpy(wordle_dictionary[i], mock_dict[i]);
