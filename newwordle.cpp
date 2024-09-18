@@ -38,6 +38,18 @@ int word_length = 5;
 static char wordle_dictionary[MAX_wordle_DICTIONARY_SIZE][MAX_wordle_WORD_LENGTH];
 static int wordle_dictionary_size = 0;
 extern bool has_letter_been_guessed[26];
+extern char guessone[6];
+extern char guesstwo[6];
+extern char guessthree[6];
+extern char guessfour[6];
+extern char guessfive[6];
+extern char guesssix[6];
+extern char clueone[6];
+extern char cluetwo[6];
+extern char cluethree[6];
+extern char cluefour[6];
+extern char cluefive[6];
+extern char cluesix[6];
 //bool* test_has_letter_been_guessed = nullptr;
 char guessone[6] = { '_', '_', '_', '_','_', '\0' };
 char guesstwo[6] = { '_', '_', '_', '_','_', '\0' };
@@ -255,7 +267,49 @@ STATIC char* lettersNotGuessed() {
 	return result;
 }
 
+STATIC void updateclue(int turn, char* clue, const char* newguess) {
+	switch (turn)
+	{
+	case 1:
+		for (int i = 0; i < 6; i++) {
+			guessone[i] = newguess[i];
+			clueone[i] = clue[i];
+		}
+		break;
+	case 2:
+		for (int i = 0; i < 6; i++) {
+			guesstwo[i] = newguess[i];
+			cluetwo[i] = clue[i];
+		}
+		break;
+	case 3:
+		for (int i = 0; i < 6; i++) {
+			guessthree[i] = newguess[i];
+			cluethree[i] = clue[i];
+		}
+		break;
+	case 4:
+		for (int i = 0; i < 6; i++) {
+			guessfour[i] = newguess[i];
+			cluefour[i] = clue[i];
+		}
+		break;
+	case 5:
+		for (int i = 0; i < 6; i++) {
+			guessfive[i] = newguess[i];
+			cluefive[i] = clue[i];
+		}
+		break;
+	case 6:
+		for (int i = 0; i < 6; i++) {
+			guesssix[i] = newguess[i];
+			cluesix[i] = clue[i];
+		}
+		break;
 
+	}
+
+}
 
 
 /*!
@@ -314,48 +368,13 @@ void playWordle(void) {
 		char* clue = processGuess(newanswer, newguess);
 
 
+		updateclue(num_of_guesses, clue, newguess);
+
+
+
 		
 
-		switch (num_of_guesses)
-		{
-		case 1:
-			for (int i = 0; i < 6; i++) {
-				guessone[i] = newguess[i];
-				clueone[i] = clue[i];
-			}
-			break;
-		case 2:
-			for (int i = 0; i < 6; i++) {
-				guesstwo[i] = newguess[i];
-				cluetwo[i] = clue[i];
-			}
-			break;
-		case 3:
-			for (int i = 0; i < 6; i++) {
-				guessthree[i] = newguess[i];
-				cluethree[i] = clue[i];
-			}
-			break;
-		case 4:
-			for (int i = 0; i < 6; i++) {
-				guessfour[i] = newguess[i];
-				cluefour[i] = clue[i];
-			}
-			break;
-		case 5:
-			for (int i = 0; i < 6; i++) {
-				guessfive[i] = newguess[i];
-				cluefive[i] = clue[i];
-			}
-			break;
-		case 6:
-			for (int i = 0; i < 6; i++) {
-				guesssix[i] = newguess[i];
-				cluesix[i] = clue[i];
-			}
-			break;
-
-		}
+		
 
 		for (int i = 0; i < 6; i++) {
 			if (clueone[i] == 'G') {
