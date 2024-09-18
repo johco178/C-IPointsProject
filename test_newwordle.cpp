@@ -222,10 +222,14 @@ TEST(updateclue) {
     assert(strcmp(cluethree, "_GG_G") == 0);
     assert(strcmp(guessthree, "crane") == 0);
     assert(strcmp(cluefour, "___YG") == 0);
-    assert(strcmp(cluefive, "GGG_G") == 0);
-    assert(strcmp(cluesix, "GGGGG") == 0);
     assert(strcmp(guessfour, "nudge") == 0);
+
+
+    assert(strcmp(cluefive, "GGG_G") == 0);
     assert(strcmp(guessfive, "grape") == 0);
+
+
+    assert(strcmp(cluesix, "GGGGG") == 0);;
     assert(strcmp(guesssix, "grave") == 0);
 
 
