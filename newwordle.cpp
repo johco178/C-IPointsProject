@@ -51,7 +51,7 @@ char cluefour[6] = { '_', '_', '_', '_','_', '\0' };
 char cluefive[6] = { '_', '_', '_', '_','_', '\0' };
 char cluesix[6] = { '_', '_', '_', '_','_', '\0' };
 char letters_left_to_guess[26] = { 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z' };
-bool has_letter_been_guessed[26] = { false };
+extern bool has_letter_been_guessed[26] = { false };
 
 
 STATIC char* get_word(int number) {

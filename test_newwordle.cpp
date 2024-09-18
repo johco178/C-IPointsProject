@@ -19,6 +19,7 @@
 
 static const char wordle_mock_dictionary[3][MAX_wordle_WORD_LENGTH] = { "apple", "green", "slack" };
 static const int wordle_mock_dictionary_size = 3;
+extern bool has_letter_been_guessed[26];
 //extern bool test_has_letter_been_guessed[26];
 //#define has_letter_been_guessed test_has_letter_been_guessed
 //
@@ -82,6 +83,29 @@ TEST(get_word) {
     assert(strcmp(get_word(2), "slack") == 0);
 
 }
+// Test for updateLettersGuessed
+TEST(updateLettersGuessed) {
+    // Reset the has_letter_been_guessed array before each test
+    memset(has_letter_been_guessed, 0, sizeof(has_letter_been_guessed));
+
+    // Example guess with some letters
+    const char* guess = "maple";
+    updateLettersGuessed(guess);
+
+    // Expected result: 'm', 'a', 'p', 'l', 'e' should be set to true
+    assert(has_letter_been_guessed['m' - 'a'] == true);
+    assert(has_letter_been_guessed['a' - 'a'] == true);
+    assert(has_letter_been_guessed['p' - 'a'] == true);
+    assert(has_letter_been_guessed['l' - 'a'] == true);
+    assert(has_letter_been_guessed['e' - 'a'] == true);
+
+    // Letters not guessed yet (e.g., 'b', 'c', 'd', etc., should be false)
+    assert(has_letter_been_guessed['b' - 'a'] == false);
+    assert(has_letter_been_guessed['c' - 'a'] == false);
+    assert(has_letter_been_guessed['f' - 'a'] == false);
+    // Add more assertions as needed
+}
+
 
 
 //TEST(updateLettersGuessed) {
