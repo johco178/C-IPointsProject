@@ -93,34 +93,47 @@ TEST(print_hangman) {
     std::string trimmed_expected = trim(expected);
 
     // Remove all whitespace for a strict comparison
-    trimmed_output.erase(std::remove_if(trimmed_output.begin(), trimmed_output.end(), ::isspace), trimmed_output.end());
-    trimmed_expected.erase(std::remove_if(trimmed_expected.begin(), trimmed_expected.end(), ::isspace), trimmed_expected.end());
+    std::string stripped_output = trimmed_output;
+    stripped_output.erase(std::remove_if(stripped_output.begin(), stripped_output.end(), ::isspace), stripped_output.end());
+    std::string stripped_expected = trimmed_expected;
+    stripped_expected.erase(std::remove_if(stripped_expected.begin(), stripped_expected.end(), ::isspace), stripped_expected.end());
 
-    std::cout << "Trimmed actual output: " << trimmed_output << std::endl;
-    std::cout << "Trimmed expected output: " << trimmed_expected << std::endl;
+    std::cout << "Trimmed actual output: '" << trimmed_output << "'" << std::endl;
+    std::cout << "Trimmed expected output: '" << trimmed_expected << "'" << std::endl;
+    std::cout << "Stripped actual output: '" << stripped_output << "'" << std::endl;
+    std::cout << "Stripped expected output: '" << stripped_expected << "'" << std::endl;
 
-    bool match = (trimmed_output == trimmed_expected);
+    bool match = (stripped_output == stripped_expected);
 
-    if (!match) {
-        std::cout << "Mismatch detected. Comparing character by character:" << std::endl;
-        for (size_t i = 0; i < std::max(trimmed_output.length(), trimmed_expected.length()); ++i) {
-            if (i >= trimmed_output.length()) {
-                std::cout << "Position " << i << ": Expected '" << trimmed_expected[i]
-                    << "' (ASCII " << (int)trimmed_expected[i] << "), but actual output is too short." << std::endl;
-            }
-            else if (i >= trimmed_expected.length()) {
-                std::cout << "Position " << i << ": Actual '" << trimmed_output[i]
-                    << "' (ASCII " << (int)trimmed_output[i] << "), but expected output is too short." << std::endl;
-            }
-            else if (trimmed_output[i] != trimmed_expected[i]) {
-                std::cout << "Mismatch at position " << i << ": expected '"
-                    << trimmed_expected[i] << "' (ASCII " << (int)trimmed_expected[i]
-                    << "), got '" << trimmed_output[i] << "' (ASCII " << (int)trimmed_output[i] << ")" << std::endl;
-            }
+    std::cout << "Character by character comparison:" << std::endl;
+    for (size_t i = 0; i < std::max(stripped_output.length(), stripped_expected.length()); ++i) {
+        if (i >= stripped_output.length()) {
+            std::cout << "Position " << i << ": Expected '" << stripped_expected[i]
+                << "' (ASCII " << (int)stripped_expected[i] << "), but actual output is too short." << std::endl;
+        }
+        else if (i >= stripped_expected.length()) {
+            std::cout << "Position " << i << ": Actual '" << stripped_output[i]
+                << "' (ASCII " << (int)stripped_output[i] << "), but expected output is too short." << std::endl;
+        }
+        else if (stripped_output[i] != stripped_expected[i]) {
+            std::cout << "Mismatch at position " << i << ": expected '"
+                << stripped_expected[i] << "' (ASCII " << (int)stripped_expected[i]
+                << "), got '" << stripped_output[i] << "' (ASCII " << (int)stripped_output[i] << ")" << std::endl;
+        }
+        else {
+            std::cout << "Position " << i << ": Match '" << stripped_output[i] << "'" << std::endl;
         }
     }
 
     std::cout.rdbuf(old);
+
+    if (!match) {
+        std::cout << "Test failed: Output does not match expected after trimming whitespace" << std::endl;
+    }
+    else {
+        std::cout << "Test passed: Output matches expected after trimming whitespace" << std::endl;
+    }
+
     assert(match && "Output does not match expected after trimming whitespace");
 }
 
