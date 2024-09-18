@@ -134,6 +134,7 @@ TEST(print_hangman) {
             std::cout << "Position " << i << ": Match '" << stripped_output[i] << "'" << std::endl;
         }
         std::cout.flush();
+
     }
 
     if (!match) {
