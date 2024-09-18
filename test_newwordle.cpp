@@ -180,24 +180,53 @@ TEST(updateclue) {
 
     turn = 2;
     guess = "stale";
-    char* secondclue = processGuess(answer, guess);
+    clue = processGuess(answer, guess);
 
-    updateclue(turn, secondclue, guess);
+    updateclue(turn, clue, guess);
     assert(strcmp(clueone, "_Y__G") == 0);
     assert(strcmp(guessone, "maple") == 0);
     assert(strcmp(cluetwo, "__G_G") == 0);
     assert(strcmp(guesstwo, "stale") == 0);
 
-    //assert(strcmp(cluethree, "_____") == 0);
-    //assert(strcmp(cluefour, "_____") == 0);
-    //assert(strcmp(cluefive, "_____") == 0);
-    //assert(strcmp(cluesix, "_____") == 0);
-    //assert(strcmp(guessone, "maple") == 0);
-    //assert(strcmp(guesstwo, "_____") == 0);
-    //assert(strcmp(guessthree, "_____") == 0);
-    //assert(strcmp(guessfour, "_____") == 0);
-    //assert(strcmp(guessfive, "_____") == 0);
-    //assert(strcmp(guesssix, "_____") == 0);
+    turn = 3;
+    guess = "crane";
+    clue = processGuess(answer, guess);
+
+    updateclue(turn, clue, guess);
+    assert(strcmp(clueone, "_Y__G") == 0);
+    assert(strcmp(guessone, "maple") == 0);
+    assert(strcmp(cluetwo, "__G_G") == 0);
+    assert(strcmp(guesstwo, "stale") == 0);
+    assert(strcmp(cluethree, "_GG_G") == 0);
+    assert(strcmp(guessthree, "crane") == 0);
+
+
+    turn = 4;
+    guess = "nudge";
+    clue = processGuess(answer, guess);
+    updateclue(turn, clue, guess);
+
+    turn++;
+    guess = "grape";
+    clue = processGuess(answer, guess);
+
+    turn++;
+    guess = "grave";
+    clue = processGuess(answer, guess);
+
+
+    assert(strcmp(clueone, "_Y__G") == 0);
+    assert(strcmp(guessone, "maple") == 0);
+    assert(strcmp(cluetwo, "__G_G") == 0);
+    assert(strcmp(guesstwo, "stale") == 0);
+    assert(strcmp(cluethree, "_GG_G") == 0);
+    assert(strcmp(guessthree, "crane") == 0);
+    assert(strcmp(cluefour, "___YG") == 0);
+    assert(strcmp(cluefive, "GGG_G") == 0);
+    assert(strcmp(cluesix, "GGGGG") == 0);
+    assert(strcmp(guessfour, "nudge") == 0);
+    assert(strcmp(guessfive, "grape") == 0);
+    assert(strcmp(guesssix, "grave") == 0);
 
 
 
