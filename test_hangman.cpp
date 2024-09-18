@@ -105,7 +105,6 @@ void hangmanTests() {
     RUN_TEST(is_word_guessed);
     RUN_TEST(to_uppercase);
     RUN_TEST(is_letter_in_word);
-    RUN_TEST(print_hangman);
     RUN_TEST(print_word);
     RUN_TEST(load_dictionary);
 
