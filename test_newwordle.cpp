@@ -176,6 +176,18 @@ TEST(updateclue) {
 
     updateclue(turn, clue, guess);
     assert(strcmp(clueone, "_Y__G") == 0);
+    assert(strcmp(cluetwo, "_____") == 0);
+    assert(strcmp(cluethree, "_____") == 0);
+    assert(strcmp(cluefour, "_____") == 0);
+    assert(strcmp(cluefive, "_____") == 0);
+    assert(strcmp(cluesix, "_____") == 0);
+    assert(strcmp(guessone, "maple") == 0);
+    assert(strcmp(guesstwo, "_____") == 0);
+    assert(strcmp(guessthree, "_____") == 0);
+    assert(strcmp(guessfour, "_____") == 0);
+    assert(strcmp(guessfive, "_____") == 0);
+    assert(strcmp(guesssix, "_____") == 0);
+
 
 
 
