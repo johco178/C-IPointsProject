@@ -153,6 +153,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>updateLettersGuessed<
 <tr class="memitem:a63cd33eb7acde6393f1618474e2462e1" id="r_a63cd33eb7acde6393f1618474e2462e1"><td class="memItemLeft" align="right" valign="top"><a id="a63cd33eb7acde6393f1618474e2462e1" name="a63cd33eb7acde6393f1618474e2462e1"></a>
 char *&#160;</td><td class="memItemRight" valign="bottom"><b>lettersNotGuessed</b> ()</td></tr>
 <tr class="separator:a63cd33eb7acde6393f1618474e2462e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a885d80d11ca9f55de43a66aefbdcd2" id="r_a9a885d80d11ca9f55de43a66aefbdcd2"><td class="memItemLeft" align="right" valign="top"><a id="a9a885d80d11ca9f55de43a66aefbdcd2" name="a9a885d80d11ca9f55de43a66aefbdcd2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>updateclue</b> (int turn, char *clue, const char *newguess)</td></tr>
+<tr class="separator:a9a885d80d11ca9f55de43a66aefbdcd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91515e0294fb9e3595be97314d5374b9" id="r_a91515e0294fb9e3595be97314d5374b9"><td class="memItemLeft" align="right" valign="top"><a id="a91515e0294fb9e3595be97314d5374b9" name="a91515e0294fb9e3595be97314d5374b9"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>runwordletests</b> ()</td></tr>
 <tr class="separator:a91515e0294fb9e3595be97314d5374b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -162,6 +165,42 @@ Variables</h2></td></tr>
 <tr class="memitem:a78ebdf88df25ebe25389bec4ab15e0f4" id="r_a78ebdf88df25ebe25389bec4ab15e0f4"><td class="memItemLeft" align="right" valign="top"><a id="a78ebdf88df25ebe25389bec4ab15e0f4" name="a78ebdf88df25ebe25389bec4ab15e0f4"></a>
 bool *&#160;</td><td class="memItemRight" valign="bottom"><b>test_has_letter_been_guessed</b></td></tr>
 <tr class="separator:a78ebdf88df25ebe25389bec4ab15e0f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac010b1979af690c7f3682793410bdc04" id="r_ac010b1979af690c7f3682793410bdc04"><td class="memItemLeft" align="right" valign="top"><a id="ac010b1979af690c7f3682793410bdc04" name="ac010b1979af690c7f3682793410bdc04"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>guessone</b> [6]</td></tr>
+<tr class="separator:ac010b1979af690c7f3682793410bdc04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4012a55fad0dad410ca82c65919681ea" id="r_a4012a55fad0dad410ca82c65919681ea"><td class="memItemLeft" align="right" valign="top"><a id="a4012a55fad0dad410ca82c65919681ea" name="a4012a55fad0dad410ca82c65919681ea"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>guesstwo</b> [6]</td></tr>
+<tr class="separator:a4012a55fad0dad410ca82c65919681ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a339ba23de6114ec4b8ddf2aaa196c63b" id="r_a339ba23de6114ec4b8ddf2aaa196c63b"><td class="memItemLeft" align="right" valign="top"><a id="a339ba23de6114ec4b8ddf2aaa196c63b" name="a339ba23de6114ec4b8ddf2aaa196c63b"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>guessthree</b> [6]</td></tr>
+<tr class="separator:a339ba23de6114ec4b8ddf2aaa196c63b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25bfde4e0edfc63d348df584a1218652" id="r_a25bfde4e0edfc63d348df584a1218652"><td class="memItemLeft" align="right" valign="top"><a id="a25bfde4e0edfc63d348df584a1218652" name="a25bfde4e0edfc63d348df584a1218652"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>guessfour</b> [6]</td></tr>
+<tr class="separator:a25bfde4e0edfc63d348df584a1218652"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99434ba9b9e8eb5b46ab2d37398219fe" id="r_a99434ba9b9e8eb5b46ab2d37398219fe"><td class="memItemLeft" align="right" valign="top"><a id="a99434ba9b9e8eb5b46ab2d37398219fe" name="a99434ba9b9e8eb5b46ab2d37398219fe"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>guessfive</b> [6]</td></tr>
+<tr class="separator:a99434ba9b9e8eb5b46ab2d37398219fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5429921bbf713825027daf2989e7f629" id="r_a5429921bbf713825027daf2989e7f629"><td class="memItemLeft" align="right" valign="top"><a id="a5429921bbf713825027daf2989e7f629" name="a5429921bbf713825027daf2989e7f629"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>guesssix</b> [6]</td></tr>
+<tr class="separator:a5429921bbf713825027daf2989e7f629"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8092b80f40bc7d33e9953ffd84f50511" id="r_a8092b80f40bc7d33e9953ffd84f50511"><td class="memItemLeft" align="right" valign="top"><a id="a8092b80f40bc7d33e9953ffd84f50511" name="a8092b80f40bc7d33e9953ffd84f50511"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>clueone</b> [6]</td></tr>
+<tr class="separator:a8092b80f40bc7d33e9953ffd84f50511"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fd2683e37bb0a25afd23e4cf4fdb50b" id="r_a8fd2683e37bb0a25afd23e4cf4fdb50b"><td class="memItemLeft" align="right" valign="top"><a id="a8fd2683e37bb0a25afd23e4cf4fdb50b" name="a8fd2683e37bb0a25afd23e4cf4fdb50b"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>cluetwo</b> [6]</td></tr>
+<tr class="separator:a8fd2683e37bb0a25afd23e4cf4fdb50b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e82a4dbd2fa559e20dbb7528aace23a" id="r_a9e82a4dbd2fa559e20dbb7528aace23a"><td class="memItemLeft" align="right" valign="top"><a id="a9e82a4dbd2fa559e20dbb7528aace23a" name="a9e82a4dbd2fa559e20dbb7528aace23a"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>cluethree</b> [6]</td></tr>
+<tr class="separator:a9e82a4dbd2fa559e20dbb7528aace23a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af75dabcc1d37c52c053204a3c312f21b" id="r_af75dabcc1d37c52c053204a3c312f21b"><td class="memItemLeft" align="right" valign="top"><a id="af75dabcc1d37c52c053204a3c312f21b" name="af75dabcc1d37c52c053204a3c312f21b"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>cluefour</b> [6]</td></tr>
+<tr class="separator:af75dabcc1d37c52c053204a3c312f21b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2055ca76a1010787df411990fb0b2882" id="r_a2055ca76a1010787df411990fb0b2882"><td class="memItemLeft" align="right" valign="top"><a id="a2055ca76a1010787df411990fb0b2882" name="a2055ca76a1010787df411990fb0b2882"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>cluefive</b> [6]</td></tr>
+<tr class="separator:a2055ca76a1010787df411990fb0b2882"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45b6b0fdf77c621348fce669163b6392" id="r_a45b6b0fdf77c621348fce669163b6392"><td class="memItemLeft" align="right" valign="top"><a id="a45b6b0fdf77c621348fce669163b6392" name="a45b6b0fdf77c621348fce669163b6392"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><b>cluesix</b> [6]</td></tr>
+<tr class="separator:a45b6b0fdf77c621348fce669163b6392"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>documentation </p>
