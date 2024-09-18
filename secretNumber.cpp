@@ -35,11 +35,12 @@ bool validDifficulty(char difficulty) {
     @brief Gets the difficulty level from the user input
     @return The difficulty level chosen by the user as a char
 */
-char getDifficulty() {
-    char difficulty;
+char getDifficulty(char difficulty) {
     bool valid;
-    printf("Choose difficulty level (e: easy, m: medium, h: hard): ");
-    scanf(" %c", &difficulty); //assign the value of scanning a character from the user input
+    if(difficulty != ' '){
+        printf("Choose difficulty level (e: easy, m: medium, h: hard): ");
+        scanf(" %c", &difficulty); //assign the value of scanning a character from the user input
+    }
     difficulty = tolower(difficulty);//converts the input to lowercase incase of valid uppercase input
     valid = validDifficulty(difficulty);
     while (!valid)//checks if the input is valid
@@ -212,7 +213,7 @@ void secretNumberStart() {
 
     //Gets the difficulty level from the user input
     printf("Welcome to the Secret Number Game!\n");
-    difficulty = getDifficulty();
+    difficulty = getDifficulty(' ');
 
     //Plays the game
     play(difficulty);
