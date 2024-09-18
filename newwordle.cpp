@@ -241,6 +241,10 @@ STATIC char* processGuess(const char* theWord, const char* theGuess) {
 		//strcmp(clue, "GGGGG") == 0;
 
 }
+/*!
+	@brief updates the letters the user has guessed to be prepared to display the letters not guessed
+	@param the users guess
+*/
 STATIC void updateLettersGuessed(const char* theGuess) {
 	for (int i = 0; i < strlen(theGuess); i++) {
 		char letter = theGuess[i];
@@ -353,7 +357,6 @@ void playWordle(void) {
 		scanf("%s", guess);
 
 		char* newguess = toLowerCase(guess);
-		//printf("you have guessed %s\n", newguess);
 		
 		if (!conatainsonlychar(newguess)) {
 			printf("Guess contains an non letter, try again.");
