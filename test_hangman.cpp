@@ -70,18 +70,18 @@ TEST(is_letter_in_word) {
 }
 
 TEST(print_hangman) {
-    // Redirect stdout to a string stream for testing
     std::stringstream buffer;
     std::streambuf* old = std::cout.rdbuf(buffer.rdbuf());
 
     print_hangman(0);
-    assert(buffer.str().find("  +---+") != std::string::npos);
+    std::string output = buffer.str();
+    assert(output.find("  +---+") != std::string::npos);
 
     buffer.str("");
     print_hangman(6);
-    assert(buffer.str().find(" /|\\") != std::string::npos);
+    output = buffer.str();
+    assert(output.find(" /|\\") != std::string::npos);
 
-    // Restore stdout
     std::cout.rdbuf(old);
 }
 

@@ -7,6 +7,7 @@ int runttttests(){
     test_checkWin();
     test_checkDraw();
     test_move();
+    test_playTicTacToe();
     return 0;
 }
 
@@ -101,19 +102,20 @@ void test_move(){
 }
 
 void test_playTicTacToe(){
-    
+    // Player 1 wins case
     std::istringstream input("A1\nB1\nA2\nB2\nA3");
+    std::streambuf* originalCinBuffer = std::cin.rdbuf();
     std::cin.rdbuf(input.rdbuf());
 
     std::ostringstream output;
+    std::streambuf* originalCoutBuffer = std::cout.rdbuf();
     std::cout.rdbuf(output.rdbuf());
 
     playTicTacToe();
 
     std::string result = output.str();
-    std::cout << "Check P1 win: " << (result.find("Player 1 wins!") != std::string::npos ? "PASSED" : "FAILED") << std::endl;
+    std::cin.rdbuf(originalCinBuffer);
+    std::cout.rdbuf(originalCoutBuffer);
 
-    std::cin.rdbuf(nullptr);
-    std::cout.rdbuf(nullptr);
-    std::cout << "TEST" << std::endl;
+    std::cout << "Check P1 win: " << (result.find("Player 1 wins!") != std::string::npos ? "PASSED" : "FAILED") << std::endl;
 }
