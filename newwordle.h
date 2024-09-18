@@ -18,6 +18,18 @@
 #define MAX_wordle_DICTIONARY_SIZE 4695
 
 extern bool* test_has_letter_been_guessed;
+extern char guessone[6];
+extern char guesstwo[6];
+extern char guessthree[6];
+extern char guessfour[6];
+extern char guessfive[6];
+extern char guesssix[6];
+extern char clueone[6];
+extern char cluetwo[6];
+extern char cluethree[6];
+extern char cluefour[6];
+extern char cluefive[6];
+extern char cluesix[6];
 
 
 
@@ -77,6 +89,8 @@ void updateLettersGuessed(const char* theGuess);
 
 char* lettersNotGuessed();
 
+void updateclue(int turn, char* clue, const char* newguess);
+
 
 
 
@@ -92,6 +106,8 @@ char* get_word(int number);
 void set_wordle_mock_dictionary(const char mock_dict[][MAX_wordle_WORD_LENGTH], int size);
 void updateLettersGuessed(const char* theGuess);
 char* lettersNotGuessed();
+void updateclue(int turn, char* clue, const char* newguess);
+
 //void resetTestArrays();
 #endif
 
