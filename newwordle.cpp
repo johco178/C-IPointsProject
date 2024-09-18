@@ -352,8 +352,6 @@ void playWordle(void) {
 		printf("\n\nInput a 5-letter word and press enter \n");
 		scanf("%s", guess);
 
-
-
 		char* newguess = toLowerCase(guess);
 		//printf("you have guessed %s\n", newguess);
 		
@@ -401,8 +399,6 @@ void playWordle(void) {
 		printf("\n");
 
 	}
-
-
 
 	//display end of game message
 	if (correct_guess) {
