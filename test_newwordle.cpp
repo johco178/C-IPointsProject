@@ -166,7 +166,8 @@ int runwordletests() {
     RUN_TEST(correctlength);
     RUN_TEST(validWord);
     RUN_TEST(get_word);
-    //RUN_TEST(updateLettersGuessed);
+    RUN_TEST(updateLettersGuessed);
+
     //RUN_TEST(lettersNotGuessed);
 
     printf("All tests passed!\n");
