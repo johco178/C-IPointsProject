@@ -33,6 +33,49 @@ extern char cluefour[6];
 extern char cluefive[6];
 extern char cluesix[6];
 
+TEST(globalVariablesInitialization) {
+    assert(wordle_mock_dictionary_size == 0);
+    for (int i = 0; i < 26; i++) {
+        assert(has_letter_been_guessed[i] == false);
+    }
+    for (int i = 0; i < 6; i++) {
+        assert(guessone[i] == '_');
+        assert(guesstwo[i] == '_');
+        assert(guessthree[i] == '_');
+        assert(guessfour[i] == '_');
+        assert(guessfive[i] == '_');
+        assert(guesssix[i] == '_');
+        assert(clueone[i] == '_');
+        assert(cluetwo[i] == '_');
+        assert(cluethree[i] == '_');
+        assert(cluefour[i] == '_');
+        assert(cluefive[i] == '_');
+        assert(cluesix[i] == '_');
+    }
+}
+
+// Test for updating global variables after a guess
+TEST(globalVariablesAfterGuess) {
+    memset(has_letter_been_guessed, 0, sizeof(has_letter_been_guessed));
+    memset(guessone, 0, sizeof(guessone));
+    memset(guesstwo, 0, sizeof(guesstwo));
+
+    const char* guess = "apple";
+    updateLettersGuessed(guess);
+    updateclue(1, processGuess("apple", guess), guess);
+
+    // Check if the guesses have been updated
+    assert(strcmp(guessone, "apple") == 0);
+    assert(strcmp(clueone, "GGGGG") == 0);  // Assuming "apple" is the correct answer
+
+    // Check letter states after the guess
+    assert(has_letter_been_guessed['a' - 'a'] == true);
+    assert(has_letter_been_guessed['p' - 'a'] == true);
+    assert(has_letter_been_guessed['l' - 'a'] == true);
+    assert(has_letter_been_guessed['e' - 'a'] == true);
+    assert(has_letter_been_guessed['b' - 'a'] == false);
+}
+
 
 TEST(conatainsonlychar) {
 
@@ -157,18 +200,7 @@ TEST(updateclue) {
     memset(cluesix, 0, sizeof(cluesix));
     memset(guesssix, 0, sizeof(guesssix));
 
-    //assert(strcmp(clueone, "_____") == 0);
-    //assert(strcmp(cluetwo, "_____") == 0);
-    //assert(strcmp(cluethree, "_____") == 0);
-    //assert(strcmp(cluefour, "_____") == 0);
-    //assert(strcmp(cluefive, "_____") == 0);
-    //assert(strcmp(cluesix, "_____") == 0);
-    //assert(strcmp(guessone, "_____") == 0);
-    //assert(strcmp(guesstwo, "_____") == 0);
-    //assert(strcmp(guessthree, "_____") == 0);
-    //assert(strcmp(guessfour, "_____") == 0);
-    //assert(strcmp(guessfive, "_____") == 0);
-    //assert(strcmp(guesssix, "_____") == 0);
+
     int turn = 1;
     const char* answer = "grave";
     const char* guess = "maple";
@@ -266,9 +298,12 @@ int runwordletests() {
     RUN_TEST(validWord);
     RUN_TEST(get_word);
     RUN_TEST(updateLettersGuessed);
-
     RUN_TEST(lettersNotGuessed);
     RUN_TEST(updateclue);
+
+    RUN_TEST(globalVariablesInitialization);
+    RUN_TEST(globalVariablesAfterGuess);
+
 
     printf("All tests passed!\n");
     return 0;
