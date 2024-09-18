@@ -267,7 +267,7 @@ STATIC char* lettersNotGuessed() {
 	return result;
 }
 
-STATIC void updateclue(int turn, char* clue, char* newguess) {
+STATIC void updateclue(int turn, char* clue, const char* newguess) {
 	switch (turn)
 	{
 	case 1:
