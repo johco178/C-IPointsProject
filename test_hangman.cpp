@@ -76,13 +76,27 @@ TEST(print_hangman) {
     print_hangman(0);
     std::string output = buffer.str();
     std::cout << "Actual output for print_hangman(0):\n" << output << std::endl;
-    assert(output.find(" +---+") != std::string::npos);
 
-    buffer.str("");
-    print_hangman(6);
-    output = buffer.str();
-    std::cout << "Actual output for print_hangman(6):\n" << output << std::endl;
-    assert(output.find(" /|\\") != std::string::npos);
+    const char* expected = "  +---+\n  |   |\n      |\n      |\n      |\n      |\n=========\n";
+    std::cout << "Expected output:\n" << expected << std::endl;
+
+    bool match = true;
+    for (size_t i = 0; i < strlen(expected) && i < output.length(); ++i) {
+        if (output[i] != expected[i]) {
+            std::cout << "Mismatch at position " << i << ": expected '"
+                << expected[i] << "' (ASCII " << (int)expected[i]
+                << "), got '" << output[i] << "' (ASCII " << (int)output[i] << ")" << std::endl;
+            match = false;
+        }
+    }
+
+    if (output.length() != strlen(expected)) {
+        std::cout << "Length mismatch: expected " << strlen(expected)
+            << ", got " << output.length() << std::endl;
+        match = false;
+    }
+
+    assert(match && "Output does not match expected");
 
     std::cout.rdbuf(old);
 }
