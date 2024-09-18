@@ -4,6 +4,9 @@
 #include <string.h>
 #include <assert.h>
 #include "hangman.h"
+#include <sstream>
+#include <iostream>
+#include <string>
 
 // Simple test framework
 #define TEST(name) static void test_##name(void)
