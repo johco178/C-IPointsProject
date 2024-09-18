@@ -11,3 +11,5 @@ https://app.codacy.com/gh/johco178/C-IPointsProject/dashboard
 ![GitHub Workflow Status](https://github.com/johco178/C-IPointsProject/actions/workflows/cmake-single-platform.yml/badge.svg)
 
 [![codecov](https://codecov.io/github/johco178/C-IPointsProject/graph/badge.svg?token=6L90UPZ56N)](https://codecov.io/github/johco178/C-IPointsProject)
+
+[![Docs](https://img.shields.io/badge/Docs-Doxygen-brightgreen)](https://johco178.github.io/C-IPointsProject/)
