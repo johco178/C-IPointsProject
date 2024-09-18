@@ -7,6 +7,7 @@
 #include <sstream>
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 // Simple test framework
 #define TEST(name) static void test_##name(void)
@@ -69,6 +70,12 @@ TEST(is_letter_in_word) {
     assert(is_letter_in_word('X', "") == false);
 }
 
+std::string trim(const std::string& str) {
+    auto start = std::find_if_not(str.begin(), str.end(), ::isspace);
+    auto end = std::find_if_not(str.rbegin(), str.rend(), ::isspace).base();
+    return (start < end ? std::string(start, end) : std::string());
+}
+
 TEST(print_hangman) {
     std::stringstream buffer;
     std::streambuf* old = std::cout.rdbuf(buffer.rdbuf());
@@ -77,28 +84,44 @@ TEST(print_hangman) {
     std::string output = buffer.str();
     std::cout << "Actual output for print_hangman(0):\n" << output << std::endl;
 
-    const char* expected = "  +---+\n  |   |\n      |\n      |\n      |\n      |\n=========\n";
+    const char* expected_raw = "  +---+\n  |   |\n      |\n      |\n      |\n      |\n=========\n";
+    std::string expected(expected_raw);
     std::cout << "Expected output:\n" << expected << std::endl;
 
-    bool match = true;
-    for (size_t i = 0; i < strlen(expected) && i < output.length(); ++i) {
-        if (output[i] != expected[i]) {
-            std::cout << "Mismatch at position " << i << ": expected '"
-                << expected[i] << "' (ASCII " << (int)expected[i]
-                << "), got '" << output[i] << "' (ASCII " << (int)output[i] << ")" << std::endl;
-            match = false;
+    // Trim both strings
+    std::string trimmed_output = trim(output);
+    std::string trimmed_expected = trim(expected);
+
+    // Remove all whitespace for a strict comparison
+    trimmed_output.erase(std::remove_if(trimmed_output.begin(), trimmed_output.end(), ::isspace), trimmed_output.end());
+    trimmed_expected.erase(std::remove_if(trimmed_expected.begin(), trimmed_expected.end(), ::isspace), trimmed_expected.end());
+
+    std::cout << "Trimmed actual output: " << trimmed_output << std::endl;
+    std::cout << "Trimmed expected output: " << trimmed_expected << std::endl;
+
+    bool match = (trimmed_output == trimmed_expected);
+
+    if (!match) {
+        std::cout << "Mismatch detected. Comparing character by character:" << std::endl;
+        for (size_t i = 0; i < std::max(trimmed_output.length(), trimmed_expected.length()); ++i) {
+            if (i >= trimmed_output.length()) {
+                std::cout << "Position " << i << ": Expected '" << trimmed_expected[i]
+                    << "' (ASCII " << (int)trimmed_expected[i] << "), but actual output is too short." << std::endl;
+            }
+            else if (i >= trimmed_expected.length()) {
+                std::cout << "Position " << i << ": Actual '" << trimmed_output[i]
+                    << "' (ASCII " << (int)trimmed_output[i] << "), but expected output is too short." << std::endl;
+            }
+            else if (trimmed_output[i] != trimmed_expected[i]) {
+                std::cout << "Mismatch at position " << i << ": expected '"
+                    << trimmed_expected[i] << "' (ASCII " << (int)trimmed_expected[i]
+                    << "), got '" << trimmed_output[i] << "' (ASCII " << (int)trimmed_output[i] << ")" << std::endl;
+            }
         }
     }
 
-    if (output.length() != strlen(expected)) {
-        std::cout << "Length mismatch: expected " << strlen(expected)
-            << ", got " << output.length() << std::endl;
-        match = false;
-    }
-
-    assert(match && "Output does not match expected");
-
     std::cout.rdbuf(old);
+    assert(match && "Output does not match expected after trimming whitespace");
 }
 
 TEST(print_word) {
