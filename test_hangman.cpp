@@ -82,15 +82,26 @@ TEST(print_hangman) {
 
     print_hangman(0);
     std::string output = buffer.str();
-    std::cout << "Actual output for print_hangman(0):\n" << output << std::endl;
+    std::cout.rdbuf(old);  // Restore the original buffer
+
+    std::cout << "Actual output for print_hangman(0):" << std::endl;
+    std::cout << output << std::endl;
+    std::cout.flush();
 
     const char* expected_raw = "  +---+\n  |   |\n      |\n      |\n      |\n      |\n=========\n";
+    std::cout << "Expected output:" << std::endl;
+    std::cout << expected_raw << std::endl;
+    std::cout.flush();
+
     std::string expected(expected_raw);
-    std::cout << "Expected output:\n" << expected << std::endl;
 
     // Trim both strings
     std::string trimmed_output = trim(output);
     std::string trimmed_expected = trim(expected);
+
+    std::cout << "Trimmed actual output: '" << trimmed_output << "'" << std::endl;
+    std::cout << "Trimmed expected output: '" << trimmed_expected << "'" << std::endl;
+    std::cout.flush();
 
     // Remove all whitespace for a strict comparison
     std::string stripped_output = trimmed_output;
@@ -98,10 +109,9 @@ TEST(print_hangman) {
     std::string stripped_expected = trimmed_expected;
     stripped_expected.erase(std::remove_if(stripped_expected.begin(), stripped_expected.end(), ::isspace), stripped_expected.end());
 
-    std::cout << "Trimmed actual output: '" << trimmed_output << "'" << std::endl;
-    std::cout << "Trimmed expected output: '" << trimmed_expected << "'" << std::endl;
     std::cout << "Stripped actual output: '" << stripped_output << "'" << std::endl;
     std::cout << "Stripped expected output: '" << stripped_expected << "'" << std::endl;
+    std::cout.flush();
 
     bool match = (stripped_output == stripped_expected);
 
@@ -123,9 +133,8 @@ TEST(print_hangman) {
         else {
             std::cout << "Position " << i << ": Match '" << stripped_output[i] << "'" << std::endl;
         }
+        std::cout.flush();
     }
-
-    std::cout.rdbuf(old);
 
     if (!match) {
         std::cout << "Test failed: Output does not match expected after trimming whitespace" << std::endl;
@@ -133,6 +142,7 @@ TEST(print_hangman) {
     else {
         std::cout << "Test passed: Output matches expected after trimming whitespace" << std::endl;
     }
+    std::cout.flush();
 
     assert(match && "Output does not match expected after trimming whitespace");
 }
