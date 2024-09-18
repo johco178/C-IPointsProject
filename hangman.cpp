@@ -8,8 +8,13 @@
 #include "hangman.h"
 
 // Global variables
+#ifdef UNIT_TESTING
+char dictionary[MAX_DICTIONARY_SIZE][MAX_WORD_LENGTH];
+int dictionary_size = 0;
+#else
 static char dictionary[MAX_DICTIONARY_SIZE][MAX_WORD_LENGTH];
 static int dictionary_size = 0;
+#endif
 
 // Remove static keyword for functions to be tested
 #ifdef UNIT_TESTING

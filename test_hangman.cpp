@@ -4,6 +4,9 @@
 #include <string.h>
 #include <assert.h>
 #include "hangman.h"
+#include <sstream>
+#include <iostream>
+#include <string>
 
 // Simple test framework
 #define TEST(name) static void test_##name(void)
@@ -66,6 +69,50 @@ TEST(is_letter_in_word) {
     assert(is_letter_in_word('X', "") == false);
 }
 
+TEST(print_hangman) {
+    // Redirect stdout to a string stream for testing
+    std::stringstream buffer;
+    std::streambuf* old = std::cout.rdbuf(buffer.rdbuf());
+
+    print_hangman(0);
+    assert(buffer.str().find("  +---+") != std::string::npos);
+
+    buffer.str("");
+    print_hangman(6);
+    assert(buffer.str().find(" /|\\") != std::string::npos);
+
+    // Restore stdout
+    std::cout.rdbuf(old);
+}
+
+TEST(print_word) {
+    const char* word = "HELLO";
+    int guessed[5] = { 1, 0, 1, 1, 0 };
+
+    std::stringstream buffer;
+    std::streambuf* old = std::cout.rdbuf(buffer.rdbuf());
+
+    print_word(word, guessed);
+    assert(buffer.str() == "H _ L L _\n");
+
+    std::cout.rdbuf(old);
+}
+
+TEST(load_dictionary) {
+    // Create a temporary file for testing
+    FILE* temp = fopen("temp_dict.txt", "w");
+    fprintf(temp, "APPLE\nBANANA\nCHERRY\n");
+    fclose(temp);
+
+    assert(load_dictionary("temp_dict.txt") == 1);
+    assert(dictionary_size == 3);
+    assert(strcmp(dictionary[0], "APPLE") == 0);
+    assert(strcmp(dictionary[1], "BANANA") == 0);
+    assert(strcmp(dictionary[2], "CHERRY") == 0);
+
+    remove("temp_dict.txt");
+}
+
 void hangmanTests() {
     printf("Running Hangman unit tests...\n");
 
@@ -73,6 +120,9 @@ void hangmanTests() {
     RUN_TEST(is_word_guessed);
     RUN_TEST(to_uppercase);
     RUN_TEST(is_letter_in_word);
+    RUN_TEST(print_hangman);
+    RUN_TEST(print_word);
+    RUN_TEST(load_dictionary);
 
     printf("All tests passed!\n");
 }
