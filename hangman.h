@@ -75,12 +75,6 @@ void to_uppercase(char* str);
 */
 void set_mock_dictionary(const char mock_dict[][MAX_WORD_LENGTH], int size);
 /*!
-	 @brief Prints the hangman based on the number of tries
-	 @param tries The number of tries
-
-*/
-void print_hangman(int tries);
-/*!
 	 @brief Prints the word with guessed letters
 	 @param word The word to print
 	 @param guessed An array of guessed letters

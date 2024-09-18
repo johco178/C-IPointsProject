@@ -76,11 +76,7 @@ STATIC char* select_word(int desired_length) {
     @brief Prints the hangman based on the number of tries
 	@param tries The number of tries
 */
-#ifdef UNIT_TESTING
 void print_hangman(int tries) {
-#else
-STATIC void print_hangman(int tries) {
-#endif
     const char* hangman_states[] = {
         "  +---+\n  |   |\n      |\n      |\n      |\n      |\n=========",
         "  +---+\n  |   |\n  O   |\n      |\n      |\n      |\n=========",
