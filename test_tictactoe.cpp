@@ -1,10 +1,12 @@
 #include "test_tictactoe.h"
 #include <iostream>
+#include <sstream>
 
 int runttttests(){
     test_initBoard();
     test_checkWin();
     test_checkDraw();
+    test_move();
     return 0;
 }
 
@@ -96,4 +98,22 @@ void test_move(){
         expected_occupied_error = true;
     }
     std::cout << "Check valid move: " << (expected_occupied_error ? "PASSED" : "FAILED") << std::endl;
+}
+
+void test_playTicTacToe(){
+    
+    std::istringstream input("A1\nB1\nA2\nB2\nA3");
+    std::cin.rdbuf(input.rdbuf());
+
+    std::ostringstream output;
+    std::cout.rdbuf(output.rdbuf());
+
+    playTicTacToe();
+
+    std::string result = output.str();
+    std::cout << "Check P1 win: " << (result.find("Player 1 wins!") != std::string::npos ? "PASSED" : "FAILED") << std::endl;
+
+    std::cin.rdbuf(nullptr);
+    std::cout.rdbuf(nullptr);
+    std::cout << "TEST" << std::endl;
 }
