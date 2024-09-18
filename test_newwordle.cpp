@@ -179,7 +179,7 @@ TEST(updateclue) {
     assert(strcmp(guessone, "maple") == 0);
 
 
-    //assert(strcmp(cluetwo, "_____") == 0);
+    assert(strcmp(cluetwo, "_____") == 0);
     //assert(strcmp(cluethree, "_____") == 0);
     //assert(strcmp(cluefour, "_____") == 0);
     //assert(strcmp(cluefive, "_____") == 0);
