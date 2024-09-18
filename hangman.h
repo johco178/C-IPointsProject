@@ -75,13 +75,6 @@ void to_uppercase(char* str);
 */
 void set_mock_dictionary(const char mock_dict[][MAX_WORD_LENGTH], int size);
 /*!
-	 @brief Prints the word with guessed letters
-	 @param word The word to print
-	 @param guessed An array of guessed letters
-
-*/
-void print_word(const char* word, const int* guessed);
-/*!
 	 @brief Loads a dictionary from a file
 	 @param filename The name of the file to load
 	 @return 1 if the dictionary was loaded successfully, 0 otherwise
