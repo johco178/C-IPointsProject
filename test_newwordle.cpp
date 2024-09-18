@@ -223,8 +223,18 @@ TEST(updateclue) {
     assert(strcmp(guessthree, "crane") == 0);
     assert(strcmp(cluefour, "___YG") == 0);
     assert(strcmp(guessfour, "nudge") == 0);
-
-
+    
+    turn = 5;
+    guess = "grape";
+    clue = processGuess(answer, guess);
+    assert(strcmp(clueone, "_Y__G") == 0);
+    assert(strcmp(guessone, "maple") == 0);
+    assert(strcmp(cluetwo, "__G_G") == 0);
+    assert(strcmp(guesstwo, "stale") == 0);
+    assert(strcmp(cluethree, "_GG_G") == 0);
+    assert(strcmp(guessthree, "crane") == 0);
+    assert(strcmp(cluefour, "___YG") == 0);
+    assert(strcmp(guessfour, "nudge") == 0);
     assert(strcmp(cluefive, "GGG_G") == 0);
     assert(strcmp(guessfive, "grape") == 0);
 
