@@ -180,8 +180,9 @@ TEST(updateclue) {
 
     turn = 2;
     guess = "stale";
-    char* clue = processGuess(answer, guess);
+    char* secondclue = processGuess(answer, guess);
 
+    updateclue(turn, secondclue, guess);
     assert(strcmp(clueone, "_Y__G") == 0);
     assert(strcmp(guessone, "maple") == 0);
     assert(strcmp(cluetwo, "__G_G") == 0);
