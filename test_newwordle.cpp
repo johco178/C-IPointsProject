@@ -206,11 +206,11 @@ TEST(updateclue) {
     clue = processGuess(answer, guess);
     updateclue(turn, clue, guess);
 
-    turn++;
+    turn = 5;
     guess = "grape";
     clue = processGuess(answer, guess);
 
-    turn++;
+    turn = 6;
     guess = "grave";
     clue = processGuess(answer, guess);
 
