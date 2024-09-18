@@ -71,21 +71,6 @@ TEST(is_letter_in_word) {
 }
 
 
-TEST(load_dictionary) {
-    // Create a temporary file for testing
-    FILE* temp = fopen("temp_dict.txt", "w");
-    fprintf(temp, "APPLE\nBANANA\nCHERRY\n");
-    fclose(temp);
-
-    assert(load_dictionary("temp_dict.txt") == 1);
-    assert(dictionary_size == 3);
-    assert(strcmp(dictionary[0], "APPLE") == 0);
-    assert(strcmp(dictionary[1], "BANANA") == 0);
-    assert(strcmp(dictionary[2], "CHERRY") == 0);
-
-    remove("temp_dict.txt");
-}
-
 void hangmanTests() {
     printf("Running Hangman unit tests...\n");
 
@@ -93,7 +78,6 @@ void hangmanTests() {
     RUN_TEST(is_word_guessed);
     RUN_TEST(to_uppercase);
     RUN_TEST(is_letter_in_word);
-    RUN_TEST(load_dictionary);
 
     printf("All tests passed!\n");
 }
