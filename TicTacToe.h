@@ -37,7 +37,7 @@ bool checkDraw();
     @brief Initiates for a players move
     @param player which players turn it is (X or O)
 */
-void move(char player);
+void move(char player, string input);
 
 /*!
     @brief Runs the game
