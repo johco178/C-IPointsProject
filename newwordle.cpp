@@ -241,6 +241,10 @@ STATIC char* processGuess(const char* theWord, const char* theGuess) {
 		//strcmp(clue, "GGGGG") == 0;
 
 }
+/*!
+	@brief updates the letters the user has guessed to be prepared to display the letters not guessed
+	@param the users guess
+*/
 STATIC void updateLettersGuessed(const char* theGuess) {
 	for (int i = 0; i < strlen(theGuess); i++) {
 		char letter = theGuess[i];
@@ -311,6 +315,24 @@ STATIC void updateclue(int turn, char* clue, const char* newguess) {
 
 }
 
+void print_colored_output(char clue[], char guess[]) {
+	for (int i = 0; i < 6; i++) {
+		if (clue[i] == 'G') {
+			printf(ANSI_COLOR_GREEN "%c", guess[i]);
+		}
+		else if (clue[i] == 'Y') {
+			printf(ANSI_COLOR_YELLOW "%c", guess[i]);
+		}
+		else if (guess[i] == '_') {
+			printf(ANSI_COLOR_RESET "%c", guess[i]);
+		}
+		else {
+			printf(ANSI_COLOR_RED "%c", guess[i]);
+		}
+	}
+	printf(ANSI_COLOR_RESET "\n");
+}
+
 
 /*!
 	@brief plays wordle game
@@ -334,10 +356,7 @@ void playWordle(void) {
 		printf("\n\nInput a 5-letter word and press enter \n");
 		scanf("%s", guess);
 
-
-
 		char* newguess = toLowerCase(guess);
-		//printf("you have guessed %s\n", newguess);
 		
 		if (!conatainsonlychar(newguess)) {
 			printf("Guess contains an non letter, try again.");
@@ -370,101 +389,12 @@ void playWordle(void) {
 
 		updateclue(num_of_guesses, clue, newguess);
 
-
-
-		
-
-		
-
-		for (int i = 0; i < 6; i++) {
-			if (clueone[i] == 'G') {
-				printf(ANSI_COLOR_GREEN   "%c", guessone[i]);
-			}
-			else if (clueone[i] == 'Y') {
-				printf(ANSI_COLOR_YELLOW "%c", guessone[i]);
-			}
-			else if (guessone[i] == '_'){
-				printf(ANSI_COLOR_RESET "%c", guessone[i]);
-			}else {
-				printf(ANSI_COLOR_RED "%c", guessone[i]);
-			}
-		}
-		printf(ANSI_COLOR_RESET "\n");
-		for (int i = 0; i < 6; i++) {
-			if (cluetwo[i] == 'G') {
-				printf(ANSI_COLOR_GREEN   "%c", guesstwo[i]);
-			}
-			else if (cluetwo[i] == 'Y') {
-				printf(ANSI_COLOR_YELLOW "%c", guesstwo[i]);
-			}
-			else if (guesstwo[i] == '_') {
-				printf(ANSI_COLOR_RESET "%c", guesstwo[i]);
-			}
-			else {
-				printf(ANSI_COLOR_RED "%c", guesstwo[i]);
-			}
-		}
-		printf(ANSI_COLOR_RESET "\n");
-		for (int i = 0; i < 6; i++) {
-			if (cluethree[i] == 'G') {
-				printf(ANSI_COLOR_GREEN   "%c", guessthree[i]);
-			}
-			else if (cluethree[i] == 'Y') {
-				printf(ANSI_COLOR_YELLOW "%c", guessthree[i]);
-			}
-			else if (guessthree[i] == '_') {
-				printf(ANSI_COLOR_RESET "%c", guessthree[i]);
-			}
-			else {
-				printf(ANSI_COLOR_RED "%c", guessthree[i]);
-			}
-		}
-		printf(ANSI_COLOR_RESET "\n");
-		for (int i = 0; i < 6; i++) {
-			if (cluefour[i] == 'G') {
-				printf(ANSI_COLOR_GREEN   "%c", guessfour[i]);
-			}
-			else if (cluefour[i] == 'Y') {
-				printf(ANSI_COLOR_YELLOW "%c", guessfour[i]);
-			}
-			else if (guessfour[i] == '_') {
-				printf(ANSI_COLOR_RESET "%c", guessfour[i]);
-			}
-			else {
-				printf(ANSI_COLOR_RED "%c", guessfour[i]);
-			}
-		}
-		printf(ANSI_COLOR_RESET "\n");
-		for (int i = 0; i < 6; i++) {
-			if (cluefive[i] == 'G') {
-				printf(ANSI_COLOR_GREEN   "%c", guessfive[i]);
-			}
-			else if (cluefive[i] == 'Y') {
-				printf(ANSI_COLOR_YELLOW "%c", guessfive[i]);
-			}
-			else if (guessfive[i] == '_') {
-				printf(ANSI_COLOR_RESET "%c", guessfive[i]);
-			}
-			else {
-				printf(ANSI_COLOR_RED "%c", guessfive[i]);
-			}
-		}
-		printf(ANSI_COLOR_RESET "\n");
-		for (int i = 0; i < 6; i++) {
-			if (cluesix[i] == 'G') {
-				printf(ANSI_COLOR_GREEN   "%c", guesssix[i]);
-			}
-			else if (cluesix[i] == 'Y') {
-				printf(ANSI_COLOR_YELLOW "%c", guesssix[i]);
-			}
-			else if (guesssix[i] == '_') {
-				printf(ANSI_COLOR_RESET "%c", guesssix[i]);
-			}
-			else {
-				printf(ANSI_COLOR_RED "%c", guesssix[i]);
-			}
-		}
-		printf(ANSI_COLOR_RESET);
+		print_colored_output(clueone, guessone);
+		print_colored_output(cluetwo, guesstwo);
+		print_colored_output(cluethree, guessthree);
+		print_colored_output(cluefour, guessfour);
+		print_colored_output(cluefive, guessfive);
+		print_colored_output(cluesix, guesssix);
 
 
 
@@ -472,8 +402,6 @@ void playWordle(void) {
 		printf("\n");
 
 	}
-
-
 
 	//display end of game message
 	if (correct_guess) {
