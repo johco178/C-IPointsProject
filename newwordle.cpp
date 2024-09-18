@@ -37,6 +37,7 @@ int word_length = 5;
 // Global variables
 static char wordle_dictionary[MAX_wordle_DICTIONARY_SIZE][MAX_wordle_WORD_LENGTH];
 static int wordle_dictionary_size = 0;
+extern bool has_letter_been_guessed[26];
 //bool* test_has_letter_been_guessed = nullptr;
 char guessone[6] = { '_', '_', '_', '_','_', '\0' };
 char guesstwo[6] = { '_', '_', '_', '_','_', '\0' };
@@ -51,7 +52,7 @@ char cluefour[6] = { '_', '_', '_', '_','_', '\0' };
 char cluefive[6] = { '_', '_', '_', '_','_', '\0' };
 char cluesix[6] = { '_', '_', '_', '_','_', '\0' };
 char letters_left_to_guess[26] = { 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z' };
-extern bool has_letter_been_guessed[26] = { false };
+bool has_letter_been_guessed[26] = { false };
 
 
 STATIC char* get_word(int number) {
@@ -279,7 +280,7 @@ void playWordle(void) {
 		printf("\nLetter not guessed yet: %s", lettersleft);
 
 		printf("\n\nInput a 5-letter word and press enter \n");
-		scanf_s("%s", guess);
+		scanf("%s", guess);
 
 
 
