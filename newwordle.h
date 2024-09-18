@@ -91,7 +91,7 @@ bool validWord(const char* guess);
 char* get_word(int number);
 void set_wordle_mock_dictionary(const char mock_dict[][MAX_wordle_WORD_LENGTH], int size);
 void updateLettersGuessed(const char* theGuess);
-//char* lettersNotGuessed();
+char* lettersNotGuessed();
 //void resetTestArrays();
 #endif
 

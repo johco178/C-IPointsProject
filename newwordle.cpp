@@ -265,8 +265,6 @@ STATIC char* lettersNotGuessed() {
 void playWordle(void) {
 	int number = rand();
 	const char* newanswer = get_word(number);
-	printf("%s", newanswer);
-
 
 
 	// do the game loop
