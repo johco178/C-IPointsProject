@@ -91,7 +91,7 @@ char* lettersNotGuessed();
 
 void updateclue(int turn, char* clue, const char* newguess);
 
-
+void print_colored_output(char clue[], char guess[]);
 
 
 int runwordletests();
