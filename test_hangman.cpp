@@ -10,6 +10,7 @@
 #include <algorithm>
 #include <cstring>
 #include <cassert>
+#include <cstdio>
 
 // Simple test framework
 #define TEST(name) static void test_##name(void)
@@ -132,36 +133,63 @@ TEST(load_dictionary) {
     remove(temp_filename);
 }
 
-const char* mock_select_word(int desired_length) {
-    return "APPLE";
+// Global variable to control word selection
+const char* test_word = nullptr;
+
+// Function to be called instead of hangman_play in the test
+void test_hangman_play() {
+    // Set up a controlled word
+    test_word = "APPLE";
+
+    // Call the actual hangman_play function
+    hangman_play();
+
+    // Reset the test word
+    test_word = nullptr;
+}
+
+// Modified select_word function for testing
+char* select_word(int desired_length) {
+    if (test_word != nullptr) {
+        static char word[MAX_WORD_LENGTH];
+        strncpy(word, test_word, MAX_WORD_LENGTH - 1);
+        word[MAX_WORD_LENGTH - 1] = '\0';
+        return word;
+    }
+    // Call the original select_word function here if needed
+    // For now, we'll just return a default word
+    static char default_word[] = "DEFAULT";
+    return default_word;
 }
 
 TEST(hangman_play) {
-    // Redirect cout to our stringstream
-    std::stringstream output;
-    std::streambuf* old_cout = std::cout.rdbuf(output.rdbuf());
+    // Redirect stdout to a file
+    const char* temp_output = "temp_output.txt";
+    FILE* output_file = freopen(temp_output, "w", stdout);
 
     // Prepare input
-    std::stringstream input;
-    input << "5\n" << "A\n" << "P\n" << "L\n" << "E\n" << "2\n";
-    std::streambuf* old_cin = std::cin.rdbuf(input.rdbuf());
+    const char* input = "5\nA\nP\nL\nE\n2\n";
+    FILE* temp_input = fopen("temp_input.txt", "w");
+    fprintf(temp_input, "%s", input);
+    fclose(temp_input);
+    freopen("temp_input.txt", "r", stdin);
 
-    // Replace select_word with our mock version
-    auto old_select_word = select_word;
-    select_word = mock_select_word;
+    // Call the test function
+    test_hangman_play();
 
-    // Call the function
-    hangman_play();
+    // Restore stdout and stdin
+    fclose(output_file);
+    freopen("/dev/tty", "w", stdout);
+    freopen("/dev/tty", "r", stdin);
 
-    // Restore cout and cin
-    std::cout.rdbuf(old_cout);
-    std::cin.rdbuf(old_cin);
-
-    // Restore original select_word
-    select_word = old_select_word;
-
-    // Get the output as a string
-    std::string output_str = output.str();
+    // Read the output file
+    output_file = fopen(temp_output, "r");
+    char buffer[1024];
+    std::string output_str;
+    while (fgets(buffer, sizeof(buffer), output_file)) {
+        output_str += buffer;
+    }
+    fclose(output_file);
 
     // Perform assertions
     assert(output_str.find("Enter desired word length") != std::string::npos);
@@ -175,9 +203,12 @@ TEST(hangman_play) {
     assert(output_str.find("Do you want to play again?") != std::string::npos);
     assert(output_str.find("Thanks for playing Hangman!") != std::string::npos);
 
-    std::cout << "hangman_play test passed!" << std::endl;
-}
+    // Clean up
+    remove(temp_output);
+    remove("temp_input.txt");
 
+    printf("hangman_play test passed!\n");
+}
 void hangmanTests() {
     printf("Running Hangman unit tests...\n");
 
