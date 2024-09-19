@@ -33,22 +33,33 @@ extern char cluefour[6];
 extern char cluefive[6];
 extern char cluesix[6];
 
-TEST(globalVariablesInitialization) {
-    assert(wordle_mock_dictionary_size == 3);
-    memset(has_letter_been_guessed, 0, sizeof(has_letter_been_guessed));
-    memset(clueone, 0, sizeof(clueone));
-    memset(guessone, 0, sizeof(guessone));
-    memset(cluetwo, 0, sizeof(cluetwo));
-    memset(guesstwo, 0, sizeof(guesstwo));
-    memset(cluethree, 0, sizeof(cluethree));
-    memset(guessthree, 0, sizeof(guessthree));
-    memset(cluefour, 0, sizeof(cluefour));
-    memset(guessfour, 0, sizeof(guessfour));
+void setup() {
+    // Reset global variables
+    memset(has_letter_been_guessed, 0, sizeof(has_letter_been_guessed)); // Set to false
 
-    memset(cluefive, 0, sizeof(cluefive));
-    memset(guessfive, 0, sizeof(guessfive));
-    memset(cluesix, 0, sizeof(cluesix));
-    memset(guesssix, 0, sizeof(guesssix));
+    // Initialize guess arrays
+    for (int i = 0; i < 6; i++) {
+        guessone[i] = '_';    // Initialize to '_'
+        guesstwo[i] = '_';
+        guessthree[i] = '_';
+        guessfour[i] = '_';
+        guessfive[i] = '_';
+        guesssix[i] = '_';
+
+        clueone[i] = '_';     // Initialize clue arrays
+        cluetwo[i] = '_';
+        cluethree[i] = '_';
+        cluefour[i] = '_';
+        cluefive[i] = '_';
+        cluesix[i] = '_';
+    }
+}
+
+
+
+TEST(globalVariablesInitialization) {
+    setup();
+    assert(wordle_mock_dictionary_size == 3);
 
 
     for (int i = 0; i < 26; i++) {
