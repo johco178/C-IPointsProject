@@ -152,7 +152,8 @@ STATIC int load_dictionary(const char* filename, char dictionary[][MAX_WORD_LENG
 */
 void hangman_initialize(void) {
     srand((unsigned int)time(NULL));
-    if (!load_dictionary("../dictionary.txt")) {
+    dictionary_size = load_dictionary("../dictionary.txt", dictionary, MAX_DICTIONARY_SIZE);
+    if (dictionary_size <= 0) {
         fprintf(stderr, "Failed to load dictionary. Hangman game may not function properly.\n");
     }
 }
