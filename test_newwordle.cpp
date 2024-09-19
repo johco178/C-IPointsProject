@@ -33,9 +33,34 @@ extern char cluefour[6];
 extern char cluefive[6];
 extern char cluesix[6];
 
+void setup() {
+    // Reset global variables
+    memset(has_letter_been_guessed, 0, sizeof(has_letter_been_guessed)); // Set to false
+
+    // Initialize guess arrays
+    for (int i = 0; i < 6; i++) {
+        guessone[i] = '_';    // Initialize to '_'
+        guesstwo[i] = '_';
+        guessthree[i] = '_';
+        guessfour[i] = '_';
+        guessfive[i] = '_';
+        guesssix[i] = '_';
+
+        clueone[i] = '_';     // Initialize clue arrays
+        cluetwo[i] = '_';
+        cluethree[i] = '_';
+        cluefour[i] = '_';
+        cluefive[i] = '_';
+        cluesix[i] = '_';
+    }
+}
+
+
+
 TEST(globalVariablesInitialization) {
+    setup();
     assert(wordle_mock_dictionary_size == 3);
-    memset(has_letter_been_guessed, 0, sizeof(has_letter_been_guessed));
+
 
     for (int i = 0; i < 26; i++) {
         assert(has_letter_been_guessed[i] == false);
