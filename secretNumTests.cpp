@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
-#include <string.h>
+#include <ctype.h>
 #include "secretNumber.h" // Include the header file
 
 // Function to run all tests
@@ -13,9 +13,8 @@ void test_getDifficulty();
 void test_validGuess();
 void test_validPlayAgain();
 void test_playAgain();
-void test_playAgain_withMockInput();
-void test_play_withMockInput();
 void test_getGuess_withMockInput();
+void test_getDifficulty_withMockInput();
 
 // Function to Print test results
 void printTestResult(const char* testName, bool result);
@@ -38,6 +37,7 @@ void runTests() {
     test_validPlayAgain();
     test_playAgain();
     test_getGuess_withMockInput();
+    test_getDifficulty_withMockInput();
 }
 
 void test_getSecretNumber() {
@@ -73,14 +73,25 @@ void test_playAgain(){
     printTestResult("test_playAgain", result);
 }
 
+
 void test_getGuess_withMockInput() {
-    const int mockGuesses[] = {5, 7}; 
+    const int mockGuesses[] = { 5, 7}; 
     int mockGuessCount = sizeof(mockGuesses) / sizeof(mockGuesses[0]);
 
     int guess = getGuess(1, 10, mockGuesses, mockGuessCount);
 
     bool result = (guess == 5);
     printTestResult("test_getGuess_withMockInput", result);
+}
+
+void test_getDifficulty_withMockInput() {
+    const char mockInputs[] = {'x', 'm'}; 
+    int mockInputCount = sizeof(mockInputs) / sizeof(mockInputs[0]);
+
+    char difficulty = getDifficulty(' ', mockInputs, mockInputCount);
+
+    bool result = (difficulty == 'm');
+    printTestResult("test_getDifficulty_withMockInput", result);
 }
 
 void printTestResult(const char* testName, bool result) {

@@ -32,26 +32,38 @@ bool validDifficulty(char difficulty) {
 }
 
 /*!
-    @brief Gets the difficulty level from the user input
+    @brief Gets the difficulty level from the user input or mock input for testing
+    @param difficulty Initial difficulty character (use ' ' to prompt user input)
+    @param mockInput Optional mock input for testing
+    @param mockInputSize The size of the mock input array
     @return The difficulty level chosen by the user as a char
 */
-char getDifficulty(char difficulty) {
+char getDifficulty(char difficulty, const char* mockInput = NULL, int mockInputSize = 0) {
     bool valid;
-    if(difficulty == ' '){
+    static int mockIndex = 0; // Use static to retain the value across function calls
+
+    if (difficulty == ' ' && mockInput && mockIndex < mockInputSize) {
+        difficulty = mockInput[mockIndex++];
+    } else if (difficulty == ' ') {
         printf("Choose difficulty level (e: easy, m: medium, h: hard): ");
-        scanf(" %c", &difficulty); //assign the value of scanning a character from the user input
-    }
-    difficulty = tolower(difficulty);//converts the input to lowercase incase of valid uppercase input
-    valid = validDifficulty(difficulty);
-    while (!valid)//checks if the input is valid
-    {
-       printf("That is not a valid input. Please choose 'e' for easy, 'm' for medium, or 'h' for hard.\n");
-       scanf(" %c", &difficulty);
-       difficulty = tolower(difficulty);
-       valid = validDifficulty(difficulty);
+        scanf(" %c", &difficulty); // assign the value of scanning a character from the user input
     }
 
-    return difficulty;//returns the difficulty level
+    difficulty = tolower(difficulty); // converts the input to lowercase in case of valid uppercase input
+    valid = validDifficulty(difficulty);
+
+    while (!valid) { // checks if the input is valid
+        if (mockInput && mockIndex < mockInputSize) {
+            difficulty = mockInput[mockIndex++];
+        } else {
+            printf("That is not a valid input. Please choose 'e' for easy, 'm' for medium, or 'h' for hard.\n");
+            scanf(" %c", &difficulty);
+        }
+        difficulty = tolower(difficulty);
+        valid = validDifficulty(difficulty);
+    }
+
+    return difficulty; // returns the difficulty level
 }
 
 /*!

@@ -29,7 +29,7 @@ bool validDifficulty(char difficulty);
     @brief Gets the difficulty level from the user input
     @return The difficulty level chosen by the user as a char
 */
-char getDifficulty(char difficulty);
+char getDifficulty(char difficulty, const char* mockInput = NULL, int mockInputSize = 0);
 
 /*!
     @brief Checks if the input for a guess is valid
