@@ -74,6 +74,13 @@ void to_uppercase(char* str);
 
 */
 void set_mock_dictionary(const char mock_dict[][MAX_WORD_LENGTH], int size);
+/*!
+	 @brief Loads the dictionary from a file
+	 @param filename The name of the file to load
+	 @return 1 if the dictionary was loaded successfully, 0 otherwise
+
+*/
+int load_dictionary(const char* filename);
 
 extern char dictionary[MAX_DICTIONARY_SIZE][MAX_WORD_LENGTH];
 extern int dictionary_size;

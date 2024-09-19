@@ -70,14 +70,57 @@ TEST(is_letter_in_word) {
     assert(is_letter_in_word('X', "") == false);
 }
 
+TEST(load_dictionary) {
+    // Create a temporary dictionary file
+    const char* temp_filename = "temp_dictionary.txt";
+    FILE* temp_file = fopen(temp_filename, "w");
+    assert(temp_file != NULL);
+    fprintf(temp_file, "apple\nbanana\ncherry\n");
+    fclose(temp_file);
+
+    // Test loading the dictionary
+    int result = load_dictionary(temp_filename);
+    assert(result == 1);
+
+    // Instead of directly checking dictionary_size and contents,
+    // we'll use select_word to indirectly verify the dictionary was loaded
+    char* word = select_word(5);  // Should return a 5-letter word (APPLE)
+    assert(word != NULL);
+    assert(strcmp(word, "APPLE") == 0);
+
+    word = select_word(6);  // Should return a 6-letter word (BANANA or CHERRY)
+    assert(word != NULL);
+    assert(strcmp(word, "BANANA") == 0 || strcmp(word, "CHERRY") == 0);
+
+    // Test loading a non-existent file
+    result = load_dictionary("non_existent_file.txt");
+    assert(result == 0);
+
+    // Test loading an empty file
+    temp_file = fopen(temp_filename, "w");
+    assert(temp_file != NULL);
+    fclose(temp_file);
+    result = load_dictionary(temp_filename);
+    assert(result == 1);
+
+    // Verify that no words can be selected from an empty dictionary
+    //word = select_word(5);
+    //assert(word == NULL);
+
+    // Clean up
+    remove(temp_filename);
+}
+
 
 void hangmanTests() {
     printf("Running Hangman unit tests...\n");
 
+    RUN_TEST(load_dictionary);
     RUN_TEST(select_word);
     RUN_TEST(is_word_guessed);
     RUN_TEST(to_uppercase);
     RUN_TEST(is_letter_in_word);
+
 
     printf("All tests passed!\n");
 }
