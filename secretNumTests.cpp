@@ -17,7 +17,7 @@ void test_playAgain();
 // Function to Print test results
 void printTestResult(const char* testName, bool result);
 
-int main() {
+int secNumTests() {
     runTests();
     return 0;
 }
