@@ -134,25 +134,25 @@ TEST(load_dictionary) {
 }
 
 // Global variable to control word selection
-const char* test_word = nullptr;
+const char* g_test_word = nullptr;
 
 // Function to be called instead of hangman_play in the test
-void test_hangman_play() {
+void controlled_hangman_play() {
     // Set up a controlled word
-    test_word = "APPLE";
+    g_test_word = "APPLE";
 
     // Call the actual hangman_play function
     hangman_play();
 
     // Reset the test word
-    test_word = nullptr;
+    g_test_word = nullptr;
 }
 
 // Modified select_word function for testing
 char* select_word(int desired_length) {
-    if (test_word != nullptr) {
+    if (g_test_word != nullptr) {
         static char word[MAX_WORD_LENGTH];
-        strncpy(word, test_word, MAX_WORD_LENGTH - 1);
+        strncpy(word, g_test_word, MAX_WORD_LENGTH - 1);
         word[MAX_WORD_LENGTH - 1] = '\0';
         return word;
     }
@@ -174,8 +174,8 @@ TEST(hangman_play) {
     fclose(temp_input);
     freopen("temp_input.txt", "r", stdin);
 
-    // Call the test function
-    test_hangman_play();
+    // Call the controlled function
+    controlled_hangman_play();
 
     // Restore stdout and stdin
     fclose(output_file);
