@@ -80,7 +80,7 @@ void set_mock_dictionary(const char mock_dict[][MAX_WORD_LENGTH], int size);
 	 @return 1 if the dictionary was loaded successfully, 0 otherwise
 
 */
-STATIC int load_dictionary(const char* filename, char dictionary[][MAX_WORD_LENGTH], int max_size);
+int load_dictionary(const char* filename, char dictionary[][MAX_WORD_LENGTH], int max_size);
 #endif
 
 #endif // HANGMAN_H
