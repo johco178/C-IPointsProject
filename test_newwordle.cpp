@@ -35,6 +35,8 @@ extern char cluesix[6];
 
 TEST(globalVariablesInitialization) {
     assert(wordle_mock_dictionary_size == 3);
+    memset(has_letter_been_guessed, 0, sizeof(has_letter_been_guessed));
+
     for (int i = 0; i < 26; i++) {
         assert(has_letter_been_guessed[i] == false);
     }
