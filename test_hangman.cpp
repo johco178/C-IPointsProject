@@ -134,52 +134,24 @@ TEST(load_dictionary) {
     remove(temp_filename);
 }
 
-// Global variables to control word selection
-const char* g_test_word = nullptr;
-bool use_test_word = false;
-
-// Modify your existing select_word function in the test file
-char* select_word(int desired_length) {
-    if (use_test_word && g_test_word != nullptr) {
-        static char word[MAX_WORD_LENGTH];
-        strncpy(word, g_test_word, MAX_WORD_LENGTH - 1);
-        word[MAX_WORD_LENGTH - 1] = '\0';
-        return word;
-    }
-    // Call the original select_word logic here
-    // For now, we'll just return a default word
-    static char default_word[] = "DEFAULT";
-    return default_word;
-}
-
-// Function to be called instead of hangman_play in the test
-void controlled_hangman_play() {
-    // Set up a controlled word
-    g_test_word = "APPLE";
-    use_test_word = true;
-
-    // Call the actual hangman_play function
-    hangman_play();
-
-    // Reset the test word
-    g_test_word = nullptr;
-    use_test_word = false;
-}
-
 TEST(hangman_play) {
     // Redirect stdout to a file
     const char* temp_output = "temp_output.txt";
     FILE* output_file = freopen(temp_output, "w", stdout);
 
-    // Prepare input
+    // Set up a mock dictionary with a known word
+    const char mock_dict[1][MAX_WORD_LENGTH] = { "APPLE" };
+    set_mock_dictionary(mock_dict, 1);
+
+    // Prepare input for a full game (guessing "APPLE" and then quitting)
     const char* input = "5\nA\nP\nL\nE\n2\n";
     FILE* temp_input = fopen("temp_input.txt", "w");
     fprintf(temp_input, "%s", input);
     fclose(temp_input);
     freopen("temp_input.txt", "r", stdin);
 
-    // Call the controlled function
-    controlled_hangman_play();
+    // Call hangman_play
+    hangman_play();
 
     // Restore stdout and stdin
     fclose(output_file);
