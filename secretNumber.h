@@ -48,7 +48,7 @@ bool validGuess(int guess, int lowerBound, int upperBound, int check);
     @param upperBound The upper bound of the range for the secret number
     @return The guess as an integer
 */
-int getGuess(int lowerBound, int upperBound);
+int getGuess(int lowerBound, int upperBound, const int* mockInput = NULL, int mockInputSize = 0);
 
 /*!
     @brief Plays the game
@@ -73,6 +73,6 @@ bool playAgain(char playAgain);
 /*!
     @brief Starts the game
 */
-void secretNumberStart();
+void secretNumberStart( );
 
 #endif // SECRETNUMBER_H
