@@ -121,9 +121,9 @@ Functions</h2></td></tr>
 <tr class="memitem:adbe95930f7a91820db6cccf58804680f" id="r_adbe95930f7a91820db6cccf58804680f"><td class="memItemLeft" align="right" valign="top">STATIC void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adbe95930f7a91820db6cccf58804680f">to_uppercase</a> (char *str)</td></tr>
 <tr class="memdesc:adbe95930f7a91820db6cccf58804680f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string to uppercase.  <br /></td></tr>
 <tr class="separator:adbe95930f7a91820db6cccf58804680f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c89622c29199a348cfa169b60745b19" id="r_a4c89622c29199a348cfa169b60745b19"><td class="memItemLeft" align="right" valign="top">STATIC int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c89622c29199a348cfa169b60745b19">load_dictionary</a> (const char *filename)</td></tr>
-<tr class="memdesc:a4c89622c29199a348cfa169b60745b19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the dictionary from a file.  <br /></td></tr>
-<tr class="separator:a4c89622c29199a348cfa169b60745b19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8625c12baa1f067ba89878ec9067d39c" id="r_a8625c12baa1f067ba89878ec9067d39c"><td class="memItemLeft" align="right" valign="top">STATIC int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8625c12baa1f067ba89878ec9067d39c">load_dictionary</a> (const char *filename, char dictionary[][MAX_WORD_LENGTH], int max_size)</td></tr>
+<tr class="memdesc:a8625c12baa1f067ba89878ec9067d39c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the dictionary from a file.  <br /></td></tr>
+<tr class="separator:a8625c12baa1f067ba89878ec9067d39c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8ab569cd9e945e540d226f22d3569b4" id="r_ae8ab569cd9e945e540d226f22d3569b4"><td class="memItemLeft" align="right" valign="top"><a id="ae8ab569cd9e945e540d226f22d3569b4" name="ae8ab569cd9e945e540d226f22d3569b4"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>hangman_initialize</b> (void)</td></tr>
 <tr class="memdesc:ae8ab569cd9e945e540d226f22d3569b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the hangman game. <br /></td></tr>
@@ -199,8 +199,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>hangman_play</b> (voi
 
 </div>
 </div>
-<a id="a4c89622c29199a348cfa169b60745b19" name="a4c89622c29199a348cfa169b60745b19"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c89622c29199a348cfa169b60745b19">&#9670;&#160;</a></span>load_dictionary()</h2>
+<a id="a8625c12baa1f067ba89878ec9067d39c" name="a8625c12baa1f067ba89878ec9067d39c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8625c12baa1f067ba89878ec9067d39c">&#9670;&#160;</a></span>load_dictionary()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -208,8 +208,17 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>hangman_play</b> (voi
         <tr>
           <td class="memname">STATIC int load_dictionary </td>
           <td>(</td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>filename</em></span></td><td>)</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>filename</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>dictionary</em></span>[][MAX_WORD_LENGTH], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>max_size</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
