@@ -12,6 +12,7 @@ void test_validDifficulty();
 void test_getDifficulty();
 void test_validGuess();
 void test_validPlayAgain();
+void test_playAgain();
 
 // Function to Print test results
 void printTestResult(const char* testName, bool result);
@@ -27,6 +28,7 @@ void runTests() {
     test_getDifficulty();
     test_validGuess();
     test_validPlayAgain();
+    test_playAgain();
 }
 
 void test_getSecretNumber() {
@@ -55,6 +57,11 @@ void test_validGuess() {
 void test_validPlayAgain() {
     bool result = validPlayAgain('y') && validPlayAgain('n') && !validPlayAgain('x');
     printTestResult("test_validPlayAgain", result);
+}
+
+void test_playAgain(){
+    bool result = playAgain('Y') == true && playAgain('n') == false;
+    printTestResult("test_playAgain", result);
 }
 
 
