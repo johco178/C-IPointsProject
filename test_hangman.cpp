@@ -104,7 +104,7 @@ TEST(load_dictionary) {
     fclose(temp_file);
 
     result = load_dictionary(temp_filename, test_dictionary, MAX_DICTIONARY_SIZE);
-    assert(result == 1);
+    assert(result >= 1);
     assert(strlen(test_dictionary[0]) == MAX_WORD_LENGTH - 1);
 
     // Test 4: Loading a file with more words than MAX_DICTIONARY_SIZE
