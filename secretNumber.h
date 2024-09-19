@@ -68,7 +68,7 @@ bool validPlayAgain(char playAgain);
     @brief Asks the user if they want to play again
     @return true if the user wants to play again, false if they do not
 */
-bool playAgain();
+bool playAgain(char playAgain);
 
 /*!
     @brief Starts the game

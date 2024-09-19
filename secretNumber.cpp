@@ -37,7 +37,7 @@ bool validDifficulty(char difficulty) {
 */
 char getDifficulty(char difficulty) {
     bool valid;
-    if(difficulty != ' '){
+    if(difficulty == ' '){
         printf("Choose difficulty level (e: easy, m: medium, h: hard): ");
         scanf(" %c", &difficulty); //assign the value of scanning a character from the user input
     }
@@ -175,11 +175,13 @@ bool validPlayAgain(char playAgain) {
     @brief Asks the user if they want to play again
     @return true if the user wants to play again, false if they do not
 */
-bool playAgain() {
-    char playAgain;
+bool playAgain(char playAgain) {
     bool isValid;
-    printf("\nWould you like to play The Secret Number game again? \nPlease enter 'y' to play again or 'n' to exit to the game menu: ");
-    scanf(" %c", &playAgain); //assign the value of scanning a character from the user input
+    if(playAgain == ' '){
+        printf("\nWould you like to play The Secret Number game again? \nPlease enter 'y' to play again or 'n' to exit to the game menu: ");
+        scanf(" %c", &playAgain); //assign the value of scanning a character from the user input
+    }
+    
     playAgain = tolower(playAgain); //converts the input to lowercase incase of valid uppercase input
     isValid = validPlayAgain(playAgain);//checks if the input is valid
 
@@ -219,7 +221,7 @@ void secretNumberStart() {
     play(difficulty);
 
     //Asks the user if they want to play again, loops until they don't
-    while (playAgain()) {
+    while (playAgain(' ')) {
         printf("Choose difficulty level (e: easy, m: medium, h: hard): ");
         scanf(" %c", &difficulty);//assign the value of scanning a character from the user input
         difficulty = tolower(difficulty);//converts the input to lowercase incase of valid uppercase input
