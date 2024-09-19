@@ -85,8 +85,6 @@ int load_dictionary(const char* filename, char dictionary[][MAX_WORD_LENGTH], in
 	 @brief Plays the hangman game
 */
 void hangman_play(void);
-#else 
-static char* select_word(int desired_length);
 #endif
 
 #endif // HANGMAN_H

@@ -134,42 +134,36 @@ TEST(load_dictionary) {
     remove(temp_filename);
 }
 
-// Global variable to store the original select_word function
-std::function<char* (int)> original_select_word = nullptr;
-
-// Global variable to control word selection
+// Global variables to control word selection
 const char* g_test_word = nullptr;
+bool use_test_word = false;
 
-// Wrapper function for select_word
-char* test_select_word(int desired_length) {
-    if (g_test_word != nullptr) {
+// Modify your existing select_word function in the test file
+char* select_word(int desired_length) {
+    if (use_test_word && g_test_word != nullptr) {
         static char word[MAX_WORD_LENGTH];
         strncpy(word, g_test_word, MAX_WORD_LENGTH - 1);
         word[MAX_WORD_LENGTH - 1] = '\0';
         return word;
     }
-    return original_select_word(desired_length);
+    // Call the original select_word logic here
+    // For now, we'll just return a default word
+    static char default_word[] = "DEFAULT";
+    return default_word;
 }
 
 // Function to be called instead of hangman_play in the test
 void controlled_hangman_play() {
     // Set up a controlled word
     g_test_word = "APPLE";
-
-    // Store the original select_word function
-    original_select_word = select_word;
-
-    // Replace select_word with our test version
-    select_word = test_select_word;
+    use_test_word = true;
 
     // Call the actual hangman_play function
     hangman_play();
 
-    // Restore the original select_word function
-    select_word = original_select_word;
-
     // Reset the test word
     g_test_word = nullptr;
+    use_test_word = false;
 }
 
 TEST(hangman_play) {
