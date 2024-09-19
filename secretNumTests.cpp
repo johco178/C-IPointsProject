@@ -23,6 +23,7 @@ int secNumTests() {
 void runTests() {
     test_getSecretNumber();
     test_validDifficulty();
+    test_getDifficulty();
     test_validGuess();
     test_validPlayAgain();
 }
