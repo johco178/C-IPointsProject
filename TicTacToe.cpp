@@ -98,9 +98,6 @@ void move(char player, string input){
             cout << "Player " << ((player == 'X') ? 1 : 2) << ", please enter your move (format example: A2): ";
             cin >> input;
         }
-        else{
-            
-        }
         
         charRow = toupper(input[0]);
         // Convert input into two int values from 0 to 2

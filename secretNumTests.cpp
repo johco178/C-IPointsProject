@@ -40,6 +40,11 @@ void test_validDifficulty() {
     printTestResult("test_validDifficulty", result);
 }
 
+void test_getDifficulty(){
+    bool result = getDifficulty('E') == 'e' && getDifficulty('m') == 'm';
+    printTestResult("test_getDifficulty", result);
+}
+
 void test_validGuess() {
     bool result = validGuess(5, 1, 10, 1) && !validGuess(15, 1, 10, 1);
     printTestResult("test_validGuess", result);

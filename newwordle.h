@@ -108,6 +108,7 @@ void updateLettersGuessed(const char* theGuess);
 char* lettersNotGuessed();
 void updateclue(int turn, char* clue, const char* newguess);
 
+
 //void resetTestArrays();
 #endif
 
