@@ -10,6 +10,7 @@
 #include <algorithm>
 #include <cstring>
 #include <cassert>
+#include <functional>
 #include <cstdio>
 
 // Simple test framework
@@ -133,33 +134,42 @@ TEST(load_dictionary) {
     remove(temp_filename);
 }
 
+// Global variable to store the original select_word function
+std::function<char* (int)> original_select_word = nullptr;
+
 // Global variable to control word selection
 const char* g_test_word = nullptr;
 
-// Function to be called instead of hangman_play in the test
-void controlled_hangman_play() {
-    // Set up a controlled word
-    g_test_word = "APPLE";
-
-    // Call the actual hangman_play function
-    hangman_play();
-
-    // Reset the test word
-    g_test_word = nullptr;
-}
-
-// Modified select_word function for testing
-char* select_word(int desired_length) {
+// Wrapper function for select_word
+char* test_select_word(int desired_length) {
     if (g_test_word != nullptr) {
         static char word[MAX_WORD_LENGTH];
         strncpy(word, g_test_word, MAX_WORD_LENGTH - 1);
         word[MAX_WORD_LENGTH - 1] = '\0';
         return word;
     }
-    // Call the original select_word function here if needed
-    // For now, we'll just return a default word
-    static char default_word[] = "DEFAULT";
-    return default_word;
+    return original_select_word(desired_length);
+}
+
+// Function to be called instead of hangman_play in the test
+void controlled_hangman_play() {
+    // Set up a controlled word
+    g_test_word = "APPLE";
+
+    // Store the original select_word function
+    original_select_word = select_word;
+
+    // Replace select_word with our test version
+    select_word = test_select_word;
+
+    // Call the actual hangman_play function
+    hangman_play();
+
+    // Restore the original select_word function
+    select_word = original_select_word;
+
+    // Reset the test word
+    g_test_word = nullptr;
 }
 
 TEST(hangman_play) {
@@ -209,6 +219,7 @@ TEST(hangman_play) {
 
     printf("hangman_play test passed!\n");
 }
+
 void hangmanTests() {
     printf("Running Hangman unit tests...\n");
 
