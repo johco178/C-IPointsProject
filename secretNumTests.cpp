@@ -9,6 +9,7 @@ void runTests();
 // Test functions
 void test_getSecretNumber();
 void test_validDifficulty();
+void test_getDifficulty();
 void test_validGuess();
 void test_validPlayAgain();
 
@@ -23,6 +24,7 @@ int secNumTests() {
 void runTests() {
     test_getSecretNumber();
     test_validDifficulty();
+    test_getDifficulty();
     test_validGuess();
     test_validPlayAgain();
 }

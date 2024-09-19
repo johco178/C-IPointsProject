@@ -71,46 +71,68 @@ TEST(is_letter_in_word) {
 }
 
 TEST(load_dictionary) {
-    // Create a temporary dictionary file
     const char* temp_filename = "temp_dictionary.txt";
-    FILE* temp_file = fopen(temp_filename, "w");
-    assert(temp_file != NULL);
-    fprintf(temp_file, "apple\nbanana\ncherry\n");
-    fclose(temp_file);
+    FILE* temp_file;
+    int result;
 
-    // Test loading the dictionary
-    int result = load_dictionary(temp_filename);
-    assert(result == 1);
-
-    // Instead of directly checking dictionary_size and contents,
-    // we'll use select_word to indirectly verify the dictionary was loaded
-    char* word = select_word(5);  // Should return a 5-letter word (APPLE)
-    assert(word != NULL);
-    assert(strcmp(word, "APPLE") == 0);
-
-    word = select_word(6);  // Should return a 6-letter word (BANANA or CHERRY)
-    assert(word != NULL);
-    assert(strcmp(word, "BANANA") == 0 || strcmp(word, "CHERRY") == 0);
-
-    // Test loading a non-existent file
+    // Test 1: Loading a non-existent file
     result = load_dictionary("non_existent_file.txt");
     assert(result == 0);
 
-    // Test loading an empty file
+    // Test 2: Loading a valid file with various word lengths
     temp_file = fopen(temp_filename, "w");
     assert(temp_file != NULL);
+    fprintf(temp_file, "apple\nBANANA\nCherry\ndate\nEGGPLANT\n");
     fclose(temp_file);
+
     result = load_dictionary(temp_filename);
     assert(result == 1);
 
-    // Verify that no words can be selected from an empty dictionary
-    //word = select_word(5);
-    //assert(word == NULL);
+    // Verify dictionary contents indirectly
+    assert(strcmp(dictionary[0], "APPLE") == 0);
+    assert(strcmp(dictionary[1], "BANANA") == 0);
+    assert(strcmp(dictionary[2], "CHERRY") == 0);
+    assert(strcmp(dictionary[3], "DATE") == 0);
+    assert(strcmp(dictionary[4], "EGGPLANT") == 0);
+    assert(dictionary_size == 5);
+
+    // Test 3: Loading a file with a word at MAX_WORD_LENGTH
+    temp_file = fopen(temp_filename, "w");
+    assert(temp_file != NULL);
+    for (int i = 0; i < MAX_WORD_LENGTH - 1; i++) {
+        fprintf(temp_file, "a");
+    }
+    fprintf(temp_file, "\n");
+    fclose(temp_file);
+
+    result = load_dictionary(temp_filename);
+    assert(result == 1);
+    assert(strlen(dictionary[0]) == MAX_WORD_LENGTH - 1);
+
+    // Test 4: Loading a file with more words than MAX_DICTIONARY_SIZE
+    temp_file = fopen(temp_filename, "w");
+    assert(temp_file != NULL);
+    for (int i = 0; i < MAX_DICTIONARY_SIZE + 10; i++) {
+        fprintf(temp_file, "word%d\n", i);
+    }
+    fclose(temp_file);
+
+    result = load_dictionary(temp_filename);
+    assert(result == 1);
+    assert(dictionary_size == MAX_DICTIONARY_SIZE);
+
+    // Test 5: Loading an empty file
+    temp_file = fopen(temp_filename, "w");
+    assert(temp_file != NULL);
+    fclose(temp_file);
+
+    result = load_dictionary(temp_filename);
+    assert(result == 1);
+    assert(dictionary_size == 0);
 
     // Clean up
     remove(temp_filename);
 }
-
 
 void hangmanTests() {
     printf("Running Hangman unit tests...\n");
