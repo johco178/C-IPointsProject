@@ -8,6 +8,8 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <cstring>
+#include <cassert>
 
 // Simple test framework
 #define TEST(name) static void test_##name(void)
@@ -130,6 +132,52 @@ TEST(load_dictionary) {
     remove(temp_filename);
 }
 
+const char* mock_select_word(int desired_length) {
+    return "APPLE";
+}
+
+TEST(hangman_play) {
+    // Redirect cout to our stringstream
+    std::stringstream output;
+    std::streambuf* old_cout = std::cout.rdbuf(output.rdbuf());
+
+    // Prepare input
+    std::stringstream input;
+    input << "5\n" << "A\n" << "P\n" << "L\n" << "E\n" << "2\n";
+    std::streambuf* old_cin = std::cin.rdbuf(input.rdbuf());
+
+    // Replace select_word with our mock version
+    auto old_select_word = select_word;
+    select_word = mock_select_word;
+
+    // Call the function
+    hangman_play();
+
+    // Restore cout and cin
+    std::cout.rdbuf(old_cout);
+    std::cin.rdbuf(old_cin);
+
+    // Restore original select_word
+    select_word = old_select_word;
+
+    // Get the output as a string
+    std::string output_str = output.str();
+
+    // Perform assertions
+    assert(output_str.find("Enter desired word length") != std::string::npos);
+    assert(output_str.find("Welcome to Hangman!") != std::string::npos);
+    assert(output_str.find("_ _ _ _ _") != std::string::npos);
+    assert(output_str.find("A _ _ _ _") != std::string::npos);
+    assert(output_str.find("A P P _ _") != std::string::npos);
+    assert(output_str.find("A P P L _") != std::string::npos);
+    assert(output_str.find("A P P L E") != std::string::npos);
+    assert(output_str.find("Congratulations! You've guessed the word: APPLE") != std::string::npos);
+    assert(output_str.find("Do you want to play again?") != std::string::npos);
+    assert(output_str.find("Thanks for playing Hangman!") != std::string::npos);
+
+    std::cout << "hangman_play test passed!" << std::endl;
+}
+
 void hangmanTests() {
     printf("Running Hangman unit tests...\n");
 
@@ -138,6 +186,7 @@ void hangmanTests() {
     RUN_TEST(is_word_guessed);
     RUN_TEST(to_uppercase);
     RUN_TEST(is_letter_in_word);
+    RUN_TEST(hangman_play);
 
 
     printf("All tests passed!\n");
