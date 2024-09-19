@@ -74,9 +74,10 @@ TEST(load_dictionary) {
     const char* temp_filename = "temp_dictionary.txt";
     FILE* temp_file;
     int result;
+    char test_dictionary[MAX_DICTIONARY_SIZE][MAX_WORD_LENGTH];
 
     // Test 1: Loading a non-existent file
-    result = load_dictionary("non_existent_file.txt");
+    result = load_dictionary("non_existent_file.txt", test_dictionary, MAX_DICTIONARY_SIZE);
     assert(result == 0);
 
     // Test 2: Loading a valid file with various word lengths
@@ -85,16 +86,13 @@ TEST(load_dictionary) {
     fprintf(temp_file, "apple\nBANANA\nCherry\ndate\nEGGPLANT\n");
     fclose(temp_file);
 
-    result = load_dictionary(temp_filename);
-    assert(result == 1);
-
-    // Verify dictionary contents indirectly
-    assert(strcmp(dictionary[0], "APPLE") == 0);
-    assert(strcmp(dictionary[1], "BANANA") == 0);
-    assert(strcmp(dictionary[2], "CHERRY") == 0);
-    assert(strcmp(dictionary[3], "DATE") == 0);
-    assert(strcmp(dictionary[4], "EGGPLANT") == 0);
-    assert(dictionary_size == 5);
+    result = load_dictionary(temp_filename, test_dictionary, MAX_DICTIONARY_SIZE);
+    assert(result == 5);
+    assert(strcmp(test_dictionary[0], "APPLE") == 0);
+    assert(strcmp(test_dictionary[1], "BANANA") == 0);
+    assert(strcmp(test_dictionary[2], "CHERRY") == 0);
+    assert(strcmp(test_dictionary[3], "DATE") == 0);
+    assert(strcmp(test_dictionary[4], "EGGPLANT") == 0);
 
     // Test 3: Loading a file with a word at MAX_WORD_LENGTH
     temp_file = fopen(temp_filename, "w");
@@ -105,9 +103,9 @@ TEST(load_dictionary) {
     fprintf(temp_file, "\n");
     fclose(temp_file);
 
-    result = load_dictionary(temp_filename);
+    result = load_dictionary(temp_filename, test_dictionary, MAX_DICTIONARY_SIZE);
     assert(result == 1);
-    assert(strlen(dictionary[0]) == MAX_WORD_LENGTH - 1);
+    assert(strlen(test_dictionary[0]) == MAX_WORD_LENGTH - 1);
 
     // Test 4: Loading a file with more words than MAX_DICTIONARY_SIZE
     temp_file = fopen(temp_filename, "w");
@@ -117,18 +115,16 @@ TEST(load_dictionary) {
     }
     fclose(temp_file);
 
-    result = load_dictionary(temp_filename);
-    assert(result == 1);
-    assert(dictionary_size == MAX_DICTIONARY_SIZE);
+    result = load_dictionary(temp_filename, test_dictionary, MAX_DICTIONARY_SIZE);
+    assert(result == MAX_DICTIONARY_SIZE);
 
     // Test 5: Loading an empty file
     temp_file = fopen(temp_filename, "w");
     assert(temp_file != NULL);
     fclose(temp_file);
 
-    result = load_dictionary(temp_filename);
-    assert(result == 1);
-    assert(dictionary_size == 0);
+    result = load_dictionary(temp_filename, test_dictionary, MAX_DICTIONARY_SIZE);
+    assert(result == 0);
 
     // Clean up
     remove(temp_filename);

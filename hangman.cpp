@@ -131,18 +131,19 @@ STATIC void to_uppercase(char* str) {
     @param filename The name of the file to load
     @return 1 if the dictionary was loaded successfully, 0 otherwise
 */
-STATIC int load_dictionary(const char* filename) {
+STATIC int load_dictionary(const char* filename, char dictionary[][MAX_WORD_LENGTH], int max_size) {
     FILE* file = fopen(filename, "r");
-    if (!file) return 0;
+    if (!file) return -1;  // Return -1 on file open error
 
-    while (fgets(dictionary[dictionary_size], MAX_WORD_LENGTH, file)) {
-        dictionary[dictionary_size][strcspn(dictionary[dictionary_size], "\n")] = 0;
-        to_uppercase(dictionary[dictionary_size]);
-        if (++dictionary_size >= MAX_DICTIONARY_SIZE) break;
+    int words_loaded = 0;
+    while (words_loaded < max_size &&
+        fgets(dictionary[words_loaded], MAX_WORD_LENGTH, file)) {
+        dictionary[words_loaded][strcspn(dictionary[words_loaded], "\n")] = 0;
+        to_uppercase(dictionary[words_loaded]);
+        words_loaded++;
     }
-
     fclose(file);
-    return 1;
+    return words_loaded;
 }
 
 /*!
@@ -151,7 +152,8 @@ STATIC int load_dictionary(const char* filename) {
 */
 void hangman_initialize(void) {
     srand((unsigned int)time(NULL));
-    if (!load_dictionary("../dictionary.txt")) {
+    dictionary_size = load_dictionary("../dictionary.txt", dictionary, MAX_DICTIONARY_SIZE);
+    if (dictionary_size <= 0) {
         fprintf(stderr, "Failed to load dictionary. Hangman game may not function properly.\n");
     }
 }

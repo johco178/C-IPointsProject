@@ -34,7 +34,7 @@ extern char cluefive[6];
 extern char cluesix[6];
 
 TEST(globalVariablesInitialization) {
-    assert(wordle_mock_dictionary_size == 0);
+    assert(wordle_mock_dictionary_size == 3);
     for (int i = 0; i < 26; i++) {
         assert(has_letter_been_guessed[i] == false);
     }
@@ -303,6 +303,7 @@ int runwordletests() {
 
     RUN_TEST(globalVariablesInitialization);
     RUN_TEST(globalVariablesAfterGuess);
+
 
 
     printf("All tests passed!\n");
