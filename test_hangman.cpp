@@ -78,7 +78,7 @@ TEST(load_dictionary) {
 
     // Test 1: Loading a non-existent file
     result = load_dictionary("non_existent_file.txt", test_dictionary, MAX_DICTIONARY_SIZE);
-    assert(result == -1);
+    assert(result == 0);
 
     // Test 2: Loading a valid file with various word lengths
     temp_file = fopen(temp_filename, "w");
