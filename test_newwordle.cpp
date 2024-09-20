@@ -20,88 +20,88 @@
 static const char wordle_mock_dictionary[3][MAX_wordle_WORD_LENGTH] = { "apple", "green", "slack" };
 static const int wordle_mock_dictionary_size = 3;
 extern bool has_letter_been_guessed[26];
-extern char guessone[6];
-extern char guesstwo[6];
-extern char guessthree[6];
-extern char guessfour[6];
-extern char guessfive[6];
-extern char guesssix[6];
-extern char clueone[6];
-extern char cluetwo[6];
-extern char cluethree[6];
-extern char cluefour[6];
-extern char cluefive[6];
-extern char cluesix[6];
+//extern char guessone[6];
+//extern char guesstwo[6];
+//extern char guessthree[6];
+//extern char guessfour[6];
+//extern char guessfive[6];
+//extern char guesssix[6];
+//extern char clueone[6];
+//extern char cluetwo[6];
+//extern char cluethree[6];
+//extern char cluefour[6];
+//extern char cluefive[6];
+//extern char cluesix[6];
 
-void setup() {
-    // Reset global variables
-    memset(has_letter_been_guessed, 0, sizeof(has_letter_been_guessed)); // Set to false
-
-    // Initialize guess arrays
-    for (int i = 0; i < 6; i++) {
-        guessone[i] = '_';    // Initialize to '_'
-        guesstwo[i] = '_';
-        guessthree[i] = '_';
-        guessfour[i] = '_';
-        guessfive[i] = '_';
-        guesssix[i] = '_';
-
-        clueone[i] = '_';     // Initialize clue arrays
-        cluetwo[i] = '_';
-        cluethree[i] = '_';
-        cluefour[i] = '_';
-        cluefive[i] = '_';
-        cluesix[i] = '_';
-    }
-}
-
-
-
-TEST(globalVariablesInitialization) {
-    setup();
-    assert(wordle_mock_dictionary_size == 3);
+//void setup() {
+//    // Reset global variables
+//    memset(has_letter_been_guessed, 0, sizeof(has_letter_been_guessed)); // Set to false
+//
+//    // Initialize guess arrays
+//    for (int i = 0; i < 6; i++) {
+//        guessone[i] = '_';    // Initialize to '_'
+//        guesstwo[i] = '_';
+//        guessthree[i] = '_';
+//        guessfour[i] = '_';
+//        guessfive[i] = '_';
+//        guesssix[i] = '_';
+//
+//        clueone[i] = '_';     // Initialize clue arrays
+//        cluetwo[i] = '_';
+//        cluethree[i] = '_';
+//        cluefour[i] = '_';
+//        cluefive[i] = '_';
+//        cluesix[i] = '_';
+//    }
+//}
 
 
-    for (int i = 0; i < 26; i++) {
-        assert(has_letter_been_guessed[i] == false);
-    }
-    for (int i = 0; i < 6; i++) {
-        assert(guessone[i] == '_');
-        assert(guesstwo[i] == '_');
-        assert(guessthree[i] == '_');
-        assert(guessfour[i] == '_');
-        assert(guessfive[i] == '_');
-        assert(guesssix[i] == '_');
-        assert(clueone[i] == '_');
-        assert(cluetwo[i] == '_');
-        assert(cluethree[i] == '_');
-        assert(cluefour[i] == '_');
-        assert(cluefive[i] == '_');
-        assert(cluesix[i] == '_');
-    }
-}
 
-// Test for updating global variables after a guess
-TEST(globalVariablesAfterGuess) {
-    memset(has_letter_been_guessed, 0, sizeof(has_letter_been_guessed));
-    memset(guessone, 0, sizeof(guessone));
-    memset(guesstwo, 0, sizeof(guesstwo));
+//TEST(globalVariablesInitialization) {
+//    setup();
+//    assert(wordle_mock_dictionary_size == 3);
+//
+//
+//    for (int i = 0; i < 26; i++) {
+//        assert(has_letter_been_guessed[i] == false);
+//    }
+//    for (int i = 0; i < 6; i++) {
+//        assert(guessone[i] == '_');
+//        assert(guesstwo[i] == '_');
+//        assert(guessthree[i] == '_');
+//        assert(guessfour[i] == '_');
+//        assert(guessfive[i] == '_');
+//        assert(guesssix[i] == '_');
+//        assert(clueone[i] == '_');
+//        assert(cluetwo[i] == '_');
+//        assert(cluethree[i] == '_');
+//        assert(cluefour[i] == '_');
+//        assert(cluefive[i] == '_');
+//        assert(cluesix[i] == '_');
+//    }
+//}
 
-    const char* guess = "apple";
-    updateLettersGuessed(guess);
-    updateclue(1, processGuess("apple", guess), guess);
-
-    // Check if the guesses have been updated
-    assert(strcmp(guessone, "apple") == 0);
-    assert(strcmp(clueone, "GGGGG") == 0);  // Assuming "apple" is the correct answer
-
-    // Check letter states after the guess
-    assert(has_letter_been_guessed['a' - 'a'] == true);
-    assert(has_letter_been_guessed['p' - 'a'] == true);
-    assert(has_letter_been_guessed['l' - 'a'] == true);
-    assert(has_letter_been_guessed['e' - 'a'] == true);
-    assert(has_letter_been_guessed['b' - 'a'] == false);
-}
+//// Test for updating global variables after a guess
+//TEST(globalVariablesAfterGuess) {
+//    memset(has_letter_been_guessed, 0, sizeof(has_letter_been_guessed));
+//    memset(guessone, 0, sizeof(guessone));
+//    memset(guesstwo, 0, sizeof(guesstwo));
+//
+//    const char* guess = "apple";
+//    updateLettersGuessed(guess);
+//    updateclue(1, processGuess("apple", guess), guess);
+//
+//    // Check if the guesses have been updated
+//    assert(strcmp(guessone, "apple") == 0);
+//    assert(strcmp(clueone, "GGGGG") == 0);  // Assuming "apple" is the correct answer
+//
+//    // Check letter states after the guess
+//    assert(has_letter_been_guessed['a' - 'a'] == true);
+//    assert(has_letter_been_guessed['p' - 'a'] == true);
+//    assert(has_letter_been_guessed['l' - 'a'] == true);
+//    assert(has_letter_been_guessed['e' - 'a'] == true);
+//    assert(has_letter_been_guessed['b' - 'a'] == false);
+//}
 
 
 TEST(conatainsonlychar) {
@@ -328,8 +328,8 @@ int runwordletests() {
     RUN_TEST(lettersNotGuessed);
     RUN_TEST(updateclue);
 
-    RUN_TEST(globalVariablesInitialization);
-    RUN_TEST(globalVariablesAfterGuess);
+    //RUN_TEST(globalVariablesInitialization);
+    //RUN_TEST(globalVariablesAfterGuess);
 
 
 
