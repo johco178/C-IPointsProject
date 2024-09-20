@@ -19,6 +19,8 @@ set(MAIN_SOURCES
     secretNumber.cpp
     TicTacToe.cpp
     home.cpp
+    startmusic.cpp
+
 )
 
 # Test source files
@@ -39,8 +41,7 @@ add_executable(${PROJECT_NAME}_test
     hangman.cpp 
     newwordle.cpp 
     TicTacToe.cpp 
-    secretNumber.cpp
-)
+    secretNumber.cpp)
 
 # Common settings for both executables
 foreach(TARGET ${PROJECT_NAME} ${PROJECT_NAME}_test)

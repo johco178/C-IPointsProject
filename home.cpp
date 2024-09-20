@@ -8,6 +8,7 @@
 #include "hangman.h"
 #include "newwordle.h"
 #include "TicTacToe.h"
+#include "startmusic.h"
 // Include headers for other games as you add them
 
 /*!
@@ -25,7 +26,9 @@ void initialize_games(void) {
 int homescreen(void) {
     int choice;
 
+
     initialize_games();
+    startmusic();
 
     while (1) {
         printf("\nWelcome to the Game Hub!\n");
