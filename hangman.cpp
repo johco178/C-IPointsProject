@@ -162,7 +162,7 @@ void hangman_initialize(void) {
     @brief Plays the hangman game
 */
 
-STATIC void hangman_play(void) {
+void hangman_play(void) {
     int play_again = 1;
 
     do {

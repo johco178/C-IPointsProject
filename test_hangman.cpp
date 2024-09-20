@@ -186,7 +186,7 @@ TEST(hangman_play) {
     printf("hangman_play test passed!\n");
 }
 
-void hangmanTests() {
+int main() {
     printf("Running Hangman unit tests...\n");
 
     RUN_TEST(load_dictionary);
@@ -198,6 +198,7 @@ void hangmanTests() {
 
 
     printf("All tests passed!\n");
+    return 0;
 }
 // compile and run with:
 // gcc hangman.cpp test_hangman.cpp -o test_hangman.cpp -DUNIT_TESTING
