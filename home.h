@@ -39,6 +39,15 @@
  * 
  * @section Testing
  * 
+ * @link test_hangman.cpp
+ * Hangman Testing @endlink
+ * 
+ * @link test_newwordle.cpp
+ * Wordle Testing @endlink
+ * 
+ * @link secretNumTests.cpp
+ * Secret Number Testing @endlink
+ * 
  * @link test_tictactoe.cpp
  * TicTacToe Testing @endlink
  * 

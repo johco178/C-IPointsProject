@@ -1,4 +1,8 @@
-// Wordle test
+/*!
+	@file test_newwordle.cpp
+	@brief Wordle Testing
+	@author Connor Johnstone
+*/
 
 #include <stdio.h>
 #include <string.h>
@@ -103,13 +107,19 @@ extern char cluesix[6];
 //    assert(has_letter_been_guessed['b' - 'a'] == false);
 //}
 
-
+/*!
+    @brief Test for function that checks for only valid characters
+*/
 TEST(conatainsonlychar) {
 
     assert(conatainsonlychar("al-ha") == false);
     assert(conatainsonlychar("alpha") == true);
 
 }
+
+/*!
+    @brief Test for conversion to lowercase function
+*/
 TEST(toLowerCase) {
 
     const char* guess = "HELLO";
@@ -120,6 +130,10 @@ TEST(toLowerCase) {
     char* newlower = toLowerCase(alreadylower);
     assert(strcmp(newlower, "hello") == 0);
 }
+
+/*!
+    @brief Test for function that compares guess to word
+*/
 TEST(processGuess) {
     const char* answer = "apple";
     const char* guess = "anvil";
@@ -132,23 +146,27 @@ TEST(processGuess) {
     assert(strcmp(processGuess(answer, third_guess), "GGGGG") == 0);
 }
 
+/*!
+    @brief Test for valid word length function
+*/
 TEST(correctlength) {
     assert(correctlength("hello") == true);
     assert(correctlength("hell") == false);
     assert(correctlength("helloo") == false);
-
-    
-
 }
+
+/*!
+    @brief Test for word validity function
+*/
 TEST(validWord) {
     set_wordle_mock_dictionary(wordle_mock_dictionary, wordle_mock_dictionary_size);
     assert(validWord("aaple") == false);
     assert(validWord("apple") == true);
-
-
-
 }
 
+/*!
+    @brief Test for word retrieval function
+*/
 TEST(get_word) {
     set_wordle_mock_dictionary(wordle_mock_dictionary, wordle_mock_dictionary_size);
     assert(strcmp(get_word(0), "apple") == 0);
@@ -156,7 +174,10 @@ TEST(get_word) {
     assert(strcmp(get_word(2), "slack") == 0);
 
 }
-// Test for updateLettersGuessed
+
+/*!
+    @brief Test for the function that updates the guessed letters
+*/
 TEST(updateLettersGuessed) {
     // Reset the has_letter_been_guessed array before each test
     memset(has_letter_been_guessed, 0, sizeof(has_letter_been_guessed));
@@ -182,7 +203,9 @@ TEST(updateLettersGuessed) {
 
 
 
-// Test for lettersNotGuessed
+/*!
+    @brief Test for function that checks letters that haven't been guessed
+*/
 TEST(lettersNotGuessed) {
 
     memset(has_letter_been_guessed, 0, sizeof(has_letter_been_guessed));
@@ -212,6 +235,9 @@ TEST(lettersNotGuessed) {
     free(notGuessed); // Free memory allocated by lettersNotGuessed
 }
 
+/*!
+    @brief Test for the update word each round function
+*/
 TEST(updateclue) {
     memset(clueone, 0, sizeof(clueone));
     memset(guessone, 0, sizeof(guessone));
@@ -308,13 +334,11 @@ TEST(updateclue) {
     assert(strcmp(guessfive, "brave") == 0);
     assert(strcmp(cluesix, "GGGGG") == 0);
     assert(strcmp(guesssix, "grave") == 0);
-
-
-
-
-
 }
 
+/*!
+    @brief Main test function to run all tests
+*/
 int runwordletests() {
     printf("Running Wordle unit tests...\n");
 
