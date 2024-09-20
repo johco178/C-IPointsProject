@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Vintage Vault: test_hangman.cpp File Reference</title>
+<title>My Project: test_hangman.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Vintage Vault
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -90,10 +90,21 @@ $(function(){ initResizable(false); });
   <div class="headertitle"><div class="title">test_hangman.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Hangman Testing.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;assert.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="hangman_8h_source.html">hangman.h</a>&quot;</code><br />
+<code>#include &lt;sstream&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;cstring&gt;</code><br />
+<code>#include &lt;cassert&gt;</code><br />
+<code>#include &lt;functional&gt;</code><br />
+<code>#include &lt;cstdio&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
@@ -104,19 +115,39 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a425591b8c366279dbfd11e4a51994a25" id="r_a425591b8c366279dbfd11e4a51994a25"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a425591b8c366279dbfd11e4a51994a25">TEST</a> (<a class="el" href="hangman_8cpp.html#ae52e89160c5277c2fd63dfea4b6cae9e">select_word</a>)</td></tr>
+<tr class="memitem:a425591b8c366279dbfd11e4a51994a25" id="r_a425591b8c366279dbfd11e4a51994a25"><td class="memItemLeft" align="right" valign="top"><a id="a425591b8c366279dbfd11e4a51994a25" name="a425591b8c366279dbfd11e4a51994a25"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TEST</b> (<a class="el" href="hangman_8cpp.html#ae52e89160c5277c2fd63dfea4b6cae9e">select_word</a>)</td></tr>
+<tr class="memdesc:a425591b8c366279dbfd11e4a51994a25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test for word selection function. <br /></td></tr>
 <tr class="separator:a425591b8c366279dbfd11e4a51994a25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a553b10846c4aa18ed628b8c28d484248" id="r_a553b10846c4aa18ed628b8c28d484248"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a553b10846c4aa18ed628b8c28d484248">TEST</a> (<a class="el" href="hangman_8cpp.html#a143f64eb9dbefc5b9d3a903e2d89ad5c">is_word_guessed</a>)</td></tr>
+<tr class="memitem:a553b10846c4aa18ed628b8c28d484248" id="r_a553b10846c4aa18ed628b8c28d484248"><td class="memItemLeft" align="right" valign="top"><a id="a553b10846c4aa18ed628b8c28d484248" name="a553b10846c4aa18ed628b8c28d484248"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TEST</b> (<a class="el" href="hangman_8cpp.html#a143f64eb9dbefc5b9d3a903e2d89ad5c">is_word_guessed</a>)</td></tr>
+<tr class="memdesc:a553b10846c4aa18ed628b8c28d484248"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test to check correct guess. <br /></td></tr>
 <tr class="separator:a553b10846c4aa18ed628b8c28d484248"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7290df0ea2300eda7f13c0e502555a62" id="r_a7290df0ea2300eda7f13c0e502555a62"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7290df0ea2300eda7f13c0e502555a62">TEST</a> (<a class="el" href="hangman_8cpp.html#adbe95930f7a91820db6cccf58804680f">to_uppercase</a>)</td></tr>
+<tr class="memitem:a7290df0ea2300eda7f13c0e502555a62" id="r_a7290df0ea2300eda7f13c0e502555a62"><td class="memItemLeft" align="right" valign="top"><a id="a7290df0ea2300eda7f13c0e502555a62" name="a7290df0ea2300eda7f13c0e502555a62"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TEST</b> (<a class="el" href="hangman_8cpp.html#adbe95930f7a91820db6cccf58804680f">to_uppercase</a>)</td></tr>
+<tr class="memdesc:a7290df0ea2300eda7f13c0e502555a62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test for convertion to uppercase method. <br /></td></tr>
 <tr class="separator:a7290df0ea2300eda7f13c0e502555a62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa9b8cff39b70f7691c962164420fe5c" id="r_afa9b8cff39b70f7691c962164420fe5c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa9b8cff39b70f7691c962164420fe5c">TEST</a> (<a class="el" href="hangman_8cpp.html#a6daa5553ddea5c42d3ea8e5584ea47a6">is_letter_in_word</a>)</td></tr>
+<tr class="memitem:afa9b8cff39b70f7691c962164420fe5c" id="r_afa9b8cff39b70f7691c962164420fe5c"><td class="memItemLeft" align="right" valign="top"><a id="afa9b8cff39b70f7691c962164420fe5c" name="afa9b8cff39b70f7691c962164420fe5c"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TEST</b> (<a class="el" href="hangman_8cpp.html#a6daa5553ddea5c42d3ea8e5584ea47a6">is_letter_in_word</a>)</td></tr>
+<tr class="memdesc:afa9b8cff39b70f7691c962164420fe5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test for letter checking method. <br /></td></tr>
 <tr class="separator:afa9b8cff39b70f7691c962164420fe5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cbb07e88424d14d477be97703018be1" id="r_a9cbb07e88424d14d477be97703018be1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9cbb07e88424d14d477be97703018be1">hangmanTests</a> ()</td></tr>
-<tr class="memdesc:a9cbb07e88424d14d477be97703018be1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hangman unit tests.  <br /></td></tr>
+<tr class="memitem:a1f9ff1e80dbb1d8c75d5b031f8549f5c" id="r_a1f9ff1e80dbb1d8c75d5b031f8549f5c"><td class="memItemLeft" align="right" valign="top"><a id="a1f9ff1e80dbb1d8c75d5b031f8549f5c" name="a1f9ff1e80dbb1d8c75d5b031f8549f5c"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TEST</b> (<a class="el" href="hangman_8cpp.html#a8625c12baa1f067ba89878ec9067d39c">load_dictionary</a>)</td></tr>
+<tr class="memdesc:a1f9ff1e80dbb1d8c75d5b031f8549f5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test for dictionary loading method. <br /></td></tr>
+<tr class="separator:a1f9ff1e80dbb1d8c75d5b031f8549f5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee4a768712a10662a8aebdce8b67bbeb" id="r_aee4a768712a10662a8aebdce8b67bbeb"><td class="memItemLeft" align="right" valign="top"><a id="aee4a768712a10662a8aebdce8b67bbeb" name="aee4a768712a10662a8aebdce8b67bbeb"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TEST</b> (<a class="el" href="hangman_8cpp.html#a9f2554488c009790b3dece6f5c7d1d43">hangman_play</a>)</td></tr>
+<tr class="memdesc:aee4a768712a10662a8aebdce8b67bbeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test for main play function. <br /></td></tr>
+<tr class="separator:aee4a768712a10662a8aebdce8b67bbeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cbb07e88424d14d477be97703018be1" id="r_a9cbb07e88424d14d477be97703018be1"><td class="memItemLeft" align="right" valign="top"><a id="a9cbb07e88424d14d477be97703018be1" name="a9cbb07e88424d14d477be97703018be1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>hangmanTests</b> ()</td></tr>
+<tr class="memdesc:a9cbb07e88424d14d477be97703018be1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hangman unit tests. <br /></td></tr>
 <tr class="separator:a9cbb07e88424d14d477be97703018be1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Hangman Testing. </p>
+<dl class="section author"><dt>Author</dt><dd>Nick Garner </dd></dl>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a6d22b2e20a26b0d72b5c15912b4e211e" name="a6d22b2e20a26b0d72b5c15912b4e211e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6d22b2e20a26b0d72b5c15912b4e211e">&#9670;&#160;</a></span>RUN_TEST</h2>
 
@@ -155,94 +186,6 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> test_##name(<span class="keywordtype">void</span>)</div>
 </div><!-- fragment -->
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a9cbb07e88424d14d477be97703018be1" name="a9cbb07e88424d14d477be97703018be1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9cbb07e88424d14d477be97703018be1">&#9670;&#160;</a></span>hangmanTests()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void hangmanTests </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Hangman unit tests. </p>
-
-</div>
-</div>
-<a id="afa9b8cff39b70f7691c962164420fe5c" name="afa9b8cff39b70f7691c962164420fe5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa9b8cff39b70f7691c962164420fe5c">&#9670;&#160;</a></span>TEST() <span class="overload">[1/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TEST </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="hangman_8cpp.html#a6daa5553ddea5c42d3ea8e5584ea47a6">is_letter_in_word</a></td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a553b10846c4aa18ed628b8c28d484248" name="a553b10846c4aa18ed628b8c28d484248"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a553b10846c4aa18ed628b8c28d484248">&#9670;&#160;</a></span>TEST() <span class="overload">[2/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TEST </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="hangman_8cpp.html#a143f64eb9dbefc5b9d3a903e2d89ad5c">is_word_guessed</a></td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a425591b8c366279dbfd11e4a51994a25" name="a425591b8c366279dbfd11e4a51994a25"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a425591b8c366279dbfd11e4a51994a25">&#9670;&#160;</a></span>TEST() <span class="overload">[3/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TEST </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="hangman_8cpp.html#ae52e89160c5277c2fd63dfea4b6cae9e">select_word</a></td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7290df0ea2300eda7f13c0e502555a62" name="a7290df0ea2300eda7f13c0e502555a62"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7290df0ea2300eda7f13c0e502555a62">&#9670;&#160;</a></span>TEST() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">TEST </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="hangman_8cpp.html#adbe95930f7a91820db6cccf58804680f">to_uppercase</a></td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
 </div>
 </div>
 </div><!-- contents -->
