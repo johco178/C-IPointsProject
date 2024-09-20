@@ -24,11 +24,6 @@ int secNumTests() {
     return 0;
 }
 
-int main() {
-    secNumTests();
-    return 0;
-}
-
 void runTests() {
     test_getSecretNumber();
     test_validDifficulty();
