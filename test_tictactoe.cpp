@@ -1,7 +1,16 @@
+/*!
+    @file test_tictactoe.cpp
+	@brief TicTacToe Testing
+    @author Curtis Mellsop
+*/
+
 #include "test_tictactoe.h"
 #include <iostream>
 #include <sstream>
 
+/*!
+    @brief Called method to run test functions
+*/
 int runttttests(){
     test_initBoard();
     test_checkWin();
@@ -11,6 +20,9 @@ int runttttests(){
     return 0;
 }
 
+/*!
+    @brief Tests the function that initialises the board
+*/
 void test_initBoard(){
     bool pass = true;
     initBoard();
@@ -24,6 +36,9 @@ void test_initBoard(){
     std::cout << "Initiate board function: " << (pass ? "PASSED" : "FAILED") << std::endl;
 }
 
+/*!
+    @brief Tests the function that checks for a win state
+*/
 void test_checkWin(){
     // Check winning row
     initBoard();
@@ -56,6 +71,9 @@ void test_checkWin(){
 
 }
 
+/*!
+    @brief Tests the function that checks for a draw state
+*/
 void test_checkDraw(){
     initBoard();
     char drawState[ROWS][COLS] = {
@@ -72,8 +90,10 @@ void test_checkDraw(){
 
 }
 
+/*!
+    @brief Tests the function that allows a player to make a move
+*/
 void test_move(){
-
     // Valid move
     initBoard();
     move('X', "A1");
@@ -101,6 +121,9 @@ void test_move(){
     std::cout << "Check valid move: " << (expected_occupied_error ? "PASSED" : "FAILED") << std::endl;
 }
 
+/*!
+    @brief Tests the main play function, for correct winning display
+*/
 void test_playTicTacToe(){
     // Player 1 wins case
     std::istringstream input("A1\nB1\nA2\nB2\nA3");
