@@ -24,18 +24,8 @@
 static const char wordle_mock_dictionary[3][MAX_wordle_WORD_LENGTH] = { "apple", "green", "slack" };
 static const int wordle_mock_dictionary_size = 3;
 extern bool has_letter_been_guessed[26];
-extern char guessone[6];
-extern char guesstwo[6];
-extern char guessthree[6];
-extern char guessfour[6];
-extern char guessfive[6];
-extern char guesssix[6];
-extern char clueone[6];
-extern char cluetwo[6];
-extern char cluethree[6];
-extern char cluefour[6];
-extern char cluefive[6];
-extern char cluesix[6];
+extern char guessone[6], guesstwo[6], guessthree[6], guessfour[6], guessfive[6], guesssix[6];
+extern char clueone[6], cluetwo[6], cluethree[6], cluefour[6], cluefive[6], cluesix[6];
 
 
 /*!
@@ -199,7 +189,6 @@ TEST(updateclue) {
     clue = processGuess(answer, guess);
 
     updateclue(turn, clue, guess);
-
 
     turn = 3;
     guess = "crane";
