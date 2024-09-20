@@ -1,5 +1,5 @@
 /*!
-  @file secretNumber.h
+  @file secretNumTests.cpp
   @brief Secret Number Testing
   @author Rochelle Cole
  */
