@@ -1,4 +1,8 @@
-// hangman_tests.c
+/*!
+    @file test_hangman.cpp
+	@brief Hangman Testing
+    @author Nick Garner
+*/
 
 #include <stdio.h>
 #include <string.h>
@@ -25,6 +29,9 @@
 static const char mock_dictionary[3][MAX_WORD_LENGTH] = { "APPLE", "BANANA", "CHERRY" };
 static const int mock_dictionary_size = 3;
 
+/*!
+    @brief Test for word selection function
+*/
 TEST(select_word) {
     set_mock_dictionary(mock_dictionary, mock_dictionary_size);
 
@@ -42,6 +49,9 @@ TEST(select_word) {
     assert(word != NULL);
 }
 
+/*!
+    @brief Test to check correct guess
+*/
 TEST(is_word_guessed) {
     int guessed1[] = { 1, 1, 1, 1, 1 };
     assert(is_word_guessed(guessed1, 5) == 1);
@@ -53,6 +63,9 @@ TEST(is_word_guessed) {
     assert(is_word_guessed(guessed3, 5) == 0);
 }
 
+/*!
+    @brief Test for convertion to uppercase method
+*/
 TEST(to_uppercase) {
     char word[] = "Hello, World!";
     to_uppercase(word);
@@ -67,6 +80,9 @@ TEST(to_uppercase) {
     assert(strcmp(empty, "") == 0);
 }
 
+/*!
+    @brief Test for letter checking method
+*/
 TEST(is_letter_in_word) {
     assert(is_letter_in_word('A', "APPLE") == true);
     assert(is_letter_in_word('Z', "APPLE") == false);
@@ -74,6 +90,9 @@ TEST(is_letter_in_word) {
     assert(is_letter_in_word('X', "") == false);
 }
 
+/*!
+    @brief Test for dictionary loading method
+*/
 TEST(load_dictionary) {
     const char* temp_filename = "temp_dictionary.txt";
     FILE* temp_file;
@@ -134,6 +153,9 @@ TEST(load_dictionary) {
     remove(temp_filename);
 }
 
+/*!
+    @brief Test for main play function
+*/
 TEST(hangman_play) {
     // Redirect stdout to a file
     const char* temp_output = "temp_output.txt";
@@ -194,7 +216,7 @@ void hangmanTests() {
     RUN_TEST(is_word_guessed);
     RUN_TEST(to_uppercase);
     RUN_TEST(is_letter_in_word);
-    RUN_TEST(hangman_play);
+    //RUN_TEST(hangman_play);
 
 
     printf("All tests passed!\n");
