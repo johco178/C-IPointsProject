@@ -20,18 +20,18 @@
 static const char wordle_mock_dictionary[3][MAX_wordle_WORD_LENGTH] = { "apple", "green", "slack" };
 static const int wordle_mock_dictionary_size = 3;
 extern bool has_letter_been_guessed[26];
-//extern char guessone[6];
-//extern char guesstwo[6];
-//extern char guessthree[6];
-//extern char guessfour[6];
-//extern char guessfive[6];
-//extern char guesssix[6];
-//extern char clueone[6];
-//extern char cluetwo[6];
-//extern char cluethree[6];
-//extern char cluefour[6];
-//extern char cluefive[6];
-//extern char cluesix[6];
+extern char guessone[6];
+extern char guesstwo[6];
+extern char guessthree[6];
+extern char guessfour[6];
+extern char guessfive[6];
+extern char guesssix[6];
+extern char clueone[6];
+extern char cluetwo[6];
+extern char cluethree[6];
+extern char cluefour[6];
+extern char cluefive[6];
+extern char cluesix[6];
 
 //void setup() {
 //    // Reset global variables
