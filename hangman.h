@@ -25,10 +25,6 @@
 */
 void hangman_initialize(void);
 
-/*!
-	 @brief Plays the hangman game
-*/
-void hangman_play(void);
 
 /*!
 	 @brief checks if letter is in word
@@ -46,6 +42,10 @@ void hangmanTests();
 
 #ifdef UNIT_TESTING
 // Expose these functions for unit testing
+/*!
+	 @brief Plays the hangman game
+*/
+void hangman_play(void);
 /*!
 	 @brief Selects a word from the dictionary based on the desired length
 	 @param desired_length The desired length of the word
@@ -81,6 +81,10 @@ void set_mock_dictionary(const char mock_dict[][MAX_WORD_LENGTH], int size);
 
 */
 int load_dictionary(const char* filename, char dictionary[][MAX_WORD_LENGTH], int max_size);
+/*!
+	 @brief Plays the hangman game
+*/
+void hangman_play(void);
 #endif
 
 #endif // HANGMAN_H

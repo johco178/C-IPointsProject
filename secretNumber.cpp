@@ -32,26 +32,38 @@ bool validDifficulty(char difficulty) {
 }
 
 /*!
-    @brief Gets the difficulty level from the user input
+    @brief Gets the difficulty level from the user input or mock input for testing
+    @param difficulty Initial difficulty character (use ' ' to prompt user input)
+    @param mockInput Optional mock input for testing
+    @param mockInputSize The size of the mock input array
     @return The difficulty level chosen by the user as a char
 */
-char getDifficulty(char difficulty) {
+char getDifficulty(char difficulty, const char* mockInput = NULL, int mockInputSize = 0) {
     bool valid;
-    if(difficulty == ' '){
+    static int mockIndex = 0; // Use static to retain the value across function calls
+
+    if (difficulty == ' ' && mockInput && mockIndex < mockInputSize) {
+        difficulty = mockInput[mockIndex++];
+    } else if (difficulty == ' ') {
         printf("Choose difficulty level (e: easy, m: medium, h: hard): ");
-        scanf(" %c", &difficulty); //assign the value of scanning a character from the user input
-    }
-    difficulty = tolower(difficulty);//converts the input to lowercase incase of valid uppercase input
-    valid = validDifficulty(difficulty);
-    while (!valid)//checks if the input is valid
-    {
-       printf("That is not a valid input. Please choose 'e' for easy, 'm' for medium, or 'h' for hard.\n");
-       scanf(" %c", &difficulty);
-       difficulty = tolower(difficulty);
-       valid = validDifficulty(difficulty);
+        scanf(" %c", &difficulty); // assign the value of scanning a character from the user input
     }
 
-    return difficulty;//returns the difficulty level
+    difficulty = tolower(difficulty); // converts the input to lowercase in case of valid uppercase input
+    valid = validDifficulty(difficulty);
+
+    while (!valid) { // checks if the input is valid
+        if (mockInput && mockIndex < mockInputSize) {
+            difficulty = mockInput[mockIndex++];
+        } else {
+            printf("That is not a valid input. Please choose 'e' for easy, 'm' for medium, or 'h' for hard.\n");
+            scanf(" %c", &difficulty);
+        }
+        difficulty = tolower(difficulty);
+        valid = validDifficulty(difficulty);
+    }
+
+    return difficulty; // returns the difficulty level
 }
 
 /*!
@@ -76,24 +88,37 @@ bool validGuess(int guess, int lowerBound, int upperBound, int check) {
     @brief Gets the guess from input and checks if it is valid
     @param lowerBound The lower bound of the range for the secret number
     @param upperBound The upper bound of the range for the secret number
+    @param mockInput Optional mock input for testing
     @return The guess as an integer
 */
-int getGuess(int lowerBound, int upperBound) {
+int getGuess(int lowerBound, int upperBound, const int* mockInput = NULL, int mockInputSize = 0) {
     int guess, check;
     bool isValid;
-    printf("Enter a guess between %d and %d : ", lowerBound, upperBound);
-    check = scanf("%d", &guess); //assign the value of scanning a number from the user input
+    int mockIndex = 0;
+
+    if (mockInput && mockIndex < mockInputSize) {
+        guess = mockInput[mockIndex++];
+        check = 1; // Simulate successful scanf
+    } else {
+        printf("Enter a guess between %d and %d : ", lowerBound, upperBound);
+        check = scanf("%d", &guess); // assign the value of scanning a number from the user input
+    }
+
     isValid = validGuess(guess, lowerBound, upperBound, check);
 
-    while (!isValid)
-    {
-        while (getchar() != '\n'){} 
-        printf("That is not a valid input.\nPlease enter a number between %d and %d:\n", lowerBound, upperBound);
-        check = scanf("%d", &guess);
+    while (!isValid) {
+        while (getchar() != '\n') {}
+        if (mockInput && mockIndex < mockInputSize) {
+            guess = mockInput[mockIndex++];
+            check = 1; // Simulate successful scanf
+        } else {
+            printf("That is not a valid input.\nPlease enter a number between %d and %d:\n", lowerBound, upperBound);
+            check = scanf("%d", &guess);
+        }
         isValid = validGuess(guess, lowerBound, upperBound, check);
     }
-    
-    return guess;//returns the guess if it is valid
+
+    return guess; // returns the guess if it is valid
 }
 
 
@@ -164,6 +189,7 @@ void play(char difficulty){
 */
 bool validPlayAgain(char playAgain) {
     bool isValid = false;
+    playAgain = tolower(playAgain);//converts the input to lowercase incase of valid uppercase input
     if (playAgain == 'y' || playAgain == 'n')
     {
         isValid = true;
@@ -182,14 +208,12 @@ bool playAgain(char playAgain) {
         scanf(" %c", &playAgain); //assign the value of scanning a character from the user input
     }
     
-    playAgain = tolower(playAgain); //converts the input to lowercase incase of valid uppercase input
     isValid = validPlayAgain(playAgain);//checks if the input is valid
 
     while (!isValid)
     {
         printf("That is not a valid input. Please choose 'y' to play again or 'n' to return to the menu.\n");
         scanf(" %c", &playAgain);
-        playAgain = tolower(playAgain);
         isValid = validPlayAgain(playAgain);
     }
 
