@@ -8,5 +8,6 @@ var searchData=
   ['print_5fcolored_5foutput_5',['print_colored_output',['../newwordle_8h.html#a16ed7027e03ee215dcc09b15359ac0a9',1,'newwordle.cpp']]],
   ['print_5fhangman_6',['print_hangman',['../hangman_8cpp.html#a491c161f490968b67350b8efe09a569a',1,'hangman.cpp']]],
   ['print_5fword_7',['print_word',['../hangman_8cpp.html#aab6fcc985bf0321bec7f42a589351c9d',1,'hangman.cpp']]],
-  ['processguess_8',['processGuess',['../newwordle_8h.html#a11d73c9e69f098e07992a5c8706fe43a',1,'newwordle.cpp']]]
+  ['printtestresult_8',['printTestResult',['../secretNumTests_8cpp.html#ad410ee6538cd090b9669a4727caf927d',1,'secretNumTests.cpp']]],
+  ['processguess_9',['processGuess',['../newwordle_8h.html#a11d73c9e69f098e07992a5c8706fe43a',1,'newwordle.cpp']]]
 ];
