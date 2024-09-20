@@ -84,12 +84,31 @@ bool conatainsonlychar(const char* guess);
 	@return true if it is correct length  false if not
 */
 bool correctlength(const char* guess);
+/*!
+	@brief updates the letters the user has guessed to be prepared to display the letters not guessed
+	@param the users guess
+*/
 
 void updateLettersGuessed(const char* theGuess);
+/*!
+	@brief  gets all the letters the user has not guessed
+	@return a the letters that havw not been guessed
+*/
 
 char* lettersNotGuessed();
+/*!
+	@brief a method for storing previous guesses and clues to be diplayed later
+	@param the turn number
+	@param the clue from the current turn
+	@param the users guess from the current turn
+*/
 
 void updateclue(int turn, char* clue, const char* newguess);
+/*!
+	@brief prints the game
+	@param an clue to be used to choose colour of letter
+	@param the users guess
+*/
 
 void print_colored_output(char clue[], char guess[]);
 

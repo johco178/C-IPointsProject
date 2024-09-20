@@ -66,6 +66,12 @@ char cluesix[6] = { '_', '_', '_', '_','_', '\0' };
 char letters_left_to_guess[26] = { 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z' };
 bool has_letter_been_guessed[26] = { false };
 
+/*!
+	@brief gets a random 5 letter word from the text file
+	@param number is the index to get the word
+	@return the word at that index.
+*/
+
 
 STATIC char* get_word(int number) {
 	
@@ -255,7 +261,10 @@ STATIC void updateLettersGuessed(const char* theGuess) {
 		}
 	}
 }
-
+/*!
+	@brief  gets all the letters the user has not guessed 
+	@return a the letters that havw not been guessed
+*/
 
 STATIC char* lettersNotGuessed() {
 	char* result = (char*)malloc(27 * sizeof(char)); // 26 letters + null terminator
@@ -270,6 +279,12 @@ STATIC char* lettersNotGuessed() {
 
 	return result;
 }
+/*!
+	@brief a method for storing previous guesses and clues to be diplayed later
+	@param the turn number
+	@param the clue from the current turn
+	@param the users guess from the current turn
+*/
 
 STATIC void updateclue(int turn, char* clue, const char* newguess) {
 	switch (turn)
@@ -314,6 +329,11 @@ STATIC void updateclue(int turn, char* clue, const char* newguess) {
 	}
 
 }
+/*!
+	@brief prints the game 
+	@param an clue to be used to choose colour of letter
+	@param the users guess
+*/
 
 void print_colored_output(char clue[], char guess[]) {
 	for (int i = 0; i < 6; i++) {
