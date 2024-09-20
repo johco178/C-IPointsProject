@@ -122,8 +122,8 @@ Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>wordle_initialize</b> (void)</td></tr>
 <tr class="memdesc:adadd4a075d66814ab69eeee627d96fe9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the Wordle game. <br /></td></tr>
 <tr class="separator:adadd4a075d66814ab69eeee627d96fe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b17de3ad06f814ec1d3652d941f6961" id="r_a9b17de3ad06f814ec1d3652d941f6961"><td class="memItemLeft" align="right" valign="top"><a id="a9b17de3ad06f814ec1d3652d941f6961" name="a9b17de3ad06f814ec1d3652d941f6961"></a>
-char *&#160;</td><td class="memItemRight" valign="bottom"><b>get_word</b> (int desiredength)</td></tr>
+<tr class="memitem:a9b17de3ad06f814ec1d3652d941f6961" id="r_a9b17de3ad06f814ec1d3652d941f6961"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b17de3ad06f814ec1d3652d941f6961">get_word</a> (int desiredength)</td></tr>
+<tr class="memdesc:a9b17de3ad06f814ec1d3652d941f6961"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets a random 5 letter word from the text file  <br /></td></tr>
 <tr class="separator:a9b17de3ad06f814ec1d3652d941f6961"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e07328c3231a055d739840938628801" id="r_a3e07328c3231a055d739840938628801"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e07328c3231a055d739840938628801">load_all_5letter_words</a> (const char *filename)</td></tr>
 <tr class="memdesc:a3e07328c3231a055d739840938628801"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the wordlength5 from a file.  <br /></td></tr>
@@ -150,14 +150,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>playWordle</b> (void)
 <tr class="memitem:aea44a9111587b9056ac25851113947bb" id="r_aea44a9111587b9056ac25851113947bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea44a9111587b9056ac25851113947bb">updateLettersGuessed</a> (const char *theGuess)</td></tr>
 <tr class="memdesc:aea44a9111587b9056ac25851113947bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">updates the letters the user has guessed to be prepared to display the letters not guessed  <br /></td></tr>
 <tr class="separator:aea44a9111587b9056ac25851113947bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63cd33eb7acde6393f1618474e2462e1" id="r_a63cd33eb7acde6393f1618474e2462e1"><td class="memItemLeft" align="right" valign="top"><a id="a63cd33eb7acde6393f1618474e2462e1" name="a63cd33eb7acde6393f1618474e2462e1"></a>
-char *&#160;</td><td class="memItemRight" valign="bottom"><b>lettersNotGuessed</b> ()</td></tr>
+<tr class="memitem:a63cd33eb7acde6393f1618474e2462e1" id="r_a63cd33eb7acde6393f1618474e2462e1"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63cd33eb7acde6393f1618474e2462e1">lettersNotGuessed</a> ()</td></tr>
+<tr class="memdesc:a63cd33eb7acde6393f1618474e2462e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">gets all the letters the user has not guessed  <br /></td></tr>
 <tr class="separator:a63cd33eb7acde6393f1618474e2462e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a885d80d11ca9f55de43a66aefbdcd2" id="r_a9a885d80d11ca9f55de43a66aefbdcd2"><td class="memItemLeft" align="right" valign="top"><a id="a9a885d80d11ca9f55de43a66aefbdcd2" name="a9a885d80d11ca9f55de43a66aefbdcd2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>updateclue</b> (int turn, char *clue, const char *newguess)</td></tr>
+<tr class="memitem:a9a885d80d11ca9f55de43a66aefbdcd2" id="r_a9a885d80d11ca9f55de43a66aefbdcd2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a885d80d11ca9f55de43a66aefbdcd2">updateclue</a> (int turn, char *clue, const char *newguess)</td></tr>
+<tr class="memdesc:a9a885d80d11ca9f55de43a66aefbdcd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">a method for storing previous guesses and clues to be diplayed later  <br /></td></tr>
 <tr class="separator:a9a885d80d11ca9f55de43a66aefbdcd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16ed7027e03ee215dcc09b15359ac0a9" id="r_a16ed7027e03ee215dcc09b15359ac0a9"><td class="memItemLeft" align="right" valign="top"><a id="a16ed7027e03ee215dcc09b15359ac0a9" name="a16ed7027e03ee215dcc09b15359ac0a9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>print_colored_output</b> (char clue[], char guess[])</td></tr>
+<tr class="memitem:a16ed7027e03ee215dcc09b15359ac0a9" id="r_a16ed7027e03ee215dcc09b15359ac0a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16ed7027e03ee215dcc09b15359ac0a9">print_colored_output</a> (char clue[], char guess[])</td></tr>
+<tr class="memdesc:a16ed7027e03ee215dcc09b15359ac0a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">prints the game  <br /></td></tr>
 <tr class="separator:a16ed7027e03ee215dcc09b15359ac0a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91515e0294fb9e3595be97314d5374b9" id="r_a91515e0294fb9e3595be97314d5374b9"><td class="memItemLeft" align="right" valign="top"><a id="a91515e0294fb9e3595be97314d5374b9" name="a91515e0294fb9e3595be97314d5374b9"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>runwordletests</b> ()</td></tr>
@@ -260,6 +260,52 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>cluesix</b> [6]</td><
 
 </div>
 </div>
+<a id="a9b17de3ad06f814ec1d3652d941f6961" name="a9b17de3ad06f814ec1d3652d941f6961"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b17de3ad06f814ec1d3652d941f6961">&#9670;&#160;</a></span>get_word()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * get_word </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>number</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>gets a random 5 letter word from the text file </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">number</td><td>is the index to get the word </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the word at that index. </dd></dl>
+
+</div>
+</div>
+<a id="a63cd33eb7acde6393f1618474e2462e1" name="a63cd33eb7acde6393f1618474e2462e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63cd33eb7acde6393f1618474e2462e1">&#9670;&#160;</a></span>lettersNotGuessed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * lettersNotGuessed </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>gets all the letters the user has not guessed </p>
+<dl class="section return"><dt>Returns</dt><dd>a the letters that havw not been guessed </dd></dl>
+
+</div>
+</div>
 <a id="a3e07328c3231a055d739840938628801" name="a3e07328c3231a055d739840938628801"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3e07328c3231a055d739840938628801">&#9670;&#160;</a></span>load_all_5letter_words()</h2>
 
@@ -283,6 +329,36 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>cluesix</b> [6]</td><
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>1 if the text file was loaded successfully, 0 otherwise </dd></dl>
+
+</div>
+</div>
+<a id="a16ed7027e03ee215dcc09b15359ac0a9" name="a16ed7027e03ee215dcc09b15359ac0a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16ed7027e03ee215dcc09b15359ac0a9">&#9670;&#160;</a></span>print_colored_output()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_colored_output </td>
+          <td>(</td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>clue</em></span>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>guess</em></span>[]&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>prints the game </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">an</td><td>clue to be used to choose colour of letter </td></tr>
+    <tr><td class="paramname">the</td><td>users guess </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -340,6 +416,42 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>cluesix</b> [6]</td><
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the user input in lower case </dd></dl>
+
+</div>
+</div>
+<a id="a9a885d80d11ca9f55de43a66aefbdcd2" name="a9a885d80d11ca9f55de43a66aefbdcd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a885d80d11ca9f55de43a66aefbdcd2">&#9670;&#160;</a></span>updateclue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updateclue </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>turn</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>clue</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>newguess</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>a method for storing previous guesses and clues to be diplayed later </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">the</td><td>turn number </td></tr>
+    <tr><td class="paramname">the</td><td>clue from the current turn </td></tr>
+    <tr><td class="paramname">the</td><td>users guess from the current turn </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
