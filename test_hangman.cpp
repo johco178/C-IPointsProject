@@ -156,7 +156,7 @@ TEST(load_dictionary) {
 /*!
     @brief Test for main play function
 */
-TEST (hangman_play) {
+TEST(hangman_play) {
     // Mock dictionary
     const char mock_dict[][MAX_WORD_LENGTH] = {
         "APPLE",
