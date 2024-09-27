@@ -156,7 +156,7 @@ TEST(load_dictionary) {
 /*!
     @brief Test for main play function
 */
-void test_hangman_play() {
+TEST (hangman_play) {
     // Mock dictionary
     const char mock_dict[][MAX_WORD_LENGTH] = {
         "APPLE",
@@ -228,7 +228,7 @@ void hangmanTests() {
     RUN_TEST(is_word_guessed);
     RUN_TEST(to_uppercase);
     RUN_TEST(is_letter_in_word);
-    //RUN_TEST(hangman_play);
+    RUN_TEST(hangman_play);
 
 
     printf("All tests passed!\n");
