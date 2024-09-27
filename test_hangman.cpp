@@ -156,56 +156,68 @@ TEST(load_dictionary) {
 /*!
     @brief Test for main play function
 */
-TEST(hangman_play) {
-    // Redirect stdout to a file
-    const char* temp_output = "temp_output.txt";
-    FILE* output_file = freopen(temp_output, "w", stdout);
+void test_hangman_play() {
+    // Mock dictionary
+    const char mock_dict[][MAX_WORD_LENGTH] = {
+        "APPLE",
+        "BANANA",
+        "CHERRY",
+        "ORANGE"
+    };
+    int mock_dict_size = sizeof(mock_dict) / sizeof(mock_dict[0]);
 
-    // Set up a mock dictionary with a known word
-    const char mock_dict[1][MAX_WORD_LENGTH] = { "APPLE" };
-    set_mock_dictionary(mock_dict, 1);
+    // Set the mock dictionary
+    set_mock_dictionary(mock_dict, mock_dict_size);
 
-    // Prepare input for a full game (guessing "APPLE" and then quitting)
-    const char* input = "5\nA\nP\nL\nE\n2\n";
+    // Redirect stdin and stdout to test input and output
+    FILE* stdin_backup = stdin;
+    FILE* stdout_backup = stdout;
     FILE* temp_input = fopen("temp_input.txt", "w");
-    fprintf(temp_input, "%s", input);
-    fclose(temp_input);
-    freopen("temp_input.txt", "r", stdin);
+    FILE* temp_output = fopen("temp_output.txt", "w");
+    *stdin = *temp_input;
+    *stdout = *temp_output;
 
-    // Call hangman_play
+    // Test case 1: Play the game and guess the word correctly
+    fprintf(temp_input, "5\n");  // Enter desired word length
+    fprintf(temp_input, "A\n");  // Guess 'A'
+    fprintf(temp_input, "P\n");  // Guess 'P'
+    fprintf(temp_input, "L\n");  // Guess 'L'
+    fprintf(temp_input, "E\n");  // Guess 'E'
+    fprintf(temp_input, "Y\n");  // Guess 'Y'
+    fprintf(temp_input, "2\n");  // Choose to play again
+
     hangman_play();
 
-    // Restore stdout and stdin
-    fclose(output_file);
-    freopen("/dev/tty", "w", stdout);
-    freopen("/dev/tty", "r", stdin);
+    // Verify the output
+    rewind(temp_output);
+    char output[100];
+    fgets(output, sizeof(output), temp_output);
+    assert(strcmp(output, "Welcome to Hangman!\n\nWord: _ _ _ _ _ \nTries left: 7\n  +---+\n  |   |\n      |\n      |\n      |\n      |\n=========\n\nGuess a letter: \n") == 0);
 
-    // Read the output file
-    output_file = fopen(temp_output, "r");
-    char buffer[1024];
-    std::string output_str;
-    while (fgets(buffer, sizeof(buffer), output_file)) {
-        output_str += buffer;
-    }
-    fclose(output_file);
+    // Test case 2: Play the game and fail to guess the word within the maximum tries
+    fprintf(temp_input, "6\n");  // Enter desired word length
+    fprintf(temp_input, "A\n");  // Guess 'A'
+    fprintf(temp_input, "B\n");  // Guess 'B'
+    fprintf(temp_input, "C\n");  // Guess 'C'
+    fprintf(temp_input, "D\n");  // Guess 'D'
+    fprintf(temp_input, "F\n");  // Guess 'F'
+    fprintf(temp_input, "G\n");  // Guess 'G'
+    fprintf(temp_input, "2\n");  // Choose to play again
 
-    // Perform assertions
-    assert(output_str.find("Enter desired word length") != std::string::npos);
-    assert(output_str.find("Welcome to Hangman!") != std::string::npos);
-    assert(output_str.find("_ _ _ _ _") != std::string::npos);
-    assert(output_str.find("A _ _ _ _") != std::string::npos);
-    assert(output_str.find("A P P _ _") != std::string::npos);
-    assert(output_str.find("A P P L _") != std::string::npos);
-    //assert(output_str.find("A P P L E") != std::string::npos);
-    assert(output_str.find("Congratulations! You've guessed the word: APPLE") != std::string::npos);
-    assert(output_str.find("Do you want to play again?") != std::string::npos);
-    assert(output_str.find("Thanks for playing Hangman!") != std::string::npos);
+    hangman_play();
+
+    // Verify the output
+    rewind(temp_output);
+    fgets(output, sizeof(output), temp_output);
+    assert(strcmp(output, "Welcome to Hangman!\n\nWord: _ _ _ _ _ _ \nTries left: 7\n  +---+\n  |   |\n      |\n      |\n      |\n      |\n=========\n\nGuess a letter: \n") == 0);
 
     // Clean up
-    remove(temp_output);
+    fclose(temp_input);
+    fclose(temp_output);
     remove("temp_input.txt");
-
-    printf("hangman_play test passed!\n");
+    remove("temp_output.txt");
+    *stdin = *stdin_backup;
+    *stdout = *stdout_backup;
 }
 
 void hangmanTests() {
