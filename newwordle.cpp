@@ -343,19 +343,20 @@ STATIC void updateclue(int turn, char* clue, const char* newguess) {
 void print_colored_output(char clue[], char guess[]) {
 	for (int i = 0; i < 6; i++) {
 		if (clue[i] == 'G') {
-			printf(GREEN_FORMAT, guess[i]);
+
+			std::cout << ANSI_COLOR_GREEN << guess[i] << ANSI_COLOR_RESET;
 		}
 		else if (clue[i] == 'Y') {
-			printf(YELLOW_FORMAT, guess[i]);
+			std::cout << ANSI_COLOR_YELLOW << guess[i] << ANSI_COLOR_RESET;
 		}
 		else if (guess[i] == '_') {
-			printf(RESET_FORMAT, guess[i]);
+			std::cout << guess[i];
 		}
 		else {
-			printf(RED_FORMAT, guess[i]);
+			std::cout << ANSI_COLOR_RED << guess[i] << ANSI_COLOR_RESET;
 		}
 	}
-	printf(ANSI_COLOR_RESET "\n");
+	std::cout << std::endl;
 }
 
 
