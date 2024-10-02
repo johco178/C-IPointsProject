@@ -400,7 +400,12 @@ void playWordle(void) {
 		printf("\nLetter not guessed yet: %s", lettersleft);
 		char guess[6];
 		printf("\n\nInput a 5-letter word and press enter \n");
-		scanf("%5s", guess);
+		
+		if (fgets(guess, sizeof(guess), stdin)) {
+			// Optionally remove the newline character from the input
+			guess[strcspn(guess, "\n")] = 0; // Remove newline if present
+		}
+
 
 		char* newguess = toLowerCase(guess);
 		
