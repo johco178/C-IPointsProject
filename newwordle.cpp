@@ -143,7 +143,7 @@ STATIC char* toLowerCase(const char* guess) {
 STATIC bool conatainsonlychar(const char* guess) {
 	bool onlyalpha = false;
 
-	const int length = 6;
+	const int length = 5;
 	char alphabet[26] = { 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z' };
 	for (int i = 0; i < length; i++) {
 		char letter = guess[i];
@@ -406,7 +406,7 @@ void playWordle(void) {
 		printf("\nLetter not guessed yet: %s", lettersleft);
 		printf("\n\nInput a 5-letter word and press enter \n");
 		
-		scanf_s("%5s", guess);
+		scanf("%s", guess);
 		//guess[strcspn(guess, "\n")] = 0;
 
 		
@@ -415,16 +415,17 @@ void playWordle(void) {
 
 		char* newguess = toLowerCase(guess);
 
-		if (!correctlength(newguess)) {
-			printf("Word inputted was not the correct length. Try Agian");
-			continue;
-		}
 
 		
 		if (!conatainsonlychar(newguess)) {
 			printf("Guess contains a non letter, try again.");
 			continue;
 		}
+		if (!correctlength(newguess)) {
+			printf("Word inputted was not the correct length. Try Agian");
+			continue;
+		}
+
 
 
 
@@ -470,7 +471,7 @@ void playWordle(void) {
 		printf("\nNo more guesses... The correct word was %s\n", newanswer);
 	}
 
-
+	free(guess);
 	// clean up
 	
 }
