@@ -66,6 +66,11 @@ char cluesix[6] = { '_', '_', '_', '_','_', '\0' };
 char letters_left_to_guess[26] = { 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z' };
 bool has_letter_been_guessed[26] = { false };
 
+const char* const GREEN_FORMAT = ANSI_COLOR_GREEN "%c";
+const char* const YELLOW_FORMAT = ANSI_COLOR_YELLOW "%c";
+const char* const RED_FORMAT = ANSI_COLOR_RED "%c";
+const char* const RESET_FORMAT = ANSI_COLOR_RESET "%c";
+
 /*!
 	@brief gets a random 5 letter word from the text file
 	@param number is the index to get the word
@@ -338,16 +343,16 @@ STATIC void updateclue(int turn, char* clue, const char* newguess) {
 void print_colored_output(char clue[], char guess[]) {
 	for (int i = 0; i < 6; i++) {
 		if (clue[i] == 'G') {
-			printf(ANSI_COLOR_GREEN "%c", guess[i]);
+			printf(GREEN_FORMAT, guess[i]);
 		}
 		else if (clue[i] == 'Y') {
-			printf(ANSI_COLOR_YELLOW "%c", guess[i]);
+			printf(YELLOW_FORMAT, guess[i]);
 		}
 		else if (guess[i] == '_') {
-			printf(ANSI_COLOR_RESET "%c", guess[i]);
+			printf(RESET_FORMAT, guess[i]);
 		}
 		else {
-			printf(ANSI_COLOR_RED "%c", guess[i]);
+			printf(RED_FORMAT, guess[i]);
 		}
 	}
 	printf(ANSI_COLOR_RESET "\n");
