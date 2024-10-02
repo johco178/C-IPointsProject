@@ -354,11 +354,37 @@ void print_colored_output(char clue[], char guess[]) {
 }
 
 
+void gamereset() {
+	for (int i = 0; i < 6; i++) {
+		guessone[i] = '_'; clueone[i] = '_';
+		guesstwo[i] = '_'; cluetwo[i] = '_';
+		guessthree[i] = '_'; cluethree[i] = '_';
+		guessfour[i] = '_'; cluefour[i] = '_';
+		guessfive[i] = '_'; cluefive[i] = '_';
+		guesssix[i] = '_'; cluesix[i] = '_';
+	}
+
+	memset(has_letter_been_guessed, false, sizeof(has_letter_been_guessed));
+
+
+	for (int i = 0; i < 26; i++) {
+		letters_left_to_guess[i] = 'a' + i;
+	}
+
+
+
+}
+
+
+
+
+
 /*!
 	@brief plays wordle game
 */
 
 void playWordle(void) {
+	gamereset();
 	int number = rand();
 	const char* newanswer = get_word(number);
 
@@ -372,9 +398,9 @@ void playWordle(void) {
 		//get guess from user
 		char* lettersleft = lettersNotGuessed();
 		printf("\nLetter not guessed yet: %s", lettersleft);
-
+		char guess[6];
 		printf("\n\nInput a 5-letter word and press enter \n");
-		scanf("%s", guess);
+		scanf("%5s", guess);
 
 		char* newguess = toLowerCase(guess);
 		
@@ -433,8 +459,7 @@ void playWordle(void) {
 
 
 	// clean up
-	free(guess);
-
+	
 }
 
 // Expose these functions for unit testing
