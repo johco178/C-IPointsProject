@@ -81,10 +81,6 @@ void set_mock_dictionary(const char mock_dict[][MAX_WORD_LENGTH], int size);
 
 */
 int load_dictionary(const char* filename, char dictionary[][MAX_WORD_LENGTH], int max_size);
-/*!
-	 @brief Plays the hangman game
-*/
-void hangman_play(void);
 #endif
 
 #endif // HANGMAN_H
