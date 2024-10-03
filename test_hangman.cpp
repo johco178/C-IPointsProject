@@ -27,7 +27,7 @@
 
 // Mock dictionary for testing
 static const char mockDictionary[3][MAX_WORD_LENGTH] = { "APPLE", "BANANA", "CHERRY" };
-static const int mockDictionary_size = 3;
+static const int mockDictionarySize = 3;
 
 /*!
     @brief Test for word selection function
@@ -54,13 +54,13 @@ TEST(selectWord) {
 */
 TEST(isWordGuessed) {
     int guessed1[] = { 1, 1, 1, 1, 1 };
-    assert(is_word_guessed(guessed1, 5) == 1);
+    assert(isWord_Guessed(guessed1, 5) == 1);
 
     int guessed2[] = { 1, 1, 0, 1, 1 };
-    assert(is_word_guessed(guessed2, 5) == 0);
+    assert(isWordGuessed(guessed2, 5) == 0);
 
     int guessed3[] = { 0, 0, 0, 0, 0 };
-    assert(is_word_guessed(guessed3, 5) == 0);
+    assert(isWordGuessed(guessed3, 5) == 0);
 }
 
 /*!
@@ -72,7 +72,7 @@ TEST(toUppercase) {
     assert(strcmp(word, "HELLO, WORLD!") == 0);
 
     char alreadyUpper[] = "UPPERCASE";
-    to_uppercase(alreadyUpper);
+    toUppercase(alreadyUpper);
     assert(strcmp(alreadyUpper, "UPPERCASE") == 0);
 
     char empty[] = "";
@@ -126,7 +126,7 @@ TEST(loadDictionary) {
     fprintf(tempFile, "\n");
     fclose(tempFile);
 
-    result = load_dictionary(tempFilename, testDictionary, MAX_DICTIONARY_SIZE);
+    result = loadDictionary(tempFilename, testDictionary, MAX_DICTIONARY_SIZE);
     assert(result >= 1);
     assert(strlen(testDictionary[0]) == MAX_WORD_LENGTH - 1);
 
