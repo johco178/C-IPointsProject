@@ -26,26 +26,26 @@
 } while (0)
 
 // Mock dictionary for testing
-static const char mock_dictionary[3][MAX_WORD_LENGTH] = { "APPLE", "BANANA", "CHERRY" };
-static const int mock_dictionary_size = 3;
+static const char mockDictionary[3][MAX_WORD_LENGTH] = { "APPLE", "BANANA", "CHERRY" };
+static const int mockDictionary_size = 3;
 
 /*!
     @brief Test for word selection function
 */
 TEST(selectWord) {
-    set_mock_dictionary(mock_dictionary, mock_dictionary_size);
+    setMockDictionary(mockDictionary, mockDictionarySize);
 
-    char* word = select_word(0);
+    char* word = selectWord(0);
     assert(word != NULL);
     assert(strcmp(word, "APPLE") == 0 || strcmp(word, "BANANA") == 0 || strcmp(word, "CHERRY") == 0);
 
-    word = select_word(5);
+    word = selectWord(5);
     assert(strcmp(word, "APPLE") == 0);
 
-    word = select_word(6);
+    word = selectWord(6);
     assert(strcmp(word, "BANANA") == 0 || strcmp(word, "CHERRY") == 0);
 
-    word = select_word(10);
+    word = selectWord(10);
     assert(word != NULL);
 }
 
@@ -68,15 +68,15 @@ TEST(isWordGuessed) {
 */
 TEST(toUppercase) {
     char word[] = "Hello, World!";
-    to_uppercase(word);
+    toUppercase(word);
     assert(strcmp(word, "HELLO, WORLD!") == 0);
 
-    char already_upper[] = "UPPERCASE";
-    to_uppercase(already_upper);
-    assert(strcmp(already_upper, "UPPERCASE") == 0);
+    char alreadyUpper[] = "UPPERCASE";
+    to_uppercase(alreadyUpper);
+    assert(strcmp(alreadyUpper, "UPPERCASE") == 0);
 
     char empty[] = "";
-    to_uppercase(empty);
+    toUppercase(empty);
     assert(strcmp(empty, "") == 0);
 }
 
@@ -84,73 +84,73 @@ TEST(toUppercase) {
     @brief Test for letter checking method
 */
 TEST(isLetterInWord) {
-    assert(is_letter_in_word('A', "APPLE") == true);
-    assert(is_letter_in_word('Z', "APPLE") == false);
-    assert(is_letter_in_word('E', "HELLO") == true);
-    assert(is_letter_in_word('X', "") == false);
+    assert(isLetterInWord('A', "APPLE") == true);
+    assert(isLetterInWord('Z', "APPLE") == false);
+    assert(isLetterInWord('E', "HELLO") == true);
+    assert(isLetterInWord('X', "") == false);
 }
 
 /*!
     @brief Test for dictionary loading method
 */
 TEST(loadDictionary) {
-    const char* temp_filename = "temp_dictionary.txt";
-    FILE* temp_file;
+    const char* tempFilename = "temp_dictionary.txt";
+    FILE* tempFile;
     int result;
-    char test_dictionary[MAX_DICTIONARY_SIZE][MAX_WORD_LENGTH];
+    char testDictionary[MAX_DICTIONARY_SIZE][MAX_WORD_LENGTH];
 
     // Test 1: Loading a non-existent file
-    result = load_dictionary("non_existent_file.txt", test_dictionary, MAX_DICTIONARY_SIZE);
+    result = loadDictionary("non_existent_file.txt", testDictionary, MAX_DICTIONARY_SIZE);
     assert(result <= 0);
 
     // Test 2: Loading a valid file with various word lengths
-    temp_file = fopen(temp_filename, "w");
-    assert(temp_file != NULL);
-    fprintf(temp_file, "apple\nBANANA\nCherry\ndate\nEGGPLANT\n");
-    fclose(temp_file);
+    tempFile = fopen(tempFilename, "w");
+    assert(tempFile != NULL);
+    fprintf(tempFile, "apple\nBANANA\nCherry\ndate\nEGGPLANT\n");
+    fclose(tempFile);
 
-    result = load_dictionary(temp_filename, test_dictionary, MAX_DICTIONARY_SIZE);
+    result = loadDictionary(tempFilename, testDictionary, MAX_DICTIONARY_SIZE);
     assert(result == 5);
-    assert(strcmp(test_dictionary[0], "APPLE") == 0);
-    assert(strcmp(test_dictionary[1], "BANANA") == 0);
-    assert(strcmp(test_dictionary[2], "CHERRY") == 0);
-    assert(strcmp(test_dictionary[3], "DATE") == 0);
-    assert(strcmp(test_dictionary[4], "EGGPLANT") == 0);
+    assert(strcmp(testDictionary[0], "APPLE") == 0);
+    assert(strcmp(testDictionary[1], "BANANA") == 0);
+    assert(strcmp(testDictionary[2], "CHERRY") == 0);
+    assert(strcmp(testDictionary[3], "DATE") == 0);
+    assert(strcmp(testDictionary[4], "EGGPLANT") == 0);
 
     // Test 3: Loading a file with a word at MAX_WORD_LENGTH
-    temp_file = fopen(temp_filename, "w");
-    assert(temp_file != NULL);
+    tempFile = fopen(tempFilename, "w");
+    assert(tempFile != NULL);
     for (int i = 0; i < MAX_WORD_LENGTH - 1; i++) {
-        fprintf(temp_file, "a");
+        fprintf(tempFile, "a");
     }
-    fprintf(temp_file, "\n");
-    fclose(temp_file);
+    fprintf(tempFile, "\n");
+    fclose(tempFile);
 
-    result = load_dictionary(temp_filename, test_dictionary, MAX_DICTIONARY_SIZE);
+    result = load_dictionary(tempFilename, testDictionary, MAX_DICTIONARY_SIZE);
     assert(result >= 1);
-    assert(strlen(test_dictionary[0]) == MAX_WORD_LENGTH - 1);
+    assert(strlen(testDictionary[0]) == MAX_WORD_LENGTH - 1);
 
     // Test 4: Loading a file with more words than MAX_DICTIONARY_SIZE
-    temp_file = fopen(temp_filename, "w");
-    assert(temp_file != NULL);
+    tempFile = fopen(tempFilename, "w");
+    assert(tempFile != NULL);
     for (int i = 0; i < MAX_DICTIONARY_SIZE + 10; i++) {
-        fprintf(temp_file, "word%d\n", i);
+        fprintf(tempFile, "word%d\n", i);
     }
-    fclose(temp_file);
+    fclose(tempFile);
 
-    result = load_dictionary(temp_filename, test_dictionary, MAX_DICTIONARY_SIZE);
+    result = loadDictionary(tempFilename, testDictionary, MAX_DICTIONARY_SIZE);
     assert(result == MAX_DICTIONARY_SIZE);
 
     // Test 5: Loading an empty file
-    temp_file = fopen(temp_filename, "w");
-    assert(temp_file != NULL);
-    fclose(temp_file);
+    tempFile = fopen(tempFilename, "w");
+    assert(tempFile != NULL);
+    fclose(tempFile);
 
-    result = load_dictionary(temp_filename, test_dictionary, MAX_DICTIONARY_SIZE);
+    result = loadDictionary(tempFilename, testDictionary, MAX_DICTIONARY_SIZE);
     assert(result == 0);
 
     // Clean up
-    remove(temp_filename);
+    remove(tempFilename);
 }
 
 /*!
@@ -158,14 +158,14 @@ TEST(loadDictionary) {
 */
 TEST(hangmanPlay) {
     // Mock dictionary setup (keep as is)
-    const char mock_dict[][MAX_WORD_LENGTH] = {
+    const char mockDict[][MAX_WORD_LENGTH] = {
         "APPLE",
         "BANANA",
         "CHERRY",
         "ORANGE"
     };
-    int mock_dict_size = sizeof(mock_dict) / sizeof(mock_dict[0]);
-    set_mock_dictionary(mock_dict, mock_dict_size);
+    int mockDictSize = sizeof(mockDict) / sizeof(mockDict[0]);
+    setMockDictionary(mockDict, mockDictSize);
 
     // Prepare input file
     FILE* temp_input = fopen("temp_input.txt", "w");
@@ -187,7 +187,7 @@ TEST(hangmanPlay) {
     }
 
     // Run the game
-    hangman_play();
+    hangmanPlay();
 
     // Close the redirected streams
     fclose(stdin);

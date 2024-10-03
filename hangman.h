@@ -52,7 +52,7 @@ void hangmanPlay(void);
 	 @return A pointer to the selected word
 
 */
-char* selectWord(int desired_length);
+char* selectWord(int desiredLength);
 /*!
 	 @brief Checks if a word has been guessed
 	 @param guessed An array of integers representing the guessed letters
@@ -73,14 +73,14 @@ void toUppercase(char* str);
 	 @param size The size of the mock dictionary
 
 */
-void setMockDictionary(const char mock_dict[][MAX_WORD_LENGTH], int size);
+void setMockDictionary(const char mockDict[][MAX_WORD_LENGTH], int size);
 /*!
 	 @brief Loads the dictionary from a file
 	 @param filename The name of the file to load
 	 @return 1 if the dictionary was loaded successfully, 0 otherwise
 
 */
-int loadDictionary(const char* filename, char dictionary[][MAX_WORD_LENGTH], int max_size);
+int loadDictionary(const char* filename, char dictionary[][MAX_WORD_LENGTH], int maxSize);
 #endif
 
 #endif // HANGMAN_H
