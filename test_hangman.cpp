@@ -201,7 +201,7 @@ TEST(hangmanPlay) {
     }
 
     char output[1000];  // Increased buffer size
-    size_t bytesRead = fread(output, 1, sizeof(output) - 1, temp_output);
+    size_t bytesRead = fread(output, 1, sizeof(output) - 1, tempOutput);
     output[bytesRead] = '\0';
     fclose(tempOutput);
 
