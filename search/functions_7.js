@@ -5,8 +5,8 @@ var searchData=
   ['playtictactoe_2',['playTicTacToe',['../TicTacToe_8cpp.html#aaef9cb7ffb3d32969b7db9a6374ca82c',1,'playTicTacToe():&#160;TicTacToe.cpp'],['../TicTacToe_8h.html#aaef9cb7ffb3d32969b7db9a6374ca82c',1,'playTicTacToe():&#160;TicTacToe.cpp']]],
   ['playwordle_3',['playWordle',['../newwordle_8h.html#ad2bee05444b1c1bcf1de4b58cb9d4935',1,'newwordle.cpp']]],
   ['print_5fcolored_5foutput_4',['print_colored_output',['../newwordle_8h.html#a16ed7027e03ee215dcc09b15359ac0a9',1,'newwordle.cpp']]],
-  ['print_5fhangman_5',['print_hangman',['../hangman_8cpp.html#a491c161f490968b67350b8efe09a569a',1,'hangman.cpp']]],
-  ['print_5fword_6',['print_word',['../hangman_8cpp.html#aab6fcc985bf0321bec7f42a589351c9d',1,'hangman.cpp']]],
-  ['printtestresult_7',['printTestResult',['../secretNumTests_8cpp.html#ad410ee6538cd090b9669a4727caf927d',1,'secretNumTests.cpp']]],
+  ['printhangman_5',['printHangman',['../hangman_8cpp.html#a9aa09b5014ad51f48c198c9ed4926fec',1,'hangman.cpp']]],
+  ['printtestresult_6',['printTestResult',['../secretNumTests_8cpp.html#ad410ee6538cd090b9669a4727caf927d',1,'secretNumTests.cpp']]],
+  ['printword_7',['printWord',['../hangman_8cpp.html#aeb646a8f33d77a74acfae9d9f7df4b59',1,'hangman.cpp']]],
   ['processguess_8',['processGuess',['../newwordle_8h.html#a11d73c9e69f098e07992a5c8706fe43a',1,'newwordle.cpp']]]
 ];
