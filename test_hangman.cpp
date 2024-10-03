@@ -168,13 +168,13 @@ TEST(hangmanPlay) {
     setMockDictionary(mockDict, mockDictSize);
 
     // Prepare input file
-    FILE* temp_input = fopen("temp_input.txt", "w");
-    if (temp_input == NULL) {
+    FILE* tempInput = fopen("temp_input.txt", "w");
+    if (tempInput == NULL) {
         perror("Error opening temp_input.txt");
         return;
     }
-    fprintf(temp_input, "5\nA\nP\nL\nE\nY\n2\n");
-    fclose(temp_input);
+    fprintf(tempInput, "5\nA\nP\nL\nE\nY\n2\n");
+    fclose(tempInput);
 
     // Redirect stdin and stdout
     if (freopen("temp_input.txt", "r", stdin) == NULL) {
@@ -194,16 +194,16 @@ TEST(hangmanPlay) {
     fclose(stdout);
 
     // Verify output
-    FILE* temp_output = fopen("temp_output.txt", "r");
-    if (temp_output == NULL) {
+    FILE* tempOutput = fopen("temp_output.txt", "r");
+    if (tempOutput == NULL) {
         perror("Error opening temp_output.txt");
         return;
     }
 
     char output[1000];  // Increased buffer size
-    size_t bytes_read = fread(output, 1, sizeof(output) - 1, temp_output);
-    output[bytes_read] = '\0';
-    fclose(temp_output);
+    size_t bytesRead = fread(output, 1, sizeof(output) - 1, temp_output);
+    output[bytesRead] = '\0';
+    fclose(tempOutput);
 
     // Check if the output contains expected strings
     assert(strstr(output, "Welcome to Hangman!") != NULL);
@@ -223,7 +223,7 @@ void hangmanTests() {
     RUN_TEST(isWordGuessed);
     RUN_TEST(toUppercase);
     RUN_TEST(isLetterInWord);
-    //RUN_TEST(hangmanPlay);
+    RUN_TEST(hangmanPlay);
 
 
     printf("All tests passed!\n");
