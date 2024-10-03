@@ -54,7 +54,7 @@ TEST(selectWord) {
 */
 TEST(isWordGuessed) {
     int guessed1[] = { 1, 1, 1, 1, 1 };
-    assert(isWord_Guessed(guessed1, 5) == 1);
+    assert(isWordGuessed(guessed1, 5) == 1);
 
     int guessed2[] = { 1, 1, 0, 1, 1 };
     assert(isWordGuessed(guessed2, 5) == 0);
