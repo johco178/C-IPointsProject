@@ -32,7 +32,7 @@ static const int mock_dictionary_size = 3;
 /*!
     @brief Test for word selection function
 */
-TEST(select_word) {
+TEST(selectWord) {
     set_mock_dictionary(mock_dictionary, mock_dictionary_size);
 
     char* word = select_word(0);
@@ -52,7 +52,7 @@ TEST(select_word) {
 /*!
     @brief Test to check correct guess
 */
-TEST(is_word_guessed) {
+TEST(isWordGuessed) {
     int guessed1[] = { 1, 1, 1, 1, 1 };
     assert(is_word_guessed(guessed1, 5) == 1);
 
@@ -66,7 +66,7 @@ TEST(is_word_guessed) {
 /*!
     @brief Test for convertion to uppercase method
 */
-TEST(to_uppercase) {
+TEST(toUppercase) {
     char word[] = "Hello, World!";
     to_uppercase(word);
     assert(strcmp(word, "HELLO, WORLD!") == 0);
@@ -83,7 +83,7 @@ TEST(to_uppercase) {
 /*!
     @brief Test for letter checking method
 */
-TEST(is_letter_in_word) {
+TEST(isLetterInWord) {
     assert(is_letter_in_word('A', "APPLE") == true);
     assert(is_letter_in_word('Z', "APPLE") == false);
     assert(is_letter_in_word('E', "HELLO") == true);
@@ -93,7 +93,7 @@ TEST(is_letter_in_word) {
 /*!
     @brief Test for dictionary loading method
 */
-TEST(load_dictionary) {
+TEST(loadDictionary) {
     const char* temp_filename = "temp_dictionary.txt";
     FILE* temp_file;
     int result;
@@ -156,7 +156,7 @@ TEST(load_dictionary) {
 /*!
     @brief Test for main play function
 */
-TEST(hangman_play) {
+TEST(hangmanPlay) {
     // Mock dictionary setup (keep as is)
     const char mock_dict[][MAX_WORD_LENGTH] = {
         "APPLE",
@@ -218,12 +218,12 @@ TEST(hangman_play) {
 void hangmanTests() {
     printf("Running Hangman unit tests...\n");
 
-    RUN_TEST(load_dictionary);
-    RUN_TEST(select_word);
-    RUN_TEST(is_word_guessed);
-    RUN_TEST(to_uppercase);
-    RUN_TEST(is_letter_in_word);
-    //RUN_TEST(hangman_play);
+    RUN_TEST(loadDictionary);
+    RUN_TEST(selectWord);
+    RUN_TEST(isWordGuessed);
+    RUN_TEST(toUppercase);
+    RUN_TEST(isLetterInWord);
+    RUN_TEST(hangmanPlay);
 
 
     printf("All tests passed!\n");

@@ -29,7 +29,7 @@ static int dictionary_size = 0;
     @param word The word to check
     @return true if the letter is in the word, false otherwise
 */
-bool is_letter_in_word(char letter, const char* word) {
+bool isLetterInWord(char letter, const char* word) {
     while (*word) {
         if (*word == letter) {
             return true;
@@ -44,7 +44,7 @@ bool is_letter_in_word(char letter, const char* word) {
 	@param desired_length The desired length of the word
 	@return A pointer to the selected word
 */
-STATIC char* select_word(int desired_length) {
+STATIC char* selectWord(int desired_length) {
     if (desired_length < 0) {
         printf("Invalid length. Selecting a random word.\n");
         return dictionary[rand() % dictionary_size];
@@ -76,7 +76,7 @@ STATIC char* select_word(int desired_length) {
     @brief Prints the hangman based on the number of tries
 	@param tries The number of tries
 */
-void print_hangman(int tries) {
+void printHangman(int tries) {
     const char* hangman_states[] = {
         "  +---+\n  |   |\n      |\n      |\n      |\n      |\n=========",
         "  +---+\n  |   |\n  O   |\n      |\n      |\n      |\n=========",
@@ -96,7 +96,7 @@ void print_hangman(int tries) {
 	@param guessed An array of guessed letters
 
 */
-STATIC void print_word(const char* word, const int* guessed) {
+STATIC void printWord(const char* word, const int* guessed) {
     for (int i = 0; word[i]; i++) {
         printf("%c ", guessed[i] ? word[i] : '_');
     }
@@ -109,7 +109,7 @@ STATIC void print_word(const char* word, const int* guessed) {
 	@param length The length of the word
 	@return 1 if the word has been guessed, 0 otherwise
 */
-STATIC int is_word_guessed(const int* guessed, int length) {
+STATIC int isWordGuessed(const int* guessed, int length) {
     for (int i = 0; i < length; i++) {
         if (!guessed[i]) return 0;
     }
@@ -120,7 +120,7 @@ STATIC int is_word_guessed(const int* guessed, int length) {
     @brief Converts a string to uppercase
 	@param str The string to convert to uppercase
 */
-STATIC void to_uppercase(char* str) {
+STATIC void toUppercase(char* str) {
     for (int i = 0; str[i]; i++) {
         str[i] = toupper((unsigned char)str[i]);
     }
@@ -131,7 +131,7 @@ STATIC void to_uppercase(char* str) {
     @param filename The name of the file to load
     @return 1 if the dictionary was loaded successfully, 0 otherwise
 */
-STATIC int load_dictionary(const char* filename, char dictionary[][MAX_WORD_LENGTH], int max_size) {
+STATIC int loadDictionary(const char* filename, char dictionary[][MAX_WORD_LENGTH], int max_size) {
     FILE* file = fopen(filename, "r");
     if (!file) return -1;  // Return -1 on file open error
 
@@ -150,7 +150,7 @@ STATIC int load_dictionary(const char* filename, char dictionary[][MAX_WORD_LENG
 	@brief Initializes the hangman game
 
 */
-void hangman_initialize(void) {
+void hangmanInitialize(void) {
     srand((unsigned int)time(NULL));
     dictionary_size = load_dictionary("../dictionary.txt", dictionary, MAX_DICTIONARY_SIZE);
     if (dictionary_size <= 0) {
@@ -162,7 +162,7 @@ void hangman_initialize(void) {
     @brief Plays the hangman game
 */
 
-STATIC void hangman_play(void) {
+STATIC void hangmanPlay(void) {
     int play_again = 1;
 
     do {
