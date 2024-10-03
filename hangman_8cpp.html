@@ -106,9 +106,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a3cedd25e88a6f1453d6b126dfba64846" id="r_a3cedd25e88a6f1453d6b126dfba64846"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3cedd25e88a6f1453d6b126dfba64846">isLetterInWord</a> (char letter, const char *word)</td></tr>
 <tr class="memdesc:a3cedd25e88a6f1453d6b126dfba64846"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if letter is in word  <br /></td></tr>
 <tr class="separator:a3cedd25e88a6f1453d6b126dfba64846"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94f6619fe41f6681be17cd73799ed135" id="r_a94f6619fe41f6681be17cd73799ed135"><td class="memItemLeft" align="right" valign="top">STATIC char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a94f6619fe41f6681be17cd73799ed135">selectWord</a> (int desired_length)</td></tr>
-<tr class="memdesc:a94f6619fe41f6681be17cd73799ed135"><td class="mdescLeft">&#160;</td><td class="mdescRight">Selects a word from the dictionary based on the desired length.  <br /></td></tr>
-<tr class="separator:a94f6619fe41f6681be17cd73799ed135"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bcbf3c589c3c4cb3ba2b14dafda6710" id="r_a2bcbf3c589c3c4cb3ba2b14dafda6710"><td class="memItemLeft" align="right" valign="top">STATIC char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2bcbf3c589c3c4cb3ba2b14dafda6710">selectWord</a> (int desiredLength)</td></tr>
+<tr class="memdesc:a2bcbf3c589c3c4cb3ba2b14dafda6710"><td class="mdescLeft">&#160;</td><td class="mdescRight">Selects a word from the dictionary based on the desired length.  <br /></td></tr>
+<tr class="separator:a2bcbf3c589c3c4cb3ba2b14dafda6710"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9aa09b5014ad51f48c198c9ed4926fec" id="r_a9aa09b5014ad51f48c198c9ed4926fec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9aa09b5014ad51f48c198c9ed4926fec">printHangman</a> (int tries)</td></tr>
 <tr class="memdesc:a9aa09b5014ad51f48c198c9ed4926fec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the hangman based on the number of tries.  <br /></td></tr>
 <tr class="separator:a9aa09b5014ad51f48c198c9ed4926fec"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -121,9 +121,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ac917b5216f2776542b359962b5b46331" id="r_ac917b5216f2776542b359962b5b46331"><td class="memItemLeft" align="right" valign="top">STATIC void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac917b5216f2776542b359962b5b46331">toUppercase</a> (char *str)</td></tr>
 <tr class="memdesc:ac917b5216f2776542b359962b5b46331"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a string to uppercase.  <br /></td></tr>
 <tr class="separator:ac917b5216f2776542b359962b5b46331"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade4712f5c920f1915cc764c3a21cb03d" id="r_ade4712f5c920f1915cc764c3a21cb03d"><td class="memItemLeft" align="right" valign="top">STATIC int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade4712f5c920f1915cc764c3a21cb03d">loadDictionary</a> (const char *filename, char dictionary[][MAX_WORD_LENGTH], int max_size)</td></tr>
-<tr class="memdesc:ade4712f5c920f1915cc764c3a21cb03d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the dictionary from a file.  <br /></td></tr>
-<tr class="separator:ade4712f5c920f1915cc764c3a21cb03d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a418fede235c9db74e4ee4c65ec6d2f4a" id="r_a418fede235c9db74e4ee4c65ec6d2f4a"><td class="memItemLeft" align="right" valign="top">STATIC int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a418fede235c9db74e4ee4c65ec6d2f4a">loadDictionary</a> (const char *filename, char dictionary[][MAX_WORD_LENGTH], int maxSize)</td></tr>
+<tr class="memdesc:a418fede235c9db74e4ee4c65ec6d2f4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the dictionary from a file.  <br /></td></tr>
+<tr class="separator:a418fede235c9db74e4ee4c65ec6d2f4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8a5173ddc6d734b3a6ba75faaf4cb41" id="r_af8a5173ddc6d734b3a6ba75faaf4cb41"><td class="memItemLeft" align="right" valign="top"><a id="af8a5173ddc6d734b3a6ba75faaf4cb41" name="af8a5173ddc6d734b3a6ba75faaf4cb41"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>hangmanInitialize</b> (void)</td></tr>
 <tr class="memdesc:af8a5173ddc6d734b3a6ba75faaf4cb41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the hangman game. <br /></td></tr>
@@ -199,8 +199,8 @@ STATIC void&#160;</td><td class="memItemRight" valign="bottom"><b>hangmanPlay</b
 
 </div>
 </div>
-<a id="ade4712f5c920f1915cc764c3a21cb03d" name="ade4712f5c920f1915cc764c3a21cb03d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ade4712f5c920f1915cc764c3a21cb03d">&#9670;&#160;</a></span>loadDictionary()</h2>
+<a id="a418fede235c9db74e4ee4c65ec6d2f4a" name="a418fede235c9db74e4ee4c65ec6d2f4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a418fede235c9db74e4ee4c65ec6d2f4a">&#9670;&#160;</a></span>loadDictionary()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -218,7 +218,7 @@ STATIC void&#160;</td><td class="memItemRight" valign="bottom"><b>hangmanPlay</b
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>max_size</em></span>&#160;)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>maxSize</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -289,8 +289,8 @@ STATIC void&#160;</td><td class="memItemRight" valign="bottom"><b>hangmanPlay</b
 
 </div>
 </div>
-<a id="a94f6619fe41f6681be17cd73799ed135" name="a94f6619fe41f6681be17cd73799ed135"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a94f6619fe41f6681be17cd73799ed135">&#9670;&#160;</a></span>selectWord()</h2>
+<a id="a2bcbf3c589c3c4cb3ba2b14dafda6710" name="a2bcbf3c589c3c4cb3ba2b14dafda6710"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bcbf3c589c3c4cb3ba2b14dafda6710">&#9670;&#160;</a></span>selectWord()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -298,7 +298,7 @@ STATIC void&#160;</td><td class="memItemRight" valign="bottom"><b>hangmanPlay</b
         <tr>
           <td class="memname">STATIC char * selectWord </td>
           <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>desired_length</em></span></td><td>)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>desiredLength</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
