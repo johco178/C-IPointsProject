@@ -484,7 +484,7 @@ void playWordle(void) {
 
 
 
-	free(guess);
+	//free(guess);
 	// clean up
 	
 }
@@ -494,7 +494,8 @@ void playWordle(void) {
 
 void set_wordle_mock_dictionary(const char mock_dict[][MAX_wordle_WORD_LENGTH], int size) {
 	for (int i = 0; i < size && i < MAX_wordle_DICTIONARY_SIZE; i++) {
-		strcpy(wordle_dictionary[i], mock_dict[i]);
+		strncpy(wordle_dictionary[i], mock_dict[i], MAX_wordle_WORD_LENGTH - 1);
+		wordle_dictionary[i][MAX_wordle_WORD_LENGTH - 1] = '\0';
 	}
 	wordle_dictionary_size = size;
 }
