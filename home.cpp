@@ -15,7 +15,7 @@
     @brief Function to initialize all games
 */
 void initialize_games(void) {
-    hangman_initialize();
+    hangmanInitialize();
     wordle_initialize();
     // Initialize other games as you add them
 }
@@ -42,7 +42,7 @@ int homescreen(void) {
 
         switch (choice) {
         case 1:
-            hangman_play();
+            hangmanPlay();
             break;
         case 2:
             playWordle();
