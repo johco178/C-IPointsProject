@@ -170,7 +170,7 @@ STATIC void hangmanPlay(void) {
         printf("Enter desired word length (0 for random): ");
         scanf("%d", &desiredLength);
 
-        const char* word = select_word(desiredLength);
+        const char* word = selectWord(desiredLength);
         int wordLength = strlen(word);
 
         int guessed[MAX_WORD_LENGTH] = { 0 };
