@@ -391,22 +391,33 @@ void gamereset() {
 
 void playWordle(void) {
 	gamereset();
+
 	int number = rand();
 	const char* newanswer = get_word(number);
+
+	// clears input buffer
 
 
 	// do the game loop
 	int num_of_guesses = 0;
 	bool correct_guess = false;
-	char* guess = (char*) malloc(6 * sizeof(char));
+	char guess[6];
 
 	while (num_of_guesses < 6 && !correct_guess) {
 		//get guess from user
+
 		char* lettersleft = lettersNotGuessed();
 		printf("\nLetter not guessed yet: %s", lettersleft);
 		printf("\n\nInput a 5-letter word and press enter \n");
+
+
+		int c;
+		while ((c = getchar()) != '\n' && c != EOF);
+		fgets(guess, sizeof(guess), stdin); // Use fgets for safer input
+		guess[strcspn(guess, "\n")] = 0; // Remove newline
+
 		
-		scanf("%s", guess);
+		//scanf("%s", guess);
 		//guess[strcspn(guess, "\n")] = 0;
 
 		
@@ -470,6 +481,8 @@ void playWordle(void) {
 	else {
 		printf("\nNo more guesses... The correct word was %s\n", newanswer);
 	}
+
+
 
 	free(guess);
 	// clean up
