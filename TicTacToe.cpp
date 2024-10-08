@@ -89,6 +89,7 @@ bool checkDraw(){
 */
 void move(char player, string input){
     // Declare local variables
+    bool testing = ((input != "") ? true : false);
     char charRow;
     int col;
     int row;
@@ -106,13 +107,15 @@ void move(char player, string input){
         // Check the input is a possible coordinate
         if(row > (ROWS - 1) || row < 0 || col > (COLS - 1) || col < 0){
             cout << "Invalid row or column" << endl;
-            throw std::invalid_argument("Invalid row or column");
+            if(testing) throw invalid_argument("Invalid row or column");
+            input = "";
             continue;
         }
         // Check the coordinate isn't filled
         if(board[row][col] != ' '){
             cout << "Position already has a value" << endl;
-            throw std::invalid_argument("Position already has a value");
+            if(testing) throw invalid_argument("Position already has a value");
+            input = "";
             continue;
         }
         // Set the boards value to that player
@@ -122,7 +125,7 @@ void move(char player, string input){
 }
 
 /*!
-    @brief Runs the game
+    @brief Plays one instance of TicTacToe
 */
 void playTicTacToe(){
     // Sets player 1 to X
@@ -155,4 +158,25 @@ void playTicTacToe(){
         currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
     }
 
+}
+
+/*!
+    @brief Runs the game
+*/
+void runGame(){
+    char playAgain = 'n';
+    while(true){
+        playTicTacToe();
+        cout << "Would you like to play again? (y/n)" << endl;
+        while(true){
+            cin >> playAgain;
+            if(playAgain != 'y' && playAgain != 'n'){
+                cout << "Please enter a valid input (y/n):" << endl;
+            }
+            else break;
+        }
+
+        if(playAgain == 'n') break;
+        cout << "___________________________________________________________________\n" << endl;
+    }
 }
