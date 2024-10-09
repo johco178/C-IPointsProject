@@ -31,13 +31,27 @@ int homescreen(void) {
     startmusic();
 
     while (1) {
-        printf("\nWelcome to the Game Hub!\n");
-        printf("1. Play Hangman\n");
-        printf("2. Play Wordle\n");
-        printf("3. Secret Number\n");
-        printf("4. Tic-Tac-Toe\n");
-        printf("0. Exit\n");
-        printf("Enter your choice: ");
+        printf("\nWelcome to the Game Hub!\n\n");
+        printf("1. HANGMAN\n\n");
+        printf("    +---+\n    |   |\n    O   |\n   /|\\  |\n   / \\  |\n        |\n  =========\n\n");
+
+        printf("2. WORDLE\n\n");
+        printf("   S _ _ _ _\n");
+        printf("   S _ E A _\n");
+        printf("   S T E A _\n");
+        printf("   S T E A M\n\n");
+
+        printf("3. SECRET NUMBER\n\n");
+
+        printf("4. TICTACTOE\n\n");
+        printf("   X | O | O\n");
+        printf("   ---------\n");
+        printf("   O | X | O\n");
+        printf("   ---------\n");
+        printf("   X | O | X\n\n");
+
+        printf("0. Exit\n\n");
+        printf("Which would you like to play? ");
         scanf("%d", &choice);
 
         switch (choice) {
