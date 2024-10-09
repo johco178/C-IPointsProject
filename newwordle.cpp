@@ -27,8 +27,15 @@
 
 #define ANSI_COLOR_RED     "\x1b[31m"
 #define ANSI_COLOR_GREEN   "\x1b[32m"
-#define ANSI_COLOR_YELLOW  "\x1b[33m"
+#define ANSI_COLOR_BRIGHT_YELLOW  "\x1b[33m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
+
+
+#define ANSI_COLOR_BLUE     "\x1b[34m"
+#define ANSI_COLOR_CYAN     "\x1b[31m"
+#define ANSI_COLOR_MAGENTA     "\x1b[31m"
+
+
 #define MAX_wordle_WORD_LENGTH 100
 #define MAX_wordle_DICTIONARY_SIZE 4695
 
@@ -67,9 +74,15 @@ char letters_left_to_guess[26] = { 'a','b','c','d','e','f','g','h','i','j','k','
 bool has_letter_been_guessed[26] = { false };
 
 const char* const GREEN_FORMAT = ANSI_COLOR_GREEN "%c";
-const char* const YELLOW_FORMAT = ANSI_COLOR_YELLOW "%c";
+const char* const BLUE_FORMAT = ANSI_COLOR_BLUE "%c";
+const char* const YELLOW_FORMAT = ANSI_COLOR_BRIGHT_YELLOW "%c";
 const char* const RED_FORMAT = ANSI_COLOR_RED "%c";
 const char* const RESET_FORMAT = ANSI_COLOR_RESET "%c";
+
+//const char* const BLUE_FORMAT = ANSI_COLOR_BLUE "%c";
+//const char* const YELLOW_FORMAT = ANSI_COLOR_YELLOW "%c";
+//const char* const RED_FORMAT = ANSI_COLOR_RED "%c";
+//const char* const RESET_FORMAT = ANSI_COLOR_RESET "%c";
 
 /*!
 	@brief gets a random 5 letter word from the text file
@@ -340,23 +353,42 @@ STATIC void updateclue(int turn, char* clue, const char* newguess) {
 	@param the users guess
 */
 
-void print_colored_output(char clue[], char guess[]) {
-	for (int i = 0; i < 6; i++) {
-		if (clue[i] == 'G') {
+void print_colored_output(char clue[], char guess[], bool colourblind) {
+	if (!colourblind) {
+		for (int i = 0; i < 6; i++) {
+			if (clue[i] == 'G') {
 
-			std::cout << ANSI_COLOR_GREEN << guess[i] << ANSI_COLOR_RESET;
+				std::cout << ANSI_COLOR_GREEN << guess[i] << ANSI_COLOR_RESET;
+			}
+			else if (clue[i] == 'Y') {
+				std::cout << ANSI_COLOR_BRIGHT_YELLOW << guess[i] << ANSI_COLOR_RESET;
+			}
+			else if (guess[i] == '_') {
+				std::cout << guess[i];
+			}
+			else {
+				std::cout << ANSI_COLOR_RED << guess[i] << ANSI_COLOR_RESET;
+			}
 		}
-		else if (clue[i] == 'Y') {
-			std::cout << ANSI_COLOR_YELLOW << guess[i] << ANSI_COLOR_RESET;
+		std::cout << std::endl;
+	}else {
+		for (int i = 0; i < 6; i++) {
+			if (clue[i] == 'G') {
+
+				std::cout << ANSI_COLOR_BLUE << guess[i] << ANSI_COLOR_RESET;
+			}
+			else if (clue[i] == 'Y') {
+				std::cout << ANSI_COLOR_BRIGHT_YELLOW << guess[i] << ANSI_COLOR_RESET;
+			}
+			else if (guess[i] == '_') {
+				std::cout << guess[i];
+			}
+			else {
+				std::cout << ANSI_COLOR_RESET << guess[i] << ANSI_COLOR_RESET;
+			}
 		}
-		else if (guess[i] == '_') {
-			std::cout << guess[i];
-		}
-		else {
-			std::cout << ANSI_COLOR_RED << guess[i] << ANSI_COLOR_RESET;
-		}
+		std::cout << std::endl;
 	}
-	std::cout << std::endl;
 }
 
 
@@ -381,6 +413,26 @@ void gamereset() {
 
 }
 
+STATIC bool getcolourblindess() {
+	char choice;
+	while (true) {
+
+		scanf_s("%c", &choice);
+
+		if (choice == 'y') {
+			return true;
+		}
+		else if (choice == 'n') {
+			return false;
+		}
+		else {
+			printf("\nAre you colour blind? y/n\n");
+		}
+
+	}
+}
+
+
 
 
 
@@ -390,6 +442,8 @@ void gamereset() {
 */
 
 void playWordle(void) {
+	printf("\n\nWORDLE\n\n");
+	
 	gamereset();
 
 	int number = rand();
@@ -402,6 +456,21 @@ void playWordle(void) {
 	int num_of_guesses = 0;
 	bool correct_guess = false;
 	char guess[6];
+	bool iscolourblind = false;
+	
+	iscolourblind = getcolourblindess();
+
+
+
+
+	print_colored_output(clueone, guessone, iscolourblind);
+	print_colored_output(cluetwo, guesstwo, iscolourblind);
+	print_colored_output(cluethree, guessthree, iscolourblind);
+	print_colored_output(cluefour, guessfour, iscolourblind);
+	print_colored_output(cluefive, guessfive, iscolourblind);
+	print_colored_output(cluesix, guesssix, iscolourblind);
+
+
 
 	while (num_of_guesses < 6 && !correct_guess) {
 		//get guess from user
@@ -460,12 +529,12 @@ void playWordle(void) {
 
 		updateclue(num_of_guesses, clue, newguess);
 
-		print_colored_output(clueone, guessone);
-		print_colored_output(cluetwo, guesstwo);
-		print_colored_output(cluethree, guessthree);
-		print_colored_output(cluefour, guessfour);
-		print_colored_output(cluefive, guessfive);
-		print_colored_output(cluesix, guesssix);
+		print_colored_output(clueone, guessone, iscolourblind);
+		print_colored_output(cluetwo, guesstwo, iscolourblind);
+		print_colored_output(cluethree, guessthree, iscolourblind);
+		print_colored_output(cluefour, guessfour, iscolourblind);
+		print_colored_output(cluefive, guessfive, iscolourblind);
+		print_colored_output(cluesix, guesssix, iscolourblind);
 
 
 
@@ -482,12 +551,28 @@ void playWordle(void) {
 		printf("\nNo more guesses... The correct word was %s\n", newanswer);
 	}
 
+	char choice;
+	while (true) {
+		scanf_s("%c", &choice);
+		if (choice == 'y') {
+			playWordle();
+		}
+		else if (choice == 'n') {
+			return;
+		}
+		else {
+			printf("\nWould you like to play again? y/n\n");
+		}
+
+	}
+}
 
 
 	//free(guess);
 	// clean up
+
 	
-}
+	
 
 // Expose these functions for unit testing
 #ifdef UNIT_TESTING

@@ -110,7 +110,10 @@ void updateclue(int turn, char* clue, const char* newguess);
 	@param the users guess
 */
 
-void print_colored_output(char clue[], char guess[]);
+void print_colored_output(char clue[], char guess[], bool colourblind);
+
+
+bool getcolourblindess();
 
 
 int runwordletests();
