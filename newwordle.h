@@ -115,6 +115,8 @@ void print_colored_output(char clue[], char guess[], bool colourblind);
 
 bool getcolourblindess();
 
+void gamereset();
+
 
 int runwordletests();
 #ifdef UNIT_TESTING
@@ -129,6 +131,7 @@ void set_wordle_mock_dictionary(const char mock_dict[][MAX_wordle_WORD_LENGTH], 
 void updateLettersGuessed(const char* theGuess);
 char* lettersNotGuessed();
 void updateclue(int turn, char* clue, const char* newguess);
+void gamereset();
 
 
 //void resetTestArrays();

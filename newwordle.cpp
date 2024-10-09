@@ -392,7 +392,7 @@ void print_colored_output(char clue[], char guess[], bool colourblind) {
 }
 
 
-void gamereset() {
+STATIC void gamereset() {
 	for (int i = 0; i < 6; i++) {
 		guessone[i] = '_'; clueone[i] = '_';
 		guesstwo[i] = '_'; cluetwo[i] = '_';

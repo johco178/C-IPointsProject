@@ -228,6 +228,38 @@ TEST(updateclue) {
     assert(strcmp(guesssix, "grave") == 0);
 }
 
+
+TEST(gamereset) {
+    memset(clueone, 0, sizeof(clueone));
+    memset(guessone, 0, sizeof(guessone));
+    memset(cluetwo, 0, sizeof(cluetwo));
+    memset(guesstwo, 0, sizeof(guesstwo));
+    memset(cluethree, 0, sizeof(cluethree));
+    memset(guessthree, 0, sizeof(guessthree));
+    memset(cluefour, 0, sizeof(cluefour));
+    memset(guessfour, 0, sizeof(guessfour));
+
+    memset(cluefive, 0, sizeof(cluefive));
+    memset(guessfive, 0, sizeof(guessfive));
+    memset(cluesix, 0, sizeof(cluesix));
+    memset(guesssix, 0, sizeof(guesssix));
+    gamereset();
+    assert(strcmp(clueone, "_____") == 0);
+    assert(strcmp(guessone, "_____") == 0);
+    assert(strcmp(cluetwo, "_____") == 0);
+    assert(strcmp(guesstwo, "_____") == 0);
+    assert(strcmp(cluethree, "_____") == 0);
+    assert(strcmp(guessthree, "_____") == 0);
+    assert(strcmp(cluefour, "_____") == 0);
+    assert(strcmp(guessfour, "_____") == 0);
+    assert(strcmp(cluefive, "_____") == 0);
+    assert(strcmp(guessfive, "_____") == 0);
+    assert(strcmp(cluesix, "_____") == 0);
+    assert(strcmp(guesssix, "_____") == 0);
+
+
+}
+
 /*!
     @brief Main test function to run all tests
 */
@@ -243,6 +275,7 @@ int runwordletests() {
     RUN_TEST(updateLettersGuessed);
     RUN_TEST(lettersNotGuessed);
     RUN_TEST(updateclue);
+    RUN_TEST(gamereset);
 
     printf("All tests passed!\n");
     return 0;
