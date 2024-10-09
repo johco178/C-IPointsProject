@@ -66,6 +66,11 @@ char cluesix[6] = { '_', '_', '_', '_','_', '\0' };
 char letters_left_to_guess[26] = { 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z' };
 bool has_letter_been_guessed[26] = { false };
 
+const char* const GREEN_FORMAT = ANSI_COLOR_GREEN "%c";
+const char* const YELLOW_FORMAT = ANSI_COLOR_YELLOW "%c";
+const char* const RED_FORMAT = ANSI_COLOR_RED "%c";
+const char* const RESET_FORMAT = ANSI_COLOR_RESET "%c";
+
 /*!
 	@brief gets a random 5 letter word from the text file
 	@param number is the index to get the word
@@ -138,7 +143,7 @@ STATIC char* toLowerCase(const char* guess) {
 STATIC bool conatainsonlychar(const char* guess) {
 	bool onlyalpha = false;
 
-	const int length = strlen(guess);
+	const int length = 5;
 	char alphabet[26] = { 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z' };
 	for (int i = 0; i < length; i++) {
 		char letter = guess[i];
@@ -338,20 +343,46 @@ STATIC void updateclue(int turn, char* clue, const char* newguess) {
 void print_colored_output(char clue[], char guess[]) {
 	for (int i = 0; i < 6; i++) {
 		if (clue[i] == 'G') {
-			printf(ANSI_COLOR_GREEN "%c", guess[i]);
+
+			std::cout << ANSI_COLOR_GREEN << guess[i] << ANSI_COLOR_RESET;
 		}
 		else if (clue[i] == 'Y') {
-			printf(ANSI_COLOR_YELLOW "%c", guess[i]);
+			std::cout << ANSI_COLOR_YELLOW << guess[i] << ANSI_COLOR_RESET;
 		}
 		else if (guess[i] == '_') {
-			printf(ANSI_COLOR_RESET "%c", guess[i]);
+			std::cout << guess[i];
 		}
 		else {
-			printf(ANSI_COLOR_RED "%c", guess[i]);
+			std::cout << ANSI_COLOR_RED << guess[i] << ANSI_COLOR_RESET;
 		}
 	}
-	printf(ANSI_COLOR_RESET "\n");
+	std::cout << std::endl;
 }
+
+
+void gamereset() {
+	for (int i = 0; i < 6; i++) {
+		guessone[i] = '_'; clueone[i] = '_';
+		guesstwo[i] = '_'; cluetwo[i] = '_';
+		guessthree[i] = '_'; cluethree[i] = '_';
+		guessfour[i] = '_'; cluefour[i] = '_';
+		guessfive[i] = '_'; cluefive[i] = '_';
+		guesssix[i] = '_'; cluesix[i] = '_';
+	}
+
+	memset(has_letter_been_guessed, false, sizeof(has_letter_been_guessed));
+
+
+	for (int i = 0; i < 26; i++) {
+		letters_left_to_guess[i] = 'a' + i;
+	}
+
+
+
+}
+
+
+
 
 
 /*!
@@ -359,34 +390,54 @@ void print_colored_output(char clue[], char guess[]) {
 */
 
 void playWordle(void) {
+	gamereset();
+
 	int number = rand();
 	const char* newanswer = get_word(number);
+
+	// clears input buffer
 
 
 	// do the game loop
 	int num_of_guesses = 0;
 	bool correct_guess = false;
-	char* guess = (char*) malloc(6 * sizeof(char));
+	char guess[6];
 
 	while (num_of_guesses < 6 && !correct_guess) {
 		//get guess from user
+
 		char* lettersleft = lettersNotGuessed();
 		printf("\nLetter not guessed yet: %s", lettersleft);
-
 		printf("\n\nInput a 5-letter word and press enter \n");
-		scanf("%s", guess);
+
+
+		int c;
+		while ((c = getchar()) != '\n' && c != EOF);
+		fgets(guess, sizeof(guess), stdin); // Use fgets for safer input
+		guess[strcspn(guess, "\n")] = 0; // Remove newline
+
+		
+		//scanf("%s", guess);
+		//guess[strcspn(guess, "\n")] = 0;
+
+		
+	
+
 
 		char* newguess = toLowerCase(guess);
+
+
 		
 		if (!conatainsonlychar(newguess)) {
-			printf("Guess contains an non letter, try again.");
+			printf("Guess contains a non letter, try again.");
 			continue;
 		}
-
 		if (!correctlength(newguess)) {
 			printf("Word inputted was not the correct length. Try Agian");
 			continue;
 		}
+
+
 
 
 		if (!validWord(newguess)) {
@@ -432,9 +483,10 @@ void playWordle(void) {
 	}
 
 
-	// clean up
-	free(guess);
 
+	//free(guess);
+	// clean up
+	
 }
 
 // Expose these functions for unit testing
@@ -442,7 +494,8 @@ void playWordle(void) {
 
 void set_wordle_mock_dictionary(const char mock_dict[][MAX_wordle_WORD_LENGTH], int size) {
 	for (int i = 0; i < size && i < MAX_wordle_DICTIONARY_SIZE; i++) {
-		strcpy(wordle_dictionary[i], mock_dict[i]);
+		strncpy(wordle_dictionary[i], mock_dict[i], MAX_wordle_WORD_LENGTH - 1);
+		wordle_dictionary[i][MAX_wordle_WORD_LENGTH - 1] = '\0';
 	}
 	wordle_dictionary_size = size;
 }

@@ -26,155 +26,155 @@
 } while (0)
 
 // Mock dictionary for testing
-static const char mock_dictionary[3][MAX_WORD_LENGTH] = { "APPLE", "BANANA", "CHERRY" };
-static const int mock_dictionary_size = 3;
+static const char mockDictionary[3][MAX_WORD_LENGTH] = { "APPLE", "BANANA", "CHERRY" };
+static const int mockDictionarySize = 3;
 
 /*!
     @brief Test for word selection function
 */
-TEST(select_word) {
-    set_mock_dictionary(mock_dictionary, mock_dictionary_size);
+TEST(selectWord) {
+    setMockDictionary(mockDictionary, mockDictionarySize);
 
-    char* word = select_word(0);
+    char* word = selectWord(0);
     assert(word != NULL);
     assert(strcmp(word, "APPLE") == 0 || strcmp(word, "BANANA") == 0 || strcmp(word, "CHERRY") == 0);
 
-    word = select_word(5);
+    word = selectWord(5);
     assert(strcmp(word, "APPLE") == 0);
 
-    word = select_word(6);
+    word = selectWord(6);
     assert(strcmp(word, "BANANA") == 0 || strcmp(word, "CHERRY") == 0);
 
-    word = select_word(10);
+    word = selectWord(10);
     assert(word != NULL);
 }
 
 /*!
     @brief Test to check correct guess
 */
-TEST(is_word_guessed) {
+TEST(isWordGuessed) {
     int guessed1[] = { 1, 1, 1, 1, 1 };
-    assert(is_word_guessed(guessed1, 5) == 1);
+    assert(isWordGuessed(guessed1, 5) == 1);
 
     int guessed2[] = { 1, 1, 0, 1, 1 };
-    assert(is_word_guessed(guessed2, 5) == 0);
+    assert(isWordGuessed(guessed2, 5) == 0);
 
     int guessed3[] = { 0, 0, 0, 0, 0 };
-    assert(is_word_guessed(guessed3, 5) == 0);
+    assert(isWordGuessed(guessed3, 5) == 0);
 }
 
 /*!
     @brief Test for convertion to uppercase method
 */
-TEST(to_uppercase) {
+TEST(toUppercase) {
     char word[] = "Hello, World!";
-    to_uppercase(word);
+    toUppercase(word);
     assert(strcmp(word, "HELLO, WORLD!") == 0);
 
-    char already_upper[] = "UPPERCASE";
-    to_uppercase(already_upper);
-    assert(strcmp(already_upper, "UPPERCASE") == 0);
+    char alreadyUpper[] = "UPPERCASE";
+    toUppercase(alreadyUpper);
+    assert(strcmp(alreadyUpper, "UPPERCASE") == 0);
 
     char empty[] = "";
-    to_uppercase(empty);
+    toUppercase(empty);
     assert(strcmp(empty, "") == 0);
 }
 
 /*!
     @brief Test for letter checking method
 */
-TEST(is_letter_in_word) {
-    assert(is_letter_in_word('A', "APPLE") == true);
-    assert(is_letter_in_word('Z', "APPLE") == false);
-    assert(is_letter_in_word('E', "HELLO") == true);
-    assert(is_letter_in_word('X', "") == false);
+TEST(isLetterInWord) {
+    assert(isLetterInWord('A', "APPLE") == true);
+    assert(isLetterInWord('Z', "APPLE") == false);
+    assert(isLetterInWord('E', "HELLO") == true);
+    assert(isLetterInWord('X', "") == false);
 }
 
 /*!
     @brief Test for dictionary loading method
 */
-TEST(load_dictionary) {
-    const char* temp_filename = "temp_dictionary.txt";
-    FILE* temp_file;
+TEST(loadDictionary) {
+    const char* tempFilename = "temp_dictionary.txt";
+    FILE* tempFile;
     int result;
-    char test_dictionary[MAX_DICTIONARY_SIZE][MAX_WORD_LENGTH];
+    char testDictionary[MAX_DICTIONARY_SIZE][MAX_WORD_LENGTH];
 
     // Test 1: Loading a non-existent file
-    result = load_dictionary("non_existent_file.txt", test_dictionary, MAX_DICTIONARY_SIZE);
+    result = loadDictionary("non_existent_file.txt", testDictionary, MAX_DICTIONARY_SIZE);
     assert(result <= 0);
 
     // Test 2: Loading a valid file with various word lengths
-    temp_file = fopen(temp_filename, "w");
-    assert(temp_file != NULL);
-    fprintf(temp_file, "apple\nBANANA\nCherry\ndate\nEGGPLANT\n");
-    fclose(temp_file);
+    tempFile = fopen(tempFilename, "w");
+    assert(tempFile != NULL);
+    fprintf(tempFile, "apple\nBANANA\nCherry\ndate\nEGGPLANT\n");
+    fclose(tempFile);
 
-    result = load_dictionary(temp_filename, test_dictionary, MAX_DICTIONARY_SIZE);
+    result = loadDictionary(tempFilename, testDictionary, MAX_DICTIONARY_SIZE);
     assert(result == 5);
-    assert(strcmp(test_dictionary[0], "APPLE") == 0);
-    assert(strcmp(test_dictionary[1], "BANANA") == 0);
-    assert(strcmp(test_dictionary[2], "CHERRY") == 0);
-    assert(strcmp(test_dictionary[3], "DATE") == 0);
-    assert(strcmp(test_dictionary[4], "EGGPLANT") == 0);
+    assert(strcmp(testDictionary[0], "APPLE") == 0);
+    assert(strcmp(testDictionary[1], "BANANA") == 0);
+    assert(strcmp(testDictionary[2], "CHERRY") == 0);
+    assert(strcmp(testDictionary[3], "DATE") == 0);
+    assert(strcmp(testDictionary[4], "EGGPLANT") == 0);
 
     // Test 3: Loading a file with a word at MAX_WORD_LENGTH
-    temp_file = fopen(temp_filename, "w");
-    assert(temp_file != NULL);
+    tempFile = fopen(tempFilename, "w");
+    assert(tempFile != NULL);
     for (int i = 0; i < MAX_WORD_LENGTH - 1; i++) {
-        fprintf(temp_file, "a");
+        fprintf(tempFile, "a");
     }
-    fprintf(temp_file, "\n");
-    fclose(temp_file);
+    fprintf(tempFile, "\n");
+    fclose(tempFile);
 
-    result = load_dictionary(temp_filename, test_dictionary, MAX_DICTIONARY_SIZE);
+    result = loadDictionary(tempFilename, testDictionary, MAX_DICTIONARY_SIZE);
     assert(result >= 1);
-    assert(strlen(test_dictionary[0]) == MAX_WORD_LENGTH - 1);
+    assert(strlen(testDictionary[0]) == MAX_WORD_LENGTH - 1);
 
     // Test 4: Loading a file with more words than MAX_DICTIONARY_SIZE
-    temp_file = fopen(temp_filename, "w");
-    assert(temp_file != NULL);
+    tempFile = fopen(tempFilename, "w");
+    assert(tempFile != NULL);
     for (int i = 0; i < MAX_DICTIONARY_SIZE + 10; i++) {
-        fprintf(temp_file, "word%d\n", i);
+        fprintf(tempFile, "word%d\n", i);
     }
-    fclose(temp_file);
+    fclose(tempFile);
 
-    result = load_dictionary(temp_filename, test_dictionary, MAX_DICTIONARY_SIZE);
+    result = loadDictionary(tempFilename, testDictionary, MAX_DICTIONARY_SIZE);
     assert(result == MAX_DICTIONARY_SIZE);
 
     // Test 5: Loading an empty file
-    temp_file = fopen(temp_filename, "w");
-    assert(temp_file != NULL);
-    fclose(temp_file);
+    tempFile = fopen(tempFilename, "w");
+    assert(tempFile != NULL);
+    fclose(tempFile);
 
-    result = load_dictionary(temp_filename, test_dictionary, MAX_DICTIONARY_SIZE);
+    result = loadDictionary(tempFilename, testDictionary, MAX_DICTIONARY_SIZE);
     assert(result == 0);
 
     // Clean up
-    remove(temp_filename);
+    remove(tempFilename);
 }
 
 /*!
     @brief Test for main play function
 */
-TEST(hangman_play) {
+TEST(hangmanPlay) {
     // Mock dictionary setup (keep as is)
-    const char mock_dict[][MAX_WORD_LENGTH] = {
+    const char mockDict[][MAX_WORD_LENGTH] = {
         "APPLE",
         "BANANA",
         "CHERRY",
         "ORANGE"
     };
-    int mock_dict_size = sizeof(mock_dict) / sizeof(mock_dict[0]);
-    set_mock_dictionary(mock_dict, mock_dict_size);
+    int mockDictSize = sizeof(mockDict) / sizeof(mockDict[0]);
+    setMockDictionary(mockDict, mockDictSize);
 
     // Prepare input file
-    FILE* temp_input = fopen("temp_input.txt", "w");
-    if (temp_input == NULL) {
+    FILE* tempInput = fopen("temp_input.txt", "w");
+    if (tempInput == NULL) {
         perror("Error opening temp_input.txt");
         return;
     }
-    fprintf(temp_input, "5\nA\nP\nL\nE\nY\n2\n");
-    fclose(temp_input);
+    fprintf(tempInput, "5\nA\nP\nL\nE\nY\n2\n");
+    fclose(tempInput);
 
     // Redirect stdin and stdout
     if (freopen("temp_input.txt", "r", stdin) == NULL) {
@@ -187,23 +187,23 @@ TEST(hangman_play) {
     }
 
     // Run the game
-    hangman_play();
+    hangmanPlay();
 
     // Close the redirected streams
     fclose(stdin);
     fclose(stdout);
 
     // Verify output
-    FILE* temp_output = fopen("temp_output.txt", "r");
-    if (temp_output == NULL) {
+    FILE* tempOutput = fopen("temp_output.txt", "r");
+    if (tempOutput == NULL) {
         perror("Error opening temp_output.txt");
         return;
     }
 
     char output[1000];  // Increased buffer size
-    size_t bytes_read = fread(output, 1, sizeof(output) - 1, temp_output);
-    output[bytes_read] = '\0';
-    fclose(temp_output);
+    size_t bytesRead = fread(output, 1, sizeof(output) - 1, tempOutput);
+    output[bytesRead] = '\0';
+    fclose(tempOutput);
 
     // Check if the output contains expected strings
     assert(strstr(output, "Welcome to Hangman!") != NULL);
@@ -218,12 +218,12 @@ TEST(hangman_play) {
 void hangmanTests() {
     printf("Running Hangman unit tests...\n");
 
-    RUN_TEST(load_dictionary);
-    RUN_TEST(select_word);
-    RUN_TEST(is_word_guessed);
-    RUN_TEST(to_uppercase);
-    RUN_TEST(is_letter_in_word);
-    //RUN_TEST(hangman_play);
+    RUN_TEST(loadDictionary);
+    RUN_TEST(selectWord);
+    RUN_TEST(isWordGuessed);
+    RUN_TEST(toUppercase);
+    RUN_TEST(isLetterInWord);
+    RUN_TEST(hangmanPlay);
 
 
     printf("All tests passed!\n");
