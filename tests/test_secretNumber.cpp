@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <ctype.h>
-#include "secretNumber.h" // Include the header file
+#include "../secretNumber.h" // Include the header file
 
 // Function to run all tests
 void runTests();

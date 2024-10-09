@@ -25,11 +25,11 @@ set(MAIN_SOURCES
 
 # Test source files
 set(TEST_SOURCES
-    runAllTest.cpp
-    test_hangman.cpp
-    test_newwordle.cpp
-    test_tictactoe.cpp
-    secretNumTests.cpp
+    ./tests/runAllTest.cpp
+    ./tests/test_hangman.cpp
+    ./tests/test_newwordle.cpp
+    ./tests/test_tictactoe.cpp
+    ./tests/test_secretNumber.cpp
 )
 
 # Add main executable

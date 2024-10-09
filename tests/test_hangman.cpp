@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <assert.h>
-#include "hangman.h"
+#include "../hangman.h"
 #include <sstream>
 #include <iostream>
 #include <string>

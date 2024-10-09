@@ -1,4 +1,4 @@
-#include "TicTacToe.h"
+#include "../TicTacToe.h"
 
 int runttttests();
 void test_initBoard();
