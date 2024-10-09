@@ -156,9 +156,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>playWordle</b> (void)
 <tr class="memitem:a9a885d80d11ca9f55de43a66aefbdcd2" id="r_a9a885d80d11ca9f55de43a66aefbdcd2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a885d80d11ca9f55de43a66aefbdcd2">updateclue</a> (int turn, char *clue, const char *newguess)</td></tr>
 <tr class="memdesc:a9a885d80d11ca9f55de43a66aefbdcd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">a method for storing previous guesses and clues to be diplayed later  <br /></td></tr>
 <tr class="separator:a9a885d80d11ca9f55de43a66aefbdcd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16ed7027e03ee215dcc09b15359ac0a9" id="r_a16ed7027e03ee215dcc09b15359ac0a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16ed7027e03ee215dcc09b15359ac0a9">print_colored_output</a> (char clue[], char guess[])</td></tr>
-<tr class="memdesc:a16ed7027e03ee215dcc09b15359ac0a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">prints the game  <br /></td></tr>
-<tr class="separator:a16ed7027e03ee215dcc09b15359ac0a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc010995d0958c735ed25be134d7897e" id="r_acc010995d0958c735ed25be134d7897e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc010995d0958c735ed25be134d7897e">print_colored_output</a> (char clue[], char guess[], bool colourblind)</td></tr>
+<tr class="memdesc:acc010995d0958c735ed25be134d7897e"><td class="mdescLeft">&#160;</td><td class="mdescRight">prints the game  <br /></td></tr>
+<tr class="separator:acc010995d0958c735ed25be134d7897e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a579642e7a7bdd69c0fec687cd2866034" id="r_a579642e7a7bdd69c0fec687cd2866034"><td class="memItemLeft" align="right" valign="top"><a id="a579642e7a7bdd69c0fec687cd2866034" name="a579642e7a7bdd69c0fec687cd2866034"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>getcolourblindess</b> ()</td></tr>
+<tr class="separator:a579642e7a7bdd69c0fec687cd2866034"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91515e0294fb9e3595be97314d5374b9" id="r_a91515e0294fb9e3595be97314d5374b9"><td class="memItemLeft" align="right" valign="top"><a id="a91515e0294fb9e3595be97314d5374b9" name="a91515e0294fb9e3595be97314d5374b9"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>runwordletests</b> ()</td></tr>
 <tr class="separator:a91515e0294fb9e3595be97314d5374b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -332,8 +335,8 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>cluesix</b> [6]</td><
 
 </div>
 </div>
-<a id="a16ed7027e03ee215dcc09b15359ac0a9" name="a16ed7027e03ee215dcc09b15359ac0a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16ed7027e03ee215dcc09b15359ac0a9">&#9670;&#160;</a></span>print_colored_output()</h2>
+<a id="acc010995d0958c735ed25be134d7897e" name="acc010995d0958c735ed25be134d7897e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc010995d0958c735ed25be134d7897e">&#9670;&#160;</a></span>print_colored_output()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -346,7 +349,12 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>cluesix</b> [6]</td><
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>guess</em></span>[]&#160;)</td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>guess</em></span>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>colourblind</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
