@@ -40,6 +40,11 @@ bool checkDraw();
 void move(char player, string input);
 
 /*!
-    @brief Runs the game
+    @brief Plays one instance of TicTacToe
 */
 void playTicTacToe();
+
+/*!
+    @brief Runs the game
+*/
+void runGame();

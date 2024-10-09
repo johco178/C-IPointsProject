@@ -1,7 +1,7 @@
-#include "hangman.h"
-#include "newwordle.h"
+#include "../hangman.h"
+#include "../newwordle.h"
 #include "test_tictactoe.h"
-#include "secretNumber.h"
+#include "../secretNumber.h"
 
 int main() {
 	runwordletests();

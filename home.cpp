@@ -51,7 +51,7 @@ int homescreen(void) {
             secretNumberStart();
             break;
         case 4:
-            playTicTacToe();
+            runGame();
             break;
         case 0:
             printf("Thank you for playing. Goodbye!\n");
