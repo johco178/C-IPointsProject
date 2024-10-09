@@ -6,7 +6,6 @@ var searchData=
   ['playwordle_3',['playWordle',['../newwordle_8h.html#ad2bee05444b1c1bcf1de4b58cb9d4935',1,'newwordle.cpp']]],
   ['print_5fcolored_5foutput_4',['print_colored_output',['../newwordle_8h.html#a16ed7027e03ee215dcc09b15359ac0a9',1,'newwordle.cpp']]],
   ['printhangman_5',['printHangman',['../hangman_8cpp.html#a9aa09b5014ad51f48c198c9ed4926fec',1,'hangman.cpp']]],
-  ['printtestresult_6',['printTestResult',['../secretNumTests_8cpp.html#ad410ee6538cd090b9669a4727caf927d',1,'secretNumTests.cpp']]],
-  ['printword_7',['printWord',['../hangman_8cpp.html#aeb646a8f33d77a74acfae9d9f7df4b59',1,'hangman.cpp']]],
-  ['processguess_8',['processGuess',['../newwordle_8h.html#a11d73c9e69f098e07992a5c8706fe43a',1,'newwordle.cpp']]]
+  ['printword_6',['printWord',['../hangman_8cpp.html#aeb646a8f33d77a74acfae9d9f7df4b59',1,'hangman.cpp']]],
+  ['processguess_7',['processGuess',['../newwordle_8h.html#a11d73c9e69f098e07992a5c8706fe43a',1,'newwordle.cpp']]]
 ];
