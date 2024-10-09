@@ -45,7 +45,7 @@ char getDifficulty(char difficulty, const char* mockInput = NULL, int mockInputS
     if (difficulty == ' ' && mockInput && mockIndex < mockInputSize) {
         difficulty = mockInput[mockIndex++];
     } else if (difficulty == ' ') {
-        printf("Choose difficulty level (e: easy, m: medium, h: hard): ");
+        printf("Choose difficulty level (e: easy, m: medium, h: hard, c: challenging): ");
         scanf(" %c", &difficulty); // assign the value of scanning a character from the user input
     }
 
@@ -133,14 +133,18 @@ void play(char difficulty){
     if (difficulty == 'e'){
         lowerBound = 1; 
         upperBound = 10;
-        maxAttempts = 10;
+        maxAttempts = 5;
     } else if (difficulty == 'm'){
         lowerBound = 1; 
         upperBound = 50;
-        maxAttempts = 20;
+        maxAttempts = 10;
     } else if (difficulty == 'h'){
         lowerBound = 1; 
         upperBound = 100;
+        maxAttempts = 10;
+    }else if (difficulty == 'c'){
+        lowerBound = 1; 
+        upperBound = 1000;
         maxAttempts = 10;
     }
     //Gets a secret number
