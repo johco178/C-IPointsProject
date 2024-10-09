@@ -417,7 +417,7 @@ STATIC bool getcolourblindess() {
 	char choice;
 	while (true) {
 
-		scanf_s("%c", &choice);
+		scanf("%c", &choice);
 
 		if (choice == 'y') {
 			return true;
@@ -553,7 +553,7 @@ void playWordle(void) {
 
 	char choice;
 	while (true) {
-		scanf_s("%c", &choice);
+		scanf("%c", &choice);
 		if (choice == 'y') {
 			playWordle();
 		}
