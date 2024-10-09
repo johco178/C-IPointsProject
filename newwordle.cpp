@@ -402,6 +402,15 @@ STATIC void gamereset() {
 		guesssix[i] = '_'; cluesix[i] = '_';
 	}
 
+	// Null-terminate the strings
+	guessone[5] = '\0'; clueone[5] = '\0';
+	guesstwo[5] = '\0'; cluetwo[5] = '\0';
+	guessthree[5] = '\0'; cluethree[5] = '\0';
+	guessfour[5] = '\0'; cluefour[5] = '\0';
+	guessfive[5] = '\0'; cluefive[5] = '\0';
+	guesssix[5] = '\0'; cluesix[5] = '\0';
+
+
 	memset(has_letter_been_guessed, false, sizeof(has_letter_been_guessed));
 
 
