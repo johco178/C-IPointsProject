@@ -58,6 +58,7 @@
 #include "secretNumber.h"
 #include "hangman.h"
 #include "newwordle.h"
+#include "TicTacToe.h"
 
 
 int homescreen(void);

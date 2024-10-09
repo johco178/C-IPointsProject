@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <assert.h>
-#include "newwordle.h"
+#include "../newwordle.h"
 
 
 // Wordle test

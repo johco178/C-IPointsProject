@@ -23,7 +23,7 @@
 /*!
 	 @brief Initializes the hangman game
 */
-void hangman_initialize(void);
+void hangmanInitialize(void);
 
 
 /*!
@@ -32,7 +32,7 @@ void hangman_initialize(void);
 	 @param word The word to check
 	 @return 1 if the letter is in the word, 0 otherwise
 */
-bool is_letter_in_word(char letter, const char* word);
+bool isLetterInWord(char letter, const char* word);
 
 /*!
 	 @brief Hangman unit tests
@@ -45,14 +45,14 @@ void hangmanTests();
 /*!
 	 @brief Plays the hangman game
 */
-void hangman_play(void);
+void hangmanPlay(void);
 /*!
 	 @brief Selects a word from the dictionary based on the desired length
 	 @param desired_length The desired length of the word
 	 @return A pointer to the selected word
 
 */
-char* select_word(int desired_length);
+char* selectWord(int desiredLength);
 /*!
 	 @brief Checks if a word has been guessed
 	 @param guessed An array of integers representing the guessed letters
@@ -60,27 +60,27 @@ char* select_word(int desired_length);
 	 @return 1 if the word has been guessed, 0 otherwise
 
 */
-int is_word_guessed(const int* guessed, int length);
+int isWordGuessed(const int* guessed, int length);
 /*!
 	 @brief Converts a string to uppercase
 	 @param str The string to convert to uppercase
 
 */
-void to_uppercase(char* str);
+void toUppercase(char* str);
 /*!
 	 @brief Sets the mock dictionary for testing
 	 @param mock_dict The mock dictionary
 	 @param size The size of the mock dictionary
 
 */
-void set_mock_dictionary(const char mock_dict[][MAX_WORD_LENGTH], int size);
+void setMockDictionary(const char mockDict[][MAX_WORD_LENGTH], int size);
 /*!
 	 @brief Loads the dictionary from a file
 	 @param filename The name of the file to load
 	 @return 1 if the dictionary was loaded successfully, 0 otherwise
 
 */
-int load_dictionary(const char* filename, char dictionary[][MAX_WORD_LENGTH], int max_size);
+int loadDictionary(const char* filename, char dictionary[][MAX_WORD_LENGTH], int maxSize);
 #endif
 
 #endif // HANGMAN_H
