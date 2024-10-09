@@ -9,6 +9,7 @@
 #include "newwordle.h"
 #include "TicTacToe.h"
 #include "startmusic.h"
+
 // Include headers for other games as you add them
 
 /*!
@@ -17,6 +18,7 @@
 void initialize_games(void) {
     hangman_initialize();
     wordle_initialize();
+
     // Initialize other games as you add them
 }
 

@@ -71,6 +71,8 @@ if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/wordlength5.txt")
 endif()
 
 
+
+
 # Enable testing
 enable_testing()
 
