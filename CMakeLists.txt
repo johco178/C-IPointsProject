@@ -66,11 +66,6 @@ foreach(FILE_TO_COPY dictionary.txt wordlength5.txt playAudio.py music.wav)
     endif()
 endforeach()
 
-# Copy Python script to build directory
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/playAudio.py
-               ${CMAKE_BINARY_DIR}/playAudio.py
-               COPYONLY)
-
 # Enable testing
 enable_testing()
 

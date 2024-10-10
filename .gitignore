@@ -413,3 +413,9 @@ out/
 *.gcno
 *.gcda
 *.gcov
+
+# Dont ignore these
+!dictionary.txt
+!wordlength5.txt
+!playAudio.py
+!music.wav

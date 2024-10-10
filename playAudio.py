@@ -2,6 +2,7 @@ import sys
 import time
 import os
 
+#Comment
 def log_message(message):
     with open("python_debug.log", "a") as log_file:
         log_file.write(f"{message}\n")
