@@ -161,14 +161,16 @@ void hangmanInitialize(void) {
 /*!
     @brief Plays the hangman game
 */
-
 STATIC void hangmanPlay(void) {
     int playAgain = 1;
 
     do {
         int desiredLength;
         printf("Enter desired word length (0 for random): ");
-        scanf("%d", &desiredLength);
+        if (scanf("%d", &desiredLength) != 1) {
+            printf("Invalid input. Exiting game.\n");
+            return;
+        }
 
         const char* word = selectWord(desiredLength);
         int wordLength = strlen(word);
@@ -198,7 +200,10 @@ STATIC void hangmanPlay(void) {
             }
 
             printf("Guess a letter: ");
-            scanf(" %c", &guess);
+            if (scanf(" %c", &guess) != 1) {
+                printf("Invalid input. Exiting game.\n");
+                return;
+            }
             guess = toupper(guess);
 
             if (!isalpha(guess)) {
@@ -246,23 +251,23 @@ STATIC void hangmanPlay(void) {
             printf("1. Yes\n");
             printf("2. No\n");
             printf("Enter your choice (1 or 2): ");
-            
+
             if (scanf("%d", &choice) != 1) {
-				while (getchar() != '\n'){}
+                while (getchar() != '\n') {}
                 printf("Invalid choice. Please enter 1 or 2.\n");
                 choice = 0;
-			} else if (choice != 1 && choice != 2) {
+            }
+            else if (choice != 1 && choice != 2) {
                 printf("Invalid choice. Please enter 1 or 2.\n");
             }
         } while (choice != 1 && choice != 2);
 
         playAgain = (choice == 1);
 
-        } while (playAgain);
+    } while (playAgain);
 
     printf("Thanks for playing Hangman!\n");
-    }
-
+}
 // Expose these functions for unit testing
 #ifdef UNIT_TESTING
 void setMockDictionary(const char mockDict[][MAX_WORD_LENGTH], int size) {

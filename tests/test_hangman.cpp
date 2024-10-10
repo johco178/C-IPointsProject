@@ -157,7 +157,7 @@ TEST(loadDictionary) {
     @brief Test for main play function
 */
 TEST(hangmanPlay) {
-    // Mock dictionary setup (keep as is)
+    // Mock dictionary setup
     const char mockDict[][MAX_WORD_LENGTH] = {
         "APPLE",
         "BANANA",
@@ -173,47 +173,59 @@ TEST(hangmanPlay) {
         perror("Error opening temp_input.txt");
         return;
     }
-    fprintf(tempInput, "5\nA\nP\nL\nE\nY\n2\n");
+    fprintf(tempInput, "5\nA\nP\nL\nE\n2\n");
     fclose(tempInput);
 
     // Redirect stdin and stdout
-    if (freopen("temp_input.txt", "r", stdin) == NULL) {
+    FILE* originalStdin = stdin;
+    FILE* originalStdout = stdout;
+
+    stdin = fopen("temp_input.txt", "r");
+    if (stdin == NULL) {
         perror("Error redirecting stdin");
         return;
     }
-    if (freopen("temp_output.txt", "w", stdout) == NULL) {
-        perror("Error redirecting stdout");
+
+    FILE* tempOutput = fopen("temp_output.txt", "w");
+    if (tempOutput == NULL) {
+        perror("Error opening temp_output.txt");
+        fclose(stdin);
+        stdin = originalStdin;
         return;
     }
+    stdout = tempOutput;
 
     // Run the game
     hangmanPlay();
 
-    // Close the redirected streams
+    // Restore stdin and stdout
     fclose(stdin);
     fclose(stdout);
+    stdin = originalStdin;
+    stdout = originalStdout;
 
     // Verify output
-    FILE* tempOutput = fopen("temp_output.txt", "r");
-    if (tempOutput == NULL) {
+    FILE* outputFile = fopen("temp_output.txt", "r");
+    if (outputFile == NULL) {
         perror("Error opening temp_output.txt");
         return;
     }
 
     char output[1000];  // Increased buffer size
-    size_t bytesRead = fread(output, 1, sizeof(output) - 1, tempOutput);
+    size_t bytesRead = fread(output, 1, sizeof(output) - 1, outputFile);
     output[bytesRead] = '\0';
-    fclose(tempOutput);
+    fclose(outputFile);
 
     // Check if the output contains expected strings
     assert(strstr(output, "Welcome to Hangman!") != NULL);
     assert(strstr(output, "Word: _ _ _ _ _") != NULL);
+    assert(strstr(output, "Congratulations!") != NULL);
+    assert(strstr(output, "Thanks for playing Hangman!") != NULL);
 
     // Clean up
     remove("temp_input.txt");
     remove("temp_output.txt");
 }
-
 
 void hangmanTests() {
     printf("Running Hangman unit tests...\n");
