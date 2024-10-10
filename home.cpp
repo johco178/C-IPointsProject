@@ -66,7 +66,7 @@ int homescreen(void) {
         printf("   X | O | X\n\n");
 
         printf("0. Exit\n\n");
-        printf("Which would you like to play? ");
+        printf("Please select an option by inputting the number and pressing enter: ");
         scanf("%d", &choice);
 
         switch (choice) {

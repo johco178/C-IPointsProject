@@ -249,9 +249,7 @@ void secretNumberStart() {
 
     //Asks the user if they want to play again, loops until they don't
     while (playAgain(' ')) {
-        printf("Choose difficulty level (e: easy, m: medium, h: hard, c: challenging): ");
-        scanf(" %c", &difficulty);//assign the value of scanning a character from the user input
-        difficulty = tolower(difficulty);//converts the input to lowercase incase of valid uppercase input
+        difficulty = getDifficulty(' ');
         play(difficulty);//plays the game with specified difficulty
     }
 }
