@@ -223,7 +223,7 @@ void hangmanTests() {
     RUN_TEST(isWordGuessed);
     RUN_TEST(toUppercase);
     RUN_TEST(isLetterInWord);
-    //RUN_TEST(hangmanPlay);
+    RUN_TEST(hangmanPlay);
 
 
     printf("All tests passed!\n");
