@@ -208,7 +208,7 @@ bool validPlayAgain(char playAgain) {
 bool playAgain(char playAgain) {
     bool isValid;
     if(playAgain == ' '){
-        printf("\nWould you like to play The Secret Number game again? \nPlease enter 'y' to play again or 'n' to exit to the game menu: ");
+        printf("\nWould you like to play again?  \nPlease enter 'y' to play again or 'n' to exit to the game menu: ");
         scanf(" %c", &playAgain); //assign the value of scanning a character from the user input
     }
     

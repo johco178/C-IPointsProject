@@ -570,7 +570,7 @@ void playWordle(void) {
 			return;
 		}
 		else {
-			printf("\nWould you like to play again? y/n\n");
+			printf("\nWould you like to play again?  \nPlease enter 'y' to play again or 'n' to exit to the game menu:\n");
 		}
 
 	}
