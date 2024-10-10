@@ -33,9 +33,26 @@ extern char cluesix[6];
 
 
 
+/*!
+	@brief Initializes the Wordle game
+
+*/
 void wordle_initialize(void);
 
+/*!
+	@brief gets a random 5 letter word from the text file
+	@param number is the index to get the word
+	@return the word at that index.
+*/
+
 char* get_word(int desiredength);
+
+/*!
+	@brief Loads the wordlength5 from a file
+	@param filename The name of the file to load
+	@return 1 if the text file was loaded successfully, 0 otherwise
+*/
+
 
 int load_all_5letter_words(const char* filename);
 
@@ -113,7 +130,16 @@ void updateclue(int turn, char* clue, const char* newguess);
 void print_colored_output(char clue[], char guess[], bool colourblind);
 
 
+/*!
+	@brief ask the user if they are colour blind or not
+	@return true if user is  colour blind and false if they are not.
+*/
+
 bool getcolourblindess();
+
+/*!
+	@brief resets the games
+*/
 
 void gamereset();
 
