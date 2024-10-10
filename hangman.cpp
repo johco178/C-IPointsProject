@@ -245,27 +245,37 @@ STATIC void hangmanPlay(void) {
         printHangman(tries);
 
         // Prompt for playing again
-        int choice;
+        char choice;
+        int valid_input;
         do {
-            printf("\nDo you want to play again?\n");
-            printf("1. Yes\n");
-            printf("2. No\n");
-            printf("Enter your choice (1 or 2): ");
+            printf("\nDo you want to play again? (y/n): ");
+            valid_input = 0;
+            char line[256];
+            if (fgets(line, sizeof(line), stdin)) {
+                // Remove newline character if present
+                line[strcspn(line, "\n")] = 0;
 
-            if (scanf("%d", &choice) != 1) {
-                while (getchar() != '\n') {}
-                printf("Invalid choice. Please enter 1 or 2.\n");
-                choice = 0;
+                if (strlen(line) == 1) {
+                    choice = tolower(line[0]);
+                    if (choice == 'y' || choice == 'n') {
+                        valid_input = 1;
+                    }
+                    else {
+                        printf("Invalid choice. Please enter only y or n.\n");
+                    }
+                }
+                else {
+                    printf("Invalid input. Please enter only a single character y or n.\n");
+                }
             }
-            else if (choice != 1 && choice != 2) {
-                printf("Invalid choice. Please enter 1 or 2.\n");
+            else {
+                printf("Error reading input. Exiting game.\n");
+                return;
             }
-        } while (choice != 1 && choice != 2);
+        } while (!valid_input);
 
-        playAgain = (choice == 1);
-
+        playAgain = (choice == 'y');
     } while (playAgain);
-
     printf("Thanks for playing Hangman!\n");
 }
 // Expose these functions for unit testing
