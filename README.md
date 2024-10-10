@@ -5,7 +5,7 @@ The user can play this game from the windows command terminal.
 
 
 # Badges
-![GitHub Workflow Status](https://github.com/johco178/C-IPointsProject/actions/workflows/cmake-single-platform.yml/badge.svg)
+![GitHub Workflow Status](https://github.com/johco178/C-IPointsProject/actions/workflows/c-cpp.yml/badge.svg)
 
 [![codecov](https://codecov.io/github/johco178/C-IPointsProject/graph/badge.svg?token=6L90UPZ56N)](https://codecov.io/github/johco178/C-IPointsProject)
 
