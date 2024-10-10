@@ -507,11 +507,11 @@ void playWordle(void) {
 
 		
 		if (!conatainsonlychar(newguess)) {
-			printf("Guess contains a non letter, try again.");
+			printf("Guess contains a non letter, Try Again.");
 			continue;
 		}
 		if (!correctlength(newguess)) {
-			printf("Word inputted was not the correct length. Try Agian");
+			printf("Word inputted was not the correct length. Try Again");
 			continue;
 		}
 
@@ -519,7 +519,7 @@ void playWordle(void) {
 
 
 		if (!validWord(newguess)) {
-			printf("Your guess was not a valid word. Try Agian");
+			printf("Your guess was not a valid word. Try Again");
 			continue;
 		}
 

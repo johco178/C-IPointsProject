@@ -165,9 +165,9 @@ void play(char difficulty){
 
         //Checks if the guess is correct and if not tells the user if they guessed too high or too low
         if (guess > secretNumber) {
-            printf("You guessed too high! Try again.\n");
+            printf("You guessed too high! Try Again.\n");
         } else if (guess < secretNumber) {
-            printf("You guessed too low! Try again.\n");
+            printf("You guessed too low! Try Again.\n");
 
         } else {
             printf("Huzzah! You guessed the secret number %d in %d attempts.\n", guess,  attempts);
