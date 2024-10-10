@@ -159,11 +159,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>playWordle</b> (void)
 <tr class="memitem:acc010995d0958c735ed25be134d7897e" id="r_acc010995d0958c735ed25be134d7897e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc010995d0958c735ed25be134d7897e">print_colored_output</a> (char clue[], char guess[], bool colourblind)</td></tr>
 <tr class="memdesc:acc010995d0958c735ed25be134d7897e"><td class="mdescLeft">&#160;</td><td class="mdescRight">prints the game  <br /></td></tr>
 <tr class="separator:acc010995d0958c735ed25be134d7897e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a579642e7a7bdd69c0fec687cd2866034" id="r_a579642e7a7bdd69c0fec687cd2866034"><td class="memItemLeft" align="right" valign="top"><a id="a579642e7a7bdd69c0fec687cd2866034" name="a579642e7a7bdd69c0fec687cd2866034"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getcolourblindess</b> ()</td></tr>
+<tr class="memitem:a579642e7a7bdd69c0fec687cd2866034" id="r_a579642e7a7bdd69c0fec687cd2866034"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a579642e7a7bdd69c0fec687cd2866034">getcolourblindess</a> ()</td></tr>
+<tr class="memdesc:a579642e7a7bdd69c0fec687cd2866034"><td class="mdescLeft">&#160;</td><td class="mdescRight">ask the user if they are colour blind or not  <br /></td></tr>
 <tr class="separator:a579642e7a7bdd69c0fec687cd2866034"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d57cce06f04673a691f1614c5116713" id="r_a4d57cce06f04673a691f1614c5116713"><td class="memItemLeft" align="right" valign="top"><a id="a4d57cce06f04673a691f1614c5116713" name="a4d57cce06f04673a691f1614c5116713"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>gamereset</b> ()</td></tr>
+<tr class="memdesc:a4d57cce06f04673a691f1614c5116713"><td class="mdescLeft">&#160;</td><td class="mdescRight">resets the games <br /></td></tr>
 <tr class="separator:a4d57cce06f04673a691f1614c5116713"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91515e0294fb9e3595be97314d5374b9" id="r_a91515e0294fb9e3595be97314d5374b9"><td class="memItemLeft" align="right" valign="top"><a id="a91515e0294fb9e3595be97314d5374b9" name="a91515e0294fb9e3595be97314d5374b9"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>runwordletests</b> ()</td></tr>
@@ -292,6 +293,26 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>cluesix</b> [6]</td><
 
 </div>
 </div>
+<a id="a579642e7a7bdd69c0fec687cd2866034" name="a579642e7a7bdd69c0fec687cd2866034"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a579642e7a7bdd69c0fec687cd2866034">&#9670;&#160;</a></span>getcolourblindess()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool getcolourblindess </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ask the user if they are colour blind or not </p>
+<dl class="section return"><dt>Returns</dt><dd>true if user is colour blind and false if they are not. </dd></dl>
+
+</div>
+</div>
 <a id="a63cd33eb7acde6393f1618474e2462e1" name="a63cd33eb7acde6393f1618474e2462e1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a63cd33eb7acde6393f1618474e2462e1">&#9670;&#160;</a></span>lettersNotGuessed()</h2>
 
@@ -366,7 +387,10 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>cluesix</b> [6]</td><
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">an</td><td>clue to be used to choose colour of letter </td></tr>
+    <tr><td class="paramname">the</td><td>users guess</td></tr>
+    <tr><td class="paramname">an</td><td>clue to be used to choose colour of letter </td></tr>
     <tr><td class="paramname">the</td><td>users guess </td></tr>
+    <tr><td class="paramname">colourblind</td><td>changes the colour of the prints if user is colourblind </td></tr>
   </table>
   </dd>
 </dl>
