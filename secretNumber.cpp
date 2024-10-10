@@ -56,7 +56,7 @@ char getDifficulty(char difficulty, const char* mockInput = NULL, int mockInputS
         if (mockInput && mockIndex < mockInputSize) {
             difficulty = mockInput[mockIndex++];
         } else {
-            printf("That is not a valid input. Please choose 'e' for easy, 'm' for medium, or 'h' for hard.\n");
+            printf("That is not a valid input. Please choose 'e' for easy, 'm' for medium, or 'h' for hard, or 'c' for challenging.\n");
             scanf(" %c", &difficulty);
         }
         difficulty = tolower(difficulty);
