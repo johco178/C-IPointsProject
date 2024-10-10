@@ -7,7 +7,6 @@
 #include "C++lPointsProject.h"
 #include "home.h"
 
-using namespace std;
 
 /*!
 	@brief Main function that runs the homescreen function

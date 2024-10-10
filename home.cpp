@@ -9,13 +9,27 @@
 #include "newwordle.h"
 #include "TicTacToe.h"
 #include "startmusic.h"
+#include <filesystem>
+#include <iostream>
 
+namespace fs = std::filesystem;
 // Include headers for other games as you add them
 
 /*!
     @brief Function to initialize all games
 */
 void initialize_games(void) {
+
+    const char* audioFile = "music.wav";
+    fs::path audioPath = fs::current_path() / audioFile;
+
+    if (fs::exists(audioPath)) {
+        startBackgroundMusic(audioFile);
+    }
+    else {
+        std::cerr << "Audio file not found: " << audioPath << std::endl;
+    }
+
     hangmanInitialize();
     wordle_initialize();
 
@@ -30,7 +44,6 @@ int homescreen(void) {
 
 
     initialize_games();
-    startmusic();
 
     while (1) {
         printf("\nWelcome to the Game Hub!\n\n");
@@ -71,6 +84,7 @@ int homescreen(void) {
             break;
         case 0:
             printf("Thank you for playing. Goodbye!\n");
+            stopBackgroundMusic();
             return 0;
         default:
             printf("Invalid choice. Please try again.\n");

@@ -1,7 +1,7 @@
 ﻿cmake_minimum_required(VERSION 3.8)
 project("C++lPointsProject" LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 17)  # Changed from 20 to 17 for broader compatibility
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
@@ -20,7 +20,6 @@ set(MAIN_SOURCES
     TicTacToe.cpp
     home.cpp
     startmusic.cpp
-
 )
 
 # Test source files
@@ -56,22 +55,16 @@ foreach(TARGET ${PROJECT_NAME} ${PROJECT_NAME}_test)
     )
 endforeach()
 
-# Copy dictionary file to build directory
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/dictionary.txt")
-    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/dictionary.txt
-                   ${CMAKE_CURRENT_BINARY_DIR}/dictionary.txt
-                   COPYONLY)
-endif()
-
-# Copy dictionary file to build directory
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/wordlength5.txt")
-    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/wordlength5.txt
-                   ${CMAKE_CURRENT_BINARY_DIR}/wordlength5.txt
-                   COPYONLY)
-endif()
-
-
-
+# Copy dictionary files, Python script, and audio file to build directory
+foreach(FILE_TO_COPY dictionary.txt wordlength5.txt playAudio.py music.wav)
+    if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${FILE_TO_COPY}")
+        configure_file(${CMAKE_CURRENT_SOURCE_DIR}/${FILE_TO_COPY}
+                       ${CMAKE_BINARY_DIR}/bin/${FILE_TO_COPY}
+                       COPYONLY)
+    else()
+        message(WARNING "File not found: ${CMAKE_CURRENT_SOURCE_DIR}/${FILE_TO_COPY}")
+    endif()
+endforeach()
 
 # Enable testing
 enable_testing()

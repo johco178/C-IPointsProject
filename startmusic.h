@@ -1,14 +1,7 @@
-#ifndef startmusic_H
-#define startmusic_H
+#ifndef STARTMUSIC_H
+#define STARTMUSIC_H
 
-//#include <windows.h>
-//#include <mmsystem.h>
-//#include <iostream>
-//
-//#pragma comment (lib, "winmm.lib")
+void startBackgroundMusic(const char* audioFile);
+void stopBackgroundMusic();
 
-
-
-int startmusic();
-
-#endif // startmusic_H
+#endif // STARTMUSIC_H
