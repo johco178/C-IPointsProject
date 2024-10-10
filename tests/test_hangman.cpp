@@ -174,13 +174,13 @@ TEST(hangmanPlay) {
         perror("Error opening temp_input.txt");
         return;
     }
-    fprintf(tempInput, "5\nA\nP\nL\nE\n2\n");
+    // Updated input to match new requirements
+    fprintf(tempInput, "5\nA\nP\nL\nE\nn\n");
     fclose(tempInput);
 
     // Redirect stdin and stdout
     FILE* newStdin = freopen("temp_input.txt", "r", stdin);
     FILE* newStdout = freopen("temp_output.txt", "w", stdout);
-
     if (newStdin == NULL || newStdout == NULL) {
         perror("Error redirecting stdin/stdout");
         if (newStdin) fclose(newStdin);
@@ -198,7 +198,6 @@ TEST(hangmanPlay) {
     // Reopen stdin and stdout to their default streams
     FILE* consoleIn = freopen("CON", "r", stdin);
     FILE* consoleOut = freopen("CON", "w", stdout);
-
     if (consoleIn == NULL || consoleOut == NULL) {
         perror("Error restoring stdin/stdout");
         return;
