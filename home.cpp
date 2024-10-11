@@ -86,7 +86,13 @@ int homescreen(void) {
         std::this_thread::sleep_for(std::chrono::milliseconds(300));
 
         printf("3. SECRET NUMBER\n\n");
-        printf(" ");
+        printf("   _____\n");
+        printf("  / ___\\\n");
+        printf("  |    ||\n");
+        printf("  | ___||\n");
+        printf("  |    ||\n");
+        printf("  | ___||\n");
+        printf("  \\_____/\n\n");
         std::this_thread::sleep_for(std::chrono::milliseconds(300));
 
         printf("4. TICTACTOE\n\n");
