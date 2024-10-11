@@ -23,7 +23,7 @@ int getSecretNumber(int lowerBound, int upperBound) {
 */
 bool validDifficulty(char difficulty) {
     bool isValid = false;
-    if (difficulty == 'e' || difficulty == 'm' || difficulty == 'h')
+    if (difficulty == 'e' || difficulty == 'm' || difficulty == 'h' || difficulty == 'c')
     {
         isValid = true;
     }
