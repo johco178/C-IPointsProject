@@ -248,6 +248,10 @@ STATIC void hangmanPlay(void) {
         char choice;
         int valid_input;
         do {
+
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF) {}
+
             printf("\nWould you like to play again?  \nPlease enter 'y' to play again or 'n' to exit to the game menu: ");
             valid_input = 0;
             char line[256];
