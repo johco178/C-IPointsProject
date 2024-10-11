@@ -33,6 +33,15 @@ extern char cluesix[6];
 
 
 
+
+
+
+
+/*!
+	@file
+	@brief documentation
+*/
+
 /*!
 	@brief Initializes the Wordle game
 
@@ -44,7 +53,6 @@ void wordle_initialize(void);
 	@param number is the index to get the word
 	@return the word at that index.
 */
-
 char* get_word(int desiredength);
 
 /*!
@@ -52,17 +60,7 @@ char* get_word(int desiredength);
 	@param filename The name of the file to load
 	@return 1 if the text file was loaded successfully, 0 otherwise
 */
-
-
 int load_all_5letter_words(const char* filename);
-
-
-
-
-/*!
-	@file
-	@brief documentation
-*/
 
 
 /*!

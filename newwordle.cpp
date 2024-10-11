@@ -571,6 +571,7 @@ void playWordle(void) {
 	while (true) {
 		scanf("%c", &choice);
 		if (choice == 'y') {
+			system("cls");
 			playWordle();
 		}
 		else if (choice == 'n') {

@@ -222,6 +222,7 @@ bool playAgain(char playAgain) {
     }
 
     if (playAgain == 'y') { //if the user wants to play again 
+        system("cls");
         return true;
     } 
     else //if the user wants to exit to the game menu

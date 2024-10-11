@@ -275,6 +275,7 @@ STATIC void hangmanPlay(void) {
         } while (!valid_input);
 
         playAgain = (choice == 'y');
+        system("cls");
     } while (playAgain);
     printf("Thanks for playing Hangman!\n");
 }
