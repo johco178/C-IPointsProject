@@ -127,7 +127,7 @@ int homescreen(void) {
         default:
             printf("Invalid choice. Please try again.\n");
         }
-        system("cls");
+        printf("\033[H\033[J");
     }
 
     return 0;

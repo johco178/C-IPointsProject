@@ -571,7 +571,7 @@ void playWordle(void) {
 	while (true) {
 		scanf("%c", &choice);
 		if (choice == 'y') {
-			system("cls");
+			printf("\033[H\033[J");
 			playWordle();
 		}
 		else if (choice == 'n') {
