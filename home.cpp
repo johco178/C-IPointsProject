@@ -49,17 +49,17 @@ int homescreen(void) {
     initialize_games();
 
     printf(" __      ____      __  \n");
-    std::this_thread::sleep_for(std::chrono::milliseconds(300));
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
     printf(" \\ \\    / /\\ \\    / //\n");
-    std::this_thread::sleep_for(std::chrono::milliseconds(300));
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
     printf("  \\ \\  / // \\ \\  / //  \n");
-    std::this_thread::sleep_for(std::chrono::milliseconds(300));
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
     printf("   \\ \\/ //   \\ \\/ //  \n");
-    std::this_thread::sleep_for(std::chrono::milliseconds(300));
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
     printf("    \\  //     \\  //  \n");
-    std::this_thread::sleep_for(std::chrono::milliseconds(300));
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
     printf("     \\//intage \\//ault    \n\n\n");
-    std::this_thread::sleep_for(std::chrono::milliseconds(300));
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
 
     printf("Brought to you by C++L Points\n");
     std::this_thread::sleep_for(std::chrono::seconds(1));
@@ -87,7 +87,7 @@ int homescreen(void) {
 
         printf("3. SECRET NUMBER\n\n");
         printf("   _____\n");
-        printf("  / ___\\\n");
+        printf("  / ___ \\\n");
         printf("  |    ||\n");
         printf("  | ___||\n");
         printf("  |    ||\n");
