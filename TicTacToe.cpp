@@ -167,7 +167,7 @@ void runGame(){
     char playAgain = 'n';
     while(true){
         playTicTacToe();
-        cout << "Would you like to play again? (y/n)" << endl;
+        cout << "\nWould you like to play again?  \nPlease enter 'y' to play again or 'n' to exit to the game menu:" << endl;
         while(true){
             cin >> playAgain;
             if(playAgain != 'y' && playAgain != 'n'){
@@ -177,6 +177,7 @@ void runGame(){
         }
 
         if(playAgain == 'n') break;
+        system("cls");
         cout << "___________________________________________________________________\n" << endl;
     }
 }

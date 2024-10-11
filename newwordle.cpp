@@ -27,13 +27,13 @@
 
 #define ANSI_COLOR_RED     "\x1b[31m"
 #define ANSI_COLOR_GREEN   "\x1b[32m"
-#define ANSI_COLOR_BRIGHT_YELLOW  "\x1b[33m"
+#define ANSI_COLOR_BRIGHT_YELLOW  "\x1b[93m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
 
 
 #define ANSI_COLOR_BLUE     "\x1b[34m"
-#define ANSI_COLOR_CYAN     "\x1b[31m"
-#define ANSI_COLOR_MAGENTA     "\x1b[31m"
+#define ANSI_COLOR_CYAN     "\x1b[36m"
+#define ANSI_COLOR_MAGENTA     "\x1b[35m"
 
 
 #define MAX_wordle_WORD_LENGTH 100
@@ -75,14 +75,13 @@ bool has_letter_been_guessed[26] = { false };
 
 const char* const GREEN_FORMAT = ANSI_COLOR_GREEN "%c";
 const char* const BLUE_FORMAT = ANSI_COLOR_BLUE "%c";
+const char* const CYAN_FORMAT = ANSI_COLOR_CYAN "%c";
 const char* const YELLOW_FORMAT = ANSI_COLOR_BRIGHT_YELLOW "%c";
 const char* const RED_FORMAT = ANSI_COLOR_RED "%c";
+const char* const MAGENTA_FORMAT = ANSI_COLOR_MAGENTA "%c";
 const char* const RESET_FORMAT = ANSI_COLOR_RESET "%c";
 
-//const char* const BLUE_FORMAT = ANSI_COLOR_BLUE "%c";
-//const char* const YELLOW_FORMAT = ANSI_COLOR_YELLOW "%c";
-//const char* const RED_FORMAT = ANSI_COLOR_RED "%c";
-//const char* const RESET_FORMAT = ANSI_COLOR_RESET "%c";
+
 
 /*!
 	@brief gets a random 5 letter word from the text file
@@ -351,6 +350,7 @@ STATIC void updateclue(int turn, char* clue, const char* newguess) {
 	@brief prints the game 
 	@param an clue to be used to choose colour of letter
 	@param the users guess
+	@param colourblind changes the colour of the prints if user is colourblind
 */
 
 void print_colored_output(char clue[], char guess[], bool colourblind) {
@@ -375,7 +375,7 @@ void print_colored_output(char clue[], char guess[], bool colourblind) {
 		for (int i = 0; i < 6; i++) {
 			if (clue[i] == 'G') {
 
-				std::cout << ANSI_COLOR_BLUE << guess[i] << ANSI_COLOR_RESET;
+				std::cout << ANSI_COLOR_CYAN << guess[i] << ANSI_COLOR_RESET;
 			}
 			else if (clue[i] == 'Y') {
 				std::cout << ANSI_COLOR_BRIGHT_YELLOW << guess[i] << ANSI_COLOR_RESET;
@@ -384,12 +384,17 @@ void print_colored_output(char clue[], char guess[], bool colourblind) {
 				std::cout << guess[i];
 			}
 			else {
-				std::cout << ANSI_COLOR_RESET << guess[i] << ANSI_COLOR_RESET;
+				std::cout << ANSI_COLOR_MAGENTA << guess[i] << ANSI_COLOR_RESET;
 			}
 		}
 		std::cout << std::endl;
 	}
 }
+
+
+/*!
+	@brief resets the games
+*/
 
 
 STATIC void gamereset() {
@@ -422,6 +427,12 @@ STATIC void gamereset() {
 
 }
 
+/*!
+	@brief ask the user if they are colour blind or not
+	@return true if user is  colour blind and false if they are not.
+*/
+
+
 STATIC bool getcolourblindess() {
 	char choice;
 	while (true) {
@@ -429,6 +440,7 @@ STATIC bool getcolourblindess() {
 		scanf("%c", &choice);
 
 		if (choice == 'y') {
+			printf("Note: Cyan = correct letter correct location, Yellow = correct letter, wrong location, Magenta = Wrong letter\n\n");
 			return true;
 		}
 		else if (choice == 'n') {
@@ -495,23 +507,18 @@ void playWordle(void) {
 		guess[strcspn(guess, "\n")] = 0; // Remove newline
 
 		
-		//scanf("%s", guess);
-		//guess[strcspn(guess, "\n")] = 0;
-
-		
 	
-
 
 		char* newguess = toLowerCase(guess);
 
 
 		
 		if (!conatainsonlychar(newguess)) {
-			printf("Guess contains a non letter, try again.");
+			printf("Guess contains a non letter, Try Again.");
 			continue;
 		}
 		if (!correctlength(newguess)) {
-			printf("Word inputted was not the correct length. Try Agian");
+			printf("Word inputted was not the correct length. Try Again");
 			continue;
 		}
 
@@ -519,7 +526,7 @@ void playWordle(void) {
 
 
 		if (!validWord(newguess)) {
-			printf("Your guess was not a valid word. Try Agian");
+			printf("Your guess was not a valid word. Try Again");
 			continue;
 		}
 
@@ -564,23 +571,21 @@ void playWordle(void) {
 	while (true) {
 		scanf("%c", &choice);
 		if (choice == 'y') {
+			system("cls");
 			playWordle();
 		}
 		else if (choice == 'n') {
 			return;
 		}
 		else {
-			printf("\nWould you like to play again? y/n\n");
+			printf("\nWould you like to play again?  \nPlease enter 'y' to play again or 'n' to exit to the game menu:\n");
 		}
 
 	}
 }
 
 
-	//free(guess);
-	// clean up
 
-	
 	
 
 // Expose these functions for unit testing

@@ -56,7 +56,7 @@ char getDifficulty(char difficulty, const char* mockInput = NULL, int mockInputS
         if (mockInput && mockIndex < mockInputSize) {
             difficulty = mockInput[mockIndex++];
         } else {
-            printf("That is not a valid input. Please choose 'e' for easy, 'm' for medium, or 'h' for hard.\n");
+            printf("That is not a valid input. Please choose 'e' for easy, 'm' for medium, or 'h' for hard, or 'c' for challenging.\n");
             scanf(" %c", &difficulty);
         }
         difficulty = tolower(difficulty);
@@ -165,9 +165,9 @@ void play(char difficulty){
 
         //Checks if the guess is correct and if not tells the user if they guessed too high or too low
         if (guess > secretNumber) {
-            printf("You guessed too high! Try again.\n");
+            printf("You guessed too high! Try Again.\n");
         } else if (guess < secretNumber) {
-            printf("You guessed too low! Try again.\n");
+            printf("You guessed too low! Try Again.\n");
 
         } else {
             printf("Huzzah! You guessed the secret number %d in %d attempts.\n", guess,  attempts);
@@ -208,7 +208,7 @@ bool validPlayAgain(char playAgain) {
 bool playAgain(char playAgain) {
     bool isValid;
     if(playAgain == ' '){
-        printf("\nWould you like to play The Secret Number game again? \nPlease enter 'y' to play again or 'n' to exit to the game menu: ");
+        printf("\nWould you like to play again?  \nPlease enter 'y' to play again or 'n' to exit to the game menu: ");
         scanf(" %c", &playAgain); //assign the value of scanning a character from the user input
     }
     
@@ -222,6 +222,7 @@ bool playAgain(char playAgain) {
     }
 
     if (playAgain == 'y') { //if the user wants to play again 
+        system("cls");
         return true;
     } 
     else //if the user wants to exit to the game menu
@@ -249,9 +250,7 @@ void secretNumberStart() {
 
     //Asks the user if they want to play again, loops until they don't
     while (playAgain(' ')) {
-        printf("Choose difficulty level (e: easy, m: medium, h: hard, c: challenging): ");
-        scanf(" %c", &difficulty);//assign the value of scanning a character from the user input
-        difficulty = tolower(difficulty);//converts the input to lowercase incase of valid uppercase input
+        difficulty = getDifficulty(' ');
         play(difficulty);//plays the game with specified difficulty
     }
 }
