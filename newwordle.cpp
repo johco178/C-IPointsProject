@@ -436,9 +436,7 @@ STATIC void gamereset() {
 STATIC bool getcolourblindess() {
 	char choice;
 	while (true) {
-
 		scanf("%c", &choice);
-
 		if (choice == 'y') {
 			printf("Note: Cyan = correct letter correct location, Yellow = correct letter, wrong location, Magenta = Wrong letter\n\n");
 			return true;
@@ -501,9 +499,7 @@ void playWordle(void) {
 		printf("\n\nInput a 5-letter word and press enter \n");
 
 
-		int c;
-		while ((c = getchar()) != '\n' && c != EOF);
-		fgets(guess, sizeof(guess), stdin); // Use fgets for safer input
+		scanf("%5s", guess);
 		guess[strcspn(guess, "\n")] = 0; // Remove newline
 
 		
@@ -557,6 +553,7 @@ void playWordle(void) {
 		correct_guess = strcmp(clue, "GGGGG") == 0;
 		printf("\n");
 
+
 	}
 
 	//display end of game message
@@ -571,7 +568,6 @@ void playWordle(void) {
 	while (true) {
 		scanf("%c", &choice);
 		if (choice == 'y') {
-			printf("\033[H\033[J");
 			playWordle();
 		}
 		else if (choice == 'n') {

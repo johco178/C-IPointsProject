@@ -110,15 +110,19 @@ int homescreen(void) {
         switch (choice) {
         case 1:
             hangmanPlay();
+            printf("\033[H\033[J");
             break;
         case 2:
             playWordle();
+            printf("\033[H\033[J");
             break;
         case 3:
             secretNumberStart();
+            printf("\033[H\033[J");
             break;
         case 4:
             runGame();
+            printf("\033[H\033[J");
             break;
         case 0:
             printf("Thank you for playing. Goodbye!\n");

@@ -222,7 +222,6 @@ bool playAgain(char playAgain) {
     }
 
     if (playAgain == 'y') { //if the user wants to play again 
-        printf("\033[H\033[J");
         return true;
     } 
     else //if the user wants to exit to the game menu
